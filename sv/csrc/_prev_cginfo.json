@@ -1,0 +1,190 @@
+{
+    "NameTable": {
+        "_vcs_unit__546175923": [
+            "_vcs_unit__546175923",
+            "fAMCB",
+            "module"
+        ],
+        "ripple_carry_adder_0000": [
+            "ripple_carry_adder_0000",
+            "nr2NV",
+            "module"
+        ],
+        "ALTERA_MF_MEMORY_INITIALIZATION": [
+            "ALTERA_MF_MEMORY_INITIALIZATION",
+            "er73t",
+            "module"
+        ],
+        "agc_rom_new": [
+            "agc_rom_new",
+            "YaxfH",
+            "module"
+        ],
+        "agc_ram": [
+            "agc_ram",
+            "DvDiU",
+            "module"
+        ],
+        "std": [
+            "std",
+            "reYIK",
+            "module"
+        ],
+        "Core": [
+            "Core",
+            "fsHFs",
+            "module"
+        ],
+        "decoder": [
+            "decoder",
+            "zf0bY",
+            "module"
+        ],
+        "full_adder": [
+            "full_adder",
+            "BEdzp",
+            "module"
+        ],
+        "counter": [
+            "counter",
+            "MQn6b",
+            "module"
+        ],
+        "countFSM": [
+            "countFSM",
+            "Bb4h8",
+            "module"
+        ],
+        "IO_register_file": [
+            "IO_register_file",
+            "e2KCL",
+            "module"
+        ],
+        "addr_translate_ROM": [
+            "addr_translate_ROM",
+            "I9T3V",
+            "module"
+        ],
+        "addr_translate_RAM": [
+            "addr_translate_RAM",
+            "A8YZN",
+            "module"
+        ],
+        "convert_1c_2c": [
+            "convert_1c_2c",
+            "EHhqJ",
+            "module"
+        ],
+        "altsyncram_0000": [
+            "altsyncram_0000",
+            "Q0s3L",
+            "module"
+        ],
+        "TB": [
+            "TB",
+            "sH4Fc",
+            "module"
+        ],
+        "...MASTER...": [
+            "SIM",
+            "amcQw",
+            "module"
+        ],
+        "ALTERA_DEVICE_FAMILIES": [
+            "ALTERA_DEVICE_FAMILIES",
+            "uFC8u",
+            "module"
+        ]
+    },
+    "CompileStrategy": "fullobj",
+    "CurCompileUdps": {},
+    "SIMBData": {
+        "bytes": 88656,
+        "out": "amcQwB.o"
+    },
+    "stat": {
+        "CodeGen(%)": 12.460503675895518,
+        "ru_self_cgstart": {
+            "ru_majflt": 105,
+            "ru_maxrss_kb": 61712,
+            "ru_utime_sec": 0.39174799999999999,
+            "ru_stime_sec": 0.065627000000000005,
+            "ru_nivcsw": 13,
+            "ru_minflt": 17259,
+            "ru_nvcsw": 276
+        },
+        "ru_childs_cgstart": {
+            "ru_majflt": 0,
+            "ru_maxrss_kb": 23016,
+            "ru_utime_sec": 0.0043969999999999999,
+            "ru_stime_sec": 0.011703,
+            "ru_nivcsw": 10,
+            "ru_minflt": 2836,
+            "ru_nvcsw": 12
+        },
+        "ru_self_end": {
+            "ru_majflt": 135,
+            "ru_maxrss_kb": 68772,
+            "ru_utime_sec": 0.44751000000000002,
+            "ru_stime_sec": 0.111113,
+            "ru_nivcsw": 20,
+            "ru_minflt": 21346,
+            "ru_nvcsw": 477
+        },
+        "nMops": 3140,
+        "quadSpeed": 26379.972023958951,
+        "nQuads": 1471,
+        "ru_childs_end": {
+            "ru_majflt": 8,
+            "ru_maxrss_kb": 38460,
+            "ru_utime_sec": 0.541767,
+            "ru_stime_sec": 0.175953,
+            "ru_nivcsw": 13,
+            "ru_minflt": 37040,
+            "ru_nvcsw": 697
+        },
+        "outputSizePerQuad": 177.0,
+        "mop/quad": 2.1346023113528214,
+        "totalObjSize": 261334,
+        "mopSpeed": 56310.749255765542,
+        "Frontend(%)": 87.539496324104476
+    },
+    "CurCompileModules": [
+        "...MASTER...",
+        "countFSM",
+        "TB",
+        "addr_translate_ROM",
+        "addr_translate_RAM",
+        "full_adder",
+        "decoder",
+        "agc_rom_new",
+        "counter",
+        "_vcs_unit__546175923"
+    ],
+    "Misc": {
+        "default_output_dir": "csrc",
+        "cwd": "/afs/ece.cmu.edu/usr/cabernar/Private/capstone/virtualagc/sv",
+        "daidir": "/afs/ece.cmu.edu/usr/cabernar/Private/capstone/virtualagc/sv/simv.daidir",
+        "csrc": "csrc",
+        "csrc_abs": "/afs/ece.cmu.edu/usr/cabernar/Private/capstone/virtualagc/sv/csrc",
+        "daidir_abs": "/afs/ece.cmu.edu/usr/cabernar/Private/capstone/virtualagc/sv/simv.daidir",
+        "archive_dir": "archive.0"
+    },
+    "LVLData": [
+        "SIM"
+    ],
+    "PEModules": [],
+    "CompileProcesses": [
+        "cgproc.9069.json",
+        "cgproc.9082.json",
+        "cgproc.9083.json",
+        "cgproc.9084.json",
+        "cgproc.9085.json",
+        "cgproc.9087.json",
+        "cgproc.9088.json",
+        "cgproc.9089.json",
+        "cgproc.9090.json",
+        "cgproc.9091.json"
+    ],
+    "CompileStatus": "Successful"
+}
