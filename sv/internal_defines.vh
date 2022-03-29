@@ -64,7 +64,6 @@ typedef enum logic [3:0] {
     // IN
     DSKY_VERB,
     DSKY_NOUN,
-    DSKY_NEW,
     AXI_MISSION_TIME,
     AXI_APOGEE,
     AXI_PERIGEE

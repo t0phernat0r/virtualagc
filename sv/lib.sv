@@ -395,18 +395,16 @@ module register_file
 endmodule: register_file
 
 module IO_register_file
-  (input  logic [14:0] data_write1, data_write2,
+  (input  logic [14:0] data_write,
                        data_DSKY_VERB, 
                        data_DSKY_NOUN,
                        data_DSKY_NEW,
                        data_AXI_MISSION_TIME,
                        data_AXI_APOGEE,
                        data_AXI_PERIGEE,
-   input  IO_reg_t sel_read1, sel_read2, 
-                   sel_write1, sel_write2,
-   input  logic en_write1, en_write2, 
-                rst_l, clock,
-   output logic [14:0] data_read1, data_read2);
+   input  IO_reg_t sel_read, sel_write,
+   input  logic en_write, rst_l, clock,
+   output logic [14:0] data_read1);
 
   logic [14:0] data_DSKY_REG_1_HIGH,
                data_DSKY_REG_1_LOW,
@@ -418,7 +416,7 @@ module IO_register_file
                data_DSKY_LAMPS,
                data_AXI_CALC_RES;
 
-  logic write1_valid, write2_valid;
+  logic write_valid;
 
   always_ff @(posedge clock, negedge rst_l) begin
   // Output register writes
@@ -435,105 +433,52 @@ module IO_register_file
       data_DSKY_LAMPS <= 15'd0;
       data_AXI_CALC_RES <= 15'd0;
     end
-    else begin
-    // Common Case
-    // NOTE: If attempt a write of both data ports to same reg, port 2 has precedence.
-      if (en_write1) begin
-        unique case (sel_write1)
-          DSKY_REG_1_HIGH: data_DSKY_REG_1_HIGH <= data_write1;
-          DSKY_REG_1_LOW: data_DSKY_REG_1_LOW <= data_write1;
-          DSKY_REG_2_HIGH: data_DSKY_REG_2_HIGH <= data_write1;
-          DSKY_REG_2_LOW: data_DSKY_REG_2_LOW <= data_write1;
-          DSKY_REG_3_HIGH: data_DSKY_REG_3_HIGH <= data_write1;
-          DSKY_REG_3_LOW: data_DSKY_REG_3_LOW <= data_write1;
-          DSKY_PROG_NUM: data_DSKY_PROG_NUM[4:0] <= data_write1[4:0];
-          // TODO: Isolate pertinent bits
-          DSKY_LAMPS: data_DSKY_LAMPS <= data_write1;
-          AXI_CALC_RES: data_AXI_CALC_RES <= data_write1;
-          default: begin
-          // Necessary as not all I/O registers writeable
-          end
-        endcase
-      end
-      if (en_write2) begin
-        unique case (sel_write2)
-          DSKY_REG_1_HIGH: data_DSKY_REG_1_HIGH <= data_write2;
-          DSKY_REG_1_LOW: data_DSKY_REG_1_LOW <= data_write2;
-          DSKY_REG_2_HIGH: data_DSKY_REG_2_HIGH <= data_write2;
-          DSKY_REG_2_LOW: data_DSKY_REG_2_LOW <= data_write2;
-          DSKY_REG_3_HIGH: data_DSKY_REG_3_HIGH <= data_write2;
-          DSKY_REG_3_LOW: data_DSKY_REG_3_LOW <= data_write2;
-          DSKY_PROG_NUM: data_DSKY_PROG_NUM[4:0] <= data_write2[4:0];
-          // TODO: Isolate pertinent bits
-          DSKY_LAMPS: data_DSKY_LAMPS <= data_write2;
-          AXI_CALC_RES: data_AXI_CALC_RES <= data_write2;
-          default: begin
-          // Necessary as not all I/O registers writeable
-          end
-        endcase
-      end
+    else if (en_write) begin
+    // Write Case
+      unique case (sel_write)
+        DSKY_REG_1_HIGH: data_DSKY_REG_1_HIGH <= data_write;
+        DSKY_REG_1_LOW: data_DSKY_REG_1_LOW <= data_write;
+        DSKY_REG_2_HIGH: data_DSKY_REG_2_HIGH <= data_write;
+        DSKY_REG_2_LOW: data_DSKY_REG_2_LOW <= data_write;
+        DSKY_REG_3_HIGH: data_DSKY_REG_3_HIGH <= data_write;
+        DSKY_REG_3_LOW: data_DSKY_REG_3_LOW <= data_write;
+        DSKY_PROG_NUM: data_DSKY_PROG_NUM[4:0] <= data_write[4:0];
+        // TODO: Isolate pertinent bits
+        DSKY_LAMPS: data_DSKY_LAMPS <= data_write;
+        AXI_CALC_RES: data_AXI_CALC_RES <= data_write;
+        default: begin
+        // Necessary as not all I/O registers writeable
+        end
+      endcase
     end
   end
   
   always_comb begin
   // I/O register reads
     // Check for valid writes
-    write1_valid = (~sel_write1[3] | (sel_write1[2:0] == 3'd0));
-    write2_valid = (~sel_write2[3] | (sel_write2[2:0] == 3'd0)); 
-    // To Read Port 1
-    if (write1_valid & (sel_read1 == sel_write1))
-    // Forwarding Case 1
-      data_read1 = data_write1;
-    else if (write2_valid & (sel_read1 == sel_write2))
-    // Forwarding Case 2
-      data_read1 = data_write2;
-    else begin
-    // Common Case
-      unique case (sel_read1)
-        DSKY_REG_1_HIGH: data_read1 = data_DSKY_REG_1_HIGH;
-        DSKY_REG_1_LOW: data_read1 = data_DSKY_REG_1_LOW;
-        DSKY_REG_2_HIGH: data_read1 = data_DSKY_REG_2_HIGH;
-        DSKY_REG_2_LOW: data_read1 = data_DSKY_REG_2_LOW;
-        DSKY_REG_3_HIGH: data_read1 = data_DSKY_REG_3_HIGH;
-        DSKY_REG_3_LOW: data_read1 = data_DSKY_REG_3_LOW;
-        DSKY_PROG_NUM: data_read1[4:0] = data_DSKY_PROG_NUM[4:0];
-        // TODO: Isolate pertinent bits
-        DSKY_LAMPS: data_read1 = data_DSKY_LAMPS;
-        AXI_CALC_RES: data_read1 = data_AXI_CALC_RES;
-        DSKY_VERB: data_read1 = data_DSKY_VERB;
-        DSKY_NOUN: data_read1 = data_DSKY_NOUN;
-        DSKY_NEW: data_read1[0] = data_DSKY_NEW[0];
-        AXI_MISSION_TIME: data_read1 = data_AXI_MISSION_TIME;
-        AXI_APOGEE: data_read1 = data_AXI_APOGEE;
-        AXI_PERIGEE: data_read1 = data_AXI_PERIGEE;
-      endcase
+    write_valid = (~sel_write[3] | (sel_write[2:0] == 3'd0));
+    if (write_valid & (sel_read == sel_write)) begin
+    // Forwarding Case
+      data_read = data_write;
     end
-    // To Read Port 2
-    if (write1_valid & (sel_read2 == sel_write1))
-    // Forwarding Case 1
-      data_read2 = data_write1;
-    else if (write2_valid & (sel_read2 == sel_write2))
-    // Forwarding Case 2
-      data_read2 = data_write2;
     else begin
     // Common Case
-      unique case (sel_read1)
-        DSKY_REG_1_HIGH: data_read2 = data_DSKY_REG_1_HIGH;
-        DSKY_REG_1_LOW: data_read2 = data_DSKY_REG_1_LOW;
-        DSKY_REG_2_HIGH: data_read2 = data_DSKY_REG_2_HIGH;
-        DSKY_REG_2_LOW: data_read2 = data_DSKY_REG_2_LOW;
-        DSKY_REG_3_HIGH: data_read2 = data_DSKY_REG_3_HIGH;
-        DSKY_REG_3_LOW: data_read2 = data_DSKY_REG_3_LOW;
-        DSKY_PROG_NUM: data_read2[4:0] = data_DSKY_PROG_NUM[4:0];
+      unique case (sel_read)
+        DSKY_REG_1_HIGH: data_read = data_DSKY_REG_1_HIGH;
+        DSKY_REG_1_LOW: data_read = data_DSKY_REG_1_LOW;
+        DSKY_REG_2_HIGH: data_read = data_DSKY_REG_2_HIGH;
+        DSKY_REG_2_LOW: data_read = data_DSKY_REG_2_LOW;
+        DSKY_REG_3_HIGH: data_read = data_DSKY_REG_3_HIGH;
+        DSKY_REG_3_LOW: data_read = data_DSKY_REG_3_LOW;
+        DSKY_PROG_NUM: data_read[4:0] = data_DSKY_PROG_NUM[4:0];
         // TODO: Isolate pertinent bits
-        DSKY_LAMPS: data_read2 = data_DSKY_LAMPS;
-        AXI_CALC_RES: data_read2 = data_AXI_CALC_RES;
-        DSKY_VERB: data_read2 = data_DSKY_VERB;
-        DSKY_NOUN: data_read2 = data_DSKY_NOUN;
-        DSKY_NEW: data_read2[0] = data_DSKY_NEW[0];
-        AXI_MISSION_TIME: data_read2 = data_AXI_MISSION_TIME;
-        AXI_APOGEE: data_read2 = data_AXI_APOGEE;
-        AXI_PERIGEE: data_read2 = data_AXI_PERIGEE;
+        DSKY_LAMPS: data_read = data_DSKY_LAMPS;
+        AXI_CALC_RES: data_read = data_AXI_CALC_RES;
+        DSKY_VERB: data_read = data_DSKY_VERB;
+        DSKY_NOUN: data_read = data_DSKY_NOUN;
+        AXI_MISSION_TIME: data_read = data_AXI_MISSION_TIME;
+        AXI_APOGEE: data_read = data_AXI_APOGEE;
+        AXI_PERIGEE: data_read = data_AXI_PERIGEE;
       endcase
     end
   end
