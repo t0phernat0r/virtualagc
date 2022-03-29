@@ -11,8 +11,11 @@ module decoder
   logic [2:0] opcode, next_byte, lowest_byte;
   logic [1:0] next2_bits;
   logic [14:0] instr_F;
-  logic extra_code1, extra_code2, in_ROM, in_RAM, is_reg, addr_is_0, index1, index2;
 
+  logic extra_code1, extra_code2, is_ROM, is_RAM, is_reg, addr_is_0, index1, index2, clk, recent_reset;
+
+  assign clk = clock;
+  
   //TODO stalling stuff
   register #(1, 1'b0) reg(.clk, .rst_l,
             .en(1'b1), .clear(1'b0), .D(extra_code1),
@@ -20,6 +23,11 @@ module decoder
   register #(1, 1'b0) reg(.clk, .rst_l,
             .en(1'b1), .clear(1'b0), .D(index1),
             .Q(index2));
+
+  register #(1, 1'b1) rg3(.clk, .rst_l,
+            .en(1'b1), .clear(1'b0), .D(1'b0),
+            .Q(recent_reset));
+
 
 
   
@@ -247,12 +255,16 @@ module decoder
               end
               // TC/XLQ
               default : begin
-                ctrl.alu_op = ALU_READ;
-                ctrl.alu_src2 = K2;
-                ctrl.wr1_sel = Q;
-                ctrl.wr1_en = 1'b1;
-                ctrl.branch = BRANCH;
-                ctrl.rd = OLD_PC;
+                //resent reset gets rid of edge case with reset 
+                //12d'4 is IHINT and we are treading that as a NOOP
+                if (~recent_reset & (~(instr_F[11:0]==12'd4))) begin
+                  ctrl.alu_op = ALU_READ;
+                  ctrl.alu_src2 = K2;
+                  ctrl.wr1_sel = Q;
+                  ctrl.wr1_en = 1'b1;
+                  ctrl.branch = BRANCH;
+                  ctrl.rd = OLD_PC;
+                end
               end
             endcase
          end
