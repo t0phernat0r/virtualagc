@@ -120,7 +120,8 @@ STARTUP                         AD   ONE
                                 ADS  30 #some random address
                                 ADS  30
                                 CA   30
-                                DCA
+                                EXTEND
+                                DCA  50
                                 
 
 #stored constants
@@ -128,4 +129,4 @@ ZERO                            OCT  0
 ONE                             OCT  1
 TWO                             OCT  2
 FOUR                            OCT  4
-EIGHT                           OCT  8
+EIGHT                           DEC  8 
