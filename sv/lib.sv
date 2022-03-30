@@ -398,13 +398,12 @@ module IO_register_file
   (input  logic [14:0] data_write,
                        data_DSKY_VERB, 
                        data_DSKY_NOUN,
-                       data_DSKY_NEW,
                        data_AXI_MISSION_TIME,
                        data_AXI_APOGEE,
                        data_AXI_PERIGEE,
    input  IO_reg_t sel_read, sel_write,
    input  logic en_write, rst_l, clock,
-   output logic [14:0] data_read1);
+   output logic [14:0] data_read);
 
   logic [14:0] data_DSKY_REG_1_HIGH,
                data_DSKY_REG_1_LOW,

@@ -7,7 +7,7 @@ module Core
    output logic [14:0] RAM_write_data, IO_write_data,
    output logic [13:0] ROM_pc_address, ROM_constant_address,
    output logic [10:0] RAM_read_address, RAM_write_address,
-   output logic [2:0] IO_read_sel, IO_write_sel,
+   output logic [3:0] IO_read_sel, IO_write_sel,
    output logic RAM_write_en, stall, halt, IO_write_en);
 
   /////////////////////////FETCH STAGE///////////////////////////////
@@ -55,7 +55,7 @@ module Core
   logic [2:0] bits_FB, bits_EB;
 
   assign IO_read_data_D = IO_read_data;
-  assign IO_read_sel = ctrl_D.IO_read_sel;
+  assign IO_read_sel = ctrl_D.IO_reg_sel;
   assign instr_D = ROM_pc_data;
 
 
@@ -143,7 +143,7 @@ module Core
   logic [29:0] data_W;
   logic [13:0] addr_ROM_pc, addr_ROM_r;
 
-  mux #(2, $bits(data_W)) output_mux(.in({15'd0,ctrl_W.pc,alu_out_W}),
+  mux #(2, $bits(data_W)) output_mux(.in({{15'd0, ctrl_W.pc}, alu_out_W}),
             .sel(ctrl_W.rd),
             .out(data_W));
 
@@ -151,17 +151,19 @@ module Core
   assign wr1_data_W = data_W[29:15];
   assign wr2_data_W = data_W[14:0];
 
-  //data address upper bits data lower bits
-  assign RAM_write_data = data_W[14:0];
+  //CHANGED TO HIGHER ORDER HALF
+  assign RAM_write_data = data_W[29:15];
 
   //data channel upper bits data w
-  assign IO_write_sel = data_W[17:15];
-  assign IO_write_data = data_W[14:0];
+  assign IO_write_sel = ctrl_W.IO_reg_sel;
+  //CHANGED TO HIGHER ORDER HALF
+  assign IO_write_data = data_W[29:15];
   assign IO_write_en = ctrl_W.IO_write_en;
   assign halt = ctrl_W.halt;
  
-  //hooking up the address translation 
-  addr_translate addr (.addr_pc(pc_F), .addr_r(ctrl_D.K), .addr_w(data_W[26:15]), .bits_EB_r(ctrl_D.EB), .bits_EB_w(ctrl_W.EB), .bits_FB_r(ctrl_W.FB), .en_write(ctrl_W.RAM_write_en), .addr_ROM_pc(ROM_pc_address),  .addr_ROM_r(ROM_constant_address), .addr_RAM_r(RAM_read_address), .addr_RAM_w(RAM_write_address), .en_write_final(RAM_write_en));
+  //hooking up the address translation
+  // .addr_w connected to ctrl_W.K (FIX) needs a 2nd look!!! 
+  addr_translate addr (.addr_pc(pc_F), .addr_r(ctrl_D.K), .addr_w(ctrl_W.K), .bits_EB_r(ctrl_D.EB), .bits_EB_w(ctrl_W.EB), .bits_FB_r(ctrl_W.FB), .en_write(ctrl_W.RAM_write_en), .addr_ROM_pc(ROM_pc_address),  .addr_ROM_r(ROM_constant_address), .addr_RAM_r(RAM_read_address), .addr_RAM_w(RAM_write_address), .en_write_final(RAM_write_en));
 
   assign stall_D = stall;
 

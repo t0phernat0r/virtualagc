@@ -51,7 +51,7 @@ module decode
     branch: NO_BRANCH,
     rd: ALU_OUT,            
     RAM_write_en: 1'b0,
-    IO_read_sel: instr_F[2:0],
+    IO_reg_sel: instr_F[3:0],
     IO_write_en: 1'b0,
     K: instr_F[11:0],
     pc: pc,
