@@ -38,17 +38,19 @@ endmodule: full_adder
 
 // Classical ripple carry adder
 // Composed of full adders
-module ripple_carry_adder (
-    output logic [`NUM_BIT-1:0] sum,
+module ripple_carry_adder 
+#( parameter WIDTH_MULT = 1)
+(
+    output logic [(WIDTH_MULT * `NUM_BIT)-1:0] sum,
     output logic c_out,
-    input  logic [`NUM_BIT-1:0] x, y,
+    input  logic [(WIDTH_MULT * `NUM_BIT)-1:0] x, y,
     input  logic c_in
 );
-    logic [`NUM_BIT-1:0] c_out_array;
+    logic [(WIDTH_MULT * `NUM_BIT)-1:0] c_out_array;
 
     genvar i;
     generate
-        for (i = 0; i < `NUM_BIT; i++) begin: full_adder_array
+        for (i = 0; i < (WIDTH_MULT * `NUM_BIT); i++) begin: full_adder_array
             if (i == 0) begin
                 // Low order adder takes overall c_in
                 full_adder a1(.sum(sum[0]),
@@ -67,7 +69,7 @@ module ripple_carry_adder (
     endgenerate
 
     // High order carry out to c_out
-    assign c_out = c_out_array[`NUM_BIT-1];
+    assign c_out = c_out_array[(WIDTH_MULT * `NUM_BIT)-1];
 
 endmodule: ripple_carry_adder
 
@@ -80,12 +82,12 @@ module convert_1c_2c
     input  logic [(WIDTH_MULT * `NUM_BIT)-1:0] ones_comp
 );
     // Add 1'b1 to ones_comp if sign of ones_comp is 1'b1
-    ripple_carry_adder conv_1_2 (.sum(twos_comp),
-                                 .c_out(),
-                                 .x(ones_comp), 
-                                 .y({{((WIDTH_MULT * `NUM_BIT)-1){1'b0}}, 
-                                     ones_comp[(WIDTH_MULT * `NUM_BIT)-1]}),
-                                 .c_in(1'b0));
+    ripple_carry_adder #(WIDTH_MULT) conv_1_2 (.sum(twos_comp),
+                                               .c_out(),
+                                               .x(ones_comp), 
+                                               .y({{((WIDTH_MULT * `NUM_BIT)-1){1'b0}}, 
+                                                   ones_comp[(WIDTH_MULT * `NUM_BIT)-1]}),
+                                               .c_in(1'b0));
 
 endmodule: convert_1c_2c
 
@@ -103,12 +105,12 @@ module convert_2c_1c
                              {1'b1, {((WIDTH_MULT * `NUM_BIT)-1){1'b0}}});
 
     // Add -1 to twos_comp if sign of twos_comp is 1'b1
-    ripple_carry_adder conv_2_1 (.sum(ones_comp),
-                                 .c_out(),
-                                 .x(twos_comp),
-                                 .y({(WIDTH_MULT * `NUM_BIT){
-                                     twos_comp[(WIDTH_MULT * `NUM_BIT)-1]}}),
-                                 .c_in(1'b0));
+    ripple_carry_adder #(WIDTH_MULT) conv_2_1 (.sum(ones_comp),
+                                               .c_out(),
+                                               .x(twos_comp),
+                                               .y({(WIDTH_MULT * `NUM_BIT){
+                                                   twos_comp[(WIDTH_MULT * `NUM_BIT)-1]}}),
+                                               .c_in(1'b0));
 
 endmodule: convert_2c_1c
 
@@ -125,16 +127,16 @@ module ones_comp_adder (
     logic end_around_carry;
 
     // Perform the core addition
-    ripple_carry_adder add_pre (.sum(sum_pre),
-                                .c_out(end_around_carry),
-                                .x(x), .y(y),
-                                .c_in(1'b0));
+    ripple_carry_adder #(1) add_pre (.sum(sum_pre),
+                                     .c_out(end_around_carry),
+                                     .x(x), .y(y),
+                                     .c_in(1'b0));
 
     // Perform end-around carry correction
-    ripple_carry_adder add_eac (.sum(sum),
-                                .c_out(),
-                                .x(sum_pre), .y(15'd0),
-                                .c_in(end_around_carry));
+    ripple_carry_adder #(1) add_eac (.sum(sum),
+                                     .c_out(),
+                                     .x(sum_pre), .y(15'd0),
+                                     .c_in(end_around_carry));
 
 endmodule: ones_comp_adder
 
@@ -199,9 +201,9 @@ module ones_comp_div (
     input  logic [(2 * `NUM_BIT)-1:0] numer,
     input  logic [`NUM_BIT-1:0] denom
 );
-    logic [(2 * `NUM_BIT)-1:0] numer_twos_comp;
-    logic [`NUM_BIT-1:0] quot_twos_comp, quot_twos_comp_pre, 
-                         remain_twos_comp, denom_twos_comp;
+    logic [(2 * `NUM_BIT)-1:0] quot_twos_comp_pre, numer_twos_comp;
+    logic [`NUM_BIT-1:0] quot_twos_comp, remain_twos_comp, 
+                         denom_twos_comp;
     logic [1:0] underflow_flag_pre;
 
     convert_1c_2c #(2) numer_2c (.twos_comp(numer_twos_comp),
