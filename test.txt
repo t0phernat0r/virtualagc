@@ -1,133 +1,17 @@
 Apollo Guidance Computer (AGC) assembler, version "2020-12-24", built Mar 28 2022, target AGC4
 (c)2003-2005,2009-2010,2016-2018,2021 Ronald S. Burkey
 Refer to http://www.ibiblio.org/apollo/index.html for more information.
+Symbol "ZERO" (0) is duplicated.
 Pass #1
 Pass #2
 Pass #3
-000001,000001:                                                                                          	# Special registers.
-000002,000002: ???????                        A                  EQUALS   0                             	#
-000003,000003: ???????                        L                  EQUALS   1                             	# L AND Q ARE BOTH CHANNELS AND REGISTERS.
-000004,000004: ???????                        Q                  EQUALS   2                             	#
-000005,000005: ???????                        EBANK              EQUALS   3                             	#
-000006,000006: ???????                        FBANK              EQUALS   4                             	#
-000007,000007: ???????                        Z                  EQUALS   5                             	# ADJACENT TO FBANK AND BBANK FOR DXCH Z
-000008,000008: ???????                        BBANK              EQUALS   6                             	# (DTCB) AND DXCH FBANK (DTCF).
-000009,000009:                                                                                          	# REGISTER 7 IS A ZERO-SOURCE, USED BY ZL.
-000010,000010: ???????                        ARUPT              EQUALS   10                            	# INTERRUPT STORAGE.
-000011,000011: ???????                        LRUPT              EQUALS   11                            	#
-000012,000012: ???????                        QRUPT              EQUALS   12                            	#
-000013,000013: ???????                        SAMPTIME           EQUALS   13                            	# SAMPLED TIME 1 & 2.
-000014,000014: ???????                        ZRUPT              EQUALS   15                            	# (13 AND 14 ARE SPARES.)
-000015,000015: ???????                        BANKRUPT           EQUALS   16                            	# USUALLY HOLDS FBANK OR BBANK.
-000016,000016: ???????                        BRUPT              EQUALS   17                            	# RESUME ADDRESS AS WELL.
-000017,000017: ???????                        CYR                EQUALS   20                            	#
-000018,000018: ???????                        SR                 EQUALS   21                            	#
-000019,000019: ???????                        CYL                EQUALS   22                            	#
-000020,000020: ???????                        EDOP               EQUALS   23                            	# EDITS INTERPRETIVE OPERATION CODE PAIRS.
-000021,000021: ???????                        TIME2              EQUALS   24                            	#
-000022,000022: ???????                        TIME1              EQUALS   25                            	#
-000023,000023: ???????                        TIME3              EQUALS   26                            	#
-000024,000024: ???????                        TIME4              EQUALS   27                            	#
-000025,000025: ???????                        TIME5              EQUALS   30                            	#
-000026,000026: ???????                        TIME6              EQUALS   31                            	#
-000027,000027:    0067                                           SETLOC   67                            	#
-000028,000028:    0067                        NEWJOB             ERASE                                  	# Allocate a variable at the location checked by the Night Watchman.
-000029,000029:                                                                                          	# More variables.
-000030,000030:    0070                        KEYBUF             ERASE                                  	# 040 when empty, 0-037 when holding a keycode
-000031,000031:    0071                        LAST040            ERASE                                  	# Most recent value from input channel 040.
-000032,000032:    0072                        SECOND             ERASE                                  	# Storage for components of time
-000033,000033:    0073                        MINUTE             ERASE                                  	#
-000034,000034:    0074                        HOUR               ERASE                                  	#
-000035,000035:    0075                        DAY                ERASE                                  	#
-000036,000036:    0076                        MONTH              ERASE                                  	#
-000037,000037:    0077                        YEAR               ERASE                                  	#
-000038,000038:    0100                        SIGN               ERASE                                  	# For buffering sign+digits in conversion of integer to decimal string.
-000039,000039:    0101                        DIGIT1             ERASE                                  	#
-000040,000040:    0102                        DIGIT2             ERASE                                  	#
-000041,000041:    0103                        DIGIT3             ERASE                                  	#
-000042,000042:    0104                        DIGIT4             ERASE                                  	#
-000043,000043:    0105                        DIGIT5             ERASE                                  	#
-000044,000044:    0106                        SIGNA              ERASE                                  	# For buffering sign+digits in conversion of integer to decimal string.
-000045,000045:    0107                        DIGIT1A            ERASE                                  	#
-000046,000046:    0110                        DIGIT2A            ERASE                                  	#
-000047,000047:    0111                        DIGIT3A            ERASE                                  	#
-000048,000048:    0112                        DIGIT4A            ERASE                                  	#
-000049,000049:    0113                        DIGIT5A            ERASE                                  	#
-000050,000050:    0114                        DSPR               ERASE                                  	# Return address for DSPxxxx functions.
-000051,000051:    0115                        DIGIT25            ERASE                                  	#
-000052,000052:    0116                        DIGIT31            ERASE                                  	#
-000053,000053:    0117                        DIVISOR            ERASE                                  	# A dummy variable used to store divisors.
-000054,000054:    0120                        DSPMODE            ERASE                                  	# display-mode: 0 time, 1 acceleration, 2 magnetometer, etc.
-000055,000055:    0121                        LLLOW              ERASE                                  	# LS word of lat or lon
-000056,000056:    0122                        LLHIGH             ERASE                                  	# MS word of lat or lon.
-000057,000057:    0123                        LLRET              ERASE                                  	# Return address for LL2.
-000058,000058:    4000                                           SETLOC   4000                          	# The interrupt-vector table.
-000059,000059:                                                                                          	# Come here at power-up or GOJAM
-000060,000060:                                                                                          	# Come here at power-up or GOJAM
-000061,000061:    4000           00004                           INHINT                                 	# Disable interrupts for a moment.
-000062,000062:    4001           14054                           TCF      STARTUP                       	# Go to your "real" code.
-000063,000063:    4002           14003                           NOOP                                   	#
-000064,000064:    4003           14004                           NOOP                                   	#
-000065,000065: 
-000066,000066:    4004           50017                           RESUME                                 	# T6RUPT
-000067,000067:    4005           14006                           NOOP                                   	#
-000068,000068:    4006           14007                           NOOP                                   	#
-000069,000069:    4007           14010                           NOOP                                   	#
-000070,000070: 
-000071,000071:    4010           14011                           NOOP                                   	# T5RUPT
-000072,000072:    4011           14012                           NOOP                                   	#
-000073,000073:    4012           14013                           NOOP                                   	#
-000074,000074:    4013           14014                           NOOP                                   	#
-000075,000075: 
-000076,000076:    4014           14015                           NOOP                                   	# T3RUPT
-000077,000077:    4015           14016                           NOOP                                   	#
-000078,000078:    4016           14017                           NOOP                                   	#
-000079,000079:    4017           14020                           NOOP                                   	#
-000080,000080: 
-000081,000081:    4020           50017                           RESUME                                 	# T4RUPT
-000082,000082:    4021           14022                           NOOP                                   	#
-000083,000083:    4022           14023                           NOOP                                   	#
-000084,000084:    4023           14024                           NOOP                                   	#
-000085,000085: 
-000086,000086:    4024           50017                           RESUME                                 	# KEYRUPT1
-000087,000087:    4025           14026                           NOOP                                   	#
-000088,000088:    4026           14027                           NOOP                                   	#
-000089,000089:    4027           14030                           NOOP                                   	#
-000090,000090: 
-000091,000091:    4030           50017                           RESUME                                 	# KEYRUPT2
-000092,000092:    4031           14032                           NOOP                                   	#
-000093,000093:    4032           14033                           NOOP                                   	#
-000094,000094:    4033           14034                           NOOP                                   	#
-000095,000095: 
-000096,000096:    4034           50017                           RESUME                                 	# UPRUPT
-000097,000097:    4035           14036                           NOOP                                   	#
-000098,000098:    4036           14037                           NOOP                                   	#
-000099,000099:    4037           14040                           NOOP                                   	#
-000100,000100: 
-000101,000101:    4040           50017                           RESUME                                 	# DOWNRUPT
-000102,000102:    4041           14042                           NOOP                                   	#
-000103,000103:    4042           14043                           NOOP                                   	#
-000104,000104:    4043           14044                           NOOP                                   	#
-000105,000105: 
-000106,000106:    4044           50017                           RESUME                                 	# RADAR RUPT
-000107,000107:    4045           14046                           NOOP                                   	#
-000108,000108:    4046           14047                           NOOP                                   	#
-000109,000109:    4047           14050                           NOOP                                   	#
-000110,000110: 
-000111,000111:    4050           50017                           RESUME                                 	# RUPT10
-000112,000112:    4051           14052                           NOOP                                   	#
-000113,000113:    4052           14053                           NOOP                                   	#
-000114,000114:    4053           14054                           NOOP                                   	#
-000115,000115: 
-000116,000116: 
-000117,000117:    4054           24000        STARTUP            INCR     A                             	#
-000118,000118:    4055           24000                           INCR     A                             	#
-000119,000119:    4056           24050                           INCR     50                            	#50 is some randome address that should be set to zero
-000120,000120:    4057           30050                           CA       50                            	#
-000121,000121:    4060           00006                           EXTEND                                 	#
-000122,000122:    4061           30051                           DCA      50                            	#
-000123,000123: 
-000124,000124: 
+Pass #4
+Pass #5
+Pass #6
+Pass #7
+Pass #8
+Pass #9
+Pass #10
 Removing the duplicated lines... 
 
 Symbol-table file written.
@@ -137,7 +21,7 @@ Usage Table for Fixed-Memory Banks
 ----------------------------------
 Bank 00:  0000/2000 words used.
 Bank 01:  0000/2000 words used.
-Bank 02:  0062/2000 words used.
+Bank 02:  0075/2000 words used.
 Bank 03:  0000/2000 words used.
 Bank 04:  0000/2000 words used.
 Bank 05:  0000/2000 words used.
@@ -175,54 +59,54 @@ Bank 43:  0000/2000 words used.
 
 Symbol Table
 ------------
-     1,C:   A            0000000  		  ==============================  		                                  
-     2,C:   ARUPT        0000010  		    37,E:   NEWJOB          0067  		                                  
-  ==============================  		  ==============================  		                                  
-     3,C:   BANKRUPT     0000016  		    38,C:   Q            0000002  		                                  
-     4,C:   BBANK        0000006  		    39,C:   QRUPT        0000012  		                                  
-     5,C:   BRUPT        0000017  		  ==============================  		                                  
-  ==============================  		    40,C:   SAMPTIME     0000013  		                                  
-     6,C:   CYL          0000022  		    41,E:   SECOND          0072  		                                  
-     7,C:   CYR          0000020  		    42,E:   SIGN            0100  		                                  
-  ==============================  		    43,E:   SIGNA           0106  		                                  
-     8,E:   DAY             0075  		    44,C:   SR           0000021  		                                  
-     9,E:   DIGIT1          0101  		    45,F:   STARTUP         4054  		                                  
-    10,E:   DIGIT1A         0107  		  ==============================  		                                  
-    11,E:   DIGIT2          0102  		    46,C:   TIME1        0000025  		                                  
-    12,E:   DIGIT2A         0110  		    47,C:   TIME2        0000024  		                                  
-    13,E:   DIGIT25         0115  		    48,C:   TIME3        0000026  		                                  
-    14,E:   DIGIT3          0103  		    49,C:   TIME4        0000027  		                                  
-    15,E:   DIGIT3A         0111  		    50,C:   TIME5        0000030  		                                  
-    16,E:   DIGIT31         0116  		    51,C:   TIME6        0000031  		                                  
-    17,E:   DIGIT4          0104  		  ==============================  		                                  
-    18,E:   DIGIT4A         0112  		    52,E:   YEAR            0077  		                                  
-    19,E:   DIGIT5          0105  		  ==============================  		                                  
-    20,E:   DIGIT5A         0113  		    53,C:   Z            0000005  		                                  
-    21,E:   DIVISOR         0117  		    54,C:   ZRUPT        0000015  		                                  
-    22,E:   DSPMODE         0120  		                                  		                                  
-    23,E:   DSPR            0114  		                                  		                                  
+     1,C:   A            0000000  		    35,F:   ONE             4070  		                                  
+  ==============================  		    36,F:   OTHER           4073  		                                  
+     2,C:   BBANK        0000005  		  ==============================  		                                  
+  ==============================  		    37,C:   Q            0000002  		                                  
+     3,C:   CYL          0000011  		  ==============================  		                                  
+     4,C:   CYR          0000007  		    38,E:   SECOND          0072  		                                  
+  ==============================  		    39,E:   SIGN            0100  		                                  
+     5,E:   DAY             0075  		    40,E:   SIGNA           0106  		                                  
+     6,E:   DIGIT1          0101  		    41,C:   SL           0000010  		                                  
+     7,E:   DIGIT1A         0107  		    42,C:   SR           0000010  		                                  
+     8,E:   DIGIT2          0102  		    43,F:   STARTUP         4054  		                                  
+     9,E:   DIGIT2A         0110  		  ==============================  		                                  
+    10,E:   DIGIT25         0115  		    44,C:   TIME1        0000011  		                                  
+    11,E:   DIGIT3          0103  		    45,C:   TIME2        0000012  		                                  
+    12,E:   DIGIT3A         0111  		    46,C:   TIME3        0000026  		                                  
+    13,E:   DIGIT31         0116  		    47,C:   TIME4        0000027  		                                  
+    14,E:   DIGIT4          0104  		    48,C:   TIME5        0000030  		                                  
+    15,E:   DIGIT4A         0112  		    49,C:   TIME6        0000031  		                                  
+    16,E:   DIGIT5          0105  		    50,F:   TWO             4071  		                                  
+    17,E:   DIGIT5A         0113  		  ==============================  		                                  
+    18,E:   DIVISOR         0117  		    51,E:   YEAR            0077  		                                  
+    19,E:   DSPMODE         0120  		  ==============================  		                                  
+    20,E:   DSPR            0114  		    52,F:   ZERO            4067  		                                  
   ==============================  		                                  		                                  
-    24,C:   EBANK        0000003  		                                  		                                  
-    25,C:   EDOP         0000023  		                                  		                                  
+    21,C:   EBANK        0000003  		                                  		                                  
   ==============================  		                                  		                                  
-    26,C:   FBANK        0000004  		                                  		                                  
+    22,C:   FBANK        0000004  		                                  		                                  
+    23,F:   FOUR            4072  		                                  		                                  
   ==============================  		                                  		                                  
-    27,E:   HOUR            0074  		                                  		                                  
+    24,E:   HOUR            0074  		                                  		                                  
   ==============================  		                                  		                                  
-    28,E:   KEYBUF          0070  		                                  		                                  
+    25,E:   KEYBUF          0070  		                                  		                                  
   ==============================  		                                  		                                  
-    29,C:   L            0000001  		                                  		                                  
-    30,E:   LAST040         0071  		                                  		                                  
-    31,E:   LLHIGH          0122  		                                  		                                  
-    32,E:   LLLOW           0121  		                                  		                                  
-    33,E:   LLRET           0123  		                                  		                                  
-    34,C:   LRUPT        0000011  		                                  		                                  
+    26,C:   L            0000001  		                                  		                                  
+    27,E:   LAST040         0071  		                                  		                                  
+    28,E:   LLHIGH          0122  		                                  		                                  
+    29,E:   LLLOW           0121  		                                  		                                  
+    30,E:   LLRET           0123  		                                  		                                  
   ==============================  		                                  		                                  
-    35,E:   MINUTE          0073  		                                  		                                  
-    36,E:   MONTH           0076  		
+    31,F:   MINUS1          4074  		                                  		                                  
+    32,E:   MINUTE          0073  		                                  		                                  
+    33,E:   MONTH           0076  		                                  		                                  
+  ==============================  		                                  		                                  
+    34,E:   NEWJOB          0067  		                                  		                                  
+  ==============================  		
 
 Unresolved symbols:  0
 Fatal errors:  0
 Warnings:  0
 
-Bugger word 67634 at 02,2064.
+Bugger word 67606 at 02,2077.
