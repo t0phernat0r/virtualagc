@@ -64,7 +64,6 @@ typedef enum logic [3:0] {
     // IN
     DSKY_VERB,
     DSKY_NOUN,
-    DSKY_NEW,
     AXI_MISSION_TIME,
     AXI_APOGEE,
     AXI_PERIGEE
@@ -115,7 +114,7 @@ typedef struct packed {
     branch_t branch;
     rd_t rd;              // what data is writing back
     logic RAM_write_en;
-    logic [2:0] IO_read_sel;
+    logic [3:0] IO_reg_sel;
     logic IO_write_en;
     logic [11:0] K;
     logic [14:0] pc;
