@@ -1,0 +1,31 @@
+{
+    "reusePaths": {},
+    "Modules": {
+        "altsyncram_0000": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        }
+    },
+    "CompUnits": {
+        "Q0s3L_d": {
+            "checksum": 4294967295,
+            "mod": "altsyncram_0000",
+            "out": "Q0s3L_d.o",
+            "bytes": 151422,
+            "mode": 4,
+            "archive": "archive.0/_4172_archive_1.a"
+        }
+    },
+    "ObjArchives": [
+        {
+            "archive": "archive.0/_4172_archive_1.a",
+            "objects": [
+                [
+                    "Q0s3L_d.o",
+                    151422
+                ]
+            ],
+            "size": 151422
+        }
+    ]
+}

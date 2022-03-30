@@ -322,10 +322,10 @@ module register_file
   always_comb begin
   // Register file reads
     // To Read Port 1
-    if (rs1_sel == wr1_sel)
+    if ((rs1_sel == wr1_sel) && wr1_en)
     // Forwarding Case 1
       rs1_data = wr1_data;
-    else if (rs1_sel == wr2_sel)
+    else if ((rs1_sel == wr2_sel) && wr2_en)
     // Forwarding Case 2
       rs1_data = wr2_data;
     else begin
@@ -359,10 +359,10 @@ module register_file
     end
 
     // To Read Port 2
-    if (rs2_sel == wr1_sel)
+    if ((rs2_sel == wr1_sel) && wr1_en)
     // Forwarding Case 1
-      rs1_data = wr1_data;
-    else if (rs2_sel == wr2_sel)
+      rs2_data = wr1_data;
+    else if ((rs2_sel == wr2_sel) && wr2_en)
     // Forwarding Case 2
       rs2_data = wr2_data;
     else begin
@@ -668,6 +668,8 @@ module addr_translate_w
   addr_translate_RAM translate_write_RAM (.addr_soft(addr_k),
                                           .bits_EB(bits_EB),
                                           .addr_RAM(addr_RAM));
+
+  assign point_to_RAM = en_write;
 
   // If attempt to write to ROM, force write enable to '0'
   assign en_write_final = (point_to_RAM) ? en_write : 1'b0;

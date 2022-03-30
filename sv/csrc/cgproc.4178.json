@@ -1,0 +1,31 @@
+{
+    "reusePaths": {},
+    "Modules": {
+        "std": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        }
+    },
+    "CompUnits": {
+        "reYIK_d": {
+            "checksum": 4294967295,
+            "mod": "std",
+            "out": "reYIK_d.o",
+            "bytes": 35440,
+            "mode": 4,
+            "archive": "archive.0/_4178_archive_1.a"
+        }
+    },
+    "ObjArchives": [
+        {
+            "archive": "archive.0/_4178_archive_1.a",
+            "objects": [
+                [
+                    "reYIK_d.o",
+                    35440
+                ]
+            ],
+            "size": 35440
+        }
+    ]
+}
