@@ -288,6 +288,10 @@ module register_file
           // Timers
           TIME1: reg_TIME1 <= wr1_data;
           TIME2: reg_TIME2 <= wr1_data;
+          default: begin
+          // Default assignment ARBITRARY
+            reg_A <= wr1_data;
+          end
         endcase
       end
       if (wr2_en) begin
@@ -314,6 +318,10 @@ module register_file
           // Timers
           TIME1: reg_TIME1 <= wr2_data;
           TIME2: reg_TIME2 <= wr2_data;
+          default: begin
+          // Default assignment ARBITRARY
+            reg_A <= wr2_data;
+          end
         endcase
       end 
     end
@@ -355,6 +363,10 @@ module register_file
         // Timers
         TIME1: rs1_data = reg_TIME1;
         TIME2: rs1_data = reg_TIME2;
+        default: begin
+        // Default assignment ARBITRARY
+          rs1_data = reg_A;
+        end
       endcase
     end
 
@@ -392,6 +404,10 @@ module register_file
         // Timers
         TIME1: rs2_data = reg_TIME1;
         TIME2: rs2_data = reg_TIME2;
+        default: begin
+        // Default assignment ARBITRARY
+          rs2_data = reg_A;
+        end
       endcase
     end
 
@@ -464,7 +480,7 @@ module IO_register_file
   // I/O register reads
     // Check for valid writes
     write_valid = (~sel_write[3] | (sel_write[2:0] == 3'd0));
-    if (write_valid & (sel_read == sel_write)) begin
+    if (en_write & write_valid & (sel_read == sel_write)) begin
     // Forwarding Case
       data_read = data_write;
     end
@@ -486,6 +502,10 @@ module IO_register_file
         AXI_MISSION_TIME: data_read = data_AXI_MISSION_TIME;
         AXI_APOGEE: data_read = data_AXI_APOGEE;
         AXI_PERIGEE: data_read = data_AXI_PERIGEE;
+        default: begin
+        // Default assignment ARBITRARY
+          data_read = data_DSKY_LAMPS;
+        end
       endcase
     end
   end
@@ -662,19 +682,18 @@ module arithmetic_logic_unit
   logic sel_subtract;
 
   always_comb begin
-    
     // Result low order word default
     result[14:0] = 15'd0;
 
     unique case (operation_sel)
       ALU_AD: begin
         sel_subtract = 1'b0;
-        add_sub_src_1 = source_1[29:15];
+        add_sub_src_1 = source_1[14:0];
         result[29:15] = res_add_sub;
       end
       ALU_SU: begin
         sel_subtract = 1'b1;
-        add_sub_src_1 = source_1[29:15];
+        add_sub_src_1 = source_1[14:0];
         result[29:15] = res_add_sub;
       end
       ALU_AUG: begin
@@ -689,7 +708,7 @@ module arithmetic_logic_unit
         result[29:15] = source_2;
       end
       ALU_BRANCH: begin
-        result[29:15] = source_1[29:15];
+        result[29:15] = source_1[14:0];
       end
       ALU_MP: begin
         result = res_mult;
@@ -705,13 +724,13 @@ module arithmetic_logic_unit
         end
       end
       ALU_OR: begin
-        result[29:15] = source_1[29:15] | source_2;
+        result[29:15] = source_1[14:0] | source_2;
       end
       ALU_AND: begin
-        result[29:15] = source_1[29:15] & source_2;
+        result[29:15] = source_1[14:0] & source_2;
       end
       ALU_XOR: begin
-        result[29:15] = source_1[29:15] ^ source_2;
+        result[29:15] = source_1[14:0] ^ source_2;
       end
       ALU_INCR: begin
         sel_subtract = 1'b0;
@@ -722,7 +741,7 @@ module arithmetic_logic_unit
         result = {res_div_quot, res_div_remain};
       end
       ALU_QXCH: begin
-        result = {source_1[29:15], source_2};
+        result = {source_1[14:0], source_2};
       end
     endcase
 
@@ -738,7 +757,7 @@ module arithmetic_logic_unit
 
   ones_comp_mult alu_mult (.prod(res_mult),
                            .underflow_flag(),
-                           .x(source_1[29:15]),
+                           .x(source_1[14:0]),
                            .y(source_2));
 
   ones_comp_div alu_div (.quot(res_div_quot),

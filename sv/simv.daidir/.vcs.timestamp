@@ -49,7 +49,7 @@
 top.sv
 32
 sysc_uni_pwd=/afs/ece.cmu.edu/usr/dgionis/Private/18500/virtualagc/sv
-XDG_SESSION_ID=4919
+XDG_SESSION_ID=5554
 XDG_RUNTIME_DIR=/run/user/2651945
 VMR_MODE_FLAG=64
 VCS_VERSION=vcs-mx_vK-2015.09
@@ -66,9 +66,9 @@ UNAME=/bin/uname
 TOOL_HOME=/afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/linux64
 SYNOPSYS_LICENSE=/afs/ece.cmu.edu/support/synopsys/license.dat
 SYNOPSYS_HOME=/afs/ece.cmu.edu/support/synopsys/synopsys.release
-SSH_TTY=/dev/pts/5
-SSH_CONNECTION=172.26.8.180 60201 172.19.137.178 22
-SSH_CLIENT=172.26.8.180 60201 22
+SSH_TTY=/dev/pts/3
+SSH_CONNECTION=172.26.4.200 55024 172.19.137.178 22
+SSH_CLIENT=172.26.4.200 55024 22
 SELINUX_USE_CURRENT_RANGE=
 SELINUX_ROLE_REQUESTED=
 SELINUX_LEVEL_REQUESTED=
@@ -83,14 +83,14 @@ AKLOG=/usr/bin/aklog
 0
 17
 1484797591 /afs/ece/support/altera/release/16.1.2/quartus/eda/sim_lib/altera_primitives.v
-1648653302 decode.sv
+1648929812 decode.sv
 1646066389 agc_div/agc_div_bb.v
 1645825991 agc_mult/agc_mult_bb.v
 1648655687 comp_units.sv
-1648653302 lib.sv
+1648933431 lib.sv
 1648525391 agc_ram/agc_ram.v
 1648496284 agc_rom_new/agc_rom_new.v
-1648654155 core.sv
+1648934465 core.sv
 1648606011 internal_defines.vh
 1648606011 top.sv
 1484818352 /afs/ece/support/altera/release/16.1.2/quartus/eda/sim_lib/cyclonev_atoms.v
@@ -104,4 +104,4 @@ AKLOG=/usr/bin/aklog
 1440563255 /afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/linux64/lib/libvirsim.so
 1440562843 /afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/linux64/lib/liberrorinf.so
 1440562824 /afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/linux64/lib/libsnpsmalloc.so
-1648655713 simv.daidir
+1648934472 simv.daidir

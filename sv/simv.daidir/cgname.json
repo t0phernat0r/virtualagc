@@ -1,62 +1,17 @@
 {
-    "decoder": [
-        "decoder",
-        "zf0bY",
-        "module"
-    ],
-    "_vcs_unit__546175923": [
-        "_vcs_unit__546175923",
-        "fAMCB",
-        "module"
-    ],
-    "agc_ram": [
-        "agc_ram",
-        "DvDiU",
-        "module"
-    ],
-    "std": [
-        "std",
-        "reYIK",
-        "module"
-    ],
-    "full_adder": [
-        "full_adder",
-        "BEdzp",
-        "module"
-    ],
-    "ripple_carry_adder_0001": [
-        "ripple_carry_adder_0001",
-        "SfNSy",
-        "module"
-    ],
-    "ALTERA_DEVICE_FAMILIES": [
-        "ALTERA_DEVICE_FAMILIES",
-        "uFC8u",
-        "module"
-    ],
     "Core": [
         "Core",
         "fsHFs",
         "module"
     ],
-    "agc_rom_new": [
-        "agc_rom_new",
-        "YaxfH",
-        "module"
-    ],
-    "counter": [
-        "counter",
-        "MQn6b",
-        "module"
-    ],
-    "countFSM": [
-        "countFSM",
-        "Bb4h8",
-        "module"
-    ],
     "addr_translate_RAM": [
         "addr_translate_RAM",
         "A8YZN",
+        "module"
+    ],
+    "agc_rom_new": [
+        "agc_rom_new",
+        "YaxfH",
         "module"
     ],
     "IO_register_file": [
@@ -69,14 +24,64 @@
         "I9T3V",
         "module"
     ],
-    "ripple_carry_adder_0000": [
-        "ripple_carry_adder_0000",
-        "nr2NV",
+    "...MASTER...": [
+        "SIM",
+        "amcQw",
+        "module"
+    ],
+    "_vcs_unit__546175923": [
+        "_vcs_unit__546175923",
+        "fAMCB",
+        "module"
+    ],
+    "std": [
+        "std",
+        "reYIK",
+        "module"
+    ],
+    "agc_ram": [
+        "agc_ram",
+        "DvDiU",
+        "module"
+    ],
+    "ripple_carry_adder_0001": [
+        "ripple_carry_adder_0001",
+        "SfNSy",
+        "module"
+    ],
+    "ALTERA_DEVICE_FAMILIES": [
+        "ALTERA_DEVICE_FAMILIES",
+        "uFC8u",
+        "module"
+    ],
+    "decoder": [
+        "decoder",
+        "zf0bY",
+        "module"
+    ],
+    "counter": [
+        "counter",
+        "MQn6b",
+        "module"
+    ],
+    "countFSM": [
+        "countFSM",
+        "Bb4h8",
         "module"
     ],
     "convert_1c_2c": [
         "convert_1c_2c",
         "EHhqJ",
+        "module"
+    ],
+    "full_adder": [
+        "full_adder",
+        "BEdzp",
+        "module"
+    ],
+    "ripple_carry_adder_0000": [
+        "ripple_carry_adder_0000",
+        "nr2NV",
         "module"
     ],
     "TB": [
@@ -92,11 +97,6 @@
     "ALTERA_MF_MEMORY_INITIALIZATION": [
         "ALTERA_MF_MEMORY_INITIALIZATION",
         "er73t",
-        "module"
-    ],
-    "...MASTER...": [
-        "SIM",
-        "amcQw",
         "module"
     ]
 }

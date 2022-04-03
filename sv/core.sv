@@ -162,8 +162,6 @@ module Core
 
   assign sign_bit_E = alu_src2_E[14];
   
-  
- 
   arithmetic_logic_unit ALU(.source_1(alu_src1_E), .source_2(alu_src2_E), .result(alu_out_E), .res_eq_0(eq_0_E),
           .operation_sel(ctrl_E.alu_op));
 
