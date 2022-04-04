@@ -1,7 +1,13 @@
 {
+<<<<<<< HEAD
     "agc_ram": [
         "agc_ram",
         "DvDiU",
+=======
+    "altsyncram_0000": [
+        "altsyncram_0000",
+        "Q0s3L",
+>>>>>>> 0a35184ec1a5591d98d24617779581bab1275538
         "module"
     ],
     "Core": [
@@ -9,6 +15,7 @@
         "fsHFs",
         "module"
     ],
+<<<<<<< HEAD
     "_vcs_unit__1064167090": [
         "_vcs_unit__1064167090",
         "vAiv4",
@@ -22,16 +29,27 @@
     "addr_translate_ROM": [
         "addr_translate_ROM",
         "I9T3V",
+=======
+    "addr_translate": [
+        "addr_translate",
+        "gfxiy",
+>>>>>>> 0a35184ec1a5591d98d24617779581bab1275538
         "module"
     ],
-    "...MASTER...": [
-        "SIM",
-        "amcQw",
+    "convert_1c_2c": [
+        "convert_1c_2c",
+        "EHhqJ",
         "module"
     ],
+<<<<<<< HEAD
     "mux_0003": [
         "mux_0003",
         "F6CNF",
+=======
+    "_vcs_unit__1064167090": [
+        "_vcs_unit__1064167090",
+        "vAiv4",
+>>>>>>> 0a35184ec1a5591d98d24617779581bab1275538
         "module"
     ],
     "addr_translate_RAM": [
@@ -39,9 +57,20 @@
         "A8YZN",
         "module"
     ],
+<<<<<<< HEAD
     "ALTERA_MF_MEMORY_INITIALIZATION": [
         "ALTERA_MF_MEMORY_INITIALIZATION",
         "er73t",
+=======
+    "addr_translate_RAM": [
+        "addr_translate_RAM",
+        "A8YZN",
+        "module"
+    ],
+    "mux_0003": [
+        "mux_0003",
+        "F6CNF",
+>>>>>>> 0a35184ec1a5591d98d24617779581bab1275538
         "module"
     ],
     "agc_rom_new": [
@@ -49,9 +78,20 @@
         "YaxfH",
         "module"
     ],
+<<<<<<< HEAD
     "countFSM": [
         "countFSM",
         "Bb4h8",
+=======
+    "agc_rom_new": [
+        "agc_rom_new",
+        "YaxfH",
+        "module"
+    ],
+    "agc_ram": [
+        "agc_ram",
+        "DvDiU",
+>>>>>>> 0a35184ec1a5591d98d24617779581bab1275538
         "module"
     ],
     "decoder": [
@@ -69,9 +109,40 @@
         "MQn6b",
         "module"
     ],
+<<<<<<< HEAD
     "convert_1c_2c": [
         "convert_1c_2c",
         "EHhqJ",
+=======
+    "IO_register_file": [
+        "IO_register_file",
+        "e2KCL",
+        "module"
+    ],
+    "countFSM": [
+        "countFSM",
+        "Bb4h8",
+        "module"
+    ],
+    "addr_translate_ROM": [
+        "addr_translate_ROM",
+        "I9T3V",
+        "module"
+    ],
+    "ALTERA_DEVICE_FAMILIES": [
+        "ALTERA_DEVICE_FAMILIES",
+        "uFC8u",
+        "module"
+    ],
+    "branching_logic": [
+        "branching_logic",
+        "Bp0Dn",
+        "module"
+    ],
+    "TB": [
+        "TB",
+        "sH4Fc",
+>>>>>>> 0a35184ec1a5591d98d24617779581bab1275538
         "module"
     ],
     "addr_translate": [
@@ -104,14 +175,14 @@
         "nr2NV",
         "module"
     ],
-    "TB": [
-        "TB",
-        "sH4Fc",
+    "...MASTER...": [
+        "SIM",
+        "amcQw",
         "module"
     ],
-    "altsyncram_0000": [
-        "altsyncram_0000",
-        "Q0s3L",
+    "LPM_HINT_EVALUATION": [
+        "LPM_HINT_EVALUATION",
+        "ReME5",
         "module"
     ],
     "ALTERA_DEVICE_FAMILIES": [

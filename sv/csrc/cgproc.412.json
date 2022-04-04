@@ -1,0 +1,31 @@
+{
+    "Modules": {
+        "addr_translate": {},
+        "_vcs_unit__1064167090": {},
+        "...MASTER...": {},
+        "LPM_HINT_EVALUATION": {},
+        "std": {},
+        "counter": {},
+        "IO_register_file": {},
+        "full_adder": {},
+        "TB": {},
+        "addr_translate_ROM": {},
+        "countFSM": {},
+        "mux_0003": {},
+        "addr_translate_RAM": {},
+        "decoder": {},
+        "agc_rom_new": {},
+        "branching_logic": {}
+    },
+    "CompUnits": {
+        "amcQw_d": {
+            "mode": 4,
+            "mod": "...MASTER...",
+            "checksum": 4294967295,
+            "out": "objs/amcQw_d.o",
+            "bytes": 9490
+        }
+    },
+    "reusePaths": {},
+    "ObjArchives": []
+}
