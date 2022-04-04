@@ -256,6 +256,7 @@ module register_file
       reg_Q <= 15'd0;
       reg_BB[14:9] <= 6'd0;
       reg_CYR <= 15'd0;
+      reg_CYL <= 15'd0;
       reg_SR <= 15'd0;
       reg_SL <= 15'd0;
       reg_TIME1 <= 15'd0;
