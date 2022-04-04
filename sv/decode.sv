@@ -229,8 +229,11 @@ module decode
             ctrl.wr2_sel = L;
             ctrl.wr1_en = 1'b1;
             ctrl.wr2_en = 1'b1;
-            ctrl.rs2_sel = L;
-            ctrl.alu_src1 = RS1_RS2_DATA1;
+            ctrl.alu_src1 = RS1_DATA1;
+            ctrl.rs2_sel = instr_F[3:0];
+            if(is_reg) begin
+              ctrl.alu_src2 = RS2_DATA2;
+            end
           end
           default : begin
             $display(rst_l, "Encountered unknown/unimplemented instr 0x%05o." ,instr);

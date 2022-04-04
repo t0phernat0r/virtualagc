@@ -217,7 +217,7 @@ module ones_comp_div (
                     .numer(numer_twos_comp),
                     .denom(denom_twos_comp));
 
-    assign quot_twos_comp = quot_twos_comp_pre[(2 * `NUM_BIT)-1:`NUM_BIT];
+    assign quot_twos_comp = quot_twos_comp_pre[`NUM_BIT-1:0];
 
     convert_2c_1c #(1) quot_2c (.ones_comp(quot),
                                 .underflow_flag(underflow_flag_pre[1]),
