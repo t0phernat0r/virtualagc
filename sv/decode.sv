@@ -30,19 +30,20 @@ module decode
 
   assign ctrl_D = ctrl;
   assign instr_F = (index2) ? index_data + instr : instr;
-  assign is_ROM = (ctrl.K > 'o1777) ? 1'b1 : 1'b0;
-  assign is_RAM = ((ctrl.K < 'o2000) && (ctrl.K > 'd12)) ? 1'b1 : 1'b0;
-  assign is_reg = (ctrl.K < 'd13) ? 1'b1 : 1'b0;
+  assign is_ROM = (ctrl.K > 'o1777);
+  assign is_RAM = ((ctrl.K < 'o2000) && (ctrl.K > 'd12));
+  assign is_reg = (ctrl.K < 'd13);
   assign opcode = instr_F[14:12];
   assign next_byte = instr_F[11:9];
   assign next2_bits = instr_F[11:10];
-  assign addr_is_0 = instr_F[11:0]==12'b0;
+  assign addr_is_0 = (instr_F[11:0] == 12'b0);
 
 
   
   always_comb begin
     ctrl = '{
-    alu_op: ALU_AD,      
+    alu_op: ALU_AD,
+    // NOTE: Signal currently unused      
     data_read_en: 1'b1,
     wr1_sel: A,
     wr2_sel: A,  
@@ -81,7 +82,8 @@ module decode
               //WRITE
               3'd1 : begin
                 ctrl.alu_op = ALU_READ;
-                ctrl.alu_src2 = IO_READ_DATA2;
+                // Possible bug FIXED
+                ctrl.alu_src2 = RS2_DATA2;
                 ctrl.IO_write_en = 1'b1;
               end
               //RAND
@@ -227,8 +229,11 @@ module decode
             ctrl.wr2_sel = L;
             ctrl.wr1_en = 1'b1;
             ctrl.wr2_en = 1'b1;
-            ctrl.rs2_sel = L;
-            ctrl.alu_src1 = RS1_RS2_DATA1;
+            ctrl.alu_src1 = RS1_DATA1;
+            ctrl.rs2_sel = instr_F[3:0];
+            if(is_reg) begin
+              ctrl.alu_src2 = RS2_DATA2;
+            end
           end
           default : begin
             $display(rst_l, "Encountered unknown/unimplemented instr 0x%05o." ,instr);
@@ -257,7 +262,7 @@ module decode
               end
               // TC/XLQ
               default : begin
-                //resent reset gets rid of edge case with reset 
+                //recent reset gets rid of edge case with reset 
                 //12d'4 is IHINT and we are treading that as a NOOP
                 if (~recent_reset & (~(instr_F[11:0]==12'd4))) begin
                   ctrl.alu_op = ALU_READ;
@@ -355,6 +360,10 @@ module decode
              2'd0 : begin
                ctrl.index = NEXTEND;
                index1 = 1'b1;
+               ctrl.rs2_sel = instr_F[3:0];
+                 if(is_reg) begin
+                 ctrl.alu_src2 = RS2_DATA2;
+               end
              end
              2'd2 : begin
                //TCAA
@@ -402,7 +411,7 @@ module decode
              end
            endcase
          end
-         //AD/DOUBLE
+         //AD, DOUBLE
          3'd6 : begin
            ctrl.wr1_en = 1'b1;
            ctrl.alu_op = ALU_AD;
