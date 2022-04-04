@@ -1,16 +1,80 @@
 PIC_LD=ld
 
 ARCHIVE_OBJS=
-ARCHIVE_OBJS += _5473_archive_1.so
-_5473_archive_1.so : archive.17/_5473_archive_1.a
+ARCHIVE_OBJS += _4329_archive_1.so
+_4329_archive_1.so : archive.21/_4329_archive_1.a
 	@$(AR) -s $<
-	@$(PIC_LD) -shared  -o .//../simv.daidir//_5473_archive_1.so --whole-archive $< --no-whole-archive
+	@$(PIC_LD) -shared  -o .//../simv.daidir//_4329_archive_1.so --whole-archive $< --no-whole-archive
 	@rm -f $@
-	@ln -sf .//../simv.daidir//_5473_archive_1.so $@
+	@ln -sf .//../simv.daidir//_4329_archive_1.so $@
+
+
+ARCHIVE_OBJS += _4334_archive_1.so
+_4334_archive_1.so : archive.21/_4334_archive_1.a
+	@$(AR) -s $<
+	@$(PIC_LD) -shared  -o .//../simv.daidir//_4334_archive_1.so --whole-archive $< --no-whole-archive
+	@rm -f $@
+	@ln -sf .//../simv.daidir//_4334_archive_1.so $@
+
+
+ARCHIVE_OBJS += _4335_archive_1.so
+_4335_archive_1.so : archive.21/_4335_archive_1.a
+	@$(AR) -s $<
+	@$(PIC_LD) -shared  -o .//../simv.daidir//_4335_archive_1.so --whole-archive $< --no-whole-archive
+	@rm -f $@
+	@ln -sf .//../simv.daidir//_4335_archive_1.so $@
+
+
+ARCHIVE_OBJS += _4336_archive_1.so
+_4336_archive_1.so : archive.21/_4336_archive_1.a
+	@$(AR) -s $<
+	@$(PIC_LD) -shared  -o .//../simv.daidir//_4336_archive_1.so --whole-archive $< --no-whole-archive
+	@rm -f $@
+	@ln -sf .//../simv.daidir//_4336_archive_1.so $@
+
+
+ARCHIVE_OBJS += _4337_archive_1.so
+_4337_archive_1.so : archive.21/_4337_archive_1.a
+	@$(AR) -s $<
+	@$(PIC_LD) -shared  -o .//../simv.daidir//_4337_archive_1.so --whole-archive $< --no-whole-archive
+	@rm -f $@
+	@ln -sf .//../simv.daidir//_4337_archive_1.so $@
+
+
+ARCHIVE_OBJS += _4338_archive_1.so
+_4338_archive_1.so : archive.21/_4338_archive_1.a
+	@$(AR) -s $<
+	@$(PIC_LD) -shared  -o .//../simv.daidir//_4338_archive_1.so --whole-archive $< --no-whole-archive
+	@rm -f $@
+	@ln -sf .//../simv.daidir//_4338_archive_1.so $@
+
+
+ARCHIVE_OBJS += _4339_archive_1.so
+_4339_archive_1.so : archive.21/_4339_archive_1.a
+	@$(AR) -s $<
+	@$(PIC_LD) -shared  -o .//../simv.daidir//_4339_archive_1.so --whole-archive $< --no-whole-archive
+	@rm -f $@
+	@ln -sf .//../simv.daidir//_4339_archive_1.so $@
+
+
+ARCHIVE_OBJS += _4340_archive_1.so
+_4340_archive_1.so : archive.21/_4340_archive_1.a
+	@$(AR) -s $<
+	@$(PIC_LD) -shared  -o .//../simv.daidir//_4340_archive_1.so --whole-archive $< --no-whole-archive
+	@rm -f $@
+	@ln -sf .//../simv.daidir//_4340_archive_1.so $@
+
+
+ARCHIVE_OBJS += _4341_archive_1.so
+_4341_archive_1.so : archive.21/_4341_archive_1.a
+	@$(AR) -s $<
+	@$(PIC_LD) -shared  -o .//../simv.daidir//_4341_archive_1.so --whole-archive $< --no-whole-archive
+	@rm -f $@
+	@ln -sf .//../simv.daidir//_4341_archive_1.so $@
 
 
 ARCHIVE_OBJS += _prev_archive_1.so
-_prev_archive_1.so : archive.17/_prev_archive_1.a
+_prev_archive_1.so : archive.21/_prev_archive_1.a
 	@$(AR) -s $<
 	@$(PIC_LD) -shared  -o .//../simv.daidir//_prev_archive_1.so --whole-archive $< --no-whole-archive
 	@rm -f $@

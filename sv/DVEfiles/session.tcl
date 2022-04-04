@@ -1,13 +1,13 @@
 # Begin_DVE_Session_Save_Info
 # DVE full session
-# Saved on Wed Mar 30 11:14:43 2022
+# Saved on Mon Apr 4 12:08:29 2022
 # Designs open: 1
 #   Sim: /afs/ece.cmu.edu/usr/cabernar/Private/capstone/virtualagc/sv/simv
 # Toplevel windows open: 1
 # 	TopLevel.2
-#   Wave.1: 31 signals
+#   Wave.1: 58 signals
 #   Group count = 1
-#   Group Group1 signal count = 31
+#   Group Group1 signal count = 58
 # End_DVE_Session_Save_Info
 
 # DVE version: K-2015.09_Full64
@@ -66,7 +66,7 @@ if {![gui_exist_window -window TopLevel.2]} {
 } else { 
     set TopLevel.2 TopLevel.2
 }
-gui_show_window -window ${TopLevel.2} -show_state normal -rect {{28 51} {1495 826}}
+gui_show_window -window ${TopLevel.2} -show_state maximized -rect {{28 66} {2587 1402}}
 
 # ToolBar settings
 gui_set_toolbar_attributes -toolbar {TimeOperations} -dock_state top
@@ -118,7 +118,7 @@ gui_sync_global -id ${TopLevel.2} -option true
 # MDI window settings
 set Wave.1 [gui_create_window -type {Wave}  -parent ${TopLevel.2}]
 gui_show_window -window ${Wave.1} -show_state maximized
-gui_update_layout -id ${Wave.1} {{show_state maximized} {dock_state undocked} {dock_on_new_line false} {child_wave_left 425} {child_wave_right 1037} {child_wave_colname 210} {child_wave_colvalue 211} {child_wave_col1 0} {child_wave_col2 1}}
+gui_update_layout -id ${Wave.1} {{show_state maximized} {dock_state undocked} {dock_on_new_line false} {child_wave_left 743} {child_wave_right 1811} {child_wave_colname 360} {child_wave_colvalue 379} {child_wave_col1 0} {child_wave_col2 1}}
 
 # End MDI window settings
 
@@ -164,13 +164,17 @@ gui_set_time_units 1ps
 # Global: Signal Compare
 
 # Global: Signal Groups
+gui_load_child_values {TB.core}
+gui_load_child_values {TB.core.rf}
+gui_load_child_values {TB.core.ALU}
+gui_load_child_values {TB.core.Decoder}
 
 
-set _session_group_2 Group1
-gui_sg_create "$_session_group_2"
-set Group1 "$_session_group_2"
+set _session_group_8 Group1
+gui_sg_create "$_session_group_8"
+set Group1 "$_session_group_8"
 
-gui_sg_addsignal -group "$_session_group_2" { TB.core.clock TB.core.reset_n TB.core.RAM_write_en TB.core.stall TB.core.halt TB.core.stall_D TB.core.flush_E TB.core.flush_W TB.core.flush_DE TB.core.pc_F TB.core.pc_1_F TB.core.next_pc_F TB.core.pc_E TB.core.pc_D TB.core.alu_out_E TB.core.instr_D TB.core.rs1_data_D TB.core.rs2_data_D TB.core.IO_read_data_D TB.core.wr1_data_W TB.core.wr2_data_W TB.core.ctrl_D TB.core.ctrl_E TB.core.ctrl_F TB.core.ctrl_W TB.core.rs1_data_E TB.core.rs2_data_E TB.core.alu_src2_E TB.core.alu_out_W TB.core.RAM_read_address TB.core.RAM_write_address }
+gui_sg_addsignal -group "$_session_group_8" { TB.core.clock TB.core.reset_n TB.core.stall_D TB.core.flush_E TB.core.flush_W TB.core.flush_DE TB.core.branch_E TB.core.rs1_data_D TB.core.rs2_data_D TB.core.ctrl_D TB.core.ctrl_E TB.core.ctrl_F TB.core.ctrl_W TB.core.alu_src1_E TB.core.rs1rs2_data_E TB.core.alu_src2_E TB.core.alu_out_W TB.core.ALU.operation_sel TB.core.ALU.source_1 TB.core.ALU.source_2 TB.core.ALU.res_div_quot TB.core.ALU.res_div_remain TB.core.rs1_data_E TB.core.rs2_data_E TB.core.rf.reg_A TB.core.rf.reg_L TB.core.rf.reg_Q TB.core.rf.reg_BB TB.core.rf.reg_CYR TB.core.rf.reg_SR TB.core.rf.reg_CYL TB.core.rf.reg_SL TB.core.rf.reg_TIME1 TB.core.rf.reg_TIME2 TB.core.rf.wr1_en TB.core.rf.wr2_en TB.core.rf.wr1_data TB.core.rf.wr2_data TB.core.rf.rs1_sel TB.core.rf.rs2_sel TB.core.rf.wr1_sel TB.core.rf.wr2_sel TB.core.rf.rs1_data TB.core.rf.rs2_data TB.core.Decoder.is_reg TB.core.ALU.alu_div.numer TB.core.ALU.alu_div.denom TB.core.ALU.alu_div.numer TB.core.ALU.alu_div.denom TB.core.ALU.alu_div.quot TB.core.ALU.alu_div.remain TB.core.ALU.alu_div.underflow_flag TB.core.ALU.alu_div.quot_twos_comp_pre TB.core.ALU.alu_div.numer_twos_comp TB.core.ALU.alu_div.quot_twos_comp TB.core.ALU.alu_div.remain_twos_comp TB.core.ALU.alu_div.denom_twos_comp TB.core.ALU.alu_div.underflow_flag_pre }
 
 # Global: Highlighting
 
@@ -180,7 +184,7 @@ gui_change_stack_mode -mode list
 # Post database loading setting...
 
 # Restore C1 time
-gui_set_time -C1_only 165
+gui_set_time -C1_only 215
 
 
 
@@ -208,8 +212,10 @@ gui_list_set_height -id Wave -height 25
 set origGroupCreationState [gui_list_create_group_when_add -wave]
 gui_list_create_group_when_add -wave -disable
 gui_marker_set_ref -id ${Wave.1}  C1
-gui_wv_zoom_timerange -id ${Wave.1} 0 339
+gui_wv_zoom_timerange -id ${Wave.1} 0 597
 gui_list_add_group -id ${Wave.1} -after {New Group} {Group1}
+gui_list_expand -id ${Wave.1} TB.core.ctrl_D
+gui_list_select -id ${Wave.1} {TB.core.ctrl_D.halt }
 gui_seek_criteria -id ${Wave.1} {Any Edge}
 
 
@@ -227,8 +233,8 @@ gui_list_set_filter -id ${Wave.1} -list { {Buffer 1} {Input 1} {Others 1} {Linka
 gui_list_set_filter -id ${Wave.1} -text {*}
 gui_list_set_insertion_bar  -id ${Wave.1} -group Group1  -position in
 
-gui_marker_move -id ${Wave.1} {C1} 165
-gui_view_scroll -id ${Wave.1} -vertical -set 258
+gui_marker_move -id ${Wave.1} {C1} 215
+gui_view_scroll -id ${Wave.1} -vertical -set 898
 gui_show_grid -id ${Wave.1} -enable false
 # Restore toplevel window zorder
 # The toplevel window could be closed if it has no view/pane
