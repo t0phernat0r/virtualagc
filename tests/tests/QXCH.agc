@@ -5,7 +5,7 @@ Q                               EQUALS          2
 EBANK                           EQUALS          3
 FBANK                           EQUALS          4
 BBANK                           EQUALS          5
-ZERO                            EQUALS          6                                   # (DTCB) AND DXCH FBANK (DTCF).
+Z                               EQUALS          6                                   # (DTCB) AND DXCH FBANK (DTCF).
 CYR                             EQUALS          7
 SR                              EQUALS          8
 CYL                             EQUALS          9
@@ -125,7 +125,7 @@ STARTUP                         CA   OTHER
                                 EXTEND
                                 QXCH   50
                                 EXTEND
-                                ZQ
+                                QXCH   Z
                                 EXTEND
                                 DCA  50
                                 
