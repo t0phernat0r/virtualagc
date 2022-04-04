@@ -1,82 +1,28 @@
 Chronologic VCS simulator copyright 1991-2015
 Contains Synopsys proprietary information.
-Compiler version K-2015.09_Full64; Runtime version K-2015.09_Full64;  Apr  4 13:10 2022
+Compiler version K-2015.09_Full64; Runtime version K-2015.09_Full64;  Apr  4 14:59 2022
 VCD+ Writer K-2015.09_Full64 Copyright (c) 1991-2015 by Synopsys Inc.
 The file '/afs/ece.cmu.edu/usr/cabernar/Private/capstone/virtualagc/sv/inter.vpd' was opened successfully.
 RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 243, for TB.core.Decoder, at time     0.
+        "decode.sv", line 246, for TB.core.Decoder, at time     0.
 RT Warning: No condition matches in 'unique case' statement.
         "lib.sv", line 184, for countFSM, at time     0.
 RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 539, for TB.core.addr.translate_pc, at time     0.
+        "lib.sv", line 540, for TB.core.addr.translate_pc, at time     0.
 RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 574, for TB.core.addr.translate_r.translate_read_RAM, at time     0.
+        "lib.sv", line 575, for TB.core.addr.translate_r.translate_read_RAM, at time     0.
 RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 539, for TB.core.addr.translate_r.translate_read_ROM, at time     0.
+        "lib.sv", line 540, for TB.core.addr.translate_r.translate_read_ROM, at time     0.
 RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 574, for TB.core.addr.translate_w.translate_write_RAM, at time     0.
+        "lib.sv", line 575, for TB.core.addr.translate_w.translate_write_RAM, at time     0.
 RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 243, for TB.core.Decoder, at time     0.
+        "decode.sv", line 246, for TB.core.Decoder, at time     0.
 RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 688, for TB.core.ALU, at time     0.
+        "lib.sv", line 689, for TB.core.ALU, at time     0.
 RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 243, for TB.core.Decoder, at time     1.
+        "decode.sv", line 246, for TB.core.Decoder, at time     1.
 RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 243, for TB.core.Decoder, at time     1.
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
+        "decode.sv", line 246, for TB.core.Decoder, at time     1.
 A = 00000
 L = 00000
 Q = 00000
@@ -176,7 +122,7 @@ SR = 00000
 SL = 00000
 TIME1 = 00000
 TIME2 = 00000
-A = 00000
+A = 00002
 L = 00000
 Q = 00000
 BB = 00xxx
@@ -185,7 +131,7 @@ SR = 00000
 SL = 00000
 TIME1 = 00000
 TIME2 = 00000
-A = 00000
+A = 00002
 L = 00000
 Q = 00000
 BB = 00xxx
@@ -194,7 +140,7 @@ SR = 00000
 SL = 00000
 TIME1 = 00000
 TIME2 = 00000
-A = 00000
+A = 00002
 L = 00000
 Q = 00000
 BB = 00xxx
@@ -203,7 +149,7 @@ SR = 00000
 SL = 00000
 TIME1 = 00000
 TIME2 = 00000
-A = 00000
+A = 00002
 L = 00000
 Q = 00000
 BB = 00xxx
@@ -212,7 +158,7 @@ SR = 00000
 SL = 00000
 TIME1 = 00000
 TIME2 = 00000
-A = 00000
+A = 00002
 L = 00000
 Q = 00000
 BB = 00xxx
@@ -221,7 +167,7 @@ SR = 00000
 SL = 00000
 TIME1 = 00000
 TIME2 = 00000
-A = 00000
+A = 00002
 L = 00000
 Q = 00000
 BB = 00xxx
@@ -230,7 +176,7 @@ SR = 00000
 SL = 00000
 TIME1 = 00000
 TIME2 = 00000
-A = 00000
+A = 00006
 L = 00000
 Q = 00000
 BB = 00xxx
@@ -239,7 +185,7 @@ SR = 00000
 SL = 00000
 TIME1 = 00000
 TIME2 = 00000
-A = 00000
+A = 00006
 L = 00000
 Q = 00000
 BB = 00xxx
@@ -248,7 +194,7 @@ SR = 00000
 SL = 00000
 TIME1 = 00000
 TIME2 = 00000
-A = 00000
+A = 00007
 L = 00000
 Q = 00000
 BB = 00xxx
@@ -257,70 +203,7 @@ SR = 00000
 SL = 00000
 TIME1 = 00000
 TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
+A = 00007
 L = 00000
 Q = 00000
 BB = 00xxx
@@ -330,89 +213,469 @@ SL = 00000
 TIME1 = 00000
 TIME2 = 00000
 $finish called from file "top.sv", line 71.
-$finish at simulation time                  335
-Simulation complete, time is 335 ps.
+$finish at simulation time                  205
+Simulation complete, time is 205 ps.
+Chronologic VCS simulator copyright 1991-2015
+Contains Synopsys proprietary information.
+Compiler version K-2015.09_Full64; Runtime version K-2015.09_Full64;  Apr  4 15:06 2022
+VCD+ Writer K-2015.09_Full64 Copyright (c) 1991-2015 by Synopsys Inc.
+The file '/afs/ece.cmu.edu/usr/cabernar/Private/capstone/virtualagc/sv/inter.vpd' was opened successfully.
+RT Warning: No condition matches in 'unique case' statement.
+        "decode.sv", line 246, for TB.core.Decoder, at time     0.
+RT Warning: No condition matches in 'unique case' statement.
+        "lib.sv", line 184, for countFSM, at time     0.
+RT Warning: No condition matches in 'unique case' statement.
+        "lib.sv", line 540, for TB.core.addr.translate_pc, at time     0.
+RT Warning: No condition matches in 'unique case' statement.
+        "lib.sv", line 575, for TB.core.addr.translate_r.translate_read_RAM, at time     0.
+RT Warning: No condition matches in 'unique case' statement.
+        "lib.sv", line 540, for TB.core.addr.translate_r.translate_read_ROM, at time     0.
+RT Warning: No condition matches in 'unique case' statement.
+        "lib.sv", line 575, for TB.core.addr.translate_w.translate_write_RAM, at time     0.
+RT Warning: No condition matches in 'unique case' statement.
+        "decode.sv", line 246, for TB.core.Decoder, at time     0.
+RT Warning: No condition matches in 'unique case' statement.
+        "lib.sv", line 689, for TB.core.ALU, at time     0.
+RT Warning: No condition matches in 'unique case' statement.
+        "decode.sv", line 246, for TB.core.Decoder, at time     1.
+RT Warning: No condition matches in 'unique case' statement.
+        "decode.sv", line 246, for TB.core.Decoder, at time     1.
+A = 00000
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00000
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00000
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00000
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00000
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00000
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00000
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00000
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00002
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00002
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00002
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00002
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00002
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00002
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00002
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00002
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00002
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00006
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00006
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00007
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00007
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+$finish called from file "top.sv", line 71.
+$finish at simulation time                  205
+Simulation complete, time is 205 ps.
+Chronologic VCS simulator copyright 1991-2015
+Contains Synopsys proprietary information.
+Compiler version K-2015.09_Full64; Runtime version K-2015.09_Full64;  Apr  4 15:14 2022
+VCD+ Writer K-2015.09_Full64 Copyright (c) 1991-2015 by Synopsys Inc.
+The file '/afs/ece.cmu.edu/usr/cabernar/Private/capstone/virtualagc/sv/inter.vpd' was opened successfully.
+RT Warning: No condition matches in 'unique case' statement.
+        "decode.sv", line 246, for TB.core.Decoder, at time     0.
+RT Warning: No condition matches in 'unique case' statement.
+        "lib.sv", line 184, for countFSM, at time     0.
+RT Warning: No condition matches in 'unique case' statement.
+        "lib.sv", line 540, for TB.core.addr.translate_pc, at time     0.
+RT Warning: No condition matches in 'unique case' statement.
+        "lib.sv", line 575, for TB.core.addr.translate_r.translate_read_RAM, at time     0.
+RT Warning: No condition matches in 'unique case' statement.
+        "lib.sv", line 540, for TB.core.addr.translate_r.translate_read_ROM, at time     0.
+RT Warning: No condition matches in 'unique case' statement.
+        "lib.sv", line 575, for TB.core.addr.translate_w.translate_write_RAM, at time     0.
+RT Warning: No condition matches in 'unique case' statement.
+        "decode.sv", line 246, for TB.core.Decoder, at time     0.
+RT Warning: No condition matches in 'unique case' statement.
+        "lib.sv", line 689, for TB.core.ALU, at time     0.
+RT Warning: No condition matches in 'unique case' statement.
+        "decode.sv", line 246, for TB.core.Decoder, at time     1.
+RT Warning: No condition matches in 'unique case' statement.
+        "decode.sv", line 246, for TB.core.Decoder, at time     1.
+A = 00000
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00000
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00000
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00000
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00000
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00000
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00000
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00000
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00002
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00002
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00002
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00002
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00002
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00002
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00002
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00002
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00002
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00006
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00006
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00007
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+A = 00007
+L = 00000
+Q = 00000
+BB = 00xxx
+CYR = 00000
+SR = 00000
+SL = 00000
+TIME1 = 00000
+TIME2 = 00000
+$finish called from file "top.sv", line 71.
+$finish at simulation time                  205
+Simulation complete, time is 205 ps.
 Note-[RT_BS] Larger stack needed
   Note: Bumping stack limit from 8192 to 8193 Kbytes.
 Chronologic VCS simulator copyright 1991-2015
 Contains Synopsys proprietary information.
-Compiler version K-2015.09_Full64; Runtime version K-2015.09_Full64;  Apr  4 13:16 2022
+Compiler version K-2015.09_Full64; Runtime version K-2015.09_Full64;  Apr  4 15:31 2022
 VCD+ Writer K-2015.09_Full64 Copyright (c) 1991-2015 by Synopsys Inc.
 The file '/afs/ece.cmu.edu/usr/cabernar/Private/capstone/virtualagc/sv/inter.vpd' was opened successfully.
 RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 243, for TB.core.Decoder, at time     0.
+        "decode.sv", line 246, for TB.core.Decoder, at time     0.
 RT Warning: No condition matches in 'unique case' statement.
         "lib.sv", line 184, for countFSM, at time     0.
 RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 539, for TB.core.addr.translate_pc, at time     0.
+        "lib.sv", line 540, for TB.core.addr.translate_pc, at time     0.
 RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 574, for TB.core.addr.translate_r.translate_read_RAM, at time     0.
+        "lib.sv", line 575, for TB.core.addr.translate_r.translate_read_RAM, at time     0.
 RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 539, for TB.core.addr.translate_r.translate_read_ROM, at time     0.
+        "lib.sv", line 540, for TB.core.addr.translate_r.translate_read_ROM, at time     0.
 RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 574, for TB.core.addr.translate_w.translate_write_RAM, at time     0.
+        "lib.sv", line 575, for TB.core.addr.translate_w.translate_write_RAM, at time     0.
 RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 243, for TB.core.Decoder, at time     0.
+        "decode.sv", line 246, for TB.core.Decoder, at time     0.
 RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 688, for TB.core.ALU, at time     0.
+        "lib.sv", line 689, for TB.core.ALU, at time     0.
 RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 243, for TB.core.Decoder, at time     1.
+        "decode.sv", line 246, for TB.core.Decoder, at time     1.
 RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 243, for TB.core.Decoder, at time     1.
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
+        "decode.sv", line 246, for TB.core.Decoder, at time     1.
 A = 00000
 L = 00000
 Q = 00000
@@ -512,25 +775,7 @@ SR = 00000
 SL = 00000
 TIME1 = 00000
 TIME2 = 00000
-A = 00000
-L = 00020
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00020
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00020
+A = 00002
 L = 00000
 Q = 00000
 BB = 00xxx
@@ -539,7 +784,7 @@ SR = 00000
 SL = 00000
 TIME1 = 00000
 TIME2 = 00000
-A = 00020
+A = 00002
 L = 00000
 Q = 00000
 BB = 00xxx
@@ -548,7 +793,7 @@ SR = 00000
 SL = 00000
 TIME1 = 00000
 TIME2 = 00000
-A = 00020
+A = 00002
 L = 00000
 Q = 00000
 BB = 00xxx
@@ -557,52 +802,7 @@ SR = 00000
 SL = 00000
 TIME1 = 00000
 TIME2 = 00000
-A = 77777
-L = 77757
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77777
-L = 77757
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77757
-L = 77777
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77757
-L = 77777
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77757
-L = 77777
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
+A = 00002
 L = 00000
 Q = 00000
 BB = 00xxx
@@ -611,7 +811,7 @@ SR = 00000
 SL = 00000
 TIME1 = 00000
 TIME2 = 00000
-A = 00000
+A = 00002
 L = 00000
 Q = 00000
 BB = 00xxx
@@ -620,7 +820,7 @@ SR = 00000
 SL = 00000
 TIME1 = 00000
 TIME2 = 00000
-A = 00000
+A = 00002
 L = 00000
 Q = 00000
 BB = 00xxx
@@ -629,7 +829,7 @@ SR = 00000
 SL = 00000
 TIME1 = 00000
 TIME2 = 00000
-A = 00000
+A = 00003
 L = 00000
 Q = 00000
 BB = 00xxx
@@ -638,25 +838,7 @@ SR = 00000
 SL = 00000
 TIME1 = 00000
 TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
+A = 00003
 L = 00000
 Q = 00000
 BB = 00xxx
@@ -666,2021 +848,5 @@ SL = 00000
 TIME1 = 00000
 TIME2 = 00000
 $finish called from file "top.sv", line 71.
-$finish at simulation time                  335
-Simulation complete, time is 335 ps.
-Note-[RT_BS] Larger stack needed
-  Note: Bumping stack limit from 8192 to 8193 Kbytes.
-Chronologic VCS simulator copyright 1991-2015
-Contains Synopsys proprietary information.
-Compiler version K-2015.09_Full64; Runtime version K-2015.09_Full64;  Apr  4 13:19 2022
-VCD+ Writer K-2015.09_Full64 Copyright (c) 1991-2015 by Synopsys Inc.
-The file '/afs/ece.cmu.edu/usr/cabernar/Private/capstone/virtualagc/sv/inter.vpd' was opened successfully.
-RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 243, for TB.core.Decoder, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 184, for countFSM, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 539, for TB.core.addr.translate_pc, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 574, for TB.core.addr.translate_r.translate_read_RAM, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 539, for TB.core.addr.translate_r.translate_read_ROM, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 574, for TB.core.addr.translate_w.translate_write_RAM, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 243, for TB.core.Decoder, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 688, for TB.core.ALU, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 243, for TB.core.Decoder, at time     1.
-RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 243, for TB.core.Decoder, at time     1.
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00002
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00002
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00002
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00020
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00020
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00020
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00020
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00020
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77777
-L = 77757
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77777
-L = 77757
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77757
-L = 77777
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77757
-L = 77777
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77757
-L = 77777
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-$finish called from file "top.sv", line 71.
-$finish at simulation time                  335
-Simulation complete, time is 335 ps.
-Note-[RT_BS] Larger stack needed
-  Note: Bumping stack limit from 8192 to 8193 Kbytes.
-Chronologic VCS simulator copyright 1991-2015
-Contains Synopsys proprietary information.
-Compiler version K-2015.09_Full64; Runtime version K-2015.09_Full64;  Apr  4 13:33 2022
-VCD+ Writer K-2015.09_Full64 Copyright (c) 1991-2015 by Synopsys Inc.
-The file '/afs/ece.cmu.edu/usr/cabernar/Private/capstone/virtualagc/sv/inter.vpd' was opened successfully.
-RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 246, for TB.core.Decoder, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 184, for countFSM, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 539, for TB.core.addr.translate_pc, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 574, for TB.core.addr.translate_r.translate_read_RAM, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 539, for TB.core.addr.translate_r.translate_read_ROM, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 574, for TB.core.addr.translate_w.translate_write_RAM, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 246, for TB.core.Decoder, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 688, for TB.core.ALU, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 246, for TB.core.Decoder, at time     1.
-RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 246, for TB.core.Decoder, at time     1.
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00002
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00002
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00002
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00020
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00020
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00020
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00020
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00020
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77777
-L = 77757
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77777
-L = 77757
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77757
-L = 77777
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77757
-L = 77777
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77757
-L = 77777
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00400
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00400
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00400
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00400
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00400
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77600
-L = 00377
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77600
-L = 00377
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-$finish called from file "top.sv", line 71.
-$finish at simulation time                  335
-Simulation complete, time is 335 ps.
-Note-[RT_BS] Larger stack needed
-  Note: Bumping stack limit from 8192 to 8193 Kbytes.
-Chronologic VCS simulator copyright 1991-2015
-Contains Synopsys proprietary information.
-Compiler version K-2015.09_Full64; Runtime version K-2015.09_Full64;  Apr  4 13:39 2022
-VCD+ Writer K-2015.09_Full64 Copyright (c) 1991-2015 by Synopsys Inc.
-The file '/afs/ece.cmu.edu/usr/cabernar/Private/capstone/virtualagc/sv/inter.vpd' was opened successfully.
-RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 246, for TB.core.Decoder, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 184, for countFSM, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 539, for TB.core.addr.translate_pc, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 574, for TB.core.addr.translate_r.translate_read_RAM, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 539, for TB.core.addr.translate_r.translate_read_ROM, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 574, for TB.core.addr.translate_w.translate_write_RAM, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 246, for TB.core.Decoder, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 688, for TB.core.ALU, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 246, for TB.core.Decoder, at time     1.
-RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 246, for TB.core.Decoder, at time     1.
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00002
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00002
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00002
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00020
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00020
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00020
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00020
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00020
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77777
-L = 77757
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77777
-L = 77757
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77757
-L = 77777
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77757
-L = 77777
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77757
-L = 77777
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00400
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00400
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00400
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00400
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00400
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77600
-L = 00377
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77600
-L = 00377
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-$finish called from file "top.sv", line 71.
-$finish at simulation time                  335
-Simulation complete, time is 335 ps.
-Note-[RT_BS] Larger stack needed
-  Note: Bumping stack limit from 8192 to 8193 Kbytes.
-Chronologic VCS simulator copyright 1991-2015
-Contains Synopsys proprietary information.
-Compiler version K-2015.09_Full64; Runtime version K-2015.09_Full64;  Apr  4 13:40 2022
-VCD+ Writer K-2015.09_Full64 Copyright (c) 1991-2015 by Synopsys Inc.
-The file '/afs/ece.cmu.edu/usr/cabernar/Private/capstone/virtualagc/sv/inter.vpd' was opened successfully.
-RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 246, for TB.core.Decoder, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 184, for countFSM, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 539, for TB.core.addr.translate_pc, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 574, for TB.core.addr.translate_r.translate_read_RAM, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 539, for TB.core.addr.translate_r.translate_read_ROM, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 574, for TB.core.addr.translate_w.translate_write_RAM, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 246, for TB.core.Decoder, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 688, for TB.core.ALU, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 246, for TB.core.Decoder, at time     1.
-RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 246, for TB.core.Decoder, at time     1.
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00002
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00002
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00002
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00020
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00020
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00020
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00020
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00020
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77777
-L = 77757
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77777
-L = 77757
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77757
-L = 77777
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77757
-L = 77777
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77757
-L = 77777
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00400
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00400
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00400
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00400
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00400
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77600
-L = 00377
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77600
-L = 00377
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-$finish called from file "top.sv", line 71.
-$finish at simulation time                  335
-Simulation complete, time is 335 ps.
-Note-[RT_BS] Larger stack needed
-  Note: Bumping stack limit from 8192 to 8193 Kbytes.
-Chronologic VCS simulator copyright 1991-2015
-Contains Synopsys proprietary information.
-Compiler version K-2015.09_Full64; Runtime version K-2015.09_Full64;  Apr  4 13:46 2022
-VCD+ Writer K-2015.09_Full64 Copyright (c) 1991-2015 by Synopsys Inc.
-The file '/afs/ece.cmu.edu/usr/cabernar/Private/capstone/virtualagc/sv/inter.vpd' was opened successfully.
-RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 246, for TB.core.Decoder, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 184, for countFSM, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 539, for TB.core.addr.translate_pc, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 574, for TB.core.addr.translate_r.translate_read_RAM, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 539, for TB.core.addr.translate_r.translate_read_ROM, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 574, for TB.core.addr.translate_w.translate_write_RAM, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 246, for TB.core.Decoder, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 688, for TB.core.ALU, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 246, for TB.core.Decoder, at time     1.
-RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 246, for TB.core.Decoder, at time     1.
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00002
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00002
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00002
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00020
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00020
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00020
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00020
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00020
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77777
-L = 77757
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77777
-L = 77757
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77757
-L = 77777
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77757
-L = 77777
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77757
-L = 77777
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00400
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00400
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00400
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00400
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00400
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77600
-L = 00377
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77600
-L = 00377
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-$finish called from file "top.sv", line 71.
-$finish at simulation time                  335
-Simulation complete, time is 335 ps.
-Note-[RT_BS] Larger stack needed
-  Note: Bumping stack limit from 8192 to 8193 Kbytes.
-Chronologic VCS simulator copyright 1991-2015
-Contains Synopsys proprietary information.
-Compiler version K-2015.09_Full64; Runtime version K-2015.09_Full64;  Apr  4 13:47 2022
-VCD+ Writer K-2015.09_Full64 Copyright (c) 1991-2015 by Synopsys Inc.
-The file '/afs/ece.cmu.edu/usr/cabernar/Private/capstone/virtualagc/sv/inter.vpd' was opened successfully.
-RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 246, for TB.core.Decoder, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 184, for countFSM, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 539, for TB.core.addr.translate_pc, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 574, for TB.core.addr.translate_r.translate_read_RAM, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 539, for TB.core.addr.translate_r.translate_read_ROM, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 574, for TB.core.addr.translate_w.translate_write_RAM, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 246, for TB.core.Decoder, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "lib.sv", line 688, for TB.core.ALU, at time     0.
-RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 246, for TB.core.Decoder, at time     1.
-RT Warning: No condition matches in 'unique case' statement.
-        "decode.sv", line 246, for TB.core.Decoder, at time     1.
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00002
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00002
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00002
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00020
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00020
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00020
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00020
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00020
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77777
-L = 77757
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77777
-L = 77757
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77757
-L = 77777
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77757
-L = 77777
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77757
-L = 77777
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00400
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00000
-L = 00400
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00400
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00400
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 00400
-L = 00000
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77600
-L = 00377
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-A = 77600
-L = 00377
-Q = 00000
-BB = 00xxx
-CYR = 00000
-SR = 00000
-SL = 00000
-TIME1 = 00000
-TIME2 = 00000
-$finish called from file "top.sv", line 71.
-$finish at simulation time                  335
-Simulation complete, time is 335 ps.
+$finish at simulation time                  185
+Simulation complete, time is 185 ps.

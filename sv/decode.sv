@@ -360,6 +360,10 @@ module decode
              2'd0 : begin
                ctrl.index = NEXTEND;
                index1 = 1'b1;
+               ctrl.rs2_sel = instr_F[3:0];
+                 if(is_reg) begin
+                 ctrl.alu_src2 = RS2_DATA2;
+               end
              end
              2'd2 : begin
                //TCAA

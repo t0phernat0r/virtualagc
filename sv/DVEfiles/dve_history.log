@@ -4,30 +4,31 @@ gui_create_pref_key -category {Globals} -key {load_detail_for_funcov} -value_typ
 # State setting overrides
 gui_state_default_create -off -ini
 gui_set_state_value -category Globals -key recent_sessions -value {{gui_load_session -ignore_errors -file /afs/ece.cmu.edu/usr/cabernar/Private/capstone/virtualagc/sv/DVEfiles//crash_03.30-10.55/dve_session03.30-10.55.tcl} {gui_load_session -ignore_errors -file /afs/ece.cmu.edu/usr/cabernar/Private/capstone/virtualagc/sv/DVEfiles//crash_03.30-10.53/dve_session03.30-10.53.tcl} {gui_load_session -ignore_errors -file /afs/ece.cmu.edu/usr/cabernar/Private/capstone/virtualagc/sv/DVEfiles//crash_03.30-10.52/dve_session03.30-10.52.tcl}}
-gui_set_state_value -category Layout -key child_console_size_x -value 2287
-gui_set_state_value -category Layout -key child_console_size_y -value 161
-gui_set_state_value -category Layout -key child_data_size_x -value 184
+gui_set_state_value -category Layout -key child_console_size_x -value 2285
+gui_set_state_value -category Layout -key child_console_size_y -value 159
+gui_set_state_value -category Layout -key child_data_size_x -value 182
 gui_set_state_value -category Layout -key child_data_size_y -value 953
 gui_set_state_value -category Layout -key child_driver_size_x -value 1216
 gui_set_state_value -category Layout -key child_driver_size_y -value 179
 gui_set_state_value -category Layout -key child_hier_col3 -value {-1}
 gui_set_state_value -category Layout -key child_hier_colpd -value 0
+gui_set_state_value -category Layout -key child_hier_size_x -value 173
 gui_set_state_value -category Layout -key child_hier_size_y -value 953
 gui_set_state_value -category Layout -key child_list_down -value 179
 gui_set_state_value -category Layout -key child_list_right -value 444
 gui_set_state_value -category Layout -key child_source_docknewline -value false
 gui_set_state_value -category Layout -key child_source_pos_x -value {-2}
 gui_set_state_value -category Layout -key child_source_pos_y -value {-15}
-gui_set_state_value -category Layout -key child_source_size_x -value 1931
+gui_set_state_value -category Layout -key child_source_size_x -value 1933
 gui_set_state_value -category Layout -key child_source_size_y -value 948
-gui_set_state_value -category Layout -key child_wave_colname -value 154
-gui_set_state_value -category Layout -key child_wave_colvalue -value 354
-gui_set_state_value -category Layout -key child_wave_left -value 512
-gui_set_state_value -category Layout -key child_wave_right -value 1771
+gui_set_state_value -category Layout -key child_wave_colname -value 360
+gui_set_state_value -category Layout -key child_wave_colvalue -value 379
+gui_set_state_value -category Layout -key child_wave_left -value 743
+gui_set_state_value -category Layout -key child_wave_right -value 1811
 gui_set_state_value -category Layout -key main_pos_x -value 1
-gui_set_state_value -category Layout -key main_pos_y -value 75
-gui_set_state_value -category Layout -key main_size_x -value 2288
-gui_set_state_value -category Layout -key main_size_y -value 1264
+gui_set_state_value -category Layout -key main_pos_y -value 149
+gui_set_state_value -category Layout -key main_size_x -value 2286
+gui_set_state_value -category Layout -key main_size_y -value 1336
 gui_set_state_value -category Layout -key stand_list_child_pos_x -value {-2}
 gui_set_state_value -category Layout -key stand_list_child_pos_y -value {-15}
 gui_set_state_value -category Layout -key stand_list_child_size_x -value 604
@@ -38,12 +39,12 @@ gui_set_state_value -category Layout -key stand_list_top_size_y -value 530
 gui_set_state_value -category Layout -key stand_wave_child_docknewline -value false
 gui_set_state_value -category Layout -key stand_wave_child_pos_x -value {-2}
 gui_set_state_value -category Layout -key stand_wave_child_pos_y -value {-15}
-gui_set_state_value -category Layout -key stand_wave_child_size_x -value 2293
-gui_set_state_value -category Layout -key stand_wave_child_size_y -value 1139
-gui_set_state_value -category Layout -key stand_wave_top_pos_x -value 63
-gui_set_state_value -category Layout -key stand_wave_top_pos_y -value 106
-gui_set_state_value -category Layout -key stand_wave_top_size_x -value 2351
-gui_set_state_value -category Layout -key stand_wave_top_size_y -value 1325
+gui_set_state_value -category Layout -key stand_wave_child_size_x -value 2564
+gui_set_state_value -category Layout -key stand_wave_child_size_y -value 1256
+gui_set_state_value -category Layout -key stand_wave_top_pos_x -value 60
+gui_set_state_value -category Layout -key stand_wave_top_pos_y -value 66
+gui_set_state_value -category Layout -key stand_wave_top_size_x -value 2619
+gui_set_state_value -category Layout -key stand_wave_top_size_y -value 1402
 gui_create_state_key -category FindDialog -key m_pMatchCase -value_type bool -value false
 gui_create_state_key -category FindDialog -key m_pMatchWord -value_type bool -value false
 gui_create_state_key -category FindDialog -key m_pUseCombo -value_type string -value {}
@@ -57,91 +58,58 @@ gui_state_default_create -off
 
 # Begin command logging
 gui_sim_run Ucli -exe ./simv -args {-ucligui  } -dir .
-gui_list_select -id Hier.1 -current_item_name counter -current_item_type Scope  -selected  { counter   }
-gui_list_select -id Hier.1 -current_item_name countFSM -current_item_type Scope  -selected  { countFSM   }
-gui_list_select -id Hier.1 -current_item_name decoder -current_item_type Scope  -selected  { decoder   }
-gui_list_select -id Hier.1 -current_item_name TB -current_item_type Scope  -selected  { TB   }
 gui_list_expand -id  Hier.1   TB
 gui_list_select -id Hier.1 -current_item_name TB.core -current_item_type Scope  -selected  { TB.core   }
 gui_list_select -id Data.1 -selected  { TB.core.clock   }
 gui_list_select -id Data.1 -selected  { TB.core.clock  TB.core.reset_n   }
-gui_list_select -id Data.1 -selected  { TB.core.clock  TB.core.reset_n  TB.core.ctrl_D   }
-gui_list_select -id Data.1 -selected  { TB.core.clock  TB.core.reset_n  TB.core.ctrl_D  TB.core.ctrl_F   }
-gui_list_select -id Data.1 -selected  { TB.core.clock  TB.core.reset_n  TB.core.ctrl_D  TB.core.ctrl_F  TB.core.ctrl_E   }
-gui_list_select -id Data.1 -selected  { TB.core.clock  TB.core.reset_n  TB.core.ctrl_D  TB.core.ctrl_E   }
-gui_list_select -id Data.1 -selected  { TB.core.clock  TB.core.reset_n  TB.core.ctrl_D  TB.core.ctrl_E  TB.core.ctrl_W   }
-gui_list_select -id Data.1 -selected  { TB.core.clock  TB.core.reset_n  TB.core.ctrl_D  TB.core.ctrl_E  TB.core.ctrl_W  {TB.core.rs1_data_E[14:0]}   }
-gui_list_select -id Data.1 -selected  { TB.core.clock  TB.core.reset_n  TB.core.ctrl_D  TB.core.ctrl_E  TB.core.ctrl_W  {TB.core.rs1_data_E[14:0]}  {TB.core.rs2_data_E[14:0]}   }
-gui_list_select -id Data.1 -selected  { TB.core.clock  TB.core.reset_n  TB.core.ctrl_D  TB.core.ctrl_E  TB.core.ctrl_W  {TB.core.rs1_data_E[14:0]}  {TB.core.rs2_data_E[14:0]}  {TB.core.rs1rs2_data_E[29:0]}   }
-gui_list_select -id Data.1 -selected  { TB.core.clock  TB.core.reset_n  TB.core.ctrl_D  TB.core.ctrl_E  TB.core.ctrl_W  {TB.core.rs1_data_E[14:0]}  {TB.core.rs2_data_E[14:0]}   }
-gui_list_select -id Data.1 -selected  { TB.core.clock  TB.core.reset_n  TB.core.ctrl_D  TB.core.ctrl_E  TB.core.ctrl_W  {TB.core.rs1_data_E[14:0]}  {TB.core.rs2_data_E[14:0]}  {TB.core.alu_src2_E[14:0]}   }
-gui_list_select -id Data.1 -selected  { TB.core.clock  TB.core.reset_n  TB.core.ctrl_D  TB.core.ctrl_E  TB.core.ctrl_W  {TB.core.rs1_data_E[14:0]}  {TB.core.rs2_data_E[14:0]}  {TB.core.alu_src2_E[14:0]}  {TB.core.alu_src1_E[29:0]}   }
-gui_list_select -id Data.1 -selected  { TB.core.clock  TB.core.reset_n  TB.core.ctrl_D  TB.core.ctrl_E  TB.core.ctrl_W  {TB.core.rs1_data_E[14:0]}  {TB.core.rs2_data_E[14:0]}  {TB.core.alu_src2_E[14:0]}  {TB.core.alu_src1_E[29:0]}  {TB.core.alu_out_W[29:0]}   }
-gui_list_select -id Data.1 { TB.core.stall   }
-gui_list_select -id Data.1 { TB.core.IO_write_en   }
-gui_list_select -id Data.1 { TB.core.IO_write_en   }
+gui_list_select -id Data.1 -selected  { TB.core.clock  TB.core.reset_n  TB.core.stall_D   }
+gui_list_select -id Data.1 -selected  { TB.core.clock  TB.core.reset_n  TB.core.stall_D  TB.core.flush_E   }
+gui_list_select -id Data.1 -selected  { TB.core.clock  TB.core.reset_n  TB.core.stall_D  TB.core.flush_E  TB.core.flush_W   }
+gui_list_select -id Data.1 -selected  { TB.core.clock  TB.core.reset_n  TB.core.stall_D  TB.core.flush_E  TB.core.flush_W  TB.core.flush_DE   }
+gui_list_select -id Data.1 -selected  { TB.core.clock  TB.core.reset_n  TB.core.stall_D  TB.core.flush_E  TB.core.flush_W   }
+gui_list_select -id Data.1 -selected  { TB.core.clock  TB.core.reset_n  TB.core.stall_D  TB.core.flush_E  TB.core.flush_W  TB.core.flush_DE   }
+gui_list_select -id Data.1 -selected  { TB.core.clock  TB.core.reset_n  TB.core.stall_D  TB.core.flush_E  TB.core.flush_W  TB.core.flush_DE  TB.core.branch_E   }
+gui_list_select -id Data.1 -selected  { TB.core.clock  TB.core.reset_n  TB.core.stall_D  TB.core.flush_E  TB.core.flush_W  TB.core.flush_DE  TB.core.branch_E  TB.core.stall   }
+gui_list_select -id Data.1 -selected  { TB.core.clock  TB.core.reset_n  TB.core.stall_D  TB.core.flush_E  TB.core.flush_W  TB.core.flush_DE  TB.core.branch_E   }
+gui_list_select -id Data.1 -selected  { TB.core.clock  TB.core.reset_n  TB.core.stall_D  TB.core.flush_E  TB.core.flush_W  TB.core.flush_DE  TB.core.branch_E  TB.core.ctrl_D   }
+gui_list_select -id Data.1 -selected  { TB.core.clock  TB.core.reset_n  TB.core.stall_D  TB.core.flush_E  TB.core.flush_W  TB.core.flush_DE  TB.core.branch_E  TB.core.ctrl_D  TB.core.ctrl_E   }
+gui_list_select -id Data.1 -selected  { TB.core.clock  TB.core.reset_n  TB.core.stall_D  TB.core.flush_E  TB.core.flush_W  TB.core.flush_DE  TB.core.branch_E  TB.core.ctrl_D  TB.core.ctrl_E  TB.core.ctrl_F   }
+gui_list_select -id Data.1 { TB.core.ctrl_W   }
+gui_list_select -id Data.1 { {TB.core.alu_src2_E[14:0]}   }
+gui_list_select -id Data.1 { {TB.core.alu_src1_E[29:0]}   }
 gui_open_window Wave
-gui_list_add -id Wave.1 -from Data.1 { TB.core.clock TB.core.reset_n TB.core.stall TB.core.ctrl_D TB.core.ctrl_E TB.core.ctrl_W {TB.core.rs1_data_E[14:0]} {TB.core.rs2_data_E[14:0]} {TB.core.alu_src1_E[29:0]} {TB.core.alu_src2_E[14:0]} {TB.core.alu_out_W[29:0]} } -insertionbar
+gui_list_add -id Wave.1 -from Data.1 { TB.core.clock TB.core.reset_n TB.core.stall_D TB.core.flush_E TB.core.flush_W TB.core.flush_DE TB.core.branch_E TB.core.ctrl_D TB.core.ctrl_E TB.core.ctrl_F TB.core.ctrl_W {TB.core.alu_src1_E[29:0]} {TB.core.alu_src2_E[14:0]} } -insertionbar
 gui_sim_continue  
-gui_marker_move -id  Wave.1 C1 145
 gui_list_expand -id  Wave.1   TB.core.ctrl_E
-gui_sim_restart
-gui_sim_continue  
-gui_marker_move -id  Wave.1 C1 145
-gui_list_expand -id  Wave.1   {TB.core.alu_out_W[29:0]}
-gui_list_collapse -id  Wave.1   {TB.core.alu_out_W[29:0]}
-gui_marker_move -id  Wave.1 C1 145
-gui_marker_move -id  Wave.1 C1 155
-gui_marker_move -id  Wave.1 C1 155
-gui_marker_move -id  Wave.1 C1 145
+gui_marker_move -id  Wave.1 C1 95
+gui_list_select -id Hier.1 -current_item_name TB.ram -current_item_type Scope  -selected  { TB.ram   }
+gui_list_select -id Hier.1 -current_item_name TB.rom -current_item_type Scope  -selected  { TB.rom   }
+gui_list_select -id Hier.1 -current_item_name TB.ram -current_item_type Scope  -selected  { TB.ram   }
+gui_list_select -id Hier.1 -current_item_name TB.rom -current_item_type Scope  -selected  { TB.rom   }
+gui_list_select -id Hier.1 -current_item_name TB.core -current_item_type Scope  -selected  { TB.core   }
 gui_list_expand -id  Hier.1   TB.core
-gui_list_select -id Hier.1 -current_item_name TB.core.rf -current_item_type Scope  -selected  { TB.core  TB.core.rf   }
-gui_list_select -id Data.1 -selected  { {TB.core.rf.reg_A[14:0]}   }
-gui_list_select -id Data.1 -selected  { {TB.core.rf.reg_A[14:0]}  {TB.core.rf.reg_L[14:0]}  {TB.core.rf.reg_Q[14:0]}  {TB.core.rf.reg_BB[14:0]}  {TB.core.rf.reg_CYR[14:0]}  {TB.core.rf.reg_SR[14:0]}  {TB.core.rf.reg_CYL[14:0]}  {TB.core.rf.reg_SL[14:0]}  {TB.core.rf.reg_TIME1[14:0]}  {TB.core.rf.reg_TIME2[14:0]}   }
-gui_list_add -id Wave.1 -from Data.1 { {TB.core.rf.reg_A[14:0]} {TB.core.rf.reg_L[14:0]} {TB.core.rf.reg_Q[14:0]} {TB.core.rf.reg_BB[14:0]} {TB.core.rf.reg_CYR[14:0]} {TB.core.rf.reg_SR[14:0]} {TB.core.rf.reg_CYL[14:0]} {TB.core.rf.reg_SL[14:0]} {TB.core.rf.reg_TIME1[14:0]} {TB.core.rf.reg_TIME2[14:0]} } -insertionbar
+gui_list_select -id Hier.1 -current_item_name TB.core.Decoder -current_item_type Scope  -selected  { TB.core.Decoder   }
+gui_list_select -id Data.1 -selected  { TB.core.Decoder.index1   }
+gui_list_select -id Data.1 -selected  { TB.core.Decoder.index1  TB.core.Decoder.index2   }
+gui_list_select -id Data.1 -selected  { TB.core.Decoder.index1  TB.core.Decoder.index2  {TB.core.Decoder.index_data[14:0]}   }
+gui_list_add -id Wave.1 -from Data.1 { {TB.core.Decoder.index_data[14:0]} TB.core.Decoder.index1 TB.core.Decoder.index2 } -insertionbar
 gui_sim_restart
 gui_sim_continue  
-gui_marker_move -id  Wave.1 C1 205
-gui_marker_move -id  Wave.1 C1 255
-gui_marker_move -id  Wave.1 C1 245
+gui_marker_move -id  Wave.1 C1 65
+gui_marker_move -id  Wave.1 C1 75
+gui_marker_move -id  Wave.1 C1 55
+gui_list_select -id Hier.1 -current_item_name TB.core -current_item_type Scope  -selected  { TB.core   }
+gui_list_select -id Data.1 -selected  { {TB.core.pc_F[11:0]}   }
+gui_list_select -id Data.1 -selected  { {TB.core.pc_F[11:0]}  {TB.core.pc_1_F[11:0]}   }
+gui_list_select -id Data.1 -selected  { {TB.core.pc_F[11:0]}  {TB.core.pc_1_F[11:0]}  {TB.core.next_pc_F[11:0]}   }
+gui_list_select -id Data.1 -selected  { {TB.core.pc_F[11:0]}  {TB.core.pc_1_F[11:0]}  {TB.core.next_pc_F[11:0]}  {TB.core.pc_E[11:0]}   }
+gui_list_select -id Data.1 -selected  { {TB.core.pc_F[11:0]}  {TB.core.pc_1_F[11:0]}  {TB.core.next_pc_F[11:0]}  {TB.core.pc_E[11:0]}  {TB.core.pc_D[11:0]}   }
+gui_list_add -id Wave.1 -from Data.1 { {TB.core.pc_F[11:0]} {TB.core.pc_1_F[11:0]} {TB.core.next_pc_F[11:0]} {TB.core.pc_E[11:0]} {TB.core.pc_D[11:0]} } -insertionbar
 gui_sim_restart
 gui_sim_continue  
-gui_marker_move -id  Wave.1 C1 225
-gui_marker_move -id  Wave.1 C1 255
-gui_marker_move -id  Wave.1 C1 315
-gui_marker_move -id  Wave.1 C1 305
-gui_marker_move -id  Wave.1 C1 305
-gui_marker_move -id  Wave.1 C1 305
-gui_marker_move -id  Wave.1 C1 305
-gui_list_select -id Hier.1 -current_item_name TB.core.ALU -current_item_type Scope  -selected  { TB.core.ALU   }
-gui_list_select -id Data.1 -selected  { {TB.core.ALU.res_mult[29:0]}   }
-gui_list_add -id Wave.1 -from Data.1 { {TB.core.ALU.res_mult[29:0]} } -insertionbar
+gui_marker_move -id  Wave.1 C1 55
+gui_list_collapse -id  Wave.1   TB.core.ctrl_E
+gui_list_expand -id  Wave.1   TB.core.ctrl_D
+gui_marker_move -id  Wave.1 C1 65
 gui_sim_restart
 gui_sim_continue  
-gui_list_expand -id  Hier.1   TB.core.ALU
-gui_list_select -id Hier.1 -current_item_name TB.core.ALU.alu_mult -current_item_type Scope  -selected  { TB.core.ALU.alu_mult   }
-gui_list_select -id Data.1 -selected  { {TB.core.ALU.alu_mult.prod[29:0]}   }
-gui_list_select -id Data.1 -selected  { {TB.core.ALU.alu_mult.prod[29:0]}  {TB.core.ALU.alu_mult.prod_twos_comp[29:0]}   }
-gui_list_select -id Data.1 -selected  { {TB.core.ALU.alu_mult.prod_twos_comp[29:0]}   }
-gui_list_select -id Data.1 -selected  { {TB.core.ALU.alu_mult.prod_twos_comp[29:0]}  {TB.core.ALU.alu_mult.prod[29:0]}   }
-gui_list_add -id Wave.1 -from Data.1 { {TB.core.ALU.alu_mult.prod[29:0]} {TB.core.ALU.alu_mult.prod_twos_comp[29:0]} } -insertionbar
-gui_marker_move -id  Wave.1 C1 518
-gui_sim_restart
-gui_sim_continue  
-gui_marker_move -id  Wave.1 C1 305
-gui_list_select -id Data.1 -selected  { {TB.core.ALU.alu_mult.x_twos_comp[14:0]}   }
-gui_list_select -id Data.1 -selected  { {TB.core.ALU.alu_mult.x_twos_comp[14:0]}  {TB.core.ALU.alu_mult.y_twos_comp[14:0]}   }
-gui_list_add -id Wave.1 -from Data.1 { {TB.core.ALU.alu_mult.x_twos_comp[14:0]} {TB.core.ALU.alu_mult.y_twos_comp[14:0]} } -insertionbar
-gui_sim_restart
-gui_sim_continue  
-gui_marker_move -id  Wave.1 C1 295
-gui_list_select -id Data.1 -selected  { {TB.core.ALU.alu_mult.x[14:0]}   }
-gui_list_select -id Data.1 -selected  { {TB.core.ALU.alu_mult.x[14:0]}  {TB.core.ALU.alu_mult.y[14:0]}   }
-gui_open_window Wave
-gui_list_add -id Wave.2 -from Data.1 { {TB.core.ALU.alu_mult.x[14:0]} {TB.core.ALU.alu_mult.y[14:0]} } -insertionbar
-gui_wv_zoom_timerange -id  Wave.2 0 597
-gui_close_window -window TopLevel.3
-gui_list_add -id Wave.1 -from Data.1 { {TB.core.ALU.alu_mult.x[14:0]} {TB.core.ALU.alu_mult.y[14:0]} } -insertionbar
-gui_sim_restart
-gui_sim_continue  
-gui_close_window -window TopLevel.2
