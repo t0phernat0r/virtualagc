@@ -677,7 +677,7 @@ module arithmetic_logic_unit
    output logic res_eq_0);
 
   logic [14:0] res_add_sub, res_div_quot, res_div_remain,
-               add_sub_src_1;
+               add_sub_src_1, add_sub_src_2;
   logic [29:0] res_mult; 
   logic sel_subtract;
 
@@ -689,16 +689,19 @@ module arithmetic_logic_unit
       ALU_AD: begin
         sel_subtract = 1'b0;
         add_sub_src_1 = source_1[14:0];
+        add_sub_src_2 = source_2;
         result[29:15] = res_add_sub;
       end
       ALU_SU: begin
         sel_subtract = 1'b1;
         add_sub_src_1 = source_1[14:0];
+        add_sub_src_2 = source_2;
         result[29:15] = res_add_sub;
       end
       ALU_AUG: begin
         sel_subtract = source_2[14];
-        add_sub_src_1 = 15'd1;
+        add_sub_src_1 = source_1[14:0];
+        add_sub_src_2 = 15'd1;
         result[29:15] = res_add_sub;
       end
       ALU_COM: begin
@@ -719,7 +722,8 @@ module arithmetic_logic_unit
         end
         else begin
           sel_subtract = ~source_2[14];
-          add_sub_src_1 = 15'd1;
+          add_sub_src_1 = source_1[14:0];
+          add_sub_src_2 = 15'd1;
           result[29:15] = res_add_sub;
         end
       end
@@ -746,13 +750,13 @@ module arithmetic_logic_unit
     endcase
 
     // Set the zero flag
-    res_eq_0 = (source_2 == 15'd0 || source_2 == 15'h7FFF);
+    res_eq_0 = (source_2 == 15'd0 || source_2 == 15'o777);
 
   end
 
   ones_comp_add_sub alu_add_sub (.sum(res_add_sub),
                                  .x(add_sub_src_1),
-                                 .y(source_2),
+                                 .y(add_sub_src_2),
                                  .subtract(sel_subtract));
 
   ones_comp_mult alu_mult (.prod(res_mult),
