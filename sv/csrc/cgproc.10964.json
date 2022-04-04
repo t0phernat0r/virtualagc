@@ -1,0 +1,108 @@
+{
+    "Modules": {
+        "...MASTER...": {},
+        "decoder": {},
+        "IO_register_file": {
+            "Compiled": "Yes",
+            "Compiled Times": 2
+        },
+        "TB": {
+            "Compiled": "Yes",
+            "Compiled Times": 2
+        },
+        "countFSM": {},
+        "addr_translate_ROM": {
+            "Compiled": "Yes",
+            "Compiled Times": 2
+        },
+        "addr_translate_RAM": {
+            "Compiled": "Yes",
+            "Compiled Times": 2
+        },
+        "full_adder": {},
+        "agc_rom_new": {},
+        "counter": {},
+        "_vcs_unit__546175923": {
+            "Compiled": "Yes",
+            "Compiled Times": 2
+        }
+    },
+    "CompUnits": {
+        "amcQw_d": {
+            "bytes": 9490,
+            "mod": "...MASTER...",
+            "checksum": 4294967295,
+            "out": "objs/amcQw_d.o",
+            "mode": 4
+        },
+        "I9T3V_d": {
+            "bytes": 16726,
+            "mod": "addr_translate_ROM",
+            "checksum": 4294967295,
+            "out": "I9T3V_d.o",
+            "mode": 4,
+            "archive": "archive.1/_10964_archive_1.a"
+        },
+        "e2KCL_d": {
+            "bytes": 30368,
+            "mod": "IO_register_file",
+            "checksum": 4294967295,
+            "out": "e2KCL_d.o",
+            "mode": 4,
+            "archive": "archive.1/_10964_archive_1.a"
+        },
+        "sH4Fc_d": {
+            "bytes": 21950,
+            "mod": "TB",
+            "checksum": 4294967295,
+            "out": "sH4Fc_d.o",
+            "mode": 4,
+            "archive": "archive.1/_10964_archive_1.a"
+        },
+        "A8YZN_d": {
+            "bytes": 15686,
+            "mod": "addr_translate_RAM",
+            "checksum": 4294967295,
+            "out": "A8YZN_d.o",
+            "mode": 4,
+            "archive": "archive.1/_10964_archive_1.a"
+        },
+        "fAMCB_d": {
+            "bytes": 51530,
+            "mod": "_vcs_unit__546175923",
+            "checksum": 4294967295,
+            "out": "fAMCB_d.o",
+            "mode": 4,
+            "archive": "archive.1/_10964_archive_1.a"
+        }
+    },
+    "reusePaths": {},
+    "ObjArchives": [
+        {
+            "archive": "archive.1/_10964_archive_1.a",
+            "objects": [
+                [
+                    "e2KCL_d.o",
+                    30368
+                ],
+                [
+                    "sH4Fc_d.o",
+                    21950
+                ],
+                [
+                    "I9T3V_d.o",
+                    16726
+                ],
+                [
+                    "A8YZN_d.o",
+                    15686
+                ],
+                [
+                    "fAMCB_d.o",
+                    51530
+                ]
+            ],
+            "size": 136260
+        }
+    ]
+}
