@@ -1,24 +1,298 @@
 {
+    "SIMBData": {
+        "bytes": 87920,
+        "out": "amcQwB.o"
+    },
     "MlibObjs": {},
+    "PrevCompiledModules": {
+        "_vcs_unit__1064167090": {
+            "vAiv4_d": {
+                "out": "vAiv4_d.o",
+                "mode": 4,
+                "bytes": 55089,
+                "mod": "_vcs_unit__1064167090",
+                "checksum": 4294967295,
+                "archive": "archive.24/_prev_archive_1.a"
+            }
+        },
+        "altsyncram_0000": {
+            "Q0s3L_d": {
+                "out": "Q0s3L_d.o",
+                "mode": 4,
+                "bytes": 151443,
+                "mod": "altsyncram_0000",
+                "checksum": 4294967295,
+                "archive": "archive.24/_prev_archive_1.a"
+            }
+        },
+        "mux_0003": {
+            "F6CNF_d": {
+                "out": "F6CNF_d.o",
+                "mode": 4,
+                "bytes": 9982,
+                "mod": "mux_0003",
+                "checksum": 4294967295,
+                "archive": "archive.24/_prev_archive_1.a"
+            }
+        },
+        "TB": {
+            "sH4Fc_d": {
+                "out": "sH4Fc_d.o",
+                "mode": 4,
+                "bytes": 21951,
+                "mod": "TB",
+                "checksum": 4294967295,
+                "archive": "archive.24/_prev_archive_1.a"
+            }
+        },
+        "ripple_carry_adder_0000": {
+            "nr2NV_d": {
+                "out": "nr2NV_d.o",
+                "mode": 4,
+                "bytes": 25916,
+                "mod": "ripple_carry_adder_0000",
+                "checksum": 4294967295,
+                "archive": "archive.24/_prev_archive_1.a"
+            }
+        },
+        "ripple_carry_adder_0001": {
+            "SfNSy_d": {
+                "out": "SfNSy_d.o",
+                "mode": 4,
+                "bytes": 42507,
+                "mod": "ripple_carry_adder_0001",
+                "checksum": 4294967295,
+                "archive": "archive.24/_prev_archive_1.a"
+            }
+        },
+        "ALTERA_MF_MEMORY_INITIALIZATION": {
+            "er73t_d": {
+                "out": "er73t_d.o",
+                "mode": 4,
+                "bytes": 183305,
+                "mod": "ALTERA_MF_MEMORY_INITIALIZATION",
+                "checksum": 4294967295,
+                "archive": "archive.24/_prev_archive_1.a"
+            }
+        },
+        "addr_translate_RAM": {
+            "A8YZN_d": {
+                "out": "A8YZN_d.o",
+                "mode": 4,
+                "bytes": 15687,
+                "mod": "addr_translate_RAM",
+                "checksum": 4294967295,
+                "archive": "archive.24/_prev_archive_1.a"
+            }
+        },
+        "std": {
+            "reYIK_d": {
+                "out": "reYIK_d.o",
+                "mode": 4,
+                "bytes": 35440,
+                "mod": "std",
+                "checksum": 4294967295,
+                "archive": "archive.24/_prev_archive_1.a"
+            }
+        },
+        "countFSM": {
+            "Bb4h8_d": {
+                "out": "Bb4h8_d.o",
+                "mode": 4,
+                "bytes": 17664,
+                "mod": "countFSM",
+                "checksum": 4294967295,
+                "archive": "archive.24/_prev_archive_1.a"
+            }
+        },
+        "ALTERA_DEVICE_FAMILIES": {
+            "uFC8u_d": {
+                "out": "uFC8u_d.o",
+                "mode": 4,
+                "bytes": 424110,
+                "mod": "ALTERA_DEVICE_FAMILIES",
+                "checksum": 4294967295,
+                "archive": "archive.24/_prev_archive_1.a"
+            }
+        },
+        "addr_translate_ROM": {
+            "I9T3V_d": {
+                "out": "I9T3V_d.o",
+                "mode": 4,
+                "bytes": 16727,
+                "mod": "addr_translate_ROM",
+                "checksum": 4294967295,
+                "archive": "archive.24/_prev_archive_1.a"
+            }
+        },
+        "counter": {
+            "MQn6b_d": {
+                "out": "MQn6b_d.o",
+                "mode": 4,
+                "bytes": 9917,
+                "mod": "counter",
+                "checksum": 4294967295,
+                "archive": "archive.24/_prev_archive_1.a"
+            }
+        },
+        "Core": {
+            "fsHFs_d": {
+                "out": "fsHFs_d.o",
+                "mode": 4,
+                "bytes": 293502,
+                "mod": "Core",
+                "checksum": 4294967295,
+                "archive": "archive.24/_14467_archive_1.a"
+            }
+        },
+        "convert_1c_2c": {
+            "EHhqJ_d": {
+                "out": "EHhqJ_d.o",
+                "mode": 4,
+                "bytes": 27767,
+                "mod": "convert_1c_2c",
+                "checksum": 4294967295,
+                "archive": "archive.24/_prev_archive_1.a"
+            }
+        },
+        "agc_rom_new": {
+            "YaxfH_d": {
+                "out": "YaxfH_d.o",
+                "mode": 4,
+                "bytes": 8543,
+                "mod": "agc_rom_new",
+                "checksum": 4294967295,
+                "archive": "archive.24/_prev_archive_1.a"
+            }
+        },
+        "...MASTER...": {
+            "amcQw_d": {
+                "mode": 4,
+                "out": "objs/amcQw_d.o",
+                "bytes": 9490,
+                "mod": "...MASTER...",
+                "checksum": 4294967295
+            }
+        },
+        "full_adder": {
+            "BEdzp_d": {
+                "out": "BEdzp_d.o",
+                "mode": 4,
+                "bytes": 12326,
+                "mod": "full_adder",
+                "checksum": 4294967295,
+                "archive": "archive.24/_prev_archive_1.a"
+            }
+        },
+        "agc_ram": {
+            "DvDiU_d": {
+                "out": "DvDiU_d.o",
+                "mode": 4,
+                "bytes": 131144,
+                "mod": "agc_ram",
+                "checksum": 4294967295,
+                "archive": "archive.24/_prev_archive_1.a"
+            }
+        },
+        "addr_translate": {
+            "gfxiy_d": {
+                "out": "gfxiy_d.o",
+                "mode": 4,
+                "bytes": 21112,
+                "mod": "addr_translate",
+                "checksum": 4294967295,
+                "archive": "archive.24/_prev_archive_1.a"
+            }
+        },
+        "branching_logic": {
+            "Bp0Dn_d": {
+                "out": "Bp0Dn_d.o",
+                "mode": 4,
+                "bytes": 11452,
+                "mod": "branching_logic",
+                "checksum": 4294967295,
+                "archive": "archive.24/_prev_archive_1.a"
+            }
+        },
+        "decoder": {
+            "zf0bY_d": {
+                "out": "zf0bY_d.o",
+                "mode": 4,
+                "bytes": 10212,
+                "mod": "decoder",
+                "checksum": 4294967295,
+                "archive": "archive.24/_prev_archive_1.a"
+            }
+        },
+        "IO_register_file": {
+            "e2KCL_d": {
+                "out": "e2KCL_d.o",
+                "mode": 4,
+                "bytes": 29069,
+                "mod": "IO_register_file",
+                "checksum": 4294967295,
+                "archive": "archive.24/_prev_archive_1.a"
+            }
+        },
+        "LPM_HINT_EVALUATION": {
+            "ReME5_d": {
+                "out": "ReME5_d.o",
+                "mode": 4,
+                "bytes": 18331,
+                "mod": "LPM_HINT_EVALUATION",
+                "checksum": 4294967295,
+                "archive": "archive.24/_prev_archive_1.a"
+            }
+        }
+    },
+    "stat": {
+        "ru_self_cgstart": {
+            "ru_utime_sec": 0.43134499999999998,
+            "ru_stime_sec": 0.058774,
+            "ru_maxrss_kb": 59660,
+            "ru_minflt": 16677,
+            "ru_majflt": 0,
+            "ru_nivcsw": 14,
+            "ru_nvcsw": 268
+        },
+        "nQuads": 22,
+        "ru_childs_cgstart": {
+            "ru_utime_sec": 0.0035929999999999998,
+            "ru_stime_sec": 0.0075040000000000003,
+            "ru_maxrss_kb": 14988,
+            "ru_minflt": 2249,
+            "ru_majflt": 0,
+            "ru_nivcsw": 8,
+            "ru_nvcsw": 6
+        },
+        "ru_self_end": {
+            "ru_utime_sec": 0.43780599999999997,
+            "ru_stime_sec": 0.081406000000000006,
+            "ru_maxrss_kb": 65528,
+            "ru_minflt": 19211,
+            "ru_majflt": 0,
+            "ru_nivcsw": 14,
+            "ru_nvcsw": 369
+        },
+        "ru_childs_end": {
+            "ru_utime_sec": 0.127169,
+            "ru_stime_sec": 0.047160000000000001,
+            "ru_maxrss_kb": 32604,
+            "ru_minflt": 12876,
+            "ru_majflt": 0,
+            "ru_nivcsw": 8,
+            "ru_nvcsw": 139
+        },
+        "nMops": 19,
+        "totalObjSize": 97410,
+        "CodeGen(%)": 1.4757678058318056,
+        "outputSizePerQuad": 4427.0,
+        "Frontend(%)": 98.524232194168192
+    },
     "NameTable": {
-        "TB": [
-            "TB",
-            "sH4Fc",
-            "module"
-        ],
         "_vcs_unit__1064167090": [
             "_vcs_unit__1064167090",
             "vAiv4",
-            "module"
-        ],
-        "agc_rom_new": [
-            "agc_rom_new",
-            "YaxfH",
-            "module"
-        ],
-        "addr_translate": [
-            "addr_translate",
-            "gfxiy",
             "module"
         ],
         "std": [
@@ -26,59 +300,9 @@
             "reYIK",
             "module"
         ],
-        "counter": [
-            "counter",
-            "MQn6b",
-            "module"
-        ],
-        "Core": [
-            "Core",
-            "fsHFs",
-            "module"
-        ],
-        "agc_ram": [
-            "agc_ram",
-            "DvDiU",
-            "module"
-        ],
-        "ripple_carry_adder_0001": [
-            "ripple_carry_adder_0001",
-            "SfNSy",
-            "module"
-        ],
-        "mux_0003": [
-            "mux_0003",
-            "F6CNF",
-            "module"
-        ],
         "addr_translate_RAM": [
             "addr_translate_RAM",
             "A8YZN",
-            "module"
-        ],
-        "ripple_carry_adder_0000": [
-            "ripple_carry_adder_0000",
-            "nr2NV",
-            "module"
-        ],
-        "...MASTER...": [
-            "SIM",
-            "amcQw",
-            "module"
-        ],
-        "full_adder": [
-            "full_adder",
-            "BEdzp",
-            "module"
-        ],
-        "addr_translate_ROM": [
-            "addr_translate_ROM",
-            "I9T3V",
-            "module"
-        ],
-        "decoder": [
-            "decoder",
-            "zf0bY",
             "module"
         ],
         "ALTERA_DEVICE_FAMILIES": [
@@ -91,24 +315,29 @@
             "Bb4h8",
             "module"
         ],
-        "IO_register_file": [
-            "IO_register_file",
-            "e2KCL",
+        "Core": [
+            "Core",
+            "fsHFs",
             "module"
         ],
-        "branching_logic": [
-            "branching_logic",
-            "Bp0Dn",
+        "agc_rom_new": [
+            "agc_rom_new",
+            "YaxfH",
             "module"
         ],
-        "convert_1c_2c": [
-            "convert_1c_2c",
-            "EHhqJ",
+        "counter": [
+            "counter",
+            "MQn6b",
             "module"
         ],
-        "LPM_HINT_EVALUATION": [
-            "LPM_HINT_EVALUATION",
-            "ReME5",
+        "addr_translate_ROM": [
+            "addr_translate_ROM",
+            "I9T3V",
+            "module"
+        ],
+        "agc_ram": [
+            "agc_ram",
+            "DvDiU",
             "module"
         ],
         "altsyncram_0000": [
@@ -116,329 +345,100 @@
             "Q0s3L",
             "module"
         ],
+        "mux_0003": [
+            "mux_0003",
+            "F6CNF",
+            "module"
+        ],
+        "decoder": [
+            "decoder",
+            "zf0bY",
+            "module"
+        ],
+        "...MASTER...": [
+            "SIM",
+            "amcQw",
+            "module"
+        ],
+        "full_adder": [
+            "full_adder",
+            "BEdzp",
+            "module"
+        ],
+        "IO_register_file": [
+            "IO_register_file",
+            "e2KCL",
+            "module"
+        ],
+        "addr_translate": [
+            "addr_translate",
+            "gfxiy",
+            "module"
+        ],
+        "branching_logic": [
+            "branching_logic",
+            "Bp0Dn",
+            "module"
+        ],
+        "ripple_carry_adder_0000": [
+            "ripple_carry_adder_0000",
+            "nr2NV",
+            "module"
+        ],
         "ALTERA_MF_MEMORY_INITIALIZATION": [
             "ALTERA_MF_MEMORY_INITIALIZATION",
             "er73t",
             "module"
+        ],
+        "ripple_carry_adder_0001": [
+            "ripple_carry_adder_0001",
+            "SfNSy",
+            "module"
+        ],
+        "convert_1c_2c": [
+            "convert_1c_2c",
+            "EHhqJ",
+            "module"
+        ],
+        "TB": [
+            "TB",
+            "sH4Fc",
+            "module"
+        ],
+        "LPM_HINT_EVALUATION": [
+            "LPM_HINT_EVALUATION",
+            "ReME5",
+            "module"
         ]
     },
-    "PrevCompiledModules": {
-        "_vcs_unit__1064167090": {
-            "vAiv4_d": {
-                "mod": "_vcs_unit__1064167090",
-                "bytes": 55089,
-                "out": "vAiv4_d.o",
-                "mode": 4,
-                "checksum": 4294967295,
-                "archive": "archive.3/_prev_archive_1.a"
-            }
-        },
-        "TB": {
-            "sH4Fc_d": {
-                "mod": "TB",
-                "bytes": 21951,
-                "out": "sH4Fc_d.o",
-                "mode": 4,
-                "checksum": 4294967295,
-                "archive": "archive.3/_prev_archive_1.a"
-            }
-        },
-        "...MASTER...": {
-            "amcQw_d": {
-                "mod": "...MASTER...",
-                "bytes": 9490,
-                "out": "objs/amcQw_d.o",
-                "mode": 4,
-                "checksum": 4294967295
-            }
-        },
-        "full_adder": {
-            "BEdzp_d": {
-                "mod": "full_adder",
-                "bytes": 12326,
-                "out": "BEdzp_d.o",
-                "mode": 4,
-                "checksum": 4294967295,
-                "archive": "archive.3/_prev_archive_1.a"
-            }
-        },
-        "addr_translate_RAM": {
-            "A8YZN_d": {
-                "mod": "addr_translate_RAM",
-                "bytes": 15687,
-                "out": "A8YZN_d.o",
-                "mode": 4,
-                "checksum": 4294967295,
-                "archive": "archive.3/_prev_archive_1.a"
-            }
-        },
-        "ripple_carry_adder_0001": {
-            "SfNSy_d": {
-                "mod": "ripple_carry_adder_0001",
-                "bytes": 42507,
-                "out": "SfNSy_d.o",
-                "mode": 4,
-                "checksum": 4294967295,
-                "archive": "archive.3/_prev_archive_1.a"
-            }
-        },
-        "ripple_carry_adder_0000": {
-            "nr2NV_d": {
-                "mod": "ripple_carry_adder_0000",
-                "bytes": 25916,
-                "out": "nr2NV_d.o",
-                "mode": 4,
-                "checksum": 4294967295,
-                "archive": "archive.3/_prev_archive_1.a"
-            }
-        },
-        "mux_0003": {
-            "F6CNF_d": {
-                "mod": "mux_0003",
-                "bytes": 9982,
-                "out": "F6CNF_d.o",
-                "mode": 4,
-                "checksum": 4294967295,
-                "archive": "archive.3/_prev_archive_1.a"
-            }
-        },
-        "countFSM": {
-            "Bb4h8_d": {
-                "mod": "countFSM",
-                "bytes": 17664,
-                "out": "Bb4h8_d.o",
-                "mode": 4,
-                "checksum": 4294967295,
-                "archive": "archive.3/_prev_archive_1.a"
-            }
-        },
-        "ALTERA_DEVICE_FAMILIES": {
-            "uFC8u_d": {
-                "mod": "ALTERA_DEVICE_FAMILIES",
-                "bytes": 424110,
-                "out": "uFC8u_d.o",
-                "mode": 4,
-                "checksum": 4294967295,
-                "archive": "archive.3/_prev_archive_1.a"
-            }
-        },
-        "addr_translate_ROM": {
-            "I9T3V_d": {
-                "mod": "addr_translate_ROM",
-                "bytes": 16727,
-                "out": "I9T3V_d.o",
-                "mode": 4,
-                "checksum": 4294967295,
-                "archive": "archive.3/_prev_archive_1.a"
-            }
-        },
-        "Core": {
-            "fsHFs_d": {
-                "mod": "Core",
-                "bytes": 290759,
-                "out": "fsHFs_d.o",
-                "mode": 4,
-                "checksum": 4294967295,
-                "archive": "archive.3/_prev_archive_1.a"
-            }
-        },
-        "counter": {
-            "MQn6b_d": {
-                "mod": "counter",
-                "bytes": 9917,
-                "out": "MQn6b_d.o",
-                "mode": 4,
-                "checksum": 4294967295,
-                "archive": "archive.3/_prev_archive_1.a"
-            }
-        },
-        "ALTERA_MF_MEMORY_INITIALIZATION": {
-            "er73t_d": {
-                "mod": "ALTERA_MF_MEMORY_INITIALIZATION",
-                "bytes": 183305,
-                "out": "er73t_d.o",
-                "mode": 4,
-                "checksum": 4294967295,
-                "archive": "archive.3/_prev_archive_1.a"
-            }
-        },
-        "addr_translate": {
-            "gfxiy_d": {
-                "mod": "addr_translate",
-                "bytes": 21112,
-                "out": "gfxiy_d.o",
-                "mode": 4,
-                "checksum": 4294967295,
-                "archive": "archive.3/_prev_archive_1.a"
-            }
-        },
-        "agc_rom_new": {
-            "YaxfH_d": {
-                "mod": "agc_rom_new",
-                "bytes": 8543,
-                "out": "YaxfH_d.o",
-                "mode": 4,
-                "checksum": 4294967295,
-                "archive": "archive.3/_prev_archive_1.a"
-            }
-        },
-        "std": {
-            "reYIK_d": {
-                "mod": "std",
-                "bytes": 35440,
-                "out": "reYIK_d.o",
-                "mode": 4,
-                "checksum": 4294967295,
-                "archive": "archive.3/_prev_archive_1.a"
-            }
-        },
-        "convert_1c_2c": {
-            "EHhqJ_d": {
-                "mod": "convert_1c_2c",
-                "bytes": 27767,
-                "out": "EHhqJ_d.o",
-                "mode": 4,
-                "checksum": 4294967295,
-                "archive": "archive.3/_prev_archive_1.a"
-            }
-        },
-        "agc_ram": {
-            "DvDiU_d": {
-                "mod": "agc_ram",
-                "bytes": 131144,
-                "out": "DvDiU_d.o",
-                "mode": 4,
-                "checksum": 4294967295,
-                "archive": "archive.3/_prev_archive_1.a"
-            }
-        },
-        "altsyncram_0000": {
-            "Q0s3L_d": {
-                "mod": "altsyncram_0000",
-                "bytes": 151439,
-                "out": "Q0s3L_d.o",
-                "mode": 4,
-                "checksum": 4294967295,
-                "archive": "archive.3/_prev_archive_1.a"
-            }
-        },
-        "branching_logic": {
-            "Bp0Dn_d": {
-                "mod": "branching_logic",
-                "bytes": 11364,
-                "out": "Bp0Dn_d.o",
-                "mode": 4,
-                "checksum": 4294967295,
-                "archive": "archive.3/_prev_archive_1.a"
-            }
-        },
-        "decoder": {
-            "zf0bY_d": {
-                "mod": "decoder",
-                "bytes": 10212,
-                "out": "zf0bY_d.o",
-                "mode": 4,
-                "checksum": 4294967295,
-                "archive": "archive.3/_prev_archive_1.a"
-            }
-        },
-        "IO_register_file": {
-            "e2KCL_d": {
-                "mod": "IO_register_file",
-                "bytes": 29069,
-                "out": "e2KCL_d.o",
-                "mode": 4,
-                "checksum": 4294967295,
-                "archive": "archive.3/_prev_archive_1.a"
-            }
-        },
-        "LPM_HINT_EVALUATION": {
-            "ReME5_d": {
-                "mod": "LPM_HINT_EVALUATION",
-                "bytes": 18331,
-                "out": "ReME5_d.o",
-                "mode": 4,
-                "checksum": 4294967295,
-                "archive": "archive.3/_prev_archive_1.a"
-            }
-        }
+    "CompileStrategy": "fullobj",
+    "CurCompileUdps": {},
+    "CurCompileModules": [
+        "...MASTER..."
+    ],
+    "Misc": {
+        "cwd": "/afs/ece.cmu.edu/usr/cabernar/Private/capstone/virtualagc/sv",
+        "daidir_abs": "/afs/ece.cmu.edu/usr/cabernar/Private/capstone/virtualagc/sv/simv.daidir",
+        "csrc": "csrc",
+        "daidir": "/afs/ece.cmu.edu/usr/cabernar/Private/capstone/virtualagc/sv/simv.daidir",
+        "csrc_abs": "/afs/ece.cmu.edu/usr/cabernar/Private/capstone/virtualagc/sv/csrc",
+        "archive_dir": "archive.24",
+        "default_output_dir": "csrc"
     },
     "LVLData": [
         "SIM"
     ],
-    "CurCompileModules": [
-        "...MASTER..."
-    ],
-    "CompileStrategy": "fullobj",
-    "stat": {
-        "ru_self_cgstart": {
-            "ru_nivcsw": 13,
-            "ru_nvcsw": 434,
-            "ru_majflt": 0,
-            "ru_utime_sec": 0.44232199999999999,
-            "ru_minflt": 16187,
-            "ru_stime_sec": 0.064779000000000003,
-            "ru_maxrss_kb": 62276
-        },
-        "nMops": 19,
-        "nQuads": 22,
-        "ru_childs_end": {
-            "ru_nivcsw": 9,
-            "ru_nvcsw": 43,
-            "ru_majflt": 0,
-            "ru_utime_sec": 0.014276,
-            "ru_minflt": 9388,
-            "ru_stime_sec": 0.035586,
-            "ru_maxrss_kb": 26960
-        },
-        "ru_childs_cgstart": {
-            "ru_nivcsw": 8,
-            "ru_nvcsw": 10,
-            "ru_majflt": 0,
-            "ru_utime_sec": 0.0055199999999999997,
-            "ru_minflt": 2251,
-            "ru_stime_sec": 0.0055199999999999997,
-            "ru_maxrss_kb": 17564
-        },
-        "totalObjSize": 97410,
-        "ru_self_end": {
-            "ru_nivcsw": 14,
-            "ru_nvcsw": 552,
-            "ru_majflt": 0,
-            "ru_utime_sec": 0.45005000000000001,
-            "ru_minflt": 18558,
-            "ru_stime_sec": 0.087566000000000005,
-            "ru_maxrss_kb": 68032
-        },
-        "outputSizePerQuad": 4427.0,
-        "Frontend(%)": 98.282857460282187,
-        "CodeGen(%)": 1.7171425397178119
-    },
-    "CurCompileUdps": {},
-    "SIMBData": {
-        "out": "amcQwB.o",
-        "bytes": 87920
-    },
-    "CompileStatus": "Successful",
     "PEModules": [],
     "CompileProcesses": [
-        "cgproc.29215.json",
-        "cgproc.29221.json",
-        "cgproc.29222.json",
-        "cgproc.29223.json",
-        "cgproc.29224.json",
-        "cgproc.29225.json",
-        "cgproc.29226.json",
-        "cgproc.29227.json",
-        "cgproc.29228.json"
+        "cgproc.14462.json",
+        "cgproc.14467.json",
+        "cgproc.14468.json",
+        "cgproc.14469.json",
+        "cgproc.14470.json",
+        "cgproc.14471.json",
+        "cgproc.14472.json",
+        "cgproc.14473.json",
+        "cgproc.14474.json"
     ],
-    "Misc": {
-        "default_output_dir": "csrc",
-        "csrc_abs": "/afs/ece.cmu.edu/usr/cabernar/Private/capstone/virtualagc/sv/csrc",
-        "cwd": "/afs/ece.cmu.edu/usr/cabernar/Private/capstone/virtualagc/sv",
-        "csrc": "csrc",
-        "daidir": "/afs/ece.cmu.edu/usr/cabernar/Private/capstone/virtualagc/sv/simv.daidir",
-        "daidir_abs": "/afs/ece.cmu.edu/usr/cabernar/Private/capstone/virtualagc/sv/simv.daidir",
-        "archive_dir": "archive.3"
-    }
+    "CompileStatus": "Successful"
 }

@@ -1,0 +1,4 @@
+=======================DVE Context and Call Stack=========================
+Command line: /afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/gui/dve/linux64/bin/dve.exe -full64 -ucliplatform=amd64 -toolargs "-ucligui -toolexe ./simv  -pid 10363" -toolin /tmp/vcs_20220405013251_10362_cabernar..stdin -toolout /tmp/vcs_20220405013251_10362_cabernar..stdout
+
+--- Stack trace follows:

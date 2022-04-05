@@ -1,0 +1,31 @@
+{
+    "ObjArchives": [
+        {
+            "archive": "archive.7/_17702_archive_1.a",
+            "size": 42507,
+            "objects": [
+                [
+                    "SfNSy_d.o",
+                    42507
+                ]
+            ]
+        }
+    ],
+    "CompUnits": {
+        "SfNSy_d": {
+            "bytes": 42507,
+            "mod": "ripple_carry_adder_0001",
+            "out": "SfNSy_d.o",
+            "mode": 4,
+            "checksum": 4294967295,
+            "archive": "archive.7/_17702_archive_1.a"
+        }
+    },
+    "Modules": {
+        "ripple_carry_adder_0001": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        }
+    },
+    "reusePaths": {}
+}
