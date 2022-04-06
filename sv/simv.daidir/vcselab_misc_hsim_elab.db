@@ -1,6 +1,6 @@
 psSimBaseName                      	simv
 psLogFileName                      	NULL
-pDaiDir                            	/afs/ece.cmu.edu/usr/cabernar/Private/capstone/virtualagc/sv/simv.daidir
+pDaiDir                            	/afs/ece.cmu.edu/usr/dgionis/Private/18500/virtualagc/sv/simv.daidir
 destPath                           	csrc/
 fSharedMaster                      	0
 hsMainFileCount                    	0

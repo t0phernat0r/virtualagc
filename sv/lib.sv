@@ -749,6 +749,12 @@ module arithmetic_logic_unit
       ALU_QXCH: begin
         result = {source_1[14:0], source_2};
       end
+      default: begin
+      // Assignments Arbitrary
+        add_sub_src_1 = 15'd0;
+        add_sub_src_2 = 15'd0;
+        sel_subtract = 1'b0;
+      end
     endcase
 
     // Set the zero flag
