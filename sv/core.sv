@@ -48,7 +48,7 @@ module Core
 
   /////////////////////////DECODE STAGE////////////////////////////
 
-  logic [14:0] instr_D, rs1_data_D, rs2_data_D, IO_read_data_D, read_data_E, index_data, wr1_data_W, wr2_data_W;
+  logic [14:0] instr_D, rs1_data_D, rs2_data_D, IO_read_data_D, read_data_E, index_data, wr1_data_W, wr2_data_W, alu_src2_E;
   ctrl_t ctrl_D, ctrl_E, ctrl_F, ctrl_W;
   logic [11:0] k_D;
   logic [2:0] bits_FB, bits_EB;
@@ -58,9 +58,9 @@ module Core
   assign instr_D = ROM_pc_data;
 
 
-  decode Decoder(.rst_l, .instr(instr_D), .ctrl_D, .clock, .index_data, .pc(pc_D), .flush(flush_DE), .bits_FB, .bits_EB);
+  decode Decoder(.rst_l, .instr(instr_D), .ctrl_D, .clock, .index_data, .pc(pc_D), .flush(flush_E), .bits_FB, .bits_EB, .stall);
 
-  mux #(2, $bits(index_data)) Index_mux(.in({read_data_E, 3'd0, ctrl_E.K}),
+  mux #(2, $bits(index_data)) Index_mux(.in({alu_src2_E, 3'd0, ctrl_E.K}),
             .sel(ctrl_E.index),
             .out(index_data));
 
@@ -146,7 +146,7 @@ module Core
  /////////////////////////EXECUTE STAGE//////////////////////////
   logic sign_bit_E, eq_0_E;
   logic [29:0] alu_src1_E, rs1rs2_data_E;
-  logic [14:0] alu_src2_E;
+  
   
   assign rs1rs2_data_E = {rs1_data_E,rs2_data_E};
   
@@ -213,7 +213,7 @@ module Core
   logic [29:0] data_W;
   logic [13:0] addr_ROM_pc, addr_ROM_r;
 
-  mux #(2, $bits(data_W)) output_mux(.in({{15'd0, ctrl_W.pc}, alu_out_W}),
+  mux #(2, $bits(data_W)) output_mux(.in({{15'd0, ctrl_W.pc + 1'b1}, alu_out_W}),
             .sel(ctrl_W.rd),
             .out(data_W));
 

@@ -1,16 +1,15 @@
 # Begin_DVE_Session_Save_Info
 # DVE restart session
-# Saved on Mon Apr 4 13:47:49 2022
+# Saved on Wed Apr 6 10:42:58 2022
 # Designs open: 1
 #   Sim: /afs/ece.cmu.edu/usr/cabernar/Private/capstone/virtualagc/sv/simv
 # Toplevel windows open: 2
 # 	TopLevel.1
 # 	TopLevel.2
 #   Source.1: _vcs_unit__1064167090
-#   Wave.1: 28 signals
-#   Group count = 2
-#   Group Group1 signal count = 28
-#   Group Group2 signal count = 2
+#   Wave.1: 35 signals
+#   Group count = 1
+#   Group Group1 signal count = 35
 # End_DVE_Session_Save_Info
 
 # DVE version: K-2015.09_Full64
@@ -60,7 +59,7 @@ gui_sync_global -id ${TopLevel.2} -option true
 
 # MDI window settings
 set Wave.1 Wave.1
-gui_update_layout -id ${Wave.1} {{show_state maximized} {dock_state undocked} {dock_on_new_line false} {child_wave_left 743} {child_wave_right 1811} {child_wave_colname 369} {child_wave_colvalue 370} {child_wave_col1 0} {child_wave_col2 1}}
+gui_update_layout -id ${Wave.1} {{show_state maximized} {dock_state undocked} {dock_on_new_line false} {child_wave_left 427} {child_wave_right 1043} {child_wave_colname 211} {child_wave_colvalue 212} {child_wave_col1 0} {child_wave_col2 1}}
 
 # End MDI window settings
 
@@ -88,21 +87,13 @@ gui_set_time_units 1ps
 
 # Global: Signal Groups
 gui_load_child_values {TB.core}
-gui_load_child_values {TB.core.rf}
-gui_load_child_values {TB.core.ALU}
 
 
-set _session_group_7 Group1
-gui_sg_create "$_session_group_7"
-set Group1 "$_session_group_7"
+set _session_group_5 Group1
+gui_sg_create "$_session_group_5"
+set Group1 "$_session_group_5"
 
-gui_sg_addsignal -group "$_session_group_7" { TB.core.clock TB.core.reset_n TB.core.stall TB.core.ctrl_D TB.core.ctrl_E TB.core.ctrl_W TB.core.rs1_data_E TB.core.rs2_data_E TB.core.alu_src1_E TB.core.alu_src2_E TB.core.alu_out_W TB.core.rf.reg_A TB.core.rf.reg_L TB.core.rf.reg_Q TB.core.rf.reg_BB TB.core.rf.reg_CYR TB.core.rf.reg_SR TB.core.rf.reg_CYL TB.core.rf.reg_SL TB.core.rf.reg_TIME1 TB.core.rf.reg_TIME2 TB.core.ALU.res_mult TB.core.ALU.alu_mult.prod TB.core.ALU.alu_mult.prod_twos_comp TB.core.ALU.alu_mult.x_twos_comp TB.core.ALU.alu_mult.y_twos_comp TB.core.ALU.alu_mult.x TB.core.ALU.alu_mult.y }
-
-set _session_group_8 Group2
-gui_sg_create "$_session_group_8"
-set Group2 "$_session_group_8"
-
-gui_sg_addsignal -group "$_session_group_8" { TB.core.ALU.alu_mult.x TB.core.ALU.alu_mult.y }
+gui_sg_addsignal -group "$_session_group_5" { TB.core.clock TB.core.reset_n TB.core.pc_F TB.core.pc_1_F TB.core.next_pc_F TB.core.alu_out_E TB.core.alu_src2_E TB.core.ctrl_D TB.core.ctrl_E TB.core.ctrl_W TB.core.eq_0_E TB.core.alu_src1_E TB.core.alu_out_W TB.core.rf.reg_A TB.core.rf.reg_L TB.core.rf.reg_Q TB.core.rf.reg_BB TB.core.rf.reg_CYR TB.core.rf.reg_SR TB.core.rf.reg_CYL TB.core.rf.reg_SL TB.core.rf.reg_TIME1 TB.core.rf.reg_TIME2 TB.core.ALU.operation_sel TB.core.ALU.source_1 TB.core.ALU.source_2 TB.core.ALU.result TB.core.ALU.res_eq_0 TB.core.ALU.res_add_sub TB.core.ALU.res_div_quot TB.core.ALU.res_div_remain TB.core.ALU.add_sub_src_1 TB.core.ALU.add_sub_src_2 TB.core.ALU.res_mult TB.core.ALU.sel_subtract }
 
 # Global: Highlighting
 
@@ -133,17 +124,16 @@ gui_list_set_filter -id ${Hier.1} -text {*}
 gui_change_design -id ${Hier.1} -design Sim
 catch {gui_list_expand -id ${Hier.1} TB}
 catch {gui_list_expand -id ${Hier.1} TB.core}
-catch {gui_list_expand -id ${Hier.1} TB.core.ALU}
-catch {gui_list_select -id ${Hier.1} {TB.core.ALU.alu_mult}}
+catch {gui_list_select -id ${Hier.1} {TB.core.ALU}}
 gui_view_scroll -id ${Hier.1} -vertical -set 0
 gui_view_scroll -id ${Hier.1} -horizontal -set 0
 
 # Data 'Data.1'
 gui_list_set_filter -id ${Data.1} -list { {Buffer 1} {Input 1} {Others 1} {Linkage 1} {Output 1} {LowPower 1} {Parameter 1} {All 1} {Aggregate 1} {LibBaseMember 1} {Event 1} {Assertion 1} {Constant 1} {Interface 1} {BaseMembers 1} {Signal 1} {$unit 1} {Inout 1} {Variable 1} }
 gui_list_set_filter -id ${Data.1} -text {*}
-gui_list_show_data -id ${Data.1} {TB.core.ALU.alu_mult}
+gui_list_show_data -id ${Data.1} {TB.core.ALU}
 gui_show_window -window ${Data.1}
-catch { gui_list_select -id ${Data.1} {TB.core.ALU.alu_mult.x TB.core.ALU.alu_mult.y }}
+catch { gui_list_select -id ${Data.1} {TB.core.ALU.operation_sel TB.core.ALU.source_1 TB.core.ALU.source_2 TB.core.ALU.result TB.core.ALU.res_eq_0 TB.core.ALU.res_add_sub TB.core.ALU.res_div_quot TB.core.ALU.res_div_remain TB.core.ALU.add_sub_src_1 TB.core.ALU.add_sub_src_2 TB.core.ALU.res_mult TB.core.ALU.sel_subtract }}
 gui_view_scroll -id ${Data.1} -vertical -set 0
 gui_view_scroll -id ${Data.1} -horizontal -set 0
 gui_view_scroll -id ${Hier.1} -vertical -set 0
@@ -164,7 +154,7 @@ set origWaveHeight [gui_get_pref_value -category Wave -key waveRowHeight]
 gui_list_set_height -id Wave -height 25
 set origGroupCreationState [gui_list_create_group_when_add -wave]
 gui_list_create_group_when_add -wave -disable
-gui_wv_zoom_timerange -id ${Wave.1} 0 597
+gui_wv_zoom_timerange -id ${Wave.1} 0 341
 gui_list_add_group -id ${Wave.1} -after {New Group} {Group1}
 gui_list_expand -id ${Wave.1} TB.core.ctrl_E
 gui_seek_criteria -id ${Wave.1} {Any Edge}
@@ -184,7 +174,7 @@ gui_list_set_filter -id ${Wave.1} -list { {Buffer 1} {Input 1} {Others 1} {Linka
 gui_list_set_filter -id ${Wave.1} -text {*}
 gui_list_set_insertion_bar  -id ${Wave.1} -group Group1  -position in
 
-gui_view_scroll -id ${Wave.1} -vertical -set 98
+gui_view_scroll -id ${Wave.1} -vertical -set 75
 gui_show_grid -id ${Wave.1} -enable false
 # Restore toplevel window zorder
 # The toplevel window could be closed if it has no view/pane

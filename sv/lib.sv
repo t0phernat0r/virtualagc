@@ -740,6 +740,7 @@ module arithmetic_logic_unit
       ALU_INCR: begin
         sel_subtract = 1'b0;
         add_sub_src_1 = 15'd1;
+        add_sub_src_2 = source_2;
         result[29:15] = res_add_sub;
       end
       ALU_DV: begin
@@ -778,7 +779,7 @@ module branching_logic
    input branch_t ctrl_branch,
    output logic branch);
 
-  assign branch = (ctrl_branch==BRANCH) ? 1'b1 : (ctrl_branch==BZF && eq_0) ? 1'b1 : (ctrl_branch == BZF && (eq_0 || sign_bit)) ? 1'b1 : 1'b0;
+  assign branch = (ctrl_branch==BRANCH) ? 1'b1 : (ctrl_branch==BZF && eq_0) ? 1'b1 : (ctrl_branch == BZMF && (eq_0 || sign_bit)) ? 1'b1 : 1'b0;
       
 
 endmodule: branching_logic

@@ -47,32 +47,15 @@
 /afs/ece/support/altera/release/16.1.2/quartus/eda/sim_lib/cyclonev_atoms.v
 /afs/ece/support/altera/release/16.1.2/quartus/eda/sim_lib/sgate.v
 top.sv
-<<<<<<< HEAD
-32
-sysc_uni_pwd=/afs/ece.cmu.edu/usr/dgionis/Private/18500/virtualagc/sv
-XDG_SESSION_ID=6171
-XDG_RUNTIME_DIR=/run/user/2651945
-=======
-76
+56
 sysc_uni_pwd=/afs/ece.cmu.edu/usr/cabernar/Private/capstone/virtualagc/sv
 no_proxy=localhost,127.0.0.1,.cmu.edu,.cmu.local
 https_proxy=http://proximus.ece.cmu.edu:3128/
 http_proxy=http://proximus.ece.cmu.edu:3128/
 ftp_proxy=http://proximus.ece.cmu.edu:3128/
-XMODIFIERS=@im=ibus
-XDG_VTNR=5
-XDG_SESSION_TYPE=x11
-XDG_SESSION_ID=2536
-XDG_SESSION_DESKTOP=gnome-classic
-XDG_SEAT=seat0
+XDG_SESSION_ID=6608
 XDG_RUNTIME_DIR=/run/user/2655466
-XDG_MENU_PREFIX=gnome-
-XDG_DATA_DIRS=/afs/andrew.cmu.edu/usr14/cabernar/.local/share/flatpak/exports/share/:/var/lib/flatpak/exports/share/:/usr/local/share/:/usr/share/
-XDG_CURRENT_DESKTOP=GNOME-Classic:GNOME
-XAUTHORITY=/run/gdm/auth-for-cabernar-qzM8W1/database
-WINDOWPATH=1:2:2:2:2:2:2:3:3:4:5:5:5:5
-VTE_VERSION=5204
->>>>>>> 0a35184ec1a5591d98d24617779581bab1275538
+XDG_DATA_DIRS=/afs/ece.cmu.edu/usr/cabernar/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
 VMR_MODE_FLAG=64
 VCS_VERSION=vcs-mx_vK-2015.09
 VCS_TARGET_ARCH=amd64
@@ -84,29 +67,21 @@ VCS_DEPTH=0
 VCS_ARG_ADDED_FOR_TMP=1
 VCS_ARCH_OVERRIDE=linux
 VCS_ARCH=linux64
-USERNAME=cabernar
 UNAME=/bin/uname
 TOOL_HOME=/afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/linux64
 SYNOPSYS_LICENSE=/afs/ece.cmu.edu/support/synopsys/license.dat
 SYNOPSYS_HOME=/afs/ece.cmu.edu/support/synopsys/synopsys.release
-<<<<<<< HEAD
 SSH_TTY=/dev/pts/2
-SSH_CONNECTION=172.26.4.200 58999 172.19.137.178 22
-SSH_CLIENT=172.26.4.200 58999 22
+SSH_CONNECTION=172.26.7.181 57849 172.19.137.178 22
+SSH_CLIENT=172.26.7.181 57849 22
+SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
 SELINUX_USE_CURRENT_RANGE=
 SELINUX_ROLE_REQUESTED=
 SELINUX_LEVEL_REQUESTED=
-=======
-SSH_AUTH_SOCK=/run/user/2655466/keyring/ssh
-SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
-SSH_AGENT_PID=26331
-SESSION_MANAGER=local/unix:@/tmp/.ICE-unix/26310,unix/unix:/tmp/.ICE-unix/26310
->>>>>>> 0a35184ec1a5591d98d24617779581bab1275538
 SCRNAME=vcs
 SCRIPT_NAME=vcs
 QUARTUS_64BIT=1
 QT_PLUGIN_PATH=/usr/lib64/kde4/plugins:/usr/lib/kde4/plugins
-QT_IM_MODULE=ibus
 QT_GRAPHICSSYSTEM_CHECKED=1
 QTLIB=/usr/lib64/qt-3.3/lib
 QTINC=/usr/lib64/qt-3.3/include
@@ -123,49 +98,25 @@ KDEDIRS=/usr
 HTTP_PROXY=http://proximus.ece.cmu.edu:3128/
 HTTPS_PROXY=http://proximus.ece.cmu.edu:3128/
 HISTCONTROL=ignoredups
-GNOME_TERMINAL_SERVICE=:1.84
-GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/cd368d74_478d_4612_9d71_5359dffb6308
-GNOME_SHELL_SESSION_MODE=classic
-GNOME_DESKTOP_SESSION_ID=this-is-deprecated
-GJS_DEBUG_TOPICS=JS ERROR;JS LOG
-GJS_DEBUG_OUTPUT=stderr
-GDM_LANG=en_US.UTF-8
-GDMSESSION=gnome-classic
 FTP_PROXY=http://proximus.ece.cmu.edu:3128/
-DESKTOP_SESSION=gnome-classic
 DC_VERSION=syn-vJ-2014.09-SP4
 DC_HOME=/afs/ece.cmu.edu/support/synopsys/synopsys.release/syn-vJ-2014.09-SP4
-DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-rRwdC79fDx,guid=6a362161e1a3a407a6c29c34624af753
 CVS_RSH=ssh
-COLORTERM=truecolor
 BASH_FUNC_module()=() {  eval `/usr/bin/modulecmd bash $*`_}
 AKLOG=/usr/bin/aklog
 0
 17
 1484797591 /afs/ece/support/altera/release/16.1.2/quartus/eda/sim_lib/altera_primitives.v
-<<<<<<< HEAD
-1648929812 decode.sv
-1646066389 agc_div/agc_div.v
-1645825848 agc_mult/agc_mult.v
-1649091145 comp_units.sv
-1649087082 lib.sv
-1648525391 agc_ram/agc_ram.v
-1648496284 agc_rom_new/agc_rom_new.v
-1648934465 core.sv
-1648606011 internal_defines.vh
-1648606011 top.sv
-=======
-1649093609 decode.sv
+1649255625 decode.sv
 1647452095 agc_div/agc_div.v
 1647452095 agc_mult/agc_mult.v
 1649091431 comp_units.sv
-1649089921 lib.sv
+1649202322 lib.sv
 1648504359 agc_ram/agc_ram.v
 1648497363 agc_rom_new/agc_rom_new.v
-1649082319 core.sv
-1648653153 internal_defines.vh
-1649088440 top.sv
->>>>>>> 0a35184ec1a5591d98d24617779581bab1275538
+1649255708 core.sv
+1649255501 internal_defines.vh
+1649189031 top.sv
 1484818352 /afs/ece/support/altera/release/16.1.2/quartus/eda/sim_lib/cyclonev_atoms.v
 1484797604 /afs/ece/support/altera/release/16.1.2/quartus/eda/sim_lib/altera_mf.v
 1484818242 /afs/ece/support/altera/release/16.1.2/quartus/eda/sim_lib/sgate.v
@@ -177,8 +128,4 @@ AKLOG=/usr/bin/aklog
 1440563255 /afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/linux64/lib/libvirsim.so
 1440562843 /afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/linux64/lib/liberrorinf.so
 1440562824 /afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/linux64/lib/libsnpsmalloc.so
-<<<<<<< HEAD
-1649091155 simv.daidir
-=======
-1649093614 simv.daidir
->>>>>>> 0a35184ec1a5591d98d24617779581bab1275538
+1649255722 simv.daidir

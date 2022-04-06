@@ -4,7 +4,7 @@ L                               EQUALS          1               # L AND Q ARE BO
 Q                               EQUALS          2
 EBANK                           EQUALS          3
 FBANK                           EQUALS          4
-ZERO                            EQUALS          6               # ADJACENT TO FBANK AND BBANK FOR DXCH Z
+Z                            EQUALS          6               # ADJACENT TO FBANK AND BBANK FOR DXCH Z
 BBANK                           EQUALS          5               # (DTCB) AND DXCH FBANK (DTCF).
 CYR                             EQUALS          7
 SR                              EQUALS          8

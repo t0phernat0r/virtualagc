@@ -1,7 +1,7 @@
 `default_nettype none
 
 module decode
-  (input logic rst_l, clock, flush,
+  (input logic rst_l, clock, flush, stall,
    input [14:0] instr, index_data,
    input [11:0] pc,
    input [2:0] bits_FB, bits_EB,
@@ -12,15 +12,15 @@ module decode
   logic [2:0] opcode, next_byte, lowest_byte;
   logic [1:0] next2_bits;
   logic [14:0] instr_F;
-  logic extra_code1, extra_code2, is_ROM, is_RAM, is_reg, addr_is_0, index1, index2, clk, recent_reset;
+  logic extra_code1, extra_code2, is_ROM, is_RAM, is_reg, addr_is_0, index1, index2, clk, recent_reset, is_regn2;
 
   assign clk = clock;
 
   register #(1, 1'b0) rg1(.clk, .rst_l,
-            .en(1'b1), .clear(flush), .D(extra_code1),
+            .en(~stall), .clear(flush), .D(extra_code1),
             .Q(extra_code2));
   register #(1, 1'b0) rg2(.clk, .rst_l,
-            .en(1'b1), .clear(flush), .D(index1),
+            .en(~stall), .clear(flush), .D(index1),
             .Q(index2));
 
   register #(1, 1'b1) rg3(.clk, .rst_l,
@@ -33,6 +33,7 @@ module decode
   assign is_ROM = (ctrl.K > 'o1777);
   assign is_RAM = ((ctrl.K < 'o2000) && (ctrl.K > 'd12));
   assign is_reg = (ctrl.K < 'd13);
+  assign is_regn2 = (instr_F[9:0] < 'd13);
   assign opcode = instr_F[14:12];
   assign next_byte = instr_F[11:9];
   assign next2_bits = instr_F[11:10];
@@ -128,6 +129,7 @@ module decode
               1'b1 : begin
                 ctrl.alu_op = ALU_BRANCH;
                 ctrl.alu_src1 = K1;
+                ctrl.alu_src2 = RS2_DATA2;
                 ctrl.branch = BZF;
               end
               //DV
@@ -152,7 +154,7 @@ module decode
                 ctrl.rs2_sel = instr_F[3:0];
                 ctrl.wr1_sel = instr_F[3:0];
                 ctrl.K = {2'b0,instr_F[9:0]};
-                if(is_reg) begin
+                if(is_regn2) begin
                   ctrl.alu_src2 = RS2_DATA2;
                   ctrl.wr1_en = 1'b1;
                 end
@@ -180,7 +182,7 @@ module decode
                 ctrl.wr1_sel = instr_F[3:0];
                 ctrl.alu_op = ALU_DIM;
                 ctrl.K = {2'b0,instr_F[9:0]};
-                if(is_reg) begin
+                if(is_regn2) begin
                   ctrl.alu_src2 = RS2_DATA2;
                   ctrl.wr1_en = 1'b1;
                 end
@@ -200,6 +202,8 @@ module decode
           end
           //INDEX
           5'd5 : begin
+            ctrl.rs1_sel = ZERO;
+            ctrl.rs2_sel = ZERO;
             ctrl.index = EXTEND;
             index1 = 1'b1;
           end
@@ -209,6 +213,7 @@ module decode
               1'b1 : begin
                 ctrl.alu_op = ALU_BRANCH;
                 ctrl.alu_src1 = K1;
+                ctrl.alu_src2 = RS2_DATA2;
                 ctrl.branch = BZMF;
               end
               //SU
@@ -267,8 +272,8 @@ module decode
                 if (~recent_reset & (~(instr_F[11:0]==12'd4))) begin
                   ctrl.alu_op = ALU_READ;
                   ctrl.alu_src2 = K2;
-                  ctrl.wr1_sel = Q;
-                  ctrl.wr1_en = 1'b1;
+                  ctrl.wr2_sel = Q;
+                  ctrl.wr2_en = 1'b1;
                   ctrl.branch = BRANCH;
                   ctrl.rd = OLD_PC;
                 end
@@ -294,7 +299,7 @@ module decode
                ctrl.wr1_sel = instr_F[3:0];
                
                ctrl.K = {2'b0,instr_F[9:0]};
-               if(is_reg) begin
+               if(is_regn2) begin
                  ctrl.alu_src2 = RS2_DATA2;
                  ctrl.wr1_en = 1'b1;
                end
@@ -308,7 +313,7 @@ module decode
                ctrl.rs2_sel = instr_F[3:0];
                ctrl.wr1_sel = instr_F[3:0]; 
                ctrl.K = {2'b0,instr_F[9:0]};
-               if(is_reg) begin
+               if(is_regn2) begin
                  ctrl.alu_src2 = RS2_DATA2;
                  ctrl.wr1_en = 1'b1;
                end
@@ -322,7 +327,7 @@ module decode
                ctrl.rs2_sel = instr_F[3:0];
                ctrl.wr2_sel = instr_F[3:0];
                ctrl.K = {2'b0,instr_F[9:0]};
-               if(is_reg) begin
+               if(is_regn2) begin
                  ctrl.alu_src2 = RS2_DATA2;
                  ctrl.wr2_en = 1'b1;
                end
@@ -360,9 +365,15 @@ module decode
              2'd0 : begin
                ctrl.index = NEXTEND;
                index1 = 1'b1;
+               ctrl.K = {2'b0,instr_F[9:0]};
+               ctrl.rs2_sel = instr_F[3:0];
+                 if(is_regn2) begin
+                 ctrl.alu_src2 = RS2_DATA2;
+               end
              end
              2'd2 : begin
                //TCAA
+               ctrl.K = {2'b0,instr_F[9:0]};
                if(instr_F[9:0]==10'd6) begin
                  ctrl.alu_op = ALU_READ;
                  ctrl.alu_src2 = RS2_DATA2;
@@ -373,9 +384,9 @@ module decode
                  ctrl.alu_op = ALU_READ;
                  ctrl.alu_src2 = RS2_DATA2;
                  ctrl.K = {2'b0,instr_F[9:0]};
-                 if(is_reg) begin
-                   ctrl.wr2_sel = instr_F[3:0];
-                   ctrl.wr2_en = 1'b1;
+                 if(is_regn2) begin
+                   ctrl.wr1_sel = instr_F[3:0];
+                   ctrl.wr1_en = 1'b1;
                  end
                  else begin
                    ctrl.RAM_write_en = 1'b1;
@@ -392,7 +403,8 @@ module decode
                ctrl.wr2_en = 1'b1;
                ctrl.rs2_sel = instr_F[3:0];
                ctrl.wr1_sel = instr_F[3:0];
-               if(is_reg) begin
+               ctrl.K = {2'b0,instr_F[9:0]};
+               if(is_regn2) begin
                  ctrl.alu_src2 = RS2_DATA2;
                  ctrl.wr1_en = 1'b1;
                end

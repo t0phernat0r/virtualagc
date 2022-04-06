@@ -1,0 +1,31 @@
+{
+    "ObjArchives": [
+        {
+            "archive": "archive.7/_17704_archive_1.a",
+            "size": 25916,
+            "objects": [
+                [
+                    "nr2NV_d.o",
+                    25916
+                ]
+            ]
+        }
+    ],
+    "CompUnits": {
+        "nr2NV_d": {
+            "bytes": 25916,
+            "mod": "ripple_carry_adder_0000",
+            "out": "nr2NV_d.o",
+            "mode": 4,
+            "checksum": 4294967295,
+            "archive": "archive.7/_17704_archive_1.a"
+        }
+    },
+    "Modules": {
+        "ripple_carry_adder_0000": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        }
+    },
+    "reusePaths": {}
+}
