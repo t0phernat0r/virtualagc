@@ -213,7 +213,7 @@ module Core
   logic [29:0] data_W;
   logic [13:0] addr_ROM_pc, addr_ROM_r;
 
-  mux #(2, $bits(data_W)) output_mux(.in({{15'd0, ctrl_W.pc}, alu_out_W}),
+  mux #(2, $bits(data_W)) output_mux(.in({{15'd0, ctrl_W.pc + 1'b1}, alu_out_W}),
             .sel(ctrl_W.rd),
             .out(data_W));
 

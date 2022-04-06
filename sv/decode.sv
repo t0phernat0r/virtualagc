@@ -272,8 +272,8 @@ module decode
                 if (~recent_reset & (~(instr_F[11:0]==12'd4))) begin
                   ctrl.alu_op = ALU_READ;
                   ctrl.alu_src2 = K2;
-                  ctrl.wr1_sel = Q;
-                  ctrl.wr1_en = 1'b1;
+                  ctrl.wr2_sel = Q;
+                  ctrl.wr2_en = 1'b1;
                   ctrl.branch = BRANCH;
                   ctrl.rd = OLD_PC;
                 end

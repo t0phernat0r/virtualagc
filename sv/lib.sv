@@ -740,6 +740,7 @@ module arithmetic_logic_unit
       ALU_INCR: begin
         sel_subtract = 1'b0;
         add_sub_src_1 = 15'd1;
+        add_sub_src_2 = source_2;
         result[29:15] = res_add_sub;
       end
       ALU_DV: begin
