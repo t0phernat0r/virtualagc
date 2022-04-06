@@ -1,0 +1,31 @@
+{
+    "Modules": {
+        "ALTERA_MF_MEMORY_INITIALIZATION": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        }
+    },
+    "ObjArchives": [
+        {
+            "size": 183305,
+            "archive": "archive.39/_21240_archive_1.a",
+            "objects": [
+                [
+                    "er73t_d.o",
+                    183305
+                ]
+            ]
+        }
+    ],
+    "CompUnits": {
+        "er73t_d": {
+            "mod": "ALTERA_MF_MEMORY_INITIALIZATION",
+            "bytes": 183305,
+            "out": "er73t_d.o",
+            "mode": 4,
+            "checksum": 4294967295,
+            "archive": "archive.39/_21240_archive_1.a"
+        }
+    },
+    "reusePaths": {}
+}
