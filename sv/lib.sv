@@ -412,6 +412,9 @@ module register_file
       endcase
     end
 
+    // Prevent unintentional latches
+    reg_BB[11:0] = 12'd0;
+    
     // Bank bit output taps for address translation module
     bits_EB = reg_BB[11:9];
     bits_FB = reg_BB[14:12];
@@ -453,8 +456,7 @@ module IO_register_file
       data_DSKY_REG_3_HIGH <= 15'd0;
       data_DSKY_REG_3_LOW <= 15'd0;
       data_DSKY_PROG_NUM[4:0] <= 5'd0;
-      // TODO: Isolate pertinent bits
-      data_DSKY_LAMPS <= 15'd0;
+      data_DSKY_LAMPS[11:0] <= 12'd0;
       data_AXI_CALC_RES <= 15'd0;
     end
     else if (en_write) begin
@@ -467,8 +469,7 @@ module IO_register_file
         DSKY_REG_3_HIGH: data_DSKY_REG_3_HIGH <= data_write;
         DSKY_REG_3_LOW: data_DSKY_REG_3_LOW <= data_write;
         DSKY_PROG_NUM: data_DSKY_PROG_NUM[4:0] <= data_write[4:0];
-        // TODO: Isolate pertinent bits
-        DSKY_LAMPS: data_DSKY_LAMPS <= data_write;
+        DSKY_LAMPS: data_DSKY_LAMPS[11:0] <= data_write[11:0];
         AXI_CALC_RES: data_AXI_CALC_RES <= data_write;
         default: begin
         // Necessary as not all I/O registers writeable
@@ -478,7 +479,7 @@ module IO_register_file
   end
   
   always_comb begin
-  // I/O register reads
+    // I/O register reads
     // Check for valid writes
     write_valid = (~sel_write[3] | (sel_write[2:0] == 3'd0));
     if (en_write & write_valid & (sel_read == sel_write)) begin
@@ -494,9 +495,8 @@ module IO_register_file
         DSKY_REG_2_LOW: data_read = data_DSKY_REG_2_LOW;
         DSKY_REG_3_HIGH: data_read = data_DSKY_REG_3_HIGH;
         DSKY_REG_3_LOW: data_read = data_DSKY_REG_3_LOW;
-        DSKY_PROG_NUM: data_read[4:0] = data_DSKY_PROG_NUM[4:0];
-        // TODO: Isolate pertinent bits
-        DSKY_LAMPS: data_read = data_DSKY_LAMPS;
+        DSKY_PROG_NUM: data_read = data_DSKY_PROG_NUM;
+        DSKY_LAMPS: data_read = data_DSKY_LAMPS; 
         AXI_CALC_RES: data_read = data_AXI_CALC_RES;
         DSKY_VERB: data_read = data_DSKY_VERB;
         DSKY_NOUN: data_read = data_DSKY_NOUN;
@@ -509,6 +509,11 @@ module IO_register_file
         end
       endcase
     end
+
+    // Prevent unintentional latches
+    data_DSKY_PROG_NUM[14:5] = 10'd0; 
+    data_DSKY_LAMPS[14:12] = 3'd0;
+
   end
 
 endmodule: IO_register_file
