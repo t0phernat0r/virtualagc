@@ -58,7 +58,7 @@ module Core
   assign instr_D = ROM_pc_data;
 
 
-  decode Decoder(.rst_l, .instr(instr_D), .ctrl_D, .clock, .index_data, .pc(pc_D), .flush(flush_E), .bits_FB, .bits_EB, .stall);
+  decode Decoder(.rst_l, .instr(instr_D), .ctrl_D, .clock, .index_data, .pc(pc_D), .flush(flush_E), .bits_FB, .bits_EB, .stall, .flush_DE);
 
   mux #(2, $bits(index_data)) Index_mux(.in({alu_src2_E, 3'd0, ctrl_E.K}),
             .sel(ctrl_E.index),

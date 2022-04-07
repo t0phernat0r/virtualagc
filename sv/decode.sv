@@ -1,7 +1,7 @@
 `default_nettype none
 
 module decode
-  (input logic rst_l, clock, flush, stall,
+  (input logic rst_l, clock, flush, stall, flush_DE,
    input [14:0] instr, index_data,
    input [11:0] pc,
    input [2:0] bits_FB, bits_EB,
@@ -118,7 +118,7 @@ module decode
                 ctrl.wr1_en = 1'b1;
               end
               default: begin
-                $display(rst_l, "Encountered unknown/unimplemented instr 0x%05o." ,instr);
+                $display(rst_l, "Encountered unknown/unimplemented instr %05o." ,instr_F);
                                 ctrl.halt = 1'b1;
               end
             endcase
@@ -191,7 +191,7 @@ module decode
                 end               
               end
               default: begin
-                $display(rst_l, "Encountered unknown/unimplemented instr 0x%05o." ,instr);
+                $display(rst_l, "Encountered unknown/unimplemented instr %05o." ,instr_F);
                                 ctrl.halt = 1'b1;
               end
             endcase
@@ -205,7 +205,7 @@ module decode
             ctrl.rs1_sel = ZERO;
             ctrl.rs2_sel = ZERO;
             ctrl.index = EXTEND;
-            index1 = 1'b1;
+            index1 = ~flush_DE ? 1'b1 : 1'b0;
           end
           3'd6 : begin
             unique case(is_ROM)
@@ -241,7 +241,7 @@ module decode
             end
           end
           default : begin
-            $display(rst_l, "Encountered unknown/unimplemented instr 0x%05o." ,instr);
+            $display(rst_l, "Encountered unknown/unimplemented instr %05o." ,instr_F);
                                 ctrl.halt = 1'b1;
            end
         endcase
@@ -263,7 +263,7 @@ module decode
               end
               //EXTEND
               3'd6 : begin
-                extra_code1 = 1'b1;
+                extra_code1 = ~flush_DE ? 1'b1 : 1'b0;
               end
               // TC/XLQ
               default : begin
@@ -336,7 +336,7 @@ module decode
                end
              end
              default : begin
-              $display(rst_l, "Encountered unknown/unimplemented instr 0x%05o." ,instr);
+              $display(rst_l, "Encountered unknown/unimplemented instr %05o." ,instr_F);
                                 ctrl.halt = 1'b1;
              end
            endcase
@@ -364,7 +364,7 @@ module decode
              //INDEX
              2'd0 : begin
                ctrl.index = NEXTEND;
-               index1 = 1'b1;
+               index1 = ~flush_DE ? 1'b1 : 1'b0;
                ctrl.K = {2'b0,instr_F[9:0]};
                ctrl.rs2_sel = instr_F[3:0];
                  if(is_regn2) begin
@@ -414,7 +414,7 @@ module decode
              end
 
              default : begin
-               $display(rst_l, "Encountered unknown/unimplemented instr 0x%05o." ,instr);
+               $display(rst_l, "Encountered unknown/unimplemented instr %05o." ,instr_F);
                                 ctrl.halt = 1'b1;
              end
            endcase

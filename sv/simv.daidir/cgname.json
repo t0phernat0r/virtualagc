@@ -1,7 +1,12 @@
 {
-    "convert_1c_2c": [
-        "convert_1c_2c",
-        "EHhqJ",
+    "_vcs_unit__1064167090": [
+        "_vcs_unit__1064167090",
+        "vAiv4",
+        "module"
+    ],
+    "altsyncram_0000": [
+        "altsyncram_0000",
+        "Q0s3L",
         "module"
     ],
     "counter": [
@@ -9,34 +14,19 @@
         "MQn6b",
         "module"
     ],
-    "full_adder": [
-        "full_adder",
-        "BEdzp",
-        "module"
-    ],
-    "_vcs_unit__1064167090": [
-        "_vcs_unit__1064167090",
-        "vAiv4",
-        "module"
-    ],
-    "countFSM": [
-        "countFSM",
-        "Bb4h8",
-        "module"
-    ],
     "mux_0003": [
         "mux_0003",
         "F6CNF",
         "module"
     ],
-    "std": [
-        "std",
-        "reYIK",
+    "agc_ram": [
+        "agc_ram",
+        "DvDiU",
         "module"
     ],
-    "branching_logic": [
-        "branching_logic",
-        "Bp0Dn",
+    "addr_translate_RAM": [
+        "addr_translate_RAM",
+        "A8YZN",
         "module"
     ],
     "addr_translate": [
@@ -44,9 +34,9 @@
         "gfxiy",
         "module"
     ],
-    "ALTERA_DEVICE_FAMILIES": [
-        "ALTERA_DEVICE_FAMILIES",
-        "uFC8u",
+    "std": [
+        "std",
+        "reYIK",
         "module"
     ],
     "Core": [
@@ -54,9 +44,9 @@
         "fsHFs",
         "module"
     ],
-    "IO_register_file": [
-        "IO_register_file",
-        "e2KCL",
+    "full_adder": [
+        "full_adder",
+        "BEdzp",
         "module"
     ],
     "decoder": [
@@ -69,19 +59,14 @@
         "YaxfH",
         "module"
     ],
-    "addr_translate_RAM": [
-        "addr_translate_RAM",
-        "A8YZN",
+    "countFSM": [
+        "countFSM",
+        "Bb4h8",
         "module"
     ],
-    "ALTERA_MF_MEMORY_INITIALIZATION": [
-        "ALTERA_MF_MEMORY_INITIALIZATION",
-        "er73t",
-        "module"
-    ],
-    "agc_ram": [
-        "agc_ram",
-        "DvDiU",
+    "...MASTER...": [
+        "SIM",
+        "amcQw",
         "module"
     ],
     "addr_translate_ROM": [
@@ -89,14 +74,29 @@
         "I9T3V",
         "module"
     ],
-    "ripple_carry_adder_0000": [
-        "ripple_carry_adder_0000",
-        "nr2NV",
+    "IO_register_file": [
+        "IO_register_file",
+        "e2KCL",
         "module"
     ],
     "ripple_carry_adder_0001": [
         "ripple_carry_adder_0001",
         "SfNSy",
+        "module"
+    ],
+    "branching_logic": [
+        "branching_logic",
+        "Bp0Dn",
+        "module"
+    ],
+    "ripple_carry_adder_0000": [
+        "ripple_carry_adder_0000",
+        "nr2NV",
+        "module"
+    ],
+    "convert_1c_2c": [
+        "convert_1c_2c",
+        "EHhqJ",
         "module"
     ],
     "TB": [
@@ -109,14 +109,14 @@
         "ReME5",
         "module"
     ],
-    "altsyncram_0000": [
-        "altsyncram_0000",
-        "Q0s3L",
+    "ALTERA_MF_MEMORY_INITIALIZATION": [
+        "ALTERA_MF_MEMORY_INITIALIZATION",
+        "er73t",
         "module"
     ],
-    "...MASTER...": [
-        "SIM",
-        "amcQw",
+    "ALTERA_DEVICE_FAMILIES": [
+        "ALTERA_DEVICE_FAMILIES",
+        "uFC8u",
         "module"
     ]
 }

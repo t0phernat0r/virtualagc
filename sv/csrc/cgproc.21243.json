@@ -1,0 +1,31 @@
+{
+    "Modules": {
+        "ALTERA_DEVICE_FAMILIES": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        }
+    },
+    "ObjArchives": [
+        {
+            "size": 424110,
+            "archive": "archive.39/_21243_archive_1.a",
+            "objects": [
+                [
+                    "uFC8u_d.o",
+                    424110
+                ]
+            ]
+        }
+    ],
+    "CompUnits": {
+        "uFC8u_d": {
+            "mod": "ALTERA_DEVICE_FAMILIES",
+            "bytes": 424110,
+            "out": "uFC8u_d.o",
+            "mode": 4,
+            "checksum": 4294967295,
+            "archive": "archive.39/_21243_archive_1.a"
+        }
+    },
+    "reusePaths": {}
+}
