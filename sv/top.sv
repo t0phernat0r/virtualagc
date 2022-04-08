@@ -38,11 +38,13 @@ module TB;
 
   // PLACEHOLDER UNTIL SERIAL INTERFACE MODULES EXIST TO DRIVE THESE
   // INPUT DATA FOR AGC CPU
-  assign {DSKY_VERB_data,
-          DSKY_NOUN_data,
-          AXI_MISSION_TIME_data,
-          AXI_APOGEE_data,
-          AXI_PERIGEE_data} = 'd0;
+  always_comb begin
+    DSKY_VERB_data = 15'd37;
+    DSKY_NOUN_data = 15'd5;
+    AXI_MISSION_TIME_data = 15'b001010010000011;
+    AXI_APOGEE_data = 15'b010000111010010;
+    AXI_PERIGEE_data = 15'b111110000000010;
+  end
 
   agc_rom_new rom(.aclr(~reset_n), .address_a(ROM_pc_address), .address_b(ROM_constant_address), .clock, .addressstall_a(stall), .addressstall_b(stall), .q_a(ROM_pc_data), .q_b(ROM_constant_data));
   agc_ram ram(.aclr(~reset_n), .clock, .data(RAM_write_data), .rd_addressstall(stall), .wraddress(RAM_write_address), .wren(RAM_write_en), .q(RAM_read_data), .rdaddress(RAM_read_address), .rden(1'b1));
