@@ -815,7 +815,7 @@ module stall_logic
     if ((((ctrl_D.rs1_sel==ctrl_E.wr1_sel)  || (ctrl_D.rs2_sel==ctrl_E.wr1_sel)) && ctrl_E.wr1_en) || (((ctrl_D.rs1_sel==ctrl_E.wr2_sel) || (ctrl_D.rs2_sel==ctrl_E.wr2_sel)) && ctrl_E.wr2_en)) begin
         stall = 1'b1;
     end
-    else if ((ctrl_D.K==ctrl_E.K && (ctrl_E.RAM_write_en || ctrl_E.IO_write_en)) || (ctrl_D.K==ctrl_W.K && (ctrl_W.RAM_write_en || ctrl_W.IO_write_en)))
+    else if ((ctrl_D.K==ctrl_E.K && (ctrl_E.RAM_write_en || ctrl_E.IO_write_en)) || (ctrl_D.K==ctrl_W.K && (ctrl_W.RAM_write_en || ctrl_W.IO_write_en) && (~branch_E)))
         stall = 1'b1;
     end
 
