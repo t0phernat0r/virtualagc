@@ -24,6 +24,7 @@ TIME3                           EQUALS          26
 TIME4                           EQUALS          27
 TIME5                           EQUALS          30
 TIME6                           EQUALS          31
+
                                 SETLOC          67
 NEWJOB                          ERASE                           # Allocate a variable at the location checked by the Night Watchman.
 # More variables.
@@ -35,46 +36,51 @@ HOUR                            ERASE
 DAY                             ERASE
 MONTH                           ERASE
 YEAR                            ERASE
-SIGN                            ERASE                           # For buffering sign+digits in conversion of integer to decimal string.
-DIGIT1                          ERASE
-DIGIT2                          ERASE
-DIGIT3                          ERASE
-DIGIT4                          ERASE
-DIGIT5                          ERASE
-SIGNA                           ERASE                           # For buffering sign+digits in conversion of integer to decimal string.
-DIGIT1A                         ERASE
-DIGIT2A                         ERASE
-DIGIT3A                         ERASE
-DIGIT4A                         ERASE
-DIGIT5A                         ERASE
-DSPR                            ERASE                           # Return address for DSPxxxx functions.
-DIGIT25                         ERASE
-DIGIT31                         ERASE
-DIVISOR                         ERASE                           # A dummy variable used to store divisors.
-DSPMODE                         ERASE                           # display-mode: 0 time, 1 acceleration, 2 magnetometer, etc.
-LLLOW                           ERASE                           # LS word of lat or lon
-LLHIGH                          ERASE                           # MS word of lat or lon.
-LLRET                           ERASE                           # Return address for LL2.
 
 HALFY                           ERASE
 ROOTRET                         ERASE
 SQRARG                          ERASE
+SQRMAX                          ERASE
+SQRCNT                          ERASE
 TEMK                            EQUALS          HALFY
 SQ                              EQUALS          ROOTRET
+
+CHANLAMP                        EQUALS          0
+CHANREG1                        EQUALS          1
+CHANREG2                        EQUALS          2
+CHANREG3                        EQUALS          3
+CHANVERB                        EQUALS          4
+CHANNOUN                        EQUALS          5
+
+CHANG                           EQUALS          6
+CHANM                           EQUALS          7
+CHANRA                          EQUALS          10
+CHANRB                          EQUALS          11
+CHANATX                         EQUALS          12
+CHANOUTDVA                      EQUALS          13
+CHANOUTDVB                      EQUALS          14
+CHANDVATX                       EQUALS          15
+CHANDVBTX                       EQUALS          16
+
+VPRCHNG                         EQUALS          47      # DEC 39
+VIDLE                           EQUALS          23      # DEC 19
+
+LAMPOPERR                       EQUALS          BIT12
+NUMSPECM                        EQUALS          POSMAX
 
 CURRV                           ERASE
 PASTV                           ERASE
 PASTN                           ERASE
-PASTAXIINPUT                    ERASE
-PASTAXIOUTPUT                   ERASE
 
-AXIINPUTATX                     ERASE
-AXIINPUTG                       ERASE
-AXIINPUTM                       ERASE
-AXIINPUTRA                      ERASE
-AXIINPUTRB                      ERASE
-AXIOUTPUTDVA                    ERASE
-AXIOUTPUTDVB                    ERASE
+1/INPATX                        ERASE
+INPUTG                          ERASE
+INPUTM                          ERASE
+1/INPRA                         ERASE
+1/INPRB                         ERASE
+OUTPDVA                         ERASE
+OUTPDVB                         ERASE
+OUTPDVATX                       ERASE
+OUTPDVBTX                       ERASE
 
 
                                 SETLOC          4000            # The interrupt-vector table.
@@ -136,138 +142,225 @@ AXIOUTPUTDVB                    ERASE
                                 NOOP
 
 
-STARTUP                         NOOP            # RESET ALL VARIABLES aND STATES
+STARTUP                         NOOP                                    # RESET ALL VARIABLES aND STATES
                                 CA              ZERO
                                 TS              CURRV
                                 TS              PASTV
                                 TS              PASTN
-                                TS              PASTAXIINPUT
-                                TS              PASTAXIOUTPUT
 
-                                TS              AXIINPUTG
-                                TS              AXIINPUTM
-                                TS              AXIINPUTRA
-                                TS              AXIINPUTRB
-                                TS              AXIOUTPUTDVA
-                                TS              AXIOUTPUTDVB
+                                TS              INPUTG
+                                TS              INPUTM
+                                TS              1/INPRA
+                                TS              1/INPRB
+                                TS              1/INPATX
+                                TS              OUTPDVA
+                                TS              OUTPDVB
 
 IDLE                            CA              ZERO
+                                EXTEND
                                 WRITE           CHANLAMP
+                                EXTEND
                                 WRITE           CHANREG1
+                                EXTEND
                                 WRITE           CHANREG2
+                                EXTEND
                                 WRITE           CHANREG3
 
-READV                           READ            CHANVERB
+READV
+                                EXTEND
+                                READ            CHANVERB
                                 TS              CURRV
-                                SU              PASTV
-                                BZF             READV
+                                EXTEND
+                                SU              PASTV                   # DETECT CHANGE IN VERB
+                                EXTEND
+                                BZF             READV                   # KEEP WAITING IF NO CHANGE
                                 CA              CURRV
-                                SU              VPROGCHNG
-                                BZF             PROGCHNG
+                                TS              PASTV
+                                EXTEND
+                                SU              VPRCHNG                 # CHECK IF VERB == PROGRAM CHANGE (39)
+                                EXTEND
+                                BZF             PRCHNG
                                 CA              CURRV
+                                EXTEND
                                 SU              VIDLE                   # IDLE
+                                EXTEND
                                 BZF             IDLE
 OPERR                           CA              LAMPOPERR               # OPERATOR ERROR: INVALID VERB
+                                EXTEND
                                 WRITE           CHANLAMP
                                 TCF             READV
 
-PROGCHNG                        READ            CHANNOUN
+PRCHNG
+                                EXTEND
+                                READ            CHANNOUN
                                 INDEX           A
-                                TCF             PROGJMPTAB
+                                TCF             PRJMPTAB
 
-PROGJMPTAB                      TCF             PROGESCPV
-                                TCF             PROGHOHMTRANSFER
-                                TCF             PROGLUNARINJECT
-                                TCF             PROGMISSIONTIME
-                                TCF             PROGPHASE
+PRJMPTAB                        TCF             PRESCPV
+                                TCF             PRHTRNSFR
+                                TCF             PRLINJECT
+                                TCF             PRMTME
+                                TCF             PRPHASE
 
-PROGMISSIONTIME                 CA              NUMSPECMISSION
+PRMTME                          CA              NUMSPECM
+                                EXTEND
                                 WRITE           CHANREG1
+                                EXTEND
                                 WRITE           CHANREG2
+                                EXTEND
                                 WRITE           CHANREG3
                                 TCF             READV
 
-PROGESCPV                       READ            CHANAXIG
-                                TS              AXIINPUTG
-                                READ            CHANAXIM
-                                TS              AXIINPUTM
-                                READ            CHANAXIRA
-                                TS              AXIINPUTRA
+PRESCPV
+                                EXTEND
+                                READ            CHANG
+                                TS              INPUTG
+                                EXTEND
+                                READ            CHANM
+                                TS              INPUTM
+                                EXTEND
+                                READ            CHANRA
+                                TS              1/INPRA
 
-                                CA              AXIINPUTG
+                                CA              INPUTG
                                 EXTEND
-                                MP              AXIINPUTM
+                                MP              INPUTM
                                 EXTEND
-                                MP              1/AXIINPUTRA            # INVERSE OF R_A FOR NORMALIZATION
+                                MP              1/INPRA                 # INVERSE OF R_A FOR NORMALIZATION
+                                # EXTEND
+                                # MP              TWO
+                                # CA              L
                                 DOUBLE
 
-                                WRITE           CHANAXIOUTDVA
+                                TC              SPSQRT
+                                CA              ROOTRET
+
+                                EXTEND
+                                WRITE           CHANOUTDVA
+                                EXTEND
+                                WRITE           CHANREG1
                                 CA              ZERO
-                                WRITE           CHANAXIOUTDVB
+                                EXTEND
+                                WRITE           CHANOUTDVB
+                                EXTEND
+                                WRITE           CHANREG2
+                                EXTEND
+                                WRITE           CHANREG3
                                 TCF             READV
 
-PROGLUNARINJECT                 NOOP
-PROGHOHMTRANSFER                READ            CHANAXIG
-                                TS              AXIINPUTG
-                                READ            CHANAXIM
-                                TS              AXIINPUTM
-                                READ            CHANAXIRA
-                                TS              AXIINPUTRA
-                                READ            CHANAXIRB
-                                TS              AXIINPUTRB
-                                READ            CHANAXIATX
-                                TS              AXIINPUTATX
+PRLINJECT                       NOOP
+PRHTRNSFR
+                                EXTEND
+                                READ            CHANG
+                                TS              INPUTG
+                                EXTEND
+                                READ            CHANM
+                                TS              INPUTM
+                                EXTEND
+                                READ            CHANRA
+                                TS              1/INPRA
+                                EXTEND
+                                READ            CHANRB
+                                TS              1/INPRB
+                                EXTEND
+                                READ            CHANATX
+                                TS              1/INPATX
 
-                                CA              AXIINPUTG               # CALCULATE INITIAL VELOCITY AT A
+                                CA              INPUTG                  # CALCULATE INITIAL VELOCITY AT A
                                 EXTEND
-                                MP              AXIINPUTM
+                                MP              INPUTM
                                 EXTEND
-                                MP              1/AXIINPUTRA            # INVERSE OF R_A FOR NORMALIZATION
-                                WRITE           CHANAXIOUTDVA
+                                MP              1/INPRA                 # INVERSE OF R_A FOR NORMALIZATION
+                                TC              SPSQRT
+                                CA              ROOTRET
+                                EXTEND
+                                WRITE           CHANOUTDVA
+                                TS              OUTPDVA
 
-                                CA              AXIINPUTG               # CALCULATE INITIAL VELOCITY AT B
+                                CA              INPUTG                  # CALCULATE INITIAL VELOCITY AT B
                                 EXTEND
-                                MP              AXIINPUTM
+                                MP              INPUTM
                                 EXTEND
-                                MP              1/AXIINPUTRB            # INVERSE OF R_A FOR NORMALIZATION
-                                WRITE           CHANAXIOUTDVB
+                                MP              1/INPRB                 # INVERSE OF R_A FOR NORMALIZATION
+                                TC              SPSQRT
+                                CA              ROOTRET
+                                EXTEND
+                                WRITE           CHANOUTDVB
+                                TS              OUTPDVB
 
-                                CA              1/AXIINPUTTA            # CALCULATE VELOCITY AT TRANSFER ORBIT A
+                                CA              1/INPRA                 # CALCULATE VELOCITY AT TRANSFER ORBIT A
                                 DOUBLE
-                                SU              AXIINPUTATX
                                 EXTEND
-                                MP              AXIINPUTG
+                                SU              1/INPATX
                                 EXTEND
-                                MP              AXIINPUTM
-                                WRITE           CHANAXIOUTDVATX
+                                MP              INPUTG
+                                EXTEND
+                                MP              INPUTM
+                                TC              SPSQRT
+                                CA              ROOTRET
+                                EXTEND
+                                WRITE           CHANDVATX
+                                TS              OUTPDVATX
 
-                                CA              1/AXIINPUTTB            # CALCULATE VELOCITY AT TRANSFER ORBIT A
+                                CA              1/INPRB                 # CALCULATE VELOCITY AT TRANSFER ORBIT A
                                 DOUBLE
-                                SU              AXIINPUTATX
                                 EXTEND
-                                MP              AXIINPUTG
+                                SU              1/INPATX
                                 EXTEND
-                                MP              AXIINPUTM
-                                WRITE           CHANAXIOUTDVBTX
+                                MP              INPUTG
+                                EXTEND
+                                MP              INPUTM
+                                TC              SPSQRT
+                                CA              ROOTRET
+                                EXTEND
+                                WRITE           CHANDVBTX
+                                TS              OUTPDVBTX
+
+                                CA              OUTPDVA                 # CALCULATE DELTA V FOR POINT A
+                                EXTEND
+                                SU              OUTPDVATX
+                                EXTEND
+                                WRITE           CHANREG1
+                                CA              OUTPDVB                 # CALCULATE DELTA V FOR POINT B
+                                EXTEND
+                                SU              OUTPDVBTX
+                                EXTEND
+                                WRITE           CHANREG2
+                                CA              ZERO
+                                EXTEND
+                                WRITE           CHANREG3
+
                                 TCF             READV
 
-PROGPHASE                       READ            CHANAXIRA
-                                TS              AXIINPUTRA
-                                READ            CHANAXIRB
-                                TS              AXIINPUTRB
-
-                                CA              AXIINPUTRA
-                                TC              SPSIN
+PRPHASE
                                 EXTEND
-                                MP              AXIINPUTRB
-                                DOUBLE
-                                WRITE           CHANAXIOUTDVA
-                                TCD             READV
+                                READ            CHANRA
+                                TS              1/INPRA
+                                EXTEND
+                                READ            CHANRB
+                                TS              1/INPRB
 
+                                CA              1/INPRA
+                                # TC              SPSIN
+                                EXTEND
+                                MP              1/INPRB
+                                DOUBLE
+                                EXTEND
+                                WRITE           CHANOUTDVA
+                                EXTEND
+                                WRITE           CHANREG1
+                                CA              ZERO
+                                EXTEND
+                                WRITE           CHANREG2
+                                EXTEND
+                                WRITE           CHANREG3
+
+                                TC              READV
+
+## SINGLE PRECISION SINE IMPLEMENTATION (ITERATIVE) - COMANCHE 055
 CALCSIN                         CA              QUARTER
                                 TC              SPSIN
-#CALCROOT                        CA      HALF
-#                                TC      SPROOT
+
 LOOP                            NOOP
                                 EXTEND
                                 DCA             50
@@ -304,15 +397,51 @@ POLLEY                          EXTEND
                                 TC              Q
 ARG90                           INDEX           A
                                 CS              LIMITS
-                                TC              Q               # RESULT SCALED AT 1
+                                TC              Q                       # RESULT SCALED AT 1
 
+## SINGLE PRECISION SQUARE ROOT IMPLEMENTATION (ITERATIVE)
+SPSQRT                          TS              SQRARG
+                                EXTEND
+                                BZMF            INVALZERO               # INVALID FOR NEGATIVES
+                                CA              ZERO                    # RESET ALL VARIABLES AND STATES
+                                TS              SQRCNT
+                                TS              ROOTRET
+                                CA              FIFTEEN
+                                TS              SQRMAX
+SQRTLOOP                        CA              SQRCNT                  # FOR LOOP CNT = 0:15
+                                EXTEND
+                                SU              SQRMAX
+                                EXTEND
+                                BZF             SQRTRET
+                                CA              ROOTRET
+                                INDEX           SQRCNT
+                                AD              BIT14
+                                EXTEND
+                                SQUARE
+                                EXTEND
+                                SU              SQRARG
+                                COM
+                                EXTEND
+                                BZF             SQRTADD
+                                EXTEND
+                                BZMF            SQRTNEG
+SQRTADD                         INDEX           SQRCNT
+                                CA              BIT14                   # START FROM 1
+                                AD              ROOTRET
+                                TS              ROOTRET
+SQRTNEG                         CA              ONE
+                                AD              SQRCNT
+                                TS              SQRCNT
+                                TCF             SQRTLOOP
+INVALZERO                       CA              ZERO
+                                TS              ROOTRET
+SQRTRET                         TC              Q
+
+## CONSTANTS
 C1/2                            DEC             .7853134
 C3/2                            DEC             -.3216146
 C5/2                            DEC             .0363551
 
-
-
-DPOSMAX                         OCT             37777
 POSMAX                          OCT             37777
 LIMITS                          EQUALS          POSMAX          +1
 NEG1/2                          OCT             -20000                  # MUST BE TWO LOCATIONS AHEAD OF POS1/2.
@@ -338,6 +467,7 @@ HALF                            EQUALS          BIT14
 POS1/2                          EQUALS          HALF
 QUARTER                         EQUALS          BIT13
 2K                              EQUALS          BIT11
+FIFTEEN                         DEC             15
 ELEVEN                          DEC             11
 NOUTCON                         =               ELEVEN
 TEN                             DEC             10
@@ -372,9 +502,3 @@ DLOAD*                          OCT             40015
 VLOAD*                          EQUALS          40001
 BIT13-14                        OCTAL           30000
 
-PROGCHNG                        DEC             39
-PROGCHNG                        DEC             19
-
-#ENDIBNKF                        EQUALS
-
-#$SINGLE_PRECISION_SUBROUTINES.agc
