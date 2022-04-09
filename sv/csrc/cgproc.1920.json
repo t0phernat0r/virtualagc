@@ -1,0 +1,31 @@
+{
+    "ObjArchives": [
+        {
+            "archive": "archive.43/_1920_archive_1.a",
+            "objects": [
+                [
+                    "fsHFs_d.o",
+                    295113
+                ]
+            ],
+            "size": 295113
+        }
+    ],
+    "CompUnits": {
+        "fsHFs_d": {
+            "mod": "Core",
+            "out": "fsHFs_d.o",
+            "bytes": 295113,
+            "mode": 4,
+            "checksum": 4294967295,
+            "archive": "archive.43/_1920_archive_1.a"
+        }
+    },
+    "Modules": {
+        "Core": {
+            "Compiled": "Yes",
+            "Compiled Times": 2
+        }
+    },
+    "reusePaths": {}
+}

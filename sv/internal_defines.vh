@@ -31,7 +31,8 @@ typedef enum logic [3:0] {
     ALU_XOR,               // RXOR -> alu_out[29:15] = alu_src_1 ^ alu_src_2
     ALU_INCR,              // INCR -> alu_out[29:15] = alu_src_2 + 15'd1
     ALU_DV,                // DV -> alu_out[29:15] = alu_src_1[29:0] / alu_src_2
-    ALU_QXCH              // QXCH, LXCH, XLQ, XCH -> alu_out[29:0] = {alu_src_1[29:15], alu_src_2}
+    ALU_QXCH,              // QXCH, LXCH, XLQ, XCH -> alu_out[29:0] = {alu_src_1[29:15], alu_src_2}
+    ALU_DDOUBLE          //DDOUBLE -> alu_out = (alu_src1, alu_src2} * 2 (be mindful of edge cases though)
 } alu_op_t;
 
 typedef enum logic [3:0] {
