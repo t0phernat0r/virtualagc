@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/split-interp.dir/split-interp.c.o  -o split-interp 

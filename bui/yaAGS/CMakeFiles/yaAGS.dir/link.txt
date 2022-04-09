@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/yaAGS.dir/mainAGS.c.o CMakeFiles/yaAGS.dir/symbol_table.c.o CMakeFiles/yaAGS.dir/nbfgets.c.o CMakeFiles/yaAGS.dir/Backtrace.c.o CMakeFiles/yaAGS.dir/__/yaAGC/NormalizeSourceName.c.o  -o yaAGS  liblibyaAGS.a ../yaAGC/liblibyaAGC.a -lm -lpthread 

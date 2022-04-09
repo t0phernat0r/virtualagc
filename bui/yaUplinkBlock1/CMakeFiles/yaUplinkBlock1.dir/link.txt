@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/yaUplinkBlock1.dir/yaUplinkBlock1.c.o CMakeFiles/yaUplinkBlock1.dir/__/yaAGCb1/SocketAPI.c.o CMakeFiles/yaUplinkBlock1.dir/__/yaAGCb1/agc_utilities.c.o  -o yaUplinkBlock1  -lcurses /usr/lib/x86_64-linux-gnu/libform.so 
