@@ -355,17 +355,9 @@ PRPHASE
                                 EXTEND
                                 WRITE           CHANREG3
 
-                                TC              READV
+                                TCF             READV
 
 ## SINGLE PRECISION SINE IMPLEMENTATION (ITERATIVE) - COMANCHE 055
-CALCSIN                         CA              QUARTER
-                                TC              SPSIN
-
-LOOP                            NOOP
-                                EXTEND
-                                DCA             50
-                                TCF             LOOP
-
 SPCOS                           AD              HALF                    # ARGUMENTS SCALED AT PI
 SPSIN                           TS              TEMK
                                 TCF             SPT
