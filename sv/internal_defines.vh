@@ -32,6 +32,7 @@ typedef enum logic [3:0] {
     ALU_INCR,              // INCR -> alu_out[29:15] = alu_src_2 + 15'd1
     ALU_DV,                // DV -> alu_out[29:15] = alu_src_1[29:0] / alu_src_2
     ALU_QXCH              // QXCH, LXCH, XLQ, XCH -> alu_out[29:0] = {alu_src_1[29:15], alu_src_2}
+    ALU_ADDOUBL
 } alu_op_t;
 
 typedef enum logic [3:0] {
@@ -50,7 +51,7 @@ typedef enum logic [3:0] {
     TIME2
 } reg_t;
 
-typedef enum logic [3:0] {
+typedef enum logic [4:0] {
     // OUT
     DSKY_REG_1_HIGH,
     DSKY_REG_1_LOW,
@@ -60,13 +61,18 @@ typedef enum logic [3:0] {
     DSKY_REG_3_LOW,
     DSKY_PROG_NUM,
     DSKY_LAMPS,
-    AXI_CALC_RES,
+    AXI_DVA,
+    AXI_DVATX,
+    AXI_DVB,
+    AXI_DVBTX,
     // IN
     DSKY_VERB,
     DSKY_NOUN,
     AXI_MISSION_TIME,
-    AXI_APOGEE,
-    AXI_PERIGEE
+    AXI_G,
+    AXI_M,
+    AXI_RA,
+    AXI_RB
 } IO_reg_t;
 
 typedef enum logic [1:0] {

@@ -426,9 +426,10 @@ module IO_register_file
   (input  logic [14:0] data_write,
                        data_DSKY_VERB, 
                        data_DSKY_NOUN,
-                       data_AXI_MISSION_TIME,
-                       data_AXI_APOGEE,
-                       data_AXI_PERIGEE,
+                       data_AXI_G,
+                       data_AXI_M,
+                       data_AXI_RA,
+                       data_AXI_RB,
    input  IO_reg_t sel_read, sel_write,
    input  logic en_write, rst_l, clock,
    output logic [14:0] data_read);
@@ -441,7 +442,10 @@ module IO_register_file
                data_DSKY_REG_3_LOW,
                data_DSKY_PROG_NUM,
                data_DSKY_LAMPS,
-               data_AXI_CALC_RES;
+               data_AXI_DVA,
+               data_AXI_DVATX,
+               data_AXI_DVB,
+               data_AXI_DVBTX;
 
   logic write_valid;
 
@@ -457,7 +461,10 @@ module IO_register_file
       data_DSKY_REG_3_LOW <= 15'd0;
       data_DSKY_PROG_NUM[4:0] <= 5'd0;
       data_DSKY_LAMPS[11:0] <= 12'd0;
-      data_AXI_CALC_RES <= 15'd0;
+      data_AXI_DVA <= 15'd0;
+      data_AXI_DVATX <= 15'd0;
+      data_AXI_DVB <= 15'd0;
+      data_AXI_DVBTX <= 15'd0;
     end
     else if (en_write) begin
     // Write Case
@@ -470,7 +477,10 @@ module IO_register_file
         DSKY_REG_3_LOW: data_DSKY_REG_3_LOW <= data_write;
         DSKY_PROG_NUM: data_DSKY_PROG_NUM[4:0] <= data_write[4:0];
         DSKY_LAMPS: data_DSKY_LAMPS[11:0] <= data_write[11:0];
-        AXI_CALC_RES: data_AXI_CALC_RES <= data_write;
+        AXI_DVA: data_AXI_DVA <= data_write;
+        AXI_DVATX: data_AXI_DVATX = data_write;
+        AXI_DVB: data_AXI_DVB <= data_write;
+        AXI_DVBTX: data_AXI_DVBTX = data_write;
         default: begin
         // Necessary as not all I/O registers writeable
         end
@@ -497,12 +507,17 @@ module IO_register_file
         DSKY_REG_3_LOW: data_read = data_DSKY_REG_3_LOW;
         DSKY_PROG_NUM: data_read = data_DSKY_PROG_NUM;
         DSKY_LAMPS: data_read = data_DSKY_LAMPS; 
-        AXI_CALC_RES: data_read = data_AXI_CALC_RES;
+        AXI_DVA: data_read = data_AXI_DVA;
+        AXI_DVATX: data_read = data_AXI_DVATX;
+        AXI_DVB: data_read = data_AXI_DVB;
+        AXI_DVBTX: data_read = data_AXI_DVBTX;
         DSKY_VERB: data_read = data_DSKY_VERB;
         DSKY_NOUN: data_read = data_DSKY_NOUN;
         AXI_MISSION_TIME: data_read = data_AXI_MISSION_TIME;
-        AXI_APOGEE: data_read = data_AXI_APOGEE;
-        AXI_PERIGEE: data_read = data_AXI_PERIGEE;
+        AXI_G: data_read = data_AXI_G;
+        AXI_M: data_read = data_AXI_M;
+        AXI_RA: data_read = data_AXI_RA;
+        AXI_RB: data_read = data_AXI_RB;
         default: begin
         // Default assignment ARBITRARY
           data_read = data_DSKY_LAMPS;

@@ -7,7 +7,7 @@ module Core
    output logic [14:0] RAM_write_data, IO_write_data,
    output logic [13:0] ROM_pc_address, ROM_constant_address,
    output logic [10:0] RAM_read_address, RAM_write_address,
-   output logic [3:0] IO_read_sel, IO_write_sel,
+   output logic [4:0] IO_read_sel, IO_write_sel,
    output logic RAM_write_en, stall, halt, IO_write_en);
 
   /////////////////////////FETCH STAGE///////////////////////////////
@@ -119,7 +119,7 @@ module Core
             branch: NO_BRANCH,
             rd: ALU_OUT,
             RAM_write_en: 1'b0,
-            IO_reg_sel: 4'd0,
+            IO_reg_sel: 5'd0,
             IO_write_en: 1'b0,
             K: 12'b0,
             pc: 12'b0,
@@ -187,7 +187,7 @@ module Core
             branch: NO_BRANCH,
             rd: ALU_OUT,
             RAM_write_en: 1'b0,
-            IO_reg_sel: 4'd0,
+            IO_reg_sel: 5'd0,
             IO_write_en: 1'b0,
             K: 12'b0,
             pc: 12'b0,
