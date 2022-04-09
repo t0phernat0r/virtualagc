@@ -1,0 +1,652 @@
+[
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/Tools",
+  "command": "/usr/bin/cc -DMAIN_PROGRAM -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -o CMakeFiles/split-interp.dir/split-interp.c.o   -c /home/cabernar/agc/virtualagc/Tools/split-interp.c",
+  "file": "/home/cabernar/agc/virtualagc/Tools/split-interp.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/Tools",
+  "command": "/usr/bin/cc -DMAIN_PROGRAM -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -o CMakeFiles/webb2burkey-rope.dir/webb2burkey-rope.c.o   -c /home/cabernar/agc/virtualagc/Tools/webb2burkey-rope.c",
+  "file": "/home/cabernar/agc/virtualagc/Tools/webb2burkey-rope.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/Tools",
+  "command": "/usr/bin/cc -DMAIN_PROGRAM -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -o CMakeFiles/checkdec.dir/checkdec.c.o   -c /home/cabernar/agc/virtualagc/Tools/checkdec.c",
+  "file": "/home/cabernar/agc/virtualagc/Tools/checkdec.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/Tools",
+  "command": "/usr/bin/cc -DMAIN_PROGRAM -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -o CMakeFiles/oct2bin.dir/oct2bin.c.o   -c /home/cabernar/agc/virtualagc/Tools/oct2bin.c",
+  "file": "/home/cabernar/agc/virtualagc/Tools/oct2bin.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/Tools",
+  "command": "/usr/bin/cc -DMAIN_PROGRAM -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -o CMakeFiles/oct2bin.dir/utils.c.o   -c /home/cabernar/agc/virtualagc/Tools/utils.c",
+  "file": "/home/cabernar/agc/virtualagc/Tools/utils.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/Tools",
+  "command": "/usr/bin/cc -DMAIN_PROGRAM -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -o CMakeFiles/bdiffhead.dir/bdiffhead.c.o   -c /home/cabernar/agc/virtualagc/Tools/bdiffhead.c",
+  "file": "/home/cabernar/agc/virtualagc/Tools/bdiffhead.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/Tools",
+  "command": "/usr/bin/cc -DMAIN_PROGRAM -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -o CMakeFiles/listing2binsource.dir/listing2binsource.c.o   -c /home/cabernar/agc/virtualagc/Tools/listing2binsource.c",
+  "file": "/home/cabernar/agc/virtualagc/Tools/listing2binsource.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/Tools",
+  "command": "/usr/bin/cc -DMAIN_PROGRAM -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -o CMakeFiles/listing2binsource.dir/utils.c.o   -c /home/cabernar/agc/virtualagc/Tools/utils.c",
+  "file": "/home/cabernar/agc/virtualagc/Tools/utils.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaAGC",
+  "command": "/usr/bin/cc -DGDBMI -DNOREADLINE=\\\"yes\\\" -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -o CMakeFiles/yaAGC.dir/main.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/main.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/main.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaAGC",
+  "command": "/usr/bin/cc -DGDBMI -DNOREADLINE=\\\"yes\\\" -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -o CMakeFiles/yaAGC.dir/agc_cli.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/agc_cli.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/agc_cli.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaAGC",
+  "command": "/usr/bin/cc -DGDBMI -DNOREADLINE=\\\"yes\\\" -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -o CMakeFiles/yaAGC.dir/agc_simulator.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/agc_simulator.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/agc_simulator.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaAGC",
+  "command": "/usr/bin/cc -DGDBMI -DNOREADLINE=\\\"yes\\\" -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -o CMakeFiles/yaAGC.dir/agc_debugger.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/agc_debugger.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/agc_debugger.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaAGC",
+  "command": "/usr/bin/cc -DGDBMI -DNOREADLINE=\\\"yes\\\" -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -o CMakeFiles/yaAGC.dir/agc_gdbmi.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/agc_gdbmi.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/agc_gdbmi.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaAGC",
+  "command": "/usr/bin/cc -DGDBMI -DNOREADLINE=\\\"yes\\\" -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -o CMakeFiles/yaAGC.dir/agc_disassembler.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/agc_disassembler.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/agc_disassembler.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaAGC",
+  "command": "/usr/bin/cc -DGDBMI -DNOREADLINE=\\\"yes\\\" -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -o CMakeFiles/yaAGC.dir/agc_help.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/agc_help.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/agc_help.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaAGC",
+  "command": "/usr/bin/cc -DGDBMI -DNOREADLINE=\\\"yes\\\" -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -o CMakeFiles/yaAGC.dir/nbfgets.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/nbfgets.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/nbfgets.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaAGC",
+  "command": "/usr/bin/cc -DGDBMI -DNOREADLINE=\\\"yes\\\" -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -o CMakeFiles/yaAGC.dir/agc_symtab.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/agc_symtab.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/agc_symtab.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaAGC",
+  "command": "/usr/bin/cc -DGDBMI -DNOREADLINE=\\\"yes\\\" -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -o CMakeFiles/yaAGC.dir/NormalizeSourceName.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/NormalizeSourceName.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/NormalizeSourceName.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaAGC",
+  "command": "/usr/bin/cc -DGDBMI -DNOREADLINE=\\\"yes\\\" -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -o CMakeFiles/yaAGC.dir/__/Tools/checkdec.c.o   -c /home/cabernar/agc/virtualagc/Tools/checkdec.c",
+  "file": "/home/cabernar/agc/virtualagc/Tools/checkdec.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaAGC",
+  "command": "/usr/bin/cc -DGDBMI -DNOREADLINE=\\\"yes\\\" -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -o CMakeFiles/yaAGC.dir/Backtrace.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/Backtrace.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/Backtrace.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaAGC",
+  "command": "/usr/bin/cc     -o CMakeFiles/libyaAGC.dir/agc_engine_init.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/agc_engine_init.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/agc_engine_init.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaAGC",
+  "command": "/usr/bin/cc     -o CMakeFiles/libyaAGC.dir/agc_engine.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/agc_engine.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/agc_engine.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaAGC",
+  "command": "/usr/bin/cc     -o CMakeFiles/libyaAGC.dir/agc_utilities.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/agc_utilities.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/agc_utilities.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaAGC",
+  "command": "/usr/bin/cc     -o CMakeFiles/libyaAGC.dir/rfopen.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/rfopen.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/rfopen.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaAGC",
+  "command": "/usr/bin/cc     -o CMakeFiles/libyaAGC.dir/Backtrace.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/Backtrace.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/Backtrace.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaAGC",
+  "command": "/usr/bin/cc     -o CMakeFiles/libyaAGC.dir/SocketAPI.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/SocketAPI.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/SocketAPI.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaAGC",
+  "command": "/usr/bin/cc     -o CMakeFiles/libyaAGC.dir/DecodeDigitalDownlink.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/DecodeDigitalDownlink.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/DecodeDigitalDownlink.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaAGS",
+  "command": "/usr/bin/cc  -I/home/cabernar/agc/virtualagc/yaAGC    -o CMakeFiles/libyaAGS.dir/aea_engine_init.c.o   -c /home/cabernar/agc/virtualagc/yaAGS/aea_engine_init.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGS/aea_engine_init.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaAGS",
+  "command": "/usr/bin/cc  -I/home/cabernar/agc/virtualagc/yaAGC    -o CMakeFiles/libyaAGS.dir/aea_engine.c.o   -c /home/cabernar/agc/virtualagc/yaAGS/aea_engine.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGS/aea_engine.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaAGS",
+  "command": "/usr/bin/cc  -I/home/cabernar/agc/virtualagc/yaAGC    -o CMakeFiles/libyaAGS.dir/DebuggerHookAGS.c.o   -c /home/cabernar/agc/virtualagc/yaAGS/DebuggerHookAGS.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGS/DebuggerHookAGS.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaAGS",
+  "command": "/usr/bin/cc  -I/home/cabernar/agc/virtualagc/yaAGC    -o CMakeFiles/libyaAGS.dir/SocketAPI_AGS.c.o   -c /home/cabernar/agc/virtualagc/yaAGS/SocketAPI_AGS.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGS/SocketAPI_AGS.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaAGS",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\" -I/home/cabernar/agc/virtualagc/yaAGC    -o CMakeFiles/yaAGS.dir/mainAGS.c.o   -c /home/cabernar/agc/virtualagc/yaAGS/mainAGS.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGS/mainAGS.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaAGS",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\" -I/home/cabernar/agc/virtualagc/yaAGC    -o CMakeFiles/yaAGS.dir/symbol_table.c.o   -c /home/cabernar/agc/virtualagc/yaAGS/symbol_table.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGS/symbol_table.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaAGS",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\" -I/home/cabernar/agc/virtualagc/yaAGC    -o CMakeFiles/yaAGS.dir/nbfgets.c.o   -c /home/cabernar/agc/virtualagc/yaAGS/nbfgets.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGS/nbfgets.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaAGS",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\" -I/home/cabernar/agc/virtualagc/yaAGC    -o CMakeFiles/yaAGS.dir/Backtrace.c.o   -c /home/cabernar/agc/virtualagc/yaAGS/Backtrace.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGS/Backtrace.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaAGS",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\" -I/home/cabernar/agc/virtualagc/yaAGC    -o CMakeFiles/yaAGS.dir/__/yaAGC/NormalizeSourceName.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/NormalizeSourceName.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/NormalizeSourceName.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaASM",
+  "command": "/usr/bin/cc     -o CMakeFiles/yaASM.dir/yaASM.c.o   -c /home/cabernar/agc/virtualagc/yaASM/yaASM.c",
+  "file": "/home/cabernar/agc/virtualagc/yaASM/yaASM.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaDSKY2",
+  "command": "/usr/bin/c++  -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\" -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -I/home/cabernar/agc/virtualagc/yaAGC -I/usr/lib/x86_64-linux-gnu/wx/include/gtk3-unicode-3.0 -I/usr/include/wx-3.0    -o CMakeFiles/yaDSKY2.dir/yaDSKY2.cpp.o -c /home/cabernar/agc/virtualagc/yaDSKY2/yaDSKY2.cpp",
+  "file": "/home/cabernar/agc/virtualagc/yaDSKY2/yaDSKY2.cpp"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaDSKY2",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\" -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -I/home/cabernar/agc/virtualagc/yaAGC -I/usr/lib/x86_64-linux-gnu/wx/include/gtk3-unicode-3.0 -I/usr/include/wx-3.0    -o CMakeFiles/yaDSKY2.dir/__/yaAGC/agc_utilities.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/agc_utilities.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/agc_utilities.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaDSKY2",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\" -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -I/home/cabernar/agc/virtualagc/yaAGC -I/usr/lib/x86_64-linux-gnu/wx/include/gtk3-unicode-3.0 -I/usr/include/wx-3.0    -o CMakeFiles/yaDSKY2.dir/__/yaAGC/agc_engine.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/agc_engine.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/agc_engine.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaDSKY2",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\" -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -I/home/cabernar/agc/virtualagc/yaAGC -I/usr/lib/x86_64-linux-gnu/wx/include/gtk3-unicode-3.0 -I/usr/include/wx-3.0    -o CMakeFiles/yaDSKY2.dir/__/yaAGC/Backtrace.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/Backtrace.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/Backtrace.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaDSKY2",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\" -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -I/home/cabernar/agc/virtualagc/yaAGC -I/usr/lib/x86_64-linux-gnu/wx/include/gtk3-unicode-3.0 -I/usr/include/wx-3.0    -o CMakeFiles/yaDSKY2.dir/__/yaAGC/random.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/random.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/random.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaDSKY2",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\" -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -I/home/cabernar/agc/virtualagc/yaAGC -I/usr/lib/x86_64-linux-gnu/wx/include/gtk3-unicode-3.0 -I/usr/include/wx-3.0    -o CMakeFiles/yaDSKY2.dir/__/yaAGC/SocketAPI.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/SocketAPI.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/SocketAPI.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaDSKY2",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\" -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -I/home/cabernar/agc/virtualagc/yaAGC -I/usr/lib/x86_64-linux-gnu/wx/include/gtk3-unicode-3.0 -I/usr/include/wx-3.0    -o CMakeFiles/yaDSKY2.dir/__/yaAGC/rfopen.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/rfopen.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/rfopen.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaLEMAP",
+  "command": "/usr/bin/cc     -o CMakeFiles/binLEMAP.dir/binLEMAP.c.o   -c /home/cabernar/agc/virtualagc/yaLEMAP/binLEMAP.c",
+  "file": "/home/cabernar/agc/virtualagc/yaLEMAP/binLEMAP.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaLEMAP",
+  "command": "/usr/bin/cc     -o CMakeFiles/yaLEMAP.dir/yaLEMAP.c.o   -c /home/cabernar/agc/virtualagc/yaLEMAP/yaLEMAP.c",
+  "file": "/home/cabernar/agc/virtualagc/yaLEMAP/yaLEMAP.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaLEMAP",
+  "command": "/usr/bin/cc     -o CMakeFiles/yaLEMAP.dir/__/yaYUL/SymbolTable.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/SymbolTable.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/SymbolTable.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaLEMAP",
+  "command": "/usr/bin/cc     -o CMakeFiles/yaLEMAP.dir/__/yaYUL/strcmpEBCDIC.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/strcmpEBCDIC.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/strcmpEBCDIC.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaLVDC",
+  "command": "/usr/bin/cc -DHAVE_TIME_H=1    -o CMakeFiles/yaLVDC.dir/debug.c.o   -c /home/cabernar/agc/virtualagc/yaLVDC/debug.c",
+  "file": "/home/cabernar/agc/virtualagc/yaLVDC/debug.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaLVDC",
+  "command": "/usr/bin/cc -DHAVE_TIME_H=1    -o CMakeFiles/yaLVDC.dir/parseCommandLineArguments.c.o   -c /home/cabernar/agc/virtualagc/yaLVDC/parseCommandLineArguments.c",
+  "file": "/home/cabernar/agc/virtualagc/yaLVDC/parseCommandLineArguments.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaLVDC",
+  "command": "/usr/bin/cc -DHAVE_TIME_H=1    -o CMakeFiles/yaLVDC.dir/readAssemblies.c.o   -c /home/cabernar/agc/virtualagc/yaLVDC/readAssemblies.c",
+  "file": "/home/cabernar/agc/virtualagc/yaLVDC/readAssemblies.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaLVDC",
+  "command": "/usr/bin/cc -DHAVE_TIME_H=1    -o CMakeFiles/yaLVDC.dir/runOneInstruction.c.o   -c /home/cabernar/agc/virtualagc/yaLVDC/runOneInstruction.c",
+  "file": "/home/cabernar/agc/virtualagc/yaLVDC/runOneInstruction.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaLVDC",
+  "command": "/usr/bin/cc -DHAVE_TIME_H=1    -o CMakeFiles/yaLVDC.dir/yaLVDC.c.o   -c /home/cabernar/agc/virtualagc/yaLVDC/yaLVDC.c",
+  "file": "/home/cabernar/agc/virtualagc/yaLVDC/yaLVDC.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaLVDC",
+  "command": "/usr/bin/cc -DHAVE_TIME_H=1    -o CMakeFiles/yaLVDC.dir/gdbInterface.c.o   -c /home/cabernar/agc/virtualagc/yaLVDC/gdbInterface.c",
+  "file": "/home/cabernar/agc/virtualagc/yaLVDC/gdbInterface.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaLVDC",
+  "command": "/usr/bin/cc -DHAVE_TIME_H=1    -o CMakeFiles/yaLVDC.dir/processInterruptsAndIO.c.o   -c /home/cabernar/agc/virtualagc/yaLVDC/processInterruptsAndIO.c",
+  "file": "/home/cabernar/agc/virtualagc/yaLVDC/processInterruptsAndIO.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaLVDC",
+  "command": "/usr/bin/cc -DHAVE_TIME_H=1    -o CMakeFiles/yaLVDC.dir/readWriteCore.c.o   -c /home/cabernar/agc/virtualagc/yaLVDC/readWriteCore.c",
+  "file": "/home/cabernar/agc/virtualagc/yaLVDC/readWriteCore.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaLVDC",
+  "command": "/usr/bin/cc -DHAVE_TIME_H=1    -o CMakeFiles/yaLVDC.dir/virtualWire.c.o   -c /home/cabernar/agc/virtualagc/yaLVDC/virtualWire.c",
+  "file": "/home/cabernar/agc/virtualagc/yaLVDC/virtualWire.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaOBC",
+  "command": "/usr/bin/cc  -I/home/cabernar/agc/virtualagc/enet/include    -o CMakeFiles/enetHost.dir/enetHost.c.o   -c /home/cabernar/agc/virtualagc/yaOBC/enetHost.c",
+  "file": "/home/cabernar/agc/virtualagc/yaOBC/enetHost.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaOBC",
+  "command": "/usr/bin/cc  -I/home/cabernar/agc/virtualagc/enet/include    -o CMakeFiles/enetHost.dir/__/enet/callbacks.c.o   -c /home/cabernar/agc/virtualagc/enet/callbacks.c",
+  "file": "/home/cabernar/agc/virtualagc/enet/callbacks.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaOBC",
+  "command": "/usr/bin/cc  -I/home/cabernar/agc/virtualagc/enet/include    -o CMakeFiles/enetHost.dir/__/enet/compress.c.o   -c /home/cabernar/agc/virtualagc/enet/compress.c",
+  "file": "/home/cabernar/agc/virtualagc/enet/compress.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaOBC",
+  "command": "/usr/bin/cc  -I/home/cabernar/agc/virtualagc/enet/include    -o CMakeFiles/enetHost.dir/__/enet/host.c.o   -c /home/cabernar/agc/virtualagc/enet/host.c",
+  "file": "/home/cabernar/agc/virtualagc/enet/host.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaOBC",
+  "command": "/usr/bin/cc  -I/home/cabernar/agc/virtualagc/enet/include    -o CMakeFiles/enetHost.dir/__/enet/list.c.o   -c /home/cabernar/agc/virtualagc/enet/list.c",
+  "file": "/home/cabernar/agc/virtualagc/enet/list.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaOBC",
+  "command": "/usr/bin/cc  -I/home/cabernar/agc/virtualagc/enet/include    -o CMakeFiles/enetHost.dir/__/enet/packet.c.o   -c /home/cabernar/agc/virtualagc/enet/packet.c",
+  "file": "/home/cabernar/agc/virtualagc/enet/packet.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaOBC",
+  "command": "/usr/bin/cc  -I/home/cabernar/agc/virtualagc/enet/include    -o CMakeFiles/enetHost.dir/__/enet/peer.c.o   -c /home/cabernar/agc/virtualagc/enet/peer.c",
+  "file": "/home/cabernar/agc/virtualagc/enet/peer.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaOBC",
+  "command": "/usr/bin/cc  -I/home/cabernar/agc/virtualagc/enet/include    -o CMakeFiles/enetHost.dir/__/enet/protocol.c.o   -c /home/cabernar/agc/virtualagc/enet/protocol.c",
+  "file": "/home/cabernar/agc/virtualagc/enet/protocol.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaOBC",
+  "command": "/usr/bin/cc  -I/home/cabernar/agc/virtualagc/enet/include    -o CMakeFiles/enetHost.dir/__/enet/unix.c.o   -c /home/cabernar/agc/virtualagc/enet/unix.c",
+  "file": "/home/cabernar/agc/virtualagc/enet/unix.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaOBC",
+  "command": "/usr/bin/cc  -I/home/cabernar/agc/virtualagc/enet/include    -o CMakeFiles/enetHost.dir/__/enet/win32.c.o   -c /home/cabernar/agc/virtualagc/enet/win32.c",
+  "file": "/home/cabernar/agc/virtualagc/enet/win32.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaOBC",
+  "command": "/usr/bin/cc  -I/home/cabernar/agc/virtualagc/enet/include    -o CMakeFiles/yaOBC.dir/yaOBC.c.o   -c /home/cabernar/agc/virtualagc/yaOBC/yaOBC.c",
+  "file": "/home/cabernar/agc/virtualagc/yaOBC/yaOBC.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaOBC",
+  "command": "/usr/bin/cc  -I/home/cabernar/agc/virtualagc/enet/include    -o CMakeFiles/yaOBC.dir/__/enet/callbacks.c.o   -c /home/cabernar/agc/virtualagc/enet/callbacks.c",
+  "file": "/home/cabernar/agc/virtualagc/enet/callbacks.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaOBC",
+  "command": "/usr/bin/cc  -I/home/cabernar/agc/virtualagc/enet/include    -o CMakeFiles/yaOBC.dir/__/enet/compress.c.o   -c /home/cabernar/agc/virtualagc/enet/compress.c",
+  "file": "/home/cabernar/agc/virtualagc/enet/compress.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaOBC",
+  "command": "/usr/bin/cc  -I/home/cabernar/agc/virtualagc/enet/include    -o CMakeFiles/yaOBC.dir/__/enet/host.c.o   -c /home/cabernar/agc/virtualagc/enet/host.c",
+  "file": "/home/cabernar/agc/virtualagc/enet/host.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaOBC",
+  "command": "/usr/bin/cc  -I/home/cabernar/agc/virtualagc/enet/include    -o CMakeFiles/yaOBC.dir/__/enet/list.c.o   -c /home/cabernar/agc/virtualagc/enet/list.c",
+  "file": "/home/cabernar/agc/virtualagc/enet/list.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaOBC",
+  "command": "/usr/bin/cc  -I/home/cabernar/agc/virtualagc/enet/include    -o CMakeFiles/yaOBC.dir/__/enet/packet.c.o   -c /home/cabernar/agc/virtualagc/enet/packet.c",
+  "file": "/home/cabernar/agc/virtualagc/enet/packet.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaOBC",
+  "command": "/usr/bin/cc  -I/home/cabernar/agc/virtualagc/enet/include    -o CMakeFiles/yaOBC.dir/__/enet/peer.c.o   -c /home/cabernar/agc/virtualagc/enet/peer.c",
+  "file": "/home/cabernar/agc/virtualagc/enet/peer.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaOBC",
+  "command": "/usr/bin/cc  -I/home/cabernar/agc/virtualagc/enet/include    -o CMakeFiles/yaOBC.dir/__/enet/protocol.c.o   -c /home/cabernar/agc/virtualagc/enet/protocol.c",
+  "file": "/home/cabernar/agc/virtualagc/enet/protocol.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaOBC",
+  "command": "/usr/bin/cc  -I/home/cabernar/agc/virtualagc/enet/include    -o CMakeFiles/yaOBC.dir/__/enet/unix.c.o   -c /home/cabernar/agc/virtualagc/enet/unix.c",
+  "file": "/home/cabernar/agc/virtualagc/enet/unix.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaOBC",
+  "command": "/usr/bin/cc  -I/home/cabernar/agc/virtualagc/enet/include    -o CMakeFiles/yaOBC.dir/__/enet/win32.c.o   -c /home/cabernar/agc/virtualagc/enet/win32.c",
+  "file": "/home/cabernar/agc/virtualagc/enet/win32.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaTelemetry",
+  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -I/usr/lib/x86_64-linux-gnu/wx/include/gtk3-unicode-3.0 -I/usr/include/wx-3.0    -o CMakeFiles/yaTelemetry.dir/yaTelemetry.cpp.o -c /home/cabernar/agc/virtualagc/yaTelemetry/yaTelemetry.cpp",
+  "file": "/home/cabernar/agc/virtualagc/yaTelemetry/yaTelemetry.cpp"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaTelemetry",
+  "command": "/usr/bin/cc -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -I/usr/lib/x86_64-linux-gnu/wx/include/gtk3-unicode-3.0 -I/usr/include/wx-3.0    -o CMakeFiles/yaTelemetry.dir/__/yaAGC/agc_utilities.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/agc_utilities.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/agc_utilities.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaTelemetry",
+  "command": "/usr/bin/cc -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -I/usr/lib/x86_64-linux-gnu/wx/include/gtk3-unicode-3.0 -I/usr/include/wx-3.0    -o CMakeFiles/yaTelemetry.dir/__/yaAGC/DecodeDigitalDownlink.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/DecodeDigitalDownlink.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/DecodeDigitalDownlink.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaTelemetry",
+  "command": "/usr/bin/cc -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -I/usr/lib/x86_64-linux-gnu/wx/include/gtk3-unicode-3.0 -I/usr/include/wx-3.0    -o CMakeFiles/yaTelemetry.dir/__/yaAGC/agc_engine.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/agc_engine.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/agc_engine.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaTelemetry",
+  "command": "/usr/bin/cc -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -I/usr/lib/x86_64-linux-gnu/wx/include/gtk3-unicode-3.0 -I/usr/include/wx-3.0    -o CMakeFiles/yaTelemetry.dir/__/yaAGC/Backtrace.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/Backtrace.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/Backtrace.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaTelemetry",
+  "command": "/usr/bin/cc -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -I/usr/lib/x86_64-linux-gnu/wx/include/gtk3-unicode-3.0 -I/usr/include/wx-3.0    -o CMakeFiles/yaTelemetry.dir/__/yaAGC/random.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/random.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/random.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaTelemetry",
+  "command": "/usr/bin/cc -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -I/usr/lib/x86_64-linux-gnu/wx/include/gtk3-unicode-3.0 -I/usr/include/wx-3.0    -o CMakeFiles/yaTelemetry.dir/__/yaAGC/SocketAPI.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/SocketAPI.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/SocketAPI.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/GetOctOrDec.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/GetOctOrDec.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/GetOctOrDec.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/ParseBBCON.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/ParseBBCON.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/ParseBBCON.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/ParseEQUALS.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/ParseEQUALS.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/ParseEQUALS.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/ParseINDEX.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/ParseINDEX.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/ParseINDEX.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/ParseXCADR.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/ParseXCADR.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/ParseXCADR.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/yaYUL.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/yaYUL.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/yaYUL.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/IncPc.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/IncPc.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/IncPc.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/ParseBLOCK.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/ParseBLOCK.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/ParseBLOCK.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/ParseERASE.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/ParseERASE.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/ParseERASE.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/ParseInterpretiveOperand.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/ParseInterpretiveOperand.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/ParseInterpretiveOperand.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/Pass.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/Pass.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/Pass.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/yul2agc.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/yul2agc.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/yul2agc.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/Parse2CADR.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/Parse2CADR.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/Parse2CADR.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/ParseCADR.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/ParseCADR.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/ParseCADR.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/ParseEqMinus.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/ParseEqMinus.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/ParseEqMinus.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/ParseOCT.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/ParseOCT.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/ParseOCT.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/PseudoToSegmented.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/PseudoToSegmented.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/PseudoToSegmented.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/Parse2DEC.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/Parse2DEC.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/Parse2DEC.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/ParseCHECKequals.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/ParseCHECKequals.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/ParseCHECKequals.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/ParseEqualsECADR.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/ParseEqualsECADR.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/ParseEqualsECADR.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/ParseSBANKEquals.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/ParseSBANKEquals.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/ParseSBANKEquals.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/SymbolPass.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/SymbolPass.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/SymbolPass.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/Parse2FCADR.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/Parse2FCADR.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/Parse2FCADR.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/ParseEBANKEquals.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/ParseEBANKEquals.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/ParseEBANKEquals.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/ParseGENADR.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/ParseGENADR.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/ParseGENADR.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/ParseSETLOC.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/ParseSETLOC.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/ParseSETLOC.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/SymbolTable.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/SymbolTable.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/SymbolTable.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/ParseBANK.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/ParseBANK.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/ParseBANK.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/ParseECADR.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/ParseECADR.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/ParseECADR.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/ParseGeneral.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/ParseGeneral.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/ParseGeneral.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/ParseST.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/ParseST.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/ParseST.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/strcmpEBCDIC.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/strcmpEBCDIC.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/strcmpEBCDIC.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaYUL",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -Wall -o CMakeFiles/yaYUL.dir/Utilities.c.o   -c /home/cabernar/agc/virtualagc/yaYUL/Utilities.c",
+  "file": "/home/cabernar/agc/virtualagc/yaYUL/Utilities.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaUniverse",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -o CMakeFiles/yaUniverse.dir/yaUniverse.c.o   -c /home/cabernar/agc/virtualagc/yaUniverse/yaUniverse.c",
+  "file": "/home/cabernar/agc/virtualagc/yaUniverse/yaUniverse.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaUniverse",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -o CMakeFiles/yaUniverse.dir/FetchEphemerisPlanet.c.o   -c /home/cabernar/agc/virtualagc/yaUniverse/FetchEphemerisPlanet.c",
+  "file": "/home/cabernar/agc/virtualagc/yaUniverse/FetchEphemerisPlanet.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaUniverse",
+  "command": "/usr/bin/cc -DNVER=\"\\\"\\\\\\\"2020-12-24\\\\\\\"\\\"\"    -o CMakeFiles/yaUniverse.dir/TimeStep.c.o   -c /home/cabernar/agc/virtualagc/yaUniverse/TimeStep.c",
+  "file": "/home/cabernar/agc/virtualagc/yaUniverse/TimeStep.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaUplinkBlock1",
+  "command": "/usr/bin/cc     -o CMakeFiles/yaUplinkBlock1.dir/yaUplinkBlock1.c.o   -c /home/cabernar/agc/virtualagc/yaUplinkBlock1/yaUplinkBlock1.c",
+  "file": "/home/cabernar/agc/virtualagc/yaUplinkBlock1/yaUplinkBlock1.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaUplinkBlock1",
+  "command": "/usr/bin/cc     -o CMakeFiles/yaUplinkBlock1.dir/__/yaAGCb1/SocketAPI.c.o   -c /home/cabernar/agc/virtualagc/yaAGCb1/SocketAPI.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGCb1/SocketAPI.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/yaUplinkBlock1",
+  "command": "/usr/bin/cc     -o CMakeFiles/yaUplinkBlock1.dir/__/yaAGCb1/agc_utilities.c.o   -c /home/cabernar/agc/virtualagc/yaAGCb1/agc_utilities.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGCb1/agc_utilities.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/jWiz",
+  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -I/usr/lib/x86_64-linux-gnu/wx/include/gtk3-unicode-3.0 -I/usr/include/wx-3.0    -o CMakeFiles/jWiz.dir/jWiz.cpp.o -c /home/cabernar/agc/virtualagc/jWiz/jWiz.cpp",
+  "file": "/home/cabernar/agc/virtualagc/jWiz/jWiz.cpp"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/jWiz",
+  "command": "/usr/bin/cc -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -I/usr/lib/x86_64-linux-gnu/wx/include/gtk3-unicode-3.0 -I/usr/include/wx-3.0    -o CMakeFiles/jWiz.dir/__/yaAGC/agc_utilities.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/agc_utilities.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/agc_utilities.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/jWiz",
+  "command": "/usr/bin/cc -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -I/usr/lib/x86_64-linux-gnu/wx/include/gtk3-unicode-3.0 -I/usr/include/wx-3.0    -o CMakeFiles/jWiz.dir/__/yaAGC/DecodeDigitalDownlink.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/DecodeDigitalDownlink.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/DecodeDigitalDownlink.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/jWiz",
+  "command": "/usr/bin/cc -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -I/usr/lib/x86_64-linux-gnu/wx/include/gtk3-unicode-3.0 -I/usr/include/wx-3.0    -o CMakeFiles/jWiz.dir/__/yaAGC/agc_engine.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/agc_engine.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/agc_engine.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/jWiz",
+  "command": "/usr/bin/cc -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -I/usr/lib/x86_64-linux-gnu/wx/include/gtk3-unicode-3.0 -I/usr/include/wx-3.0    -o CMakeFiles/jWiz.dir/__/yaAGC/Backtrace.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/Backtrace.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/Backtrace.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/jWiz",
+  "command": "/usr/bin/cc -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -I/usr/lib/x86_64-linux-gnu/wx/include/gtk3-unicode-3.0 -I/usr/include/wx-3.0    -o CMakeFiles/jWiz.dir/__/yaAGC/random.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/random.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/random.c"
+},
+{
+  "directory": "/home/cabernar/agc/virtualagc/bui/jWiz",
+  "command": "/usr/bin/cc -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -I/usr/lib/x86_64-linux-gnu/wx/include/gtk3-unicode-3.0 -I/usr/include/wx-3.0    -o CMakeFiles/jWiz.dir/__/yaAGC/SocketAPI.c.o   -c /home/cabernar/agc/virtualagc/yaAGC/SocketAPI.c",
+  "file": "/home/cabernar/agc/virtualagc/yaAGC/SocketAPI.c"
+}
+]

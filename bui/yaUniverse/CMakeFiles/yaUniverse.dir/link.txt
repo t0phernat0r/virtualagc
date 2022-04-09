@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/yaUniverse.dir/yaUniverse.c.o CMakeFiles/yaUniverse.dir/FetchEphemerisPlanet.c.o CMakeFiles/yaUniverse.dir/TimeStep.c.o  -o yaUniverse  ../yaAGC/liblibyaAGC.a -lm 

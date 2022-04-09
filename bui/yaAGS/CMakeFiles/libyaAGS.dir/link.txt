@@ -1,0 +1,2 @@
+/usr/bin/ar qc liblibyaAGS.a  CMakeFiles/libyaAGS.dir/aea_engine_init.c.o CMakeFiles/libyaAGS.dir/aea_engine.c.o CMakeFiles/libyaAGS.dir/DebuggerHookAGS.c.o CMakeFiles/libyaAGS.dir/SocketAPI_AGS.c.o
+/usr/bin/ranlib liblibyaAGS.a

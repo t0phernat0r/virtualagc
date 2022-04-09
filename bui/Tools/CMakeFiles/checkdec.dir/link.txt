@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/checkdec.dir/checkdec.c.o  -o checkdec  -lm 

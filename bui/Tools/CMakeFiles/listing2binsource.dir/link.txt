@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/listing2binsource.dir/listing2binsource.c.o CMakeFiles/listing2binsource.dir/utils.c.o  -o listing2binsource 
