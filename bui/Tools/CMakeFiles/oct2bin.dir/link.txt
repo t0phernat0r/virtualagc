@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/oct2bin.dir/oct2bin.c.o CMakeFiles/oct2bin.dir/utils.c.o  -o oct2bin 

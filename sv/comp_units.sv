@@ -1,6 +1,6 @@
 `define NUM_BIT 15
-`include "agc_mult/agc_mult.v"
-`include "agc_div/agc_div.v"
+`include "agc_mult/agc_mult_28.v"
+`include "agc_div/agc_div_28.v"
 
 // Classical gate-level half adder
 module half_adder ( 
@@ -161,30 +161,24 @@ endmodule: ones_comp_add_sub
 // CONSTRUCTING THE ALU MULTIPLIER
 //
 
-// Altera 2's complement lmp_mult megafunction
-// Convert operands 1c -> 2c
-// Convert product 2c -> 1c
+// Altera unsigned lmp_mult megafunction
 module ones_comp_mult (
-    output logic [(2 * `NUM_BIT)-1:0] prod,
-    output logic underflow_flag,
-    input  logic [`NUM_BIT-1:0] x, y
+    output logic [29:0] prod,
+    input  logic [14:0] x, y
 );
-    logic [(2 * `NUM_BIT)-1:0] prod_twos_comp;
-    logic [`NUM_BIT-1:0] x_twos_comp, y_twos_comp;
+    logic [27:0] prod_unsigned;
+    logic [13:0] x_unsigned, y_unsigned;
 
-    convert_1c_2c #(1) x_2c (.twos_comp(x_twos_comp),
-                             .ones_comp(x));
+    // Convert operands to unsigned if necessary
+    assign x_unsigned = (x[14]) ? ~x[13:0] : x[13:0];
+    assign y_unsigned = (y[14]) ? ~y[13:0] : y[13:0];
 
-    convert_1c_2c #(1) y_2c (.twos_comp(y_twos_comp),
-                             .ones_comp(y));
+    agc_mult_28 mult_unsigned (.result(prod_unsigned),
+                               .dataa(x_unsigned),
+                               .datab(y_unsigned));
 
-    agc_mult mult_2c (.result(prod_twos_comp),
-                      .dataa(x_twos_comp),
-                      .datab(y_twos_comp));
-
-    convert_2c_1c #(2) prod_1c (.ones_comp(prod),
-                                .underflow_flag(underflow_flag),
-                                .twos_comp(prod_twos_comp));
+    assign prod = (x[14] ^ y[14]) ? {{1'b1, ~prod_unsigned[27:14]}, {1'b1, ~prod_unsigned[13:0]}}
+                                  : {{1'b0, prod_unsigned[27:14]}, {1'b0, prod_unsigned[13:0]}};
 
 endmodule: ones_comp_mult
 
@@ -192,25 +186,53 @@ endmodule: ones_comp_mult
 // CONSTRUCTING THE ALU DIVIDER
 //
 
-// Altera 2's complement LPM_DIVIDE megafunction
-// Convert numerator, denominator 1c -> 2c
-// Convert quotient, remainder 2c -> 1c
+// Altera unsigned LPM_DIVIDE megafunction
 module ones_comp_div (
-    output logic [`NUM_BIT-1:0] quot, remain,
-    output logic underflow_flag,
-    input  logic [(2 * `NUM_BIT)-1:0] numer,
-    input  logic [`NUM_BIT-1:0] denom
+    output logic [14:0] quot, remain,
+    input  logic [29:0] numer,
+    input  logic [14:0] denom
 );
-    logic [(2 * `NUM_BIT)-1:0] quot_twos_comp_pre, numer_twos_comp;
-    logic [`NUM_BIT-1:0] quot_twos_comp, remain_twos_comp, 
-                         denom_twos_comp;
-    logic [1:0] underflow_flag_pre;
+    logic [27:0] numer_unsigned, quot_unsigned;
+    logic [13:0] denom_unsigned; 
+    logic numer_high_zero, numer_low_zero,
+          numer_sign_bit;
 
-    convert_1c_2c #(2) numer_2c (.twos_comp(numer_twos_comp),
-                                 .ones_comp(numer));
+    always_comb begin
+        // Convert numerator to unsigned if necessary
+        numer_high_zero = ((numer[29:15] == 15'd0) | (numer[29:15] == 15'o77777));
+        numer_low_zero = ((numer[14:0] == 15'd0) | (numer[14:0] == 15'o77777));
+        if (numer_high_zero & number_low_zero) begin
+            numer_sign_bit = 1'b0;
+            numer_unsigned = 28'd0;
+        end
+        else if (numer_high_zero) begin
+            numer_sign_bit = numer[14];
+            numer_unsigned[27:14] = 14'd0;
+            numer_unsigned[13:0] = (numer[14]) ? ~numer[13:0] : numer[13:0];
+        end
+        else if (numer_low_zero) begin
+            numer_sign_bit = numer[29];
+            numer_unsigned[27:14] = (numer[29]) ? ~numer[28:15] : numer[28:15];
+            numer_unsigned[13:0] = 14'd0;
+        end
+        else begin
+        // ASSUMPTION: both half words of numer same sign
+            numer_sign_bit = numer[29];
+            numer_unsigned = (numer[29]) ? {~numer[28:15], ~numer[13:0]} 
+                                         : {numer[28:15], numer[13:0]};
+        end
+        // Convert denominator to unigned if necessary
+        denom_unsigned = (denom[14]) ? ~denom[13:0] : denom[13:0];
+    end
 
-    convert_1c_2c #(1) denom_2c (.twos_comp(denom_twos_comp),
-                                 .ones_comp(denom));
+    agc_div_28 div_unsigned (.quotient(quot_unsigned),
+                             .remain(remain[13:0]),
+                             .numer(numer_unsigned),
+                             .denom(denom_unsigned));
+
+    always_comb begin
+        remain[14] = 1'b0;
+    end
 
     agc_div div_2c (.quotient(quot_twos_comp_pre),
                     .remain(remain_twos_comp),

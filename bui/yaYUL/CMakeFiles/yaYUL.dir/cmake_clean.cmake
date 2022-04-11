@@ -1,0 +1,42 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/yaYUL.dir/GetOctOrDec.c.o"
+  "CMakeFiles/yaYUL.dir/IncPc.c.o"
+  "CMakeFiles/yaYUL.dir/Parse2CADR.c.o"
+  "CMakeFiles/yaYUL.dir/Parse2DEC.c.o"
+  "CMakeFiles/yaYUL.dir/Parse2FCADR.c.o"
+  "CMakeFiles/yaYUL.dir/ParseBANK.c.o"
+  "CMakeFiles/yaYUL.dir/ParseBBCON.c.o"
+  "CMakeFiles/yaYUL.dir/ParseBLOCK.c.o"
+  "CMakeFiles/yaYUL.dir/ParseCADR.c.o"
+  "CMakeFiles/yaYUL.dir/ParseCHECKequals.c.o"
+  "CMakeFiles/yaYUL.dir/ParseEBANKEquals.c.o"
+  "CMakeFiles/yaYUL.dir/ParseECADR.c.o"
+  "CMakeFiles/yaYUL.dir/ParseEQUALS.c.o"
+  "CMakeFiles/yaYUL.dir/ParseERASE.c.o"
+  "CMakeFiles/yaYUL.dir/ParseEqMinus.c.o"
+  "CMakeFiles/yaYUL.dir/ParseEqualsECADR.c.o"
+  "CMakeFiles/yaYUL.dir/ParseGENADR.c.o"
+  "CMakeFiles/yaYUL.dir/ParseGeneral.c.o"
+  "CMakeFiles/yaYUL.dir/ParseINDEX.c.o"
+  "CMakeFiles/yaYUL.dir/ParseInterpretiveOperand.c.o"
+  "CMakeFiles/yaYUL.dir/ParseOCT.c.o"
+  "CMakeFiles/yaYUL.dir/ParseSBANKEquals.c.o"
+  "CMakeFiles/yaYUL.dir/ParseSETLOC.c.o"
+  "CMakeFiles/yaYUL.dir/ParseST.c.o"
+  "CMakeFiles/yaYUL.dir/ParseXCADR.c.o"
+  "CMakeFiles/yaYUL.dir/Pass.c.o"
+  "CMakeFiles/yaYUL.dir/PseudoToSegmented.c.o"
+  "CMakeFiles/yaYUL.dir/SymbolPass.c.o"
+  "CMakeFiles/yaYUL.dir/SymbolTable.c.o"
+  "CMakeFiles/yaYUL.dir/Utilities.c.o"
+  "CMakeFiles/yaYUL.dir/strcmpEBCDIC.c.o"
+  "CMakeFiles/yaYUL.dir/yaYUL.c.o"
+  "CMakeFiles/yaYUL.dir/yul2agc.c.o"
+  "yaYUL"
+  "yaYUL.pdb"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang C)
+  include(CMakeFiles/yaYUL.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

@@ -289,6 +289,23 @@ module decode
          end
          3'd2 : begin
            unique case(next2_bits)
+             2'd0 : begin
+               //DDOUBL
+               if(instr_F[9:0] == 10'd0) begin
+                  ctrl.alu_op = ALU_DDOUBLE;
+                  ctrl.rs1_sel = A;
+                  ctrl.rs2_sel = L;
+                  ctrl.wr1_sel = A;
+                  ctrl.wr2_sel = L;
+                  ctrl.wr1_en = 1'b1;
+                  ctrl.wr2_en = 1'b1;
+                  ctrl.alu_src2 = RS2_DATA2;
+               end
+               else begin
+               $display(rst_l, "Encountered unknown/unimplemented instr %05o." ,instr_F);
+                                ctrl.halt = 1'b1;
+               end
+             end
              //LXCH ZL
              2'd1 : begin               
                ctrl.alu_op = ALU_QXCH;

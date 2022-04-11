@@ -1,0 +1,2 @@
+/usr/bin/ar qc liblibyaAGC.a  CMakeFiles/libyaAGC.dir/agc_engine_init.c.o CMakeFiles/libyaAGC.dir/agc_engine.c.o CMakeFiles/libyaAGC.dir/agc_utilities.c.o CMakeFiles/libyaAGC.dir/rfopen.c.o CMakeFiles/libyaAGC.dir/Backtrace.c.o CMakeFiles/libyaAGC.dir/SocketAPI.c.o CMakeFiles/libyaAGC.dir/DecodeDigitalDownlink.c.o
+/usr/bin/ranlib liblibyaAGC.a

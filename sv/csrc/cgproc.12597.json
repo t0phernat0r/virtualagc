@@ -1,8 +1,0 @@
-{
-    "Modules": {
-        "IO_register_file": {}
-    },
-    "ObjArchives": [],
-    "CompUnits": {},
-    "reusePaths": {}
-}

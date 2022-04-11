@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/yaASM.dir/yaASM.c.o  -o yaASM  -lm 
