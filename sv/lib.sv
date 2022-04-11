@@ -413,7 +413,7 @@ module register_file
     end
 
     // Prevent unintentional latches
-    reg_BB[11:0] = 12'd0;
+    reg_BB[8:0] = 12'd0;
     
     // Bank bit output taps for address translation module
     bits_EB = reg_BB[11:9];
@@ -513,7 +513,6 @@ module IO_register_file
         AXI_DVBTX: data_read = data_AXI_DVBTX;
         DSKY_VERB: data_read = data_DSKY_VERB;
         DSKY_NOUN: data_read = data_DSKY_NOUN;
-        AXI_MISSION_TIME: data_read = data_AXI_MISSION_TIME;
         AXI_G: data_read = data_AXI_G;
         AXI_M: data_read = data_AXI_M;
         AXI_RA: data_read = data_AXI_RA;
@@ -788,13 +787,11 @@ module arithmetic_logic_unit
                                  .subtract(sel_subtract));
 
   ones_comp_mult alu_mult (.prod(res_mult),
-                           .underflow_flag(),
                            .x(source_1[14:0]),
                            .y(source_2));
 
   ones_comp_div alu_div (.quot(res_div_quot),
                          .remain(res_div_remain),
-                         .underflow_flag(),
                          .numer(source_1),
                          .denom(source_2));
 
