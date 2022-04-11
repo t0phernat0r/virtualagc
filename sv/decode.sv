@@ -3,7 +3,7 @@
 module decode
   (input logic rst_l, clock, flush, stall, flush_DE,
    input [14:0] instr, index_data,
-   input [11:0] pc,
+   input [11:0] pc_D,
    input [2:0] bits_FB, bits_EB,
    output ctrl_t ctrl_D);
 
@@ -60,7 +60,7 @@ module decode
     IO_reg_sel: instr_F[4:0],
     IO_write_en: 1'b0,
     K: instr_F[11:0],
-    pc: pc,
+    pc: pc_D,
     index: EXTEND,
     halt: 1'b0,
     EB: bits_EB,
