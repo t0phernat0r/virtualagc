@@ -28,12 +28,13 @@ module TB;
   logic [14:0] RAM_write_data, IO_write_data;
   logic [14:0] DSKY_VERB_data,
                DSKY_NOUN_data,
-               AXI_MISSION_TIME_data,
-               AXI_APOGEE_data,
-               AXI_PERIGEE_data;
+               AXI_G_data,
+               AXI_M_data,
+               AXI_RA_data,
+               AXI_RB_data;
   logic [13:0] ROM_pc_address, ROM_constant_address; 
   logic [10:0]RAM_read_address, RAM_write_address;
-  logic [3:0] IO_read_sel, IO_write_sel;
+  logic [4:0] IO_read_sel, IO_write_sel;
   logic RAM_write_en, stall, halt, IO_write_en;
 
   // PLACEHOLDER UNTIL SERIAL INTERFACE MODULES EXIST TO DRIVE THESE
@@ -41,9 +42,10 @@ module TB;
   always_comb begin
     DSKY_VERB_data = 15'd37;
     DSKY_NOUN_data = 15'd5;
-    AXI_MISSION_TIME_data = 15'b001010010000011;
-    AXI_APOGEE_data = 15'b010000111010010;
-    AXI_PERIGEE_data = 15'b111110000000010;
+    AXI_G_data = 15'b001010010000011;
+    AXI_M_data = 15'b010000111010010;
+    AXI_RA_data = 15'b111110000000010;
+    AXI_RB_data = 15'd0;
   end
 
   agc_rom_new rom(.aclr(~reset_n), .address_a(ROM_pc_address), .address_b(ROM_constant_address), .clock, .addressstall_a(stall), .addressstall_b(stall), .q_a(ROM_pc_data), .q_b(ROM_constant_data));
@@ -52,9 +54,10 @@ module TB;
   IO_register_file IO_unit (.data_write(IO_write_data),
                             .data_DSKY_VERB(DSKY_VERB_data),
                             .data_DSKY_NOUN(DSKY_NOUN_data),
-                            .data_AXI_MISSION_TIME(AXI_MISSION_TIME_data),
-                            .data_AXI_APOGEE(AXI_APOGEE_data),
-                            .data_AXI_PERIGEE(AXI_PERIGEE_data),
+                            .data_AXI_G(AXI_G_data),
+                            .data_AXI_M(AXI_M_data),
+                            .data_AXI_RA(AXI_RA_data),
+                            .data_AXI_RB(AXI_RB_data),
                             .sel_read(IO_read_sel),
                             .sel_write(IO_write_sel),
                             .en_write(IO_write_en),

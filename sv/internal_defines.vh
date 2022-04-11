@@ -32,7 +32,7 @@ typedef enum logic [3:0] {
     ALU_INCR,              // INCR -> alu_out[29:15] = alu_src_2 + 15'd1
     ALU_DV,                // DV -> alu_out[29:15] = alu_src_1[29:0] / alu_src_2
     ALU_QXCH,              // QXCH, LXCH, XLQ, XCH -> alu_out[29:0] = {alu_src_1[29:15], alu_src_2}
-    ALU_DDOUBL
+    ALU_DDOUBLE
 } alu_op_t;
 
 typedef enum logic [3:0] {
@@ -68,7 +68,6 @@ typedef enum logic [4:0] {
     // IN
     DSKY_VERB,
     DSKY_NOUN,
-    AXI_MISSION_TIME,
     AXI_G,
     AXI_M,
     AXI_RA,

@@ -1,6 +1,6 @@
 `define NUM_BIT 15
-`include "agc_mult/agc_mult_28.v"
-`include "agc_div/agc_div_28.v"
+`include "agc_mult_28/agc_mult_28.v"
+`include "agc_div_28/agc_div_28.v"
 
 // Classical gate-level half adder
 module half_adder ( 
@@ -201,7 +201,7 @@ module ones_comp_div (
         // Convert numerator to unsigned if necessary
         numer_high_zero = ((numer[29:15] == 15'd0) | (numer[29:15] == 15'o77777));
         numer_low_zero = ((numer[14:0] == 15'd0) | (numer[14:0] == 15'o77777));
-        if (numer_high_zero & number_low_zero) begin
+        if (numer_high_zero & numer_low_zero) begin
             numer_sign_bit = 1'b0;
             numer_unsigned = 28'd0;
         end
@@ -230,27 +230,12 @@ module ones_comp_div (
                              .numer(numer_unsigned),
                              .denom(denom_unsigned));
 
+    // PLACEHOLDER TO ALLOW FOR MULT TESTING!!!!!!!
     always_comb begin
+        quot = 15'd0;
         remain[14] = 1'b0;
     end
 
-    agc_div div_2c (.quotient(quot_twos_comp_pre),
-                    .remain(remain_twos_comp),
-                    .numer(numer_twos_comp),
-                    .denom(denom_twos_comp));
-
-    assign quot_twos_comp = quot_twos_comp_pre[`NUM_BIT-1:0];
-
-    convert_2c_1c #(1) quot_2c (.ones_comp(quot),
-                                .underflow_flag(underflow_flag_pre[1]),
-                                .twos_comp(quot_twos_comp));
-
-    convert_2c_1c #(1) remain_2c (.ones_comp(remain),
-                                  .underflow_flag(underflow_flag_pre[0]),
-                                  .twos_comp(remain_twos_comp));
-
-    // 2 possible sources of conversion underflow
-    assign underflow_flag = underflow_flag_pre[1] | underflow_flag_pre[0];
 
 endmodule: ones_comp_div
 

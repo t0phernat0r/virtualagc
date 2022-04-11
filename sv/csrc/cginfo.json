@@ -1,0 +1,258 @@
+{
+    "MlibObjs": {},
+    "PrevCompiledModules": {},
+    "NameTable": {
+        "convert_2c_1c": [
+            "convert_2c_1c",
+            "sVgdt",
+            "module"
+        ],
+        "decoder": [
+            "decoder",
+            "zf0bY",
+            "module"
+        ],
+        "addr_translate": [
+            "addr_translate",
+            "gfxiy",
+            "module"
+        ],
+        "mux": [
+            "mux",
+            "RZvU4",
+            "module"
+        ],
+        "_vcs_unit__453941036": [
+            "_vcs_unit__453941036",
+            "faysc",
+            "module"
+        ],
+        "std": [
+            "std",
+            "reYIK",
+            "module"
+        ],
+        "agc_ram": [
+            "agc_ram",
+            "DvDiU",
+            "module"
+        ],
+        "Core": [
+            "Core",
+            "fsHFs",
+            "module"
+        ],
+        "register_file": [
+            "register_file",
+            "zZrks",
+            "module"
+        ],
+        "agc_rom_new": [
+            "agc_rom_new",
+            "YaxfH",
+            "module"
+        ],
+        "mux_0000": [
+            "mux_0000",
+            "VGiWK",
+            "module"
+        ],
+        "mux_0001": [
+            "mux_0001",
+            "wRjDd",
+            "module"
+        ],
+        "mux_0002": [
+            "mux_0002",
+            "mnYSg",
+            "module"
+        ],
+        "mux_0003": [
+            "mux_0003",
+            "F6CNF",
+            "module"
+        ],
+        "convert_1c_2c": [
+            "convert_1c_2c",
+            "EHhqJ",
+            "module"
+        ],
+        "adder": [
+            "adder",
+            "Qq4Ev",
+            "module"
+        ],
+        "counter": [
+            "counter",
+            "MQn6b",
+            "module"
+        ],
+        "countFSM": [
+            "countFSM",
+            "Bb4h8",
+            "module"
+        ],
+        "IO_register_file": [
+            "IO_register_file",
+            "e2KCL",
+            "module"
+        ],
+        "ALTERA_DEVICE_FAMILIES": [
+            "ALTERA_DEVICE_FAMILIES",
+            "uFC8u",
+            "module"
+        ],
+        "ripple_carry_adder_0000": [
+            "ripple_carry_adder_0000",
+            "nr2NV",
+            "module"
+        ],
+        "addr_translate_ROM": [
+            "addr_translate_ROM",
+            "I9T3V",
+            "module"
+        ],
+        "addr_translate_RAM": [
+            "addr_translate_RAM",
+            "A8YZN",
+            "module"
+        ],
+        "branching_logic": [
+            "branching_logic",
+            "Bp0Dn",
+            "module"
+        ],
+        "full_adder": [
+            "full_adder",
+            "BEdzp",
+            "module"
+        ],
+        "TB": [
+            "TB",
+            "sH4Fc",
+            "module"
+        ],
+        "LPM_HINT_EVALUATION": [
+            "LPM_HINT_EVALUATION",
+            "ReME5",
+            "module"
+        ],
+        "ALTERA_MF_MEMORY_INITIALIZATION": [
+            "ALTERA_MF_MEMORY_INITIALIZATION",
+            "er73t",
+            "module"
+        ],
+        "altsyncram_0000": [
+            "altsyncram_0000",
+            "Q0s3L",
+            "module"
+        ],
+        "...MASTER...": [
+            "SIM",
+            "amcQw",
+            "module"
+        ]
+    },
+    "CompileStrategy": "fullobj",
+    "stat": {
+        "ru_self_cgstart": {
+            "ru_minflt": 18969,
+            "ru_utime_sec": 0.41737400000000002,
+            "ru_stime_sec": 0.058631000000000003,
+            "ru_maxrss_kb": 59200,
+            "ru_nvcsw": 269,
+            "ru_majflt": 0,
+            "ru_nivcsw": 15
+        },
+        "ru_childs_cgstart": {
+            "ru_minflt": 2796,
+            "ru_utime_sec": 0.0062950000000000002,
+            "ru_stime_sec": 0.007273,
+            "ru_maxrss_kb": 20468,
+            "ru_nvcsw": 12,
+            "ru_majflt": 0,
+            "ru_nivcsw": 10
+        },
+        "mopSpeed": 83351.874513294053,
+        "quadSpeed": 33670.782808617951,
+        "nMops": 8991,
+        "nQuads": 3632,
+        "totalObjSize": 425949,
+        "ru_self_end": {
+            "ru_minflt": 23445,
+            "ru_utime_sec": 0.52524199999999999,
+            "ru_stime_sec": 0.11183800000000001,
+            "ru_maxrss_kb": 66832,
+            "ru_nvcsw": 511,
+            "ru_majflt": 0,
+            "ru_nivcsw": 29
+        },
+        "ru_childs_end": {
+            "ru_minflt": 37705,
+            "ru_utime_sec": 0.50117900000000004,
+            "ru_stime_sec": 0.16603899999999999,
+            "ru_maxrss_kb": 36436,
+            "ru_nvcsw": 752,
+            "ru_majflt": 0,
+            "ru_nivcsw": 11
+        },
+        "outputSizePerQuad": 117.0,
+        "mop/quad": 2.4754955947136565,
+        "Frontend(%)": 79.463180781430282,
+        "CodeGen(%)": 20.536819218569718
+    },
+    "CurCompileUdps": {},
+    "SIMBData": {
+        "out": "amcQwB.o",
+        "bytes": 89568
+    },
+    "Misc": {
+        "cwd": "/afs/ece.cmu.edu/usr/dgionis/Private/18500/virtualagc/sv",
+        "archive_dir": "archive.0",
+        "csrc": "csrc",
+        "default_output_dir": "csrc",
+        "daidir_abs": "/afs/ece.cmu.edu/usr/dgionis/Private/18500/virtualagc/sv/simv.daidir",
+        "daidir": "/afs/ece.cmu.edu/usr/dgionis/Private/18500/virtualagc/sv/simv.daidir",
+        "csrc_abs": "/afs/ece.cmu.edu/usr/dgionis/Private/18500/virtualagc/sv/csrc"
+    },
+    "CompileProcesses": [
+        "cgproc.19875.json",
+        "cgproc.19881.json",
+        "cgproc.19882.json",
+        "cgproc.19883.json",
+        "cgproc.19884.json",
+        "cgproc.19885.json",
+        "cgproc.19886.json",
+        "cgproc.19887.json",
+        "cgproc.19888.json",
+        "cgproc.19889.json"
+    ],
+    "LVLData": [
+        "SIM"
+    ],
+    "CurCompileModules": [
+        "...MASTER...",
+        "IO_register_file",
+        "LPM_HINT_EVALUATION",
+        "TB",
+        "countFSM",
+        "addr_translate_ROM",
+        "addr_translate",
+        "addr_translate_RAM",
+        "full_adder",
+        "decoder",
+        "agc_rom_new",
+        "counter",
+        "convert_2c_1c",
+        "mux",
+        "mux_0000",
+        "mux_0001",
+        "mux_0002",
+        "mux_0003",
+        "adder",
+        "branching_logic",
+        "_vcs_unit__453941036"
+    ],
+    "PEModules": [],
+    "CompileStatus": "Successful"
+}

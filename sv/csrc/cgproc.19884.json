@@ -1,0 +1,31 @@
+{
+    "Modules": {
+        "agc_ram": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        }
+    },
+    "reusePaths": {},
+    "CompUnits": {
+        "DvDiU_d": {
+            "out": "DvDiU_d.o",
+            "mod": "agc_ram",
+            "bytes": 131127,
+            "mode": 4,
+            "checksum": 4294967295,
+            "archive": "archive.0/_19884_archive_1.a"
+        }
+    },
+    "ObjArchives": [
+        {
+            "archive": "archive.0/_19884_archive_1.a",
+            "objects": [
+                [
+                    "DvDiU_d.o",
+                    131127
+                ]
+            ],
+            "size": 131127
+        }
+    ]
+}
