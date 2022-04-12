@@ -3,7 +3,7 @@
 *.swo
 *.tcl
 *.tcl.old
-csrv
+csrc/
 DVEfiles
 simv.daidir
 simv

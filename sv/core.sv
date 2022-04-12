@@ -44,6 +44,7 @@ module Core
          else if (~stall_D) begin
             pc_D <= pc_F;
          end
+         $display("PC:\t= OCT F:%o D:%o E:%o W:%o", pc_F, ctrl_D.pc, ctrl_E.pc, ctrl_W.pc);
     end
 
   /////////////////////////DECODE STAGE////////////////////////////

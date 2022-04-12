@@ -236,15 +236,17 @@ module register_file
                reg_TIME1, reg_TIME2;
 
   always_ff @(posedge clock) begin
-      $display("A = %o", reg_A);
-      $display("L = %o", reg_L);
-      $display("Q = %o", reg_Q);
-      $display("BB = %o", reg_BB);
-      $display("CYR = %o", reg_CYR);
-      $display("SR = %o", reg_SR);
-      $display("SL = %o", reg_SL);
-      $display("TIME1 = %o", reg_TIME1);
-      $display("TIME2 = %o", reg_TIME2);
+      $display("-------------------------------------------------------------------");
+      $display("A\t= %o (0x%x) DEC:%d SP:%f (SP CAT: %f)", 
+               reg_A, reg_A, reg_A, reg_A/16384.0, (reg_A << 14 | reg_L[13:0])/16384.0);
+      $display("L\t= %o (0x%x) DEC:%d SP:%f", reg_L, reg_L, reg_L, reg_L/16384.0);
+      $display("Q\t= %o (0x%x)", reg_Q, reg_Q);
+      $display("BB\t= %o (0x%x)", reg_BB, reg_BB);
+      $display("CYR\t= %o (0x%x)", reg_CYR, reg_CYR);
+      $display("SR\t= %o (0x%x)", reg_SR, reg_SR);
+      $display("SL\t= %o (0x%x)", reg_SL, reg_SL);
+      $display("TIME1\t= %o (0x%x)", reg_TIME1, reg_TIME1);
+      $display("TIME2\t= %o (0x%x)", reg_TIME2, reg_TIME2);
   end
 
   always_ff @(posedge clock, negedge rst_l) begin
