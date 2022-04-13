@@ -705,8 +705,10 @@ module arithmetic_logic_unit
 
   always_comb begin
     // Result low order word default
-    result[14:0] = 15'd0;
-
+    result[29:0] = 15'd0;
+	 add_sub_src_1 = 15'd0;
+	 add_sub_src_2 = 15'd0;
+    sel_subtract = 1'b0;
     unique case (operation_sel)
       ALU_AD: begin
         sel_subtract = 1'b0;
@@ -835,3 +837,32 @@ module stall_logic
 
 
 endmodule: stall_logic
+
+module tranmit_fsm
+
+endmodule transmit_fsm
+
+//connects uart ip to IO registers
+module transmit_connector
+ (input clock, reset_n, uart_tx_busy,
+  input [14:0] io_reg_data,
+  output uart_tx_en, 
+  output [7:0] uart_tx_data);
+
+  logic clk, rst_l;
+  logic [31:0] count;
+
+  assign clk = clock;
+  assign rst_l = reset_n;
+ 
+
+  //timer 50,000
+  counter c1(.clk, .rst_l, .en(1'b1), .count);
+  
+
+  //ctrl fsm
+
+
+
+ 
+endmodule: transmit_connector
