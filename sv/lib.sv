@@ -432,16 +432,14 @@ module IO_register_file
                        data_AXI_M,
                        data_AXI_RA,
                        data_AXI_RB,
+                       data_AXI_ATX,
    input  IO_reg_t sel_read, sel_write,
    input  logic en_write, rst_l, clock,
    output logic [14:0] data_read);
 
-  logic [14:0] data_DSKY_REG_1_HIGH,
-               data_DSKY_REG_1_LOW,
-               data_DSKY_REG_2_HIGH,
-               data_DSKY_REG_2_LOW,
-               data_DSKY_REG_3_HIGH,
-               data_DSKY_REG_3_LOW,
+  logic [14:0] data_DSKY_REG_1,
+               data_DSKY_REG_2,
+               data_DSKY_REG_3,
                data_DSKY_PROG_NUM,
                data_DSKY_LAMPS,
                data_AXI_DVA,
@@ -455,12 +453,9 @@ module IO_register_file
   // Output register writes
     if (~rst_l) begin
     // Reset Case
-      data_DSKY_REG_1_HIGH <= 15'd0;
-      data_DSKY_REG_1_LOW <= 15'd0;
-      data_DSKY_REG_2_HIGH <= 15'd0;
-      data_DSKY_REG_2_LOW <= 15'd0;
-      data_DSKY_REG_3_HIGH <= 15'd0;
-      data_DSKY_REG_3_LOW <= 15'd0;
+      data_DSKY_REG_1 <= 15'd0;
+      data_DSKY_REG_2 <= 15'd0;
+      data_DSKY_REG_3 <= 15'd0;
       data_DSKY_PROG_NUM[4:0] <= 5'd0;
       data_DSKY_LAMPS[11:0] <= 12'd0;
       data_AXI_DVA <= 15'd0;
@@ -471,12 +466,9 @@ module IO_register_file
     else if (en_write) begin
     // Write Case
       unique case (sel_write)
-        DSKY_REG_1_HIGH: data_DSKY_REG_1_HIGH <= data_write;
-        DSKY_REG_1_LOW: data_DSKY_REG_1_LOW <= data_write;
-        DSKY_REG_2_HIGH: data_DSKY_REG_2_HIGH <= data_write;
-        DSKY_REG_2_LOW: data_DSKY_REG_2_LOW <= data_write;
-        DSKY_REG_3_HIGH: data_DSKY_REG_3_HIGH <= data_write;
-        DSKY_REG_3_LOW: data_DSKY_REG_3_LOW <= data_write;
+        DSKY_REG_1: data_DSKY_REG_1 <= data_write;
+        DSKY_REG_2: data_DSKY_REG_2 <= data_write;
+        DSKY_REG_3: data_DSKY_REG_3 <= data_write;
         DSKY_PROG_NUM: data_DSKY_PROG_NUM[4:0] <= data_write[4:0];
         DSKY_LAMPS: data_DSKY_LAMPS[11:0] <= data_write[11:0];
         AXI_DVA: data_AXI_DVA <= data_write;
@@ -501,12 +493,9 @@ module IO_register_file
     else begin
     // Common Case
       unique case (sel_read)
-        DSKY_REG_1_HIGH: data_read = data_DSKY_REG_1_HIGH;
-        DSKY_REG_1_LOW: data_read = data_DSKY_REG_1_LOW;
-        DSKY_REG_2_HIGH: data_read = data_DSKY_REG_2_HIGH;
-        DSKY_REG_2_LOW: data_read = data_DSKY_REG_2_LOW;
-        DSKY_REG_3_HIGH: data_read = data_DSKY_REG_3_HIGH;
-        DSKY_REG_3_LOW: data_read = data_DSKY_REG_3_LOW;
+        DSKY_REG_1: data_read = data_DSKY_REG_1;
+        DSKY_REG_2: data_read = data_DSKY_REG_2;
+        DSKY_REG_3: data_read = data_DSKY_REG_3;
         DSKY_PROG_NUM: data_read = data_DSKY_PROG_NUM;
         DSKY_LAMPS: data_read = data_DSKY_LAMPS; 
         AXI_DVA: data_read = data_AXI_DVA;
@@ -519,6 +508,7 @@ module IO_register_file
         AXI_M: data_read = data_AXI_M;
         AXI_RA: data_read = data_AXI_RA;
         AXI_RB: data_read = data_AXI_RB;
+        AXI_ATX: data_read = data_AXI_ATX;
         default: begin
         // Default assignment ARBITRARY
           data_read = data_DSKY_LAMPS;
@@ -781,7 +771,7 @@ module arithmetic_logic_unit
     endcase
 
     // Set the zero flag
-    res_eq_0 = (source_2 == 15'd0 || source_2 == 15'o777);
+    res_eq_0 = (source_2 == 15'd0 || source_2 == 15'o77777);
 
   end
 
