@@ -429,7 +429,6 @@ module IO_register_file
                        data_DSKY_VERB, 
                        data_DSKY_NOUN,
                        data_AXI_G,
-                       data_AXI_M,
                        data_AXI_RA,
                        data_AXI_RB,
                        data_AXI_ATX,
@@ -505,7 +504,6 @@ module IO_register_file
         DSKY_VERB: data_read = data_DSKY_VERB;
         DSKY_NOUN: data_read = data_DSKY_NOUN;
         AXI_G: data_read = data_AXI_G;
-        AXI_M: data_read = data_AXI_M;
         AXI_RA: data_read = data_AXI_RA;
         AXI_RB: data_read = data_AXI_RB;
         AXI_ATX: data_read = data_AXI_ATX;

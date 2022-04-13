@@ -28,33 +28,23 @@ TIME6                           EQUALS          31
 NEWJOB                          ERASE                           # Allocate a variable at the location checked by the Night Watchman.
 # More variables.
 KEYBUF                          ERASE                           # 040 when empty, 0-037 when holding a keycode
-LAST040                         ERASE                           # Most recent value from input channel 040.
-SECOND                          ERASE                           # Storage for components of time
-MINUTE                          ERASE
-HOUR                            ERASE
-DAY                             ERASE
-MONTH                           ERASE
-YEAR                            ERASE
-SIGN                            ERASE                           # For buffering sign+digits in conversion of integer to decimal string.
-DIGIT1                          ERASE
-DIGIT2                          ERASE
-DIGIT3                          ERASE
-DIGIT4                          ERASE
-DIGIT5                          ERASE
-SIGNA                           ERASE                           # For buffering sign+digits in conversion of integer to decimal string.
-DIGIT1A                         ERASE
-DIGIT2A                         ERASE
-DIGIT3A                         ERASE
-DIGIT4A                         ERASE
-DIGIT5A                         ERASE
-DSPR                            ERASE                           # Return address for DSPxxxx functions.
-DIGIT25                         ERASE
-DIGIT31                         ERASE
-DIVISOR                         ERASE                           # A dummy variable used to store divisors.
-DSPMODE                         ERASE                           # display-mode: 0 time, 1 acceleration, 2 magnetometer, etc.
-LLLOW                           ERASE                           # LS word of lat or lon
-LLHIGH                          ERASE                           # MS word of lat or lon.
-LLRET                           ERASE                           # Return address for LL2.
+# OUT
+DSKY_REG_1                      EQUALS     0
+DSKY_REG_2                      EQUALS     1
+DSKY_REG_3                      EQUALS     2
+DSKY_PROGN                      EQUALS     3
+DSKY_LAMPS                      EQUALS     4
+AXI_DVA                         EQUALS     5
+AXI_DVATX                       EQUALS     6
+AXI_DVB                         EQUALS     7
+AXI_DVBTX                       EQUALS     10
+# IN
+DSKY_VERB                       EQUALS     11
+DSKY_NOUN                       EQUALS     12
+AXI_G                           EQUALS     13
+AXI_RA                          EQUALS     14
+AXI_RB                          EQUALS     15
+AXI_ATX                         EQUALS     16
                                 SETLOC          4000            # The interrupt-vector table.
                                                                 # Come here at power-up or GOJAM
                                 # Come here at power-up or GOJAM
@@ -114,13 +104,23 @@ LLRET                           ERASE                           # Return address
                                 NOOP
 
 
-STARTUP                         AD   ONE
-                                DOUBLE
-                                AD   FOUR
-                                AD   MINUS1
+STARTUP                         EXTEND
+                                READ            DSKY_VERB
+                                EXTEND
+                                READ            DSKY_NOUN
+                                EXTEND
+                                READ            AXI_G
+                                EXTEND
+                                READ            AXI_RA
+                                EXTEND
+                                READ            AXI_RB
+                                EXTEND
+                                READ            AXI_ATX
+
+                                NOOP
                                 EXTEND
                                 DCA  50
-                                
+
 
 #stored constants
 ZERO                            OCT  0
