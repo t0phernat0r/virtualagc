@@ -31,7 +31,8 @@ module TB;
                AXI_G_data,
                AXI_M_data,
                AXI_RA_data,
-               AXI_RB_data;
+               AXI_RB_data,
+               AXI_ATX_data;
   logic [13:0] ROM_pc_address, ROM_constant_address; 
   logic [10:0]RAM_read_address, RAM_write_address;
   logic [4:0] IO_read_sel, IO_write_sel;
@@ -46,6 +47,7 @@ module TB;
     AXI_M_data = 15'b010000111010010;
     AXI_RA_data = 15'b111110000000010;
     AXI_RB_data = 15'd0;
+    AXI_ATX_data = 15'd0;
   end
 
   agc_rom_new rom(.aclr(~reset_n), .address_a(ROM_pc_address), .address_b(ROM_constant_address), .clock, .addressstall_a(stall), .addressstall_b(stall), .q_a(ROM_pc_data), .q_b(ROM_constant_data));
@@ -58,6 +60,7 @@ module TB;
                             .data_AXI_M(AXI_M_data),
                             .data_AXI_RA(AXI_RA_data),
                             .data_AXI_RB(AXI_RB_data),
+                            .data_AXI_ATX(AXI_ATX_data),
                             .sel_read(IO_read_sel),
                             .sel_write(IO_write_sel),
                             .en_write(IO_write_en),
@@ -78,7 +81,7 @@ module TB;
   
 
   initial begin
-    #1000
+    #50000
     $finish;
   end
 endmodule : TB
