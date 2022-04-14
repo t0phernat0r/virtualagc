@@ -66,7 +66,6 @@ typedef enum logic [4:0] {
     DSKY_VERB,
     DSKY_NOUN,
     AXI_G,
-    AXI_M,
     AXI_RA,
     AXI_RB,
     AXI_ATX

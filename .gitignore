@@ -1,3 +1,9 @@
+sv/*.mif
+sv/*.agc.bin
+sv/*.agc.symtab
+sv/*.agc.html
+sv/db/
+sv/output_files/
 .vscode/
 *.swp
 *.swo
