@@ -846,7 +846,7 @@ module stall_logic
 
 
 endmodule: stall_logic
-
+/*
 module receive_connector
   (input  logic [7:0] RX_byte,
    input  logic RX_valid;
@@ -1102,7 +1102,7 @@ module receive_connector
   end
 
 endmodule: receive_connector
-
+*/
 module transmit_fsm
   (input logic clock, reset_n, 
    output logic prog_read, read_reg, read_axi_reg, send_lamps, send_start, en_reg, en_dig, clear_send, clear_reg, clear_dig, uart_tx_en,
@@ -1241,3 +1241,70 @@ module transmit_connector
                   .digit5, .reg3, .en_reg, .en_dig, .clear_send, .clear_reg, .clear_dig);
  
 endmodule: transmit_connector
+
+module IO_unit
+ (input logic clock, reset_n, rx, IO_write_en,
+  input IO_reg_t IO_read_sel, IO_write_sel,
+  input logic [14:0] IO_write_data,
+  output logic [14:0] IO_read_data,
+  output logic tx);
+
+  parameter CLK_HZ = 50000000;
+  parameter BIT_RATE =   9600;
+  parameter PAYLOAD_BITS = 8;
+
+  logic clk, uart_tx_busy, io_reg_data, uart_tx_en, uart_rx_valid;
+  logic [7:0] uart_rx_data, uart_tx_data;
+  logic [14:0] data_DSKY_VERB, data_DSKY_NOUN, data_AXI_G, data_AXI_RA, data_AXI_RB, data_AXI_ATX, data_read1, data_read2;
+
+  IO_reg_t sel_read2, sel_read1, sel_write;
+
+  assign sel_write = IO_write_sel;
+  assign IO_read_sel = sel_read1;
+  assign IO_read_data = data_read1;
+  
+  
+  assign clock = clk;
+
+  transmit_connector t1(.clock, .reset_n, .uart_tx_busy, .io_reg_data(data_read2), .uart_tx_en, .read_sel(sel_read2), .uart_tx_data);
+
+  IO_register_file r2 (.data_write(IO_write_data), .data_DSKY_VERB, .data_DSKY_NOUN, .data_AXI_G, .data_AXI_RA, .data_AXI_RB, .data_AXI_ATX, .sel_read1, .sel_read2, .sel_write, .en_write(IO_write_sel), .rst_l(reset_n), .clock, .data_read1, .data_read2);
+
+  //receive_connector r1(.RX_byte(uart_rx_data), .RX_valid(uart_rx_valid), .clk, .resetn(reset_n), .data_VERB, .data_NOUN, .data_AXIG, .data_AXIRA, .data_AXIRB, .data_AXIATX);
+
+  // UART RX
+  uart_rx #(
+  .BIT_RATE(BIT_RATE),
+  .PAYLOAD_BITS(PAYLOAD_BITS),
+  .CLK_HZ  (CLK_HZ  )
+  ) i_uart_rx(
+  .clk          (clk          ), // Top level system clock input.
+  .resetn       (reset_n         ), // Asynchronous active low reset.
+  .uart_rxd     (rx     ), // UART Recieve pin.
+  .uart_rx_en   (1'b1         ), // Recieve enable
+  .uart_rx_break(), // Did we get a BREAK message?
+  .uart_rx_valid(uart_rx_valid), // Valid data recieved and available.
+  .uart_rx_data (uart_rx_data )  // The recieved data.
+  );
+
+//
+// UART Transmitter module.
+//
+  uart_tx #(
+  .BIT_RATE(BIT_RATE),
+  .PAYLOAD_BITS(PAYLOAD_BITS),
+  .CLK_HZ  (CLK_HZ  )
+  ) i_uart_tx(
+  .clk          (clk          ),
+  .resetn       (reset_n      ),
+  .uart_txd     (tx     ),
+  .uart_tx_en   (1'b1   ),
+  .uart_tx_busy (uart_tx_busy ),
+ .uart_tx_data (uart_tx_data )
+ );
+
+
+
+
+endmodule : IO_unit;
+

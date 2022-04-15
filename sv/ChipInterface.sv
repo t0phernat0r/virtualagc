@@ -12,14 +12,16 @@
 module ChipInterface
 
    (input  logic       CLOCK_50,
+   inout  logic  [35:0] GPIO,
    input  logic [0:0] KEY);
   
-  logic clock, reset_n;
+  logic clock, reset_n, rx, tx;
 
   assign clock = CLOCK_50;
   assign reset_n = KEY;
   
-  
+  assign GPIO[1] = rx;
+  assign GPIO[3] = tx;
 
 
  
@@ -48,19 +50,7 @@ module ChipInterface
 
   agc_rom_new rom(.aclr(~reset_n), .address_a(ROM_pc_address), .address_b(ROM_constant_address), .clock, .addressstall_a(stall), .addressstall_b(stall), .q_a(ROM_pc_data), .q_b(ROM_constant_data));
   agc_ram ram(.aclr(~reset_n), .clock, .data(RAM_write_data), .rd_addressstall(stall), .wraddress(RAM_write_address), .wren(RAM_write_en), .q(RAM_read_data), .rdaddress(RAM_read_address), .rden(1'b1));
-  //IO_unit io(.clock, .reset_n, .IO_read_sel, .IO_write_data, .IO_read_data, .IO_write_en, .IO_write_sel);
-  /* IO_register_file IO_unit (.data_write(IO_write_data),
-                            .data_DSKY_VERB(DSKY_VERB_data),
-                            .data_DSKY_NOUN(DSKY_NOUN_data),
-                            .data_AXI_MISSION_TIME(AXI_MISSION_TIME_data),
-                            .data_AXI_APOGEE(AXI_APOGEE_data),
-                            .data_AXI_PERIGEE(AXI_PERIGEE_data),
-                            .sel_read(IO_read_sel),
-                            .sel_write(IO_write_sel),
-                            .en_write(IO_write_en),
-                            .rst_l(reset_n),
-                            .clock(clock),
-                            .data_read(IO_read_data)); */
+  IO_unit io(.clock, .reset_n, .IO_read_sel, .IO_write_data, .IO_read_data, .IO_write_en, .IO_write_sel, .tx, .rx);
   Core core(.clock, .reset_n, .ROM_pc_data, .ROM_constant_data, .RAM_read_data, .IO_read_data, .RAM_write_data, 
             .IO_write_data, .ROM_pc_address, .ROM_constant_address, .RAM_read_address, .RAM_write_address,
             .IO_read_sel, .IO_write_sel, .RAM_write_en_F(RAM_write_en), .stall, .halt_F(halt), .IO_write_en_F(IO_write_en));
