@@ -168,6 +168,8 @@ module ones_comp_mult (
 );
     logic [27:0] prod_unsigned;
     logic [13:0] x_unsigned, y_unsigned;
+    logic oper_opp_sign, x_eq_0, y_eq_0,
+          sign_prod;
 
     // Convert operands to unsigned if necessary
     assign x_unsigned = (x[14]) ? ~x[13:0] : x[13:0];
@@ -177,8 +179,27 @@ module ones_comp_mult (
                                .dataa(x_unsigned),
                                .datab(y_unsigned));
 
-    assign prod = (x[14] ^ y[14]) ? {{1'b1, ~prod_unsigned[27:14]}, {1'b1, ~prod_unsigned[13:0]}}
-                                  : {{1'b0, prod_unsigned[27:14]}, {1'b0, prod_unsigned[13:0]}};
+    always_comb begin
+        oper_opp_sign = x[14] ^ y[14];
+        x_eq_0 = ((x == 15'd0) | (x == 15'o77777));
+        y_eq_0 = ((y == 15'd0) | (y == 15'o77777));
+
+        // Handle special sign cases for prod of zero
+        if (x_eq_0 & ~y_eq_0 & oper_opp_sign) begin
+            sign_prod = 1'b1;
+        end
+        else if (x_eq_0 | y_eq_0) begin
+            sign_prod = 1'b0;
+        end
+        else begin
+            sign_prod = oper_opp_sign;
+        end
+
+        // Prod driven based on sign
+        {prod[29], prod[14]} = {sign_prod, sign_prod};
+        {prod[28:15], prod[13:0]} = (sign_prod) ? {~prod_unsigned[27:14], ~prod_unsigned[13:0]}
+                                                : {prod_unsigned[27:14], prod_unsigned[13:0]};
+    end
 
 endmodule: ones_comp_mult
 

@@ -833,3 +833,122 @@ module stall_logic
 
 
 endmodule: stall_logic
+
+module receive_connector
+  (input  logic [7:0] RX_byte,
+   input  logic RX_valid;
+   input  logic clk, resetn,
+   output logic [5:0][3:0]  data_VERB,
+                            data_NOUN,
+                            data_AXIG,
+                            data_AXIRA,
+                            data_AXIRB,
+                            data_AXIATX);
+
+  logic [23:0][2:0] array_IO_reg;
+  logic [2:0] state_count, preset_state_count;
+  logic incr_state_count, dn_state_count,
+        byte_eq_start, byte_eq_end;
+
+  enum logic [2:0] {INIT = 3'd0,
+                    VERB = 3'd1,
+                    NOUN = 3'd2,
+                    AXIG = 3'd3,
+                    AXIRA = 3'd4,
+                    AXIRB = 3'd5,
+                    AXIATX = 3'd6} state, next_state;
+
+  always_ff @(posedge clk) begin
+  // Counter for byte reads in each state
+    if (~resetn) begin
+    // syncronous reset
+      state_count <= 3'd0;
+    end
+    else if (state ~= next_state) begin
+    // reset when entering new I/O reg state
+      state_count <= 3'd0;
+    end
+    else if (incr_state_count) begin
+    // increment case
+      state_count <= state_count + 3'd1;
+    end
+    else begin
+    // no increment case
+      state_count <= state_count;
+    end
+  end
+
+  always_ff @(posedge clk) begin
+  // State register
+    if (~resetn) begin
+      state <= IDLE;
+    end
+    else begin
+      state <= next_state;
+    end
+  end
+
+  always_comb begin
+  // next_state driver
+    unique case (state)
+      INIT: begin
+        next_state = (RX_valid & byte_eq_start) ? VERB : state;
+      end 
+      VERB: begin
+        next_state = (dn_state_count) ? NOUN : state;
+      end
+      NOUN: begin
+        next_state = (dn_state_count) ? AXIG : state;
+      end
+      AXIG: begin
+        next_state = (dn_state_count) ? AXIRA : state;
+      end
+      AXIRA: begin
+        next_state = (dn_state_count) ? AXIRB : state;
+      end
+      AXIRB: begin  
+        next_state = (dn_state_count) ? AXIATX : state;
+      end
+      AXIATX: begin
+        next_state = (dn_state_count & byte_eq_end) ? INIT : state;
+      end 
+    endcase 
+  end
+
+  always_comb begin
+    unique case (state)
+      INIT: begin
+        // arbitrary
+        preset_state_count = 3'd0;
+        incr_state_count = 1'b0;
+      end
+      VERB: begin
+        // 2 digits
+        preset_state_count = 3'd2;
+      end 
+      NOUN: begin
+        // 2 digits
+        preset_state_count = 3'd2;
+      end
+      AXIG: begin
+        // sign char, 5 digits
+        preset_state_count = 3'd6;
+      end
+      AXIRA: begin
+        // sign char, 5 digits
+        preset_state_count = 3'd6;
+      end
+      AXIRB: begin
+        // sign char, 5 digits
+        preset_state_count = 3'd6;
+      end
+      AXIATX: begin
+        // sign char, 5 digits
+        preset_state_count = 3'd6;
+      end
+    endcase
+
+    dn_state_count = (state_count == preset_state_count);
+  end
+
+endmodule: receive_connector
