@@ -53,12 +53,9 @@ typedef enum logic [3:0] {
 
 typedef enum logic [4:0] {
     // OUT
-    DSKY_REG_1_HIGH,
-    DSKY_REG_1_LOW,
-    DSKY_REG_2_HIGH,
-    DSKY_REG_2_LOW,
-    DSKY_REG_3_HIGH,
-    DSKY_REG_3_LOW,
+    DSKY_REG_1,
+    DSKY_REG_2,
+    DSKY_REG_3,
     DSKY_PROG_NUM,
     DSKY_LAMPS,
     AXI_DVA,
@@ -69,9 +66,9 @@ typedef enum logic [4:0] {
     DSKY_VERB,
     DSKY_NOUN,
     AXI_G,
-    AXI_M,
     AXI_RA,
-    AXI_RB
+    AXI_RB,
+    AXI_ATX
 } IO_reg_t;
 
 typedef enum logic [1:0] {

@@ -615,7 +615,7 @@ main(int argc, char *argv[])
         }
  
 
-      for (BankRaw = (0); BankRaw < 9;
+      for (BankRaw = (0); BankRaw < 8;
           BankRaw++)
         {
 	  Bank = BankRaw;

@@ -1,9 +1,15 @@
+sv/*.mif
+sv/*.agc.bin
+sv/*.agc.symtab
+sv/*.agc.html
+sv/db/
+sv/output_files/
 .vscode/
 *.swp
 *.swo
 *.tcl
 *.tcl.old
-csrv
+csrc/
 DVEfiles
 simv.daidir
 simv

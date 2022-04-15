@@ -160,27 +160,6 @@ module counter
     end
 endmodule: counter
 
-/*
- * Counter Logic
- */
-module counterS
-    (input  logic clk, rst_l, en, clear,
-     output logic [31:0] count);
-
-    always_ff @(posedge clk, negedge rst_l) begin
-        if(~rst_l) begin
-            count <= 0;
-        end
-        else if(clear) begin
-            count <= 0;
-        end
-        else if (en) begin
-            count <= count + 1;
-        end
-    end
-endmodule: counterS
-
-
 module countFSM
     (input logic clk, rst_l, stall,
     output logic en_instr_0, en_instr_1, en_instr_2, en_instr_3);
@@ -450,16 +429,19 @@ module IO_register_file
                        data_DSKY_VERB, 
                        data_DSKY_NOUN,
                        data_AXI_G,
+                       data_AXI_M,
                        data_AXI_RA,
                        data_AXI_RB,
-                       data_AXI_ATX,
    input  IO_reg_t sel_read, sel_write,
    input  logic en_write, rst_l, clock,
    output logic [14:0] data_read);
 
-  logic [14:0] data_DSKY_REG_1,
-               data_DSKY_REG_2,
-               data_DSKY_REG_3,
+  logic [14:0] data_DSKY_REG_1_HIGH,
+               data_DSKY_REG_1_LOW,
+               data_DSKY_REG_2_HIGH,
+               data_DSKY_REG_2_LOW,
+               data_DSKY_REG_3_HIGH,
+               data_DSKY_REG_3_LOW,
                data_DSKY_PROG_NUM,
                data_DSKY_LAMPS,
                data_AXI_DVA,
@@ -473,9 +455,12 @@ module IO_register_file
   // Output register writes
     if (~rst_l) begin
     // Reset Case
-      data_DSKY_REG_1 <= 15'd0;
-      data_DSKY_REG_2 <= 15'd0;
-      data_DSKY_REG_3 <= 15'd0;
+      data_DSKY_REG_1_HIGH <= 15'd0;
+      data_DSKY_REG_1_LOW <= 15'd0;
+      data_DSKY_REG_2_HIGH <= 15'd0;
+      data_DSKY_REG_2_LOW <= 15'd0;
+      data_DSKY_REG_3_HIGH <= 15'd0;
+      data_DSKY_REG_3_LOW <= 15'd0;
       data_DSKY_PROG_NUM[4:0] <= 5'd0;
       data_DSKY_LAMPS[11:0] <= 12'd0;
       data_AXI_DVA <= 15'd0;
@@ -486,9 +471,12 @@ module IO_register_file
     else if (en_write) begin
     // Write Case
       unique case (sel_write)
-        DSKY_REG_1: data_DSKY_REG_1 <= data_write;
-        DSKY_REG_2: data_DSKY_REG_2 <= data_write;
-        DSKY_REG_3: data_DSKY_REG_3 <= data_write;
+        DSKY_REG_1_HIGH: data_DSKY_REG_1_HIGH <= data_write;
+        DSKY_REG_1_LOW: data_DSKY_REG_1_LOW <= data_write;
+        DSKY_REG_2_HIGH: data_DSKY_REG_2_HIGH <= data_write;
+        DSKY_REG_2_LOW: data_DSKY_REG_2_LOW <= data_write;
+        DSKY_REG_3_HIGH: data_DSKY_REG_3_HIGH <= data_write;
+        DSKY_REG_3_LOW: data_DSKY_REG_3_LOW <= data_write;
         DSKY_PROG_NUM: data_DSKY_PROG_NUM[4:0] <= data_write[4:0];
         DSKY_LAMPS: data_DSKY_LAMPS[11:0] <= data_write[11:0];
         AXI_DVA: data_AXI_DVA <= data_write;
@@ -513,9 +501,12 @@ module IO_register_file
     else begin
     // Common Case
       unique case (sel_read)
-        DSKY_REG_1: data_read = data_DSKY_REG_1;
-        DSKY_REG_2: data_read = data_DSKY_REG_2;
-        DSKY_REG_3: data_read = data_DSKY_REG_3;
+        DSKY_REG_1_HIGH: data_read = data_DSKY_REG_1_HIGH;
+        DSKY_REG_1_LOW: data_read = data_DSKY_REG_1_LOW;
+        DSKY_REG_2_HIGH: data_read = data_DSKY_REG_2_HIGH;
+        DSKY_REG_2_LOW: data_read = data_DSKY_REG_2_LOW;
+        DSKY_REG_3_HIGH: data_read = data_DSKY_REG_3_HIGH;
+        DSKY_REG_3_LOW: data_read = data_DSKY_REG_3_LOW;
         DSKY_PROG_NUM: data_read = data_DSKY_PROG_NUM;
         DSKY_LAMPS: data_read = data_DSKY_LAMPS; 
         AXI_DVA: data_read = data_AXI_DVA;
@@ -525,9 +516,9 @@ module IO_register_file
         DSKY_VERB: data_read = data_DSKY_VERB;
         DSKY_NOUN: data_read = data_DSKY_NOUN;
         AXI_G: data_read = data_AXI_G;
+        AXI_M: data_read = data_AXI_M;
         AXI_RA: data_read = data_AXI_RA;
         AXI_RB: data_read = data_AXI_RB;
-        AXI_ATX: data_read = data_AXI_ATX;
         default: begin
         // Default assignment ARBITRARY
           data_read = data_DSKY_LAMPS;
@@ -714,10 +705,8 @@ module arithmetic_logic_unit
 
   always_comb begin
     // Result low order word default
-    result[29:0] = 15'd0;
-	 add_sub_src_1 = 15'd0;
-	 add_sub_src_2 = 15'd0;
-    sel_subtract = 1'b0;
+    result[14:0] = 15'd0;
+
     unique case (operation_sel)
       ALU_AD: begin
         sel_subtract = 1'b0;
@@ -790,7 +779,7 @@ module arithmetic_logic_unit
     endcase
 
     // Set the zero flag
-    res_eq_0 = (source_2 == 15'd0 || source_2 == 15'o77777);
+    res_eq_0 = (source_2 == 15'd0 || source_2 == 15'o777);
 
   end
 
@@ -846,261 +835,3 @@ module stall_logic
 
 
 endmodule: stall_logic
-
-module receive_connector
-  (input  logic [7:0] RX_byte,
-   input  logic RX_valid;
-   input  logic clk, resetn,
-   output logic [5:0][3:0]  data_VERB,
-                            data_NOUN,
-                            data_AXIG,
-                            data_AXIRA,
-                            data_AXIRB,
-                            data_AXIATX);
-
-  logic [23:0][2:0] array_IO_reg;
-  logic [2:0] state_count, preset_state_count;
-  logic incr_state_count, dn_state_count,
-        byte_eq_start, byte_eq_end;
-
-  enum logic [2:0] {INIT = 3'd0,
-                    VERB = 3'd1,
-                    NOUN = 3'd2,
-                    AXIG = 3'd3,
-                    AXIRA = 3'd4,
-                    AXIRB = 3'd5,
-                    AXIATX = 3'd6} state, next_state;
-
-  always_ff @(posedge clk) begin
-  // Counter for byte reads in each state
-    if (~resetn) begin
-    // syncronous reset
-      state_count <= 3'd0;
-    end
-    else if (state ~= next_state) begin
-    // reset when entering new I/O reg state
-      state_count <= 3'd0;
-    end
-    else if (incr_state_count) begin
-    // increment case
-      state_count <= state_count + 3'd1;
-    end
-    else begin
-    // no increment case
-      state_count <= state_count;
-    end
-  end
-
-  always_ff @(posedge clk) begin
-  // State register
-    if (~resetn) begin
-      state <= IDLE;
-    end
-    else begin
-      state <= next_state;
-    end
-  end
-
-  always_comb begin
-  // next_state driver
-    unique case (state)
-      INIT: begin
-        next_state = (RX_valid & byte_eq_start) ? VERB : state;
-      end 
-      VERB: begin
-        next_state = (dn_state_count) ? NOUN : state;
-      end
-      NOUN: begin
-        next_state = (dn_state_count) ? AXIG : state;
-      end
-      AXIG: begin
-        next_state = (dn_state_count) ? AXIRA : state;
-      end
-      AXIRA: begin
-        next_state = (dn_state_count) ? AXIRB : state;
-      end
-      AXIRB: begin  
-        next_state = (dn_state_count) ? AXIATX : state;
-      end
-      AXIATX: begin
-        next_state = (dn_state_count & byte_eq_end) ? INIT : state;
-      end 
-    endcase 
-  end
-
-  always_comb begin
-    unique case (state)
-      INIT: begin
-        // arbitrary
-        preset_state_count = 3'd0;
-        incr_state_count = 1'b0;
-      end
-      VERB: begin
-        // 2 digits
-        preset_state_count = 3'd2;
-      end 
-      NOUN: begin
-        // 2 digits
-        preset_state_count = 3'd2;
-      end
-      AXIG: begin
-        // sign char, 5 digits
-        preset_state_count = 3'd6;
-      end
-      AXIRA: begin
-        // sign char, 5 digits
-        preset_state_count = 3'd6;
-      end
-      AXIRB: begin
-        // sign char, 5 digits
-        preset_state_count = 3'd6;
-      end
-      AXIATX: begin
-        // sign char, 5 digits
-        preset_state_count = 3'd6;
-      end
-    endcase
-
-    dn_state_count = (state_count == preset_state_count);
-  end
-
-endmodule: receive_connector
-
-module transmit_fsm
-  (input logic clock, reset_n, 
-   output logic prog_read, read_reg, read_axi_reg, send_lamps, send_start, en_reg, en_dig, clear_send, clear_reg, clear_dig, uart_tx_en,
-   input logic start_send, reg2, digit5, digit11, digit1, reg3, uart_tx_busy);
-
-  enum logic [2:0] {RESET = 3'd0, SEND_REG = 3'd1, SEND_PROG = 3'd2,
-                    SEND_LAMPS = 3'd3, SEND_AXI = 3'd4} state, nextState;
-
-  always_comb begin
-    case(state)
-      RESET: nextState = start_send ? SEND_REG : RESET;
-      SEND_REG: nextState = (digit5 && reg2) ? SEND_PROG : SEND_REG;
-      SEND_PROG: nextState = (digit1) ? SEND_LAMPS : SEND_PROG;
-      SEND_LAMPS: nextState = (digit11) ? SEND_AXI : SEND_LAMPS;
-      SEND_AXI: nextState = (digit5 && reg3) ? RESET : SEND_AXI;
-    endcase
-  end
-
-  always_comb begin
-    uart_tx_en = 1'b1;
-    if(uart_tx_busy) begin
-      {prog_read, read_reg, read_axi_reg, send_lamps, send_start, en_reg, en_dig, clear_send, clear_reg, clear_dig} = 10'b0000000000;
-    end
-    else begin
-     case(state)
-      RESET: begin 
-        {prog_read, read_reg, read_axi_reg, send_lamps, send_start, en_reg, en_dig, clear_send, clear_reg, clear_dig} = start_send ? 10'b000010111 : 10'b0000000011;
-        uart_tx_en = start_send ? 1'b1 : 1'b0;
-      end
-      SEND_REG: {prog_read, read_reg, read_axi_reg, send_lamps, send_start, en_reg, en_dig, clear_send, clear_reg, clear_dig} = (digit5 && reg2) ? 10'b0100000011 : (digit5) ? 10'b0100010001 : 10'b0100001000;
-      SEND_PROG: {prog_read, read_reg, read_axi_reg, send_lamps, send_start, en_reg, en_dig, clear_send, clear_reg, clear_dig} = (digit1) ? 10'b1000000011 : 10'b1000001010;
-      SEND_LAMPS: {prog_read, read_reg, read_axi_reg, send_lamps, send_start, en_reg, en_dig, clear_send, clear_reg, clear_dig} = (digit11) ? 10'b0001000011 : 10'b0001001010;
-      SEND_AXI: {prog_read, read_reg, read_axi_reg, send_lamps, send_start, en_reg, en_dig, clear_send, clear_reg, clear_dig}  = (digit5 && reg3) ? 10'b0110000011 : (digit5) ? 10'b0110010001 :  10'b0110001000;
-     endcase
-    end
-  end
-
-
-  always_ff @(posedge clock, negedge reset_n)
-    if (~reset_n)
-      state <= RESET;
-    else if (~uart_tx_busy)
-      state <= nextState;
-
-endmodule: transmit_fsm
-
-//connects uart ip to IO registers
-module transmit_connector
- (input logic clock, reset_n, uart_tx_busy,
-  input logic [14:0] io_reg_data,
-  output logic uart_tx_en, 
-  output IO_reg_t read_sel,
-  output logic [7:0] uart_tx_data);
-
-  logic clk, rst_l, start_send, reg2, digit5, digit11, digit1, reg3;
-  logic send_lamps, read_axi_reg;
-  logic [15:0] reg_char, axi_char, lamp_char;
-  logic clear_send, clear_reg, clear_dig, en_reg, en_dig, send_start, read_reg, prog_read;
-  logic [31:0] send_count, digit_count, reg_count;
-  logic [3:0] reg_digit_index_low, reg_digit_index_high, axi_digit_index_low, axi_digit_index_high, lamp_digit_index;
-
-  assign clk = clock;
-  assign rst_l = reset_n;
- 
-  assign start_send = send_count == 'd1000;
-  assign reg2 = reg_count == 'd2;
-  assign reg3 = reg_count == 'd3;
-  assign digit5 = digit_count == 'd5;
-  assign digit11 = digit_count == 'd11;
-  assign digit1 = digit_count == 'd1;
-  assign reg_digit_index_low = ('d5 - digit_count) * 3;
-  assign reg_digit_index_high = reg_digit_index_low + 'd2;
-  assign axi_digit_index_low = ('d5 - digit_count) * 3;
-  assign axi_digit_index_high = axi_digit_index_low + 'd2;
-  assign lamp_digit_index = ('d11 - digit_count);
-
-
-  counterS c1(.clk, .rst_l(rst_l), .en(1'b1), .count(send_count), .clear(clear_send)); //count since last time you sent
-  counterS c2(.clk, .rst_l(rst_l), .en(en_reg), .count(reg_count), .clear(clear_reg)); //counts how many registers we have sent
-  counterS c3(.clk, .rst_l(rst_l), .en(en_dig), .count(digit_count), .clear(clear_dig)); //how many octal digits have been sent
-
-
-  //uart_tx_data_assignment
-  always_comb begin
-    reg_char = {1'b0, io_reg_data} >> reg_digit_index_low;
-    axi_char = {1'b0, io_reg_data} >> axi_digit_index_low; 
-    lamp_char = {1'b0, io_reg_data} >> lamp_digit_index;
-   //sending the first char
-    uart_tx_data = 8'd0;
-    if(send_start) begin
-      uart_tx_data = 8'd30;
-    end
-    else if(read_reg && (digit_count == 8'd0)) begin
-      uart_tx_data = io_reg_data[14] ? 8'h2D : 8'h2B; 
-    end
-    else if(read_reg && (digit_count == 8'd1)) begin
-      uart_tx_data = {6'b0, io_reg_data[13:12]} + 'h30;
-    end
-    else if(read_reg && read_axi_reg) begin
-      uart_tx_data = {5'b0, axi_char[2:0]} + 'h30;
-    end
-    else if(read_reg) begin
-      uart_tx_data = {5'b0, reg_char[2:0]} + 'h30;
-    end
-    else if(prog_read && (digit_count == 8'd0)) begin
-      uart_tx_data = {6'b0, io_reg_data[4:3]} + 'h30;
-    end
-    else if(prog_read) begin
-      uart_tx_data = {5'b0, io_reg_data[2:0]} + 'h30;
-    end
-    else if(send_lamps) begin
-      uart_tx_data = {7'b0, lamp_char[0]} + 'h30;
-    end
-  end
- 
-  //read_sel assignment
-  always_comb begin
-  read_sel = DSKY_LAMPS;
-    if(read_reg && read_axi_reg) begin
-      read_sel = IO_reg_t'(4'd5 + reg_count); //4'd5 is the beginning of the AXI registers
-    end
-    else if(read_reg) begin
-      read_sel = IO_reg_t'(4'd0 + reg_count); //4'd0 is the beginning of the DSKY registers
-    end
-    else if(send_lamps) begin
-      read_sel = DSKY_LAMPS;
-    end
-    else if(prog_read) begin
-      read_sel = DSKY_PROG_NUM;
-    end
-  end
-  
-  //ctrl fsm
-  transmit_fsm f1(.clock, .reset_n, .read_reg, .read_axi_reg, .send_lamps, .uart_tx_busy,
-                  .send_start, .start_send, .reg2, .digit1, .digit11, .prog_read, .uart_tx_en,
-                  .digit5, .reg3, .en_reg, .en_dig, .clear_send, .clear_reg, .clear_dig);
- 
-endmodule: transmit_connector

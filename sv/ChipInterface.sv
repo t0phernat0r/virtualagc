@@ -35,7 +35,7 @@ module ChipInterface
                AXI_PERIGEE_data;
   logic [13:0] ROM_pc_address, ROM_constant_address; 
   logic [10:0]RAM_read_address, RAM_write_address;
-  logic [3:0] IO_read_sel, IO_write_sel;
+  logic [4:0] IO_read_sel, IO_write_sel;
   logic RAM_write_en, stall, halt, IO_write_en;
 
   // PLACEHOLDER UNTIL SERIAL INTERFACE MODULES EXIST TO DRIVE THESE
@@ -63,6 +63,6 @@ module ChipInterface
                             .data_read(IO_read_data)); */
   Core core(.clock, .reset_n, .ROM_pc_data, .ROM_constant_data, .RAM_read_data, .IO_read_data, .RAM_write_data, 
             .IO_write_data, .ROM_pc_address, .ROM_constant_address, .RAM_read_address, .RAM_write_address,
-            .IO_read_sel, .IO_write_sel, .RAM_write_en, .stall, .halt, .IO_write_en);
+            .IO_read_sel, .IO_write_sel, .RAM_write_en_F(RAM_write_en), .stall, .halt_F(halt), .IO_write_en_F(IO_write_en));
 
-endmodule : TB
+endmodule : ChipInterface 
