@@ -54,20 +54,6 @@ module TB;
   agc_ram ram(.aclr(~reset_n), .clock, .data(RAM_write_data), .rd_addressstall(stall), .wraddress(RAM_write_address), .wren(RAM_write_en), .q(RAM_read_data), .rdaddress(RAM_read_address), .rden(1'b1));
   IO_unit io(.clock, .reset_n, .IO_read_sel, .IO_write_data, .IO_read_data, .IO_write_en, .IO_write_sel, .tx, .rx);
 //IO_unit io(.clock, .reset_n, .IO_read_sel, .IO_write_data, .IO_read_data, .IO_write_en, .IO_write_sel);
-  IO_register_file IO_unit (.data_write(IO_write_data),
-                            .data_DSKY_VERB(DSKY_VERB_data),
-                            .data_DSKY_NOUN(DSKY_NOUN_data),
-                            .data_AXI_G(AXI_G_data),
-                            .data_AXI_RA(AXI_RA_data),
-                            .data_AXI_RB(AXI_RB_data),
-                            .data_AXI_ATX(AXI_ATX_data),
-                            .sel_read(IO_read_sel),
-                            .sel_write(IO_write_sel),
-                            .en_write(IO_write_en),
-                            .rst_l(reset_n),
-                            .clock(clock),
-                            .data_read(IO_read_data)); 
-
   Core core(.clock, .reset_n, .ROM_pc_data, .ROM_constant_data, .RAM_read_data, .IO_read_data, .RAM_write_data, 
             .IO_write_data, .ROM_pc_address, .ROM_constant_address, .RAM_read_address, .RAM_write_address,
             .IO_read_sel, .IO_write_sel, .RAM_write_en_F(RAM_write_en), .stall, .halt_F(halt), .IO_write_en_F(IO_write_en)); 
