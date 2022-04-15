@@ -2,6 +2,8 @@
 `default_nettype none
 
 `include "internal_defines.vh"
+`include "uart_tx.v"
+`include "uart_rx.v"
 `include "core.sv"
 `include "agc_rom_new/agc_rom_new.v"
 `include "agc_ram/agc_ram.v"
@@ -11,7 +13,7 @@
 
 
 module TB;
-  logic clock, reset_n;
+  logic clock, reset_n, tx, rx;
 
   initial begin
     clock = 1'b0;
@@ -50,7 +52,8 @@ module TB;
 
   agc_rom_new rom(.aclr(~reset_n), .address_a(ROM_pc_address), .address_b(ROM_constant_address), .clock, .addressstall_a(stall), .addressstall_b(stall), .q_a(ROM_pc_data), .q_b(ROM_constant_data));
   agc_ram ram(.aclr(~reset_n), .clock, .data(RAM_write_data), .rd_addressstall(stall), .wraddress(RAM_write_address), .wren(RAM_write_en), .q(RAM_read_data), .rdaddress(RAM_read_address), .rden(1'b1));
-  //IO_unit io(.clock, .reset_n, .IO_read_sel, .IO_write_data, .IO_read_data, .IO_write_en, .IO_write_sel);
+  IO_unit io(.clock, .reset_n, .IO_read_sel, .IO_write_data, .IO_read_data, .IO_write_en, .IO_write_sel, .tx, .rx);
+//IO_unit io(.clock, .reset_n, .IO_read_sel, .IO_write_data, .IO_read_data, .IO_write_en, .IO_write_sel);
   IO_register_file IO_unit (.data_write(IO_write_data),
                             .data_DSKY_VERB(DSKY_VERB_data),
                             .data_DSKY_NOUN(DSKY_NOUN_data),
