@@ -453,9 +453,9 @@ module IO_register_file
                        data_AXI_RA,
                        data_AXI_RB,
                        data_AXI_ATX,
-   input  IO_reg_t sel_read, sel_write,
+   input  IO_reg_t sel_read1, sel_read2, sel_write,
    input  logic en_write, rst_l, clock,
-   output logic [14:0] data_read);
+   output logic [14:0] data_read1, data_read2);
 
   logic [14:0] data_DSKY_REG_1,
                data_DSKY_REG_2,
@@ -506,31 +506,58 @@ module IO_register_file
     // I/O register reads
     // Check for valid writes
     write_valid = (~sel_write[3] | (sel_write[2:0] == 3'd0));
-    if (en_write & write_valid & (sel_read == sel_write)) begin
-    // Forwarding Case
-      data_read = data_write;
+    if (en_write & write_valid & (sel_read1 == sel_write)) begin
+    // Forwarding Case 1
+      data_read1 = data_write;
+    end
+    else if (en_write & write_valid & (sel_read2 == sel_write)) begin
+    // Forwarding Case 2
+      data_read2 = data_write;
     end
     else begin
     // Common Case
-      unique case (sel_read)
-        DSKY_REG_1: data_read = data_DSKY_REG_1;
-        DSKY_REG_2: data_read = data_DSKY_REG_2;
-        DSKY_REG_3: data_read = data_DSKY_REG_3;
-        DSKY_PROG_NUM: data_read = data_DSKY_PROG_NUM;
-        DSKY_LAMPS: data_read = data_DSKY_LAMPS; 
-        AXI_DVA: data_read = data_AXI_DVA;
-        AXI_DVATX: data_read = data_AXI_DVATX;
-        AXI_DVB: data_read = data_AXI_DVB;
-        AXI_DVBTX: data_read = data_AXI_DVBTX;
-        DSKY_VERB: data_read = data_DSKY_VERB;
-        DSKY_NOUN: data_read = data_DSKY_NOUN;
-        AXI_G: data_read = data_AXI_G;
-        AXI_RA: data_read = data_AXI_RA;
-        AXI_RB: data_read = data_AXI_RB;
-        AXI_ATX: data_read = data_AXI_ATX;
+      unique case (sel_read1)
+      // Read Port 1
+        DSKY_REG_1: data_read1 = data_DSKY_REG_1;
+        DSKY_REG_2: data_read1 = data_DSKY_REG_2;
+        DSKY_REG_3: data_read1 = data_DSKY_REG_3;
+        DSKY_PROG_NUM: data_read1 = data_DSKY_PROG_NUM;
+        DSKY_LAMPS: data_read1 = data_DSKY_LAMPS; 
+        AXI_DVA: data_read1 = data_AXI_DVA;
+        AXI_DVATX: data_read1 = data_AXI_DVATX;
+        AXI_DVB: data_read1 = data_AXI_DVB;
+        AXI_DVBTX: data_read1 = data_AXI_DVBTX;
+        DSKY_VERB: data_read1 = data_DSKY_VERB;
+        DSKY_NOUN: data_read1 = data_DSKY_NOUN;
+        AXI_G: data_read1 = data_AXI_G;
+        AXI_RA: data_read1 = data_AXI_RA;
+        AXI_RB: data_read1 = data_AXI_RB;
+        AXI_ATX: data_read1 = data_AXI_ATX;
         default: begin
         // Default assignment ARBITRARY
-          data_read = data_DSKY_LAMPS;
+          data_read1 = data_DSKY_LAMPS;
+        end
+      endcase
+      unique case (sel_read2)
+      // Read Port 2
+        DSKY_REG_1: data_read2 = data_DSKY_REG_1;
+        DSKY_REG_2: data_read2 = data_DSKY_REG_2;
+        DSKY_REG_3: data_read2 = data_DSKY_REG_3;
+        DSKY_PROG_NUM: data_read2 = data_DSKY_PROG_NUM;
+        DSKY_LAMPS: data_read2 = data_DSKY_LAMPS; 
+        AXI_DVA: data_read2 = data_AXI_DVA;
+        AXI_DVATX: data_read2 = data_AXI_DVATX;
+        AXI_DVB: data_read2 = data_AXI_DVB;
+        AXI_DVBTX: data_read2 = data_AXI_DVBTX;
+        DSKY_VERB: data_read2 = data_DSKY_VERB;
+        DSKY_NOUN: data_read2 = data_DSKY_NOUN;
+        AXI_G: data_read2 = data_AXI_G;
+        AXI_RA: data_read2 = data_AXI_RA;
+        AXI_RB: data_read2 = data_AXI_RB;
+        AXI_ATX: data_read2 = data_AXI_ATX;
+        default: begin
+        // Default assignment ARBITRARY
+          data_read2 = data_DSKY_LAMPS;
         end
       endcase
     end
