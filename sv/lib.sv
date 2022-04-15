@@ -1104,3 +1104,21 @@ module transmit_connector
                   .digit5, .reg3, .en_reg, .en_dig, .clear_send, .clear_reg, .clear_dig);
  
 endmodule: transmit_connector
+
+module IO_unit
+ (input logic clock, .reset_n, rx, IO_write_en,
+  input IO_reg_t IO_read_sel, IO_write_sel,
+  input logic [14:0] IO_write_data,
+  output logic [14:0] IO_read_data,
+  output logic tx);
+
+  transmit_connector t1(.clock, .reset_n, .uart_tx_busy, .io_reg_data, .uart_tx_en, .read_sel, .uart_tx_data);
+
+  IO_register_file r2 (.data_write, .data_DSKY_VERB, .data_DSKY_NOUN, .data_AXI_G, .data_AXI_RA, .data_AXI_RB, .data_AXI_ATX, .sel_read1, .sel_read2, .sel_write, .en_write, .rst_l, .clock, .data_read1, .data_read2);
+
+  receive_connector r1(.RX_byte, .RX_valid, .clk, .resetn, .data_VERB, .data_NOUN, .data_AXIG, .data_AXIRA, .data_AXIRB, .data_AXIATX);
+
+
+
+endmodule : IO_unit;
+
