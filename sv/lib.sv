@@ -510,10 +510,8 @@ module IO_register_file
     // Forwarding Case 1
       data_read1 = data_write;
     end
-    else if (en_write & write_valid & (sel_read2 == sel_write)) begin
-    // Forwarding Case 2
-      data_read2 = data_write;
-    end
+    
+    
     else begin
     // Common Case
       unique case (sel_read1)
@@ -538,6 +536,15 @@ module IO_register_file
           data_read1 = data_DSKY_LAMPS;
         end
       endcase
+    end
+  end
+
+  always_comb begin
+    if (en_write & write_valid & (sel_read2 == sel_write)) begin
+    // Forwarding Case 2
+      data_read2 = data_write;
+    end
+    else begin
       unique case (sel_read2)
       // Read Port 2
         DSKY_REG_1: data_read2 = data_DSKY_REG_1;
@@ -561,6 +568,7 @@ module IO_register_file
         end
       endcase
     end
+  
 
     // Prevent unintentional latches
     data_DSKY_PROG_NUM[14:5] = 10'd0; 
@@ -1292,15 +1300,15 @@ module IO_unit
   IO_reg_t sel_read2, sel_read1, sel_write;
 
   assign sel_write = IO_write_sel;
-  assign IO_read_sel = sel_read1;
+  assign sel_read1 = IO_read_sel;
   assign IO_read_data = data_read1;
   
   
-  assign clock = clk;
+  assign clk = clock;
 
   transmit_connector t1(.clock, .reset_n, .uart_tx_busy, .io_reg_data(data_read2), .uart_tx_en, .read_sel(sel_read2), .uart_tx_data);
 
-  IO_register_file r2 (.data_write(IO_write_data), .data_DSKY_VERB, .data_DSKY_NOUN, .data_AXI_G, .data_AXI_RA, .data_AXI_RB, .data_AXI_ATX, .sel_read1, .sel_read2, .sel_write, .en_write(IO_write_sel), .rst_l(reset_n), .clock, .data_read1, .data_read2);
+  IO_register_file r2 (.data_write(IO_write_data), .data_DSKY_VERB, .data_DSKY_NOUN, .data_AXI_G, .data_AXI_RA, .data_AXI_RB, .data_AXI_ATX, .sel_read1, .sel_read2, .sel_write, .en_write(IO_write_en), .rst_l(reset_n), .clock, .data_read1, .data_read2);
 
   //receive_connector r1(.RX_byte(uart_rx_data), .RX_valid(uart_rx_valid), .clk, .resetn(reset_n), .data_VERB, .data_NOUN, .data_AXIG, .data_AXIRA, .data_AXIRB, .data_AXIATX);
 
@@ -1338,5 +1346,5 @@ module IO_unit
 
 
 
-endmodule : IO_unit;
+endmodule : IO_unit
 
