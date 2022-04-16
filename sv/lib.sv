@@ -950,22 +950,22 @@ module receive_connector
         next_state = (RX_valid & byte_eq_start) ? VERB : state;
       end 
       VERB: begin
-        next_state = (dn_state_count) ? NOUN : state;
+        next_state = (RX_valid & dn_state_count) ? NOUN : state;
       end
       NOUN: begin
-        next_state = (dn_state_count) ? AXIG : state;
+        next_state = (RX_valid & dn_state_count) ? AXIG : state;
       end
       AXIG: begin
-        next_state = (dn_state_count) ? AXIRA : state;
+        next_state = (RX_valid & dn_state_count) ? AXIRA : state;
       end
       AXIRA: begin
-        next_state = (dn_state_count) ? AXIRB : state;
+        next_state = (RX_valid & dn_state_count) ? AXIRB : state;
       end
       AXIRB: begin  
-        next_state = (dn_state_count) ? AXIATX : state;
+        next_state = (RX_valid & dn_state_count) ? AXIATX : state;
       end
       AXIATX: begin
-        next_state = (dn_state_count) ? INIT : state;
+        next_state = (RX_valid & dn_state_count) ? INIT : state;
       end
       default: begin
       end

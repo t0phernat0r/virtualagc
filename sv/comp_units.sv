@@ -259,9 +259,3 @@ module ones_comp_div (
 
 
 endmodule: ones_comp_div
-
-
-
-
-
-    
