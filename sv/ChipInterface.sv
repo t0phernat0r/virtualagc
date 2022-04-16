@@ -17,7 +17,6 @@ module ChipInterface
   
   logic clock, reset_n, rx, tx;
 
-  assign clock = CLOCK_50;
   assign reset_n = KEY;
   
   assign GPIO[1] = rx;
@@ -50,6 +49,13 @@ module ChipInterface
           AXI_MISSION_TIME_data,
           AXI_APOGEE_data,
           AXI_PERIGEE_data} = 'd0;
+
+  
+  mypll p1(
+                .refclk(CLOCK_50),   
+                .rst(reset_n),      
+                .outclk_0(clock), 
+                .locked()            );
 
   agc_rom_new rom(.aclr(~reset_n), .address_a(ROM_pc_address), .address_b(ROM_constant_address), .clock, .addressstall_a(stall), .addressstall_b(stall), .q_a(ROM_pc_data), .q_b(ROM_constant_data));
   agc_ram ram(.aclr(~reset_n), .clock, .data(RAM_write_data), .rd_addressstall(stall), .wraddress(RAM_write_address), .wren(RAM_write_en), .q(RAM_read_data), .rdaddress(RAM_read_address), .rden(1'b1));

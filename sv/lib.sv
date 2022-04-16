@@ -886,10 +886,10 @@ module receive_connector
   (input  logic [7:0] RX_byte,
    input  logic RX_valid,
    input  logic clk, resetn,
-   output logic [5:0][2:0]  data_VERB, data_NOUN,
+   output logic [4:0][2:0]  data_VERB, data_NOUN,
                             data_AXIG, data_AXIRA, data_AXIRB, data_AXIATX);
 
-  logic [5:0][2:0] data_next_VERB, data_next_NOUN,
+  logic [4:0][2:0] data_next_VERB, data_next_NOUN,
                    data_next_AXIG, data_next_AXIRA, data_next_AXIRB, data_next_AXIATX;
   logic [2:0] state_count, preset_state_count,
               byte_octal;
@@ -1207,7 +1207,7 @@ module transmit_connector
   assign clk = clock;
   assign rst_l = reset_n;
  
-  assign start_send = send_count == 'd1000;
+  assign start_send = send_count == 'd10000000;
   assign reg2 = reg_count == 'd2;
   assign reg3 = reg_count == 'd3;
   assign digit5 = digit_count == 'd5;
@@ -1289,13 +1289,13 @@ module IO_unit
   output logic [14:0] IO_read_data,
   output logic tx);
 
-  parameter CLK_HZ = 50000000;
-  parameter BIT_RATE =   9600;
+  parameter CLK_HZ = 10000000;
+  parameter BIT_RATE =   115200;
   parameter PAYLOAD_BITS = 8;
 
   logic clk, uart_tx_busy, io_reg_data, uart_tx_en, uart_rx_valid;
   logic [7:0] uart_rx_data, uart_tx_data;
-  logic [14:0] data_DSKY_VERB, data_DSKY_NOUN, data_AXI_G, data_AXI_RA, data_AXI_RB, data_AXI_ATX, data_read1, data_read2;
+  logic [14:0] data_VERB, data_NOUN, data_AXIG, data_AXIRA, data_AXIRB, data_AXIATX, data_read1, data_read2;
 
   IO_reg_t sel_read2, sel_read1, sel_write;
 
@@ -1308,9 +1308,9 @@ module IO_unit
 
   transmit_connector t1(.clock, .reset_n, .uart_tx_busy, .io_reg_data(data_read2), .uart_tx_en, .read_sel(sel_read2), .uart_tx_data);
 
-  IO_register_file r2 (.data_write(IO_write_data), .data_DSKY_VERB, .data_DSKY_NOUN, .data_AXI_G, .data_AXI_RA, .data_AXI_RB, .data_AXI_ATX, .sel_read1, .sel_read2, .sel_write, .en_write(IO_write_en), .rst_l(reset_n), .clock, .data_read1, .data_read2);
+  IO_register_file r2 (.data_write(IO_write_data), .data_DSKY_VERB(data_VERB), .data_DSKY_NOUN(data_NOUN), .data_AXI_G(data_AXIG), .data_AXI_RA(data_AXIRA), .data_AXI_RB(data_AXIRB), .data_AXI_ATX(data_AXIATX), .sel_read1, .sel_read2, .sel_write, .en_write(IO_write_en), .rst_l(reset_n), .clock, .data_read1, .data_read2);
 
-  //receive_connector r1(.RX_byte(uart_rx_data), .RX_valid(uart_rx_valid), .clk, .resetn(reset_n), .data_VERB, .data_NOUN, .data_AXIG, .data_AXIRA, .data_AXIRB, .data_AXIATX);
+  receive_connector r1(.RX_byte(uart_rx_data), .RX_valid(uart_rx_valid), .clk, .resetn(reset_n), .data_VERB, .data_NOUN, .data_AXIG, .data_AXIRA, .data_AXIRB, .data_AXIATX);
 
   // UART RX
   uart_rx #(
