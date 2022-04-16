@@ -3,11 +3,15 @@ module rx_conn
   (input  logic [7:0] RX_byte,
    input  logic RX_valid,
    input  logic clk, resetn,
-   output logic [5:0][2:0]  data_VERB, data_NOUN,
+   output logic [4:0][2:0]  data_VERB, data_NOUN,
                             data_AXIG, data_AXIRA, data_AXIRB, data_AXIATX);
 
-  logic [5:0][2:0] data_next_VERB, data_next_NOUN,
-                   data_next_AXIG, data_next_AXIRA, data_next_AXIRB, data_next_AXIATX;
+  logic [4:0][2:0] data_next_VERB, data_next_NOUN,
+                   data_next_AXIG, data_next_AXIRA, data_next_AXIRB, data_next_AXIATX,
+                   data_buf_VERB, data_buf_NOUN,
+                   data_buf_AXIG, data_buf_AXIRA, data_buf_AXIRB, data_buf_AXIATX,
+                   data_next_buf_VERB, data_next_buf_NOUN,
+                   data_next_buf_AXIG, data_next_buf_AXIRA, data_next_buf_AXIRB, data_next_buf_AXIATX;
   logic [2:0] state_count, preset_state_count,
               byte_octal;
   logic incr_state_count, dn_state_count,
@@ -185,7 +189,7 @@ module rx_conn
   //
   
   always_ff @(posedge clk) begin
-  // AGC Input Registers
+  // Input registers
     if (~resetn) begin
       data_VERB <= 15'd0;
       data_NOUN <= 15'd0;
@@ -205,54 +209,113 @@ module rx_conn
   end
 
   always_comb begin
-  // drive next value for Input register updates
+  // Drive next value for input register updates
+    // Default assignments
     data_next_VERB = data_VERB;
     data_next_NOUN = data_NOUN;
     data_next_AXIG = data_AXIG;
     data_next_AXIRA = data_AXIRA;
     data_next_AXIRB = data_AXIRB;
     data_next_AXIATX = data_AXIATX;
+
     unique case (state)
       VERB: begin
-        if (RX_valid) begin
+        if (RX_valid & dn_state_count) begin
+          data_next_VERB = data_buf_VERB;
           data_next_VERB[state_count] = byte_octal;
         end
       end
       NOUN: begin
-        if (RX_valid) begin
+        if (RX_valid & dn_state_count) begin
+          data_next_NOUN = data_buf_NOUN;
           data_next_NOUN[state_count] = byte_octal;
         end
       end
       AXIG: begin
-        if (RX_valid & ~dn_state_count) begin
-          data_next_AXIG[state_count] = byte_octal;
+        if (RX_valid & dn_state_count) begin
+          data_next_AXIG = (byte_eq_neg) ? ~data_buf_AXIG : data_buf_AXIG;
+        end    
+      end
+      AXIRA: begin
+        if (RX_valid & dn_state_count) begin
+          data_next_AXIRA = (byte_eq_neg) ? ~data_buf_AXIRA : data_buf_AXIRA;
         end
-        else if (RX_valid & byte_eq_neg) begin
-          data_next_AXIG = ~data_AXIG;
-        end       
+      end
+      AXIRB: begin
+        if (RX_valid & dn_state_count) begin
+          data_next_AXIRB = (byte_eq_neg) ? ~data_buf_AXIRB : data_buf_AXIRB;
+        end
+      end
+      AXIATX: begin
+        if (RX_valid & dn_state_count) begin
+          data_next_AXIATX = (byte_eq_neg) ? ~data_buf_AXIATX : data_buf_AXIATX;
+        end
+      end
+      default: begin
+      end
+    endcase
+
+  end
+  
+  always_ff @(posedge clk) begin
+  // Buffer registers
+    if (~resetn) begin
+      data_buf_VERB <= 15'd0;
+      data_buf_NOUN <= 15'd0;
+      data_buf_AXIG <= 15'd0;
+      data_buf_AXIRA <= 15'd0;
+      data_buf_AXIRB <= 15'd0;
+      data_buf_AXIATX <= 15'd0;  
+    end
+    else begin
+      data_buf_VERB <= data_next_buf_VERB;
+      data_buf_NOUN <= data_next_buf_NOUN;
+      data_buf_AXIG <= data_next_buf_AXIG;
+      data_buf_AXIRA <= data_next_buf_AXIRA;
+      data_buf_AXIRB <= data_next_buf_AXIRB;
+      data_buf_AXIATX <= data_next_buf_AXIATX;
+    end
+  end
+
+  always_comb begin
+  // Drive next value for buffer register updates
+    // Default assignments
+    data_next_buf_VERB = data_buf_VERB;
+    data_next_buf_NOUN = data_buf_NOUN;
+    data_next_buf_AXIG = data_buf_AXIG;
+    data_next_buf_AXIRA = data_buf_AXIRA;
+    data_next_buf_AXIRB = data_buf_AXIRB;
+    data_next_buf_AXIATX = data_buf_AXIATX;
+
+    unique case (state)
+      VERB: begin
+        if (RX_valid & ~dn_state_count) begin
+          data_next_buf_VERB[state_count] = byte_octal;
+        end
+      end
+      NOUN: begin
+        if (RX_valid & ~dn_state_count) begin
+          data_next_buf_NOUN[state_count] = byte_octal;
+        end
+      end
+      AXIG: begin
+        if (RX_valid & ~dn_state_count) begin
+          data_next_buf_AXIG[state_count] = byte_octal;
+        end     
       end
       AXIRA: begin
         if (RX_valid & ~dn_state_count) begin
-          data_next_AXIRA[state_count] = byte_octal;
-        end
-        else if (RX_valid & byte_eq_neg) begin
-          data_next_AXIRA = ~data_AXIRA;
+          data_next_buf_AXIRA[state_count] = byte_octal;
         end
       end
       AXIRB: begin
         if (RX_valid & ~dn_state_count) begin
-          data_next_AXIRB[state_count] = byte_octal;
-        end
-        else if (RX_valid & byte_eq_neg) begin
-          data_next_AXIRB = ~data_AXIRB;
+          data_next_buf_AXIRB[state_count] = byte_octal;
         end
       end
       AXIATX: begin
         if (RX_valid & ~dn_state_count) begin
-          data_next_AXIATX[state_count] = byte_octal;
-        end
-        else if (RX_valid & byte_eq_neg) begin
-          data_next_AXIATX = ~data_AXIATX;
+          data_next_buf_AXIATX[state_count] = byte_octal;
         end
       end
       default: begin
@@ -265,7 +328,7 @@ endmodule: rx_conn
 module rx_test();
   logic [7:0] RX_byte;
   logic RX_valid, clk, resetn;
-  logic [5:0][2:0] data_VERB, data_NOUN,
+  logic [4:0][2:0] data_VERB, data_NOUN,
                    data_AXIG, data_AXIRA, data_AXIRB, data_AXIATX;
 
   rx_conn DUT (.RX_byte(RX_byte),
@@ -280,12 +343,12 @@ module rx_test();
   
   initial begin
     $monitor($time,,
-    "RX_byte: %d, RX_valid: %b, VERB: %o, NOUN: %o, state: %d, state_count: %d",
-    RX_byte, RX_valid, data_VERB, data_NOUN, DUT.state, DUT.state_count);
+    "RX_byte: %d, RX_valid: %b, VERB: %o, NOUN: %o, G: %o, RA: %o",
+    RX_byte, RX_valid, data_VERB[1:0], data_NOUN[1:0], data_AXIG, data_AXIRA);
     @(posedge clk);
     resetn <= 1'b0;
     RX_valid <= 1'b0;
-    RX_byte <= 8'd62;
+    RX_byte <= 8'd62; // '>'
     @(posedge clk);
     resetn <= 1'b1;
     @(posedge clk);
@@ -305,6 +368,76 @@ module rx_test();
     @(posedge clk);
     RX_valid <= 1'b1;
     RX_byte <= 8'd49; // '1'
+    @(posedge clk);
+    RX_valid <= 1'b0;
+    @(posedge clk);
+    RX_valid <= 1'b1;
+    RX_byte <= 8'd54; // '6'
+    @(posedge clk);
+    RX_valid <= 1'b0;
+    @(posedge clk);
+    RX_valid <= 1'b1;
+    RX_byte <= 8'd55; // '7'
+    @(posedge clk);
+    RX_valid <= 1'b0;
+    @(posedge clk);
+    RX_valid <= 1'b1;
+    RX_byte <= 8'd49; // '1'
+    @(posedge clk);
+    RX_valid <= 1'b0;
+    @(posedge clk);
+    RX_valid <= 1'b1;
+    RX_byte <= 8'd50; // '2'
+    @(posedge clk);
+    RX_valid <= 1'b0;
+    @(posedge clk);
+    RX_valid <= 1'b1;
+    RX_byte <= 8'd51; // '3'
+    @(posedge clk);
+    RX_valid <= 1'b0;
+    @(posedge clk);
+    RX_valid <= 1'b1;
+    RX_byte <= 8'd52; // '4'
+    @(posedge clk);
+    RX_valid <= 1'b0;
+    @(posedge clk);
+    RX_valid <= 1'b1;
+    RX_byte <= 8'd53; // '5'
+    @(posedge clk);
+    RX_valid <= 1'b0;
+    @(posedge clk);
+    RX_valid <= 1'b1;
+    RX_byte <= 8'd43; // '+'
+    @(posedge clk);
+    RX_valid <= 1'b0;
+     @(posedge clk);
+    RX_valid <= 1'b1;
+    RX_byte <= 8'd49; // '1'
+    @(posedge clk);
+    RX_valid <= 1'b0;
+    @(posedge clk);
+    RX_valid <= 1'b1;
+    RX_byte <= 8'd50; // '2'
+    @(posedge clk);
+    RX_valid <= 1'b0;
+    @(posedge clk);
+    RX_valid <= 1'b1;
+    RX_byte <= 8'd51; // '3'
+    @(posedge clk);
+    RX_valid <= 1'b0;
+    @(posedge clk);
+    RX_valid <= 1'b1;
+    RX_byte <= 8'd52; // '4'
+    @(posedge clk);
+    RX_valid <= 1'b0;
+    @(posedge clk);
+    RX_valid <= 1'b1;
+    RX_byte <= 8'd53; // '5'
+    @(posedge clk);
+    RX_valid <= 1'b0;
+    @(posedge clk);
+    RX_valid <= 1'b1;
+    RX_byte <= 8'd45; // '-'
     @(posedge clk);
     RX_valid <= 1'b0;
     @(posedge clk) $finish;
