@@ -177,9 +177,8 @@ STARTUP                         EXTEND
                                 EXTEND
                                 READ            AXI_DVBTX
 
-                                NOOP
-                                EXTEND
-                                DCA  50
+LOOP                            NOOP
+                                TCF 		LOOP
 
 
 #stored constants

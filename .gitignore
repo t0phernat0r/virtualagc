@@ -1,3 +1,9 @@
+sv/simulation/
+sv/incremental_db/
+sv/__afs*
+sv*.bak
+sv/*.agc
+!sv/MAIN.agc
 sv/*.mif
 sv/*.agc.bin
 sv/*.agc.symtab
