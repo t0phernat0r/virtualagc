@@ -117,6 +117,66 @@ STARTUP                         EXTEND
                                 EXTEND
                                 READ            AXI_ATX
 
+                                EXTEND
+                                READ            DSKY_REG_1
+                                EXTEND
+                                READ            DSKY_REG_2
+                                EXTEND
+                                READ            DSKY_REG_3
+                                EXTEND
+                                READ            DSKY_LAMPS
+                                EXTEND
+                                READ            AXI_DVA
+                                EXTEND
+                                READ            AXI_DVATX
+                                EXTEND
+                                READ            AXI_DVB
+                                EXTEND
+                                READ            AXI_DVBTX
+
+                                CA              ONE
+                                EXTEND
+                                WRITE           DSKY_REG_1
+                                CA              TWO
+                                EXTEND
+                                WRITE           DSKY_REG_2
+                                CA              FOUR
+                                EXTEND
+                                WRITE           DSKY_REG_3
+                                CA              EIGHT
+                                EXTEND
+                                WRITE           DSKY_LAMPS
+                                CA              MINUS1
+                                EXTEND
+                                WRITE           AXI_DVA
+                                CA              ONE
+                                EXTEND
+                                WRITE           AXI_DVATX
+                                CA              TWO
+                                EXTEND
+                                WRITE           AXI_DVB
+                                CA              FOUR
+                                EXTEND
+                                WRITE           AXI_DVBTX
+
+
+                                EXTEND
+                                READ            DSKY_REG_1
+                                EXTEND
+                                READ            DSKY_REG_2
+                                EXTEND
+                                READ            DSKY_REG_3
+                                EXTEND
+                                READ            DSKY_LAMPS
+                                EXTEND
+                                READ            AXI_DVA
+                                EXTEND
+                                READ            AXI_DVATX
+                                EXTEND
+                                READ            AXI_DVB
+                                EXTEND
+                                READ            AXI_DVBTX
+
                                 NOOP
                                 EXTEND
                                 DCA  50

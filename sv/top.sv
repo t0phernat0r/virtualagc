@@ -33,6 +33,20 @@ module TB;
   logic [4:0] IO_read_sel, IO_write_sel;
   logic RAM_write_en, stall, halt, IO_write_en;
 
+<<<<<<< HEAD
+=======
+  // PLACEHOLDER UNTIL SERIAL INTERFACE MODULES EXIST TO DRIVE THESE
+  // INPUT DATA FOR AGC CPU
+  always_comb begin
+    DSKY_VERB_data = 15'h37;
+    DSKY_NOUN_data = 15'h5;
+    AXI_G_data = 15'h123;
+    AXI_RA_data = 15'h456;
+    AXI_RB_data = 15'h789;
+    AXI_ATX_data = 15'hABC;
+  end
+
+>>>>>>> 49f163f6d (IO testing READ/WRITE complete)
   agc_rom_new rom(.aclr(~reset_n), .address_a(ROM_pc_address), .address_b(ROM_constant_address), .clock, .addressstall_a(stall), .addressstall_b(stall), .q_a(ROM_pc_data), .q_b(ROM_constant_data));
   agc_ram ram(.aclr(~reset_n), .clock, .data(RAM_write_data), .rd_addressstall(stall), .wraddress(RAM_write_address), .wren(RAM_write_en), .q(RAM_read_data), .rdaddress(RAM_read_address), .rden(1'b1));
   IO_unit io(.clock, .reset_n, .IO_read_sel, .IO_write_data, .IO_read_data, .IO_write_en, .IO_write_sel, .tx, .rx);
