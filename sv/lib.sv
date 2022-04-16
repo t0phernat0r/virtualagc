@@ -873,10 +873,10 @@ module stall_logic
 
 
 endmodule: stall_logic
-/*
+
 module receive_connector
   (input  logic [7:0] RX_byte,
-   input  logic RX_valid;
+   input  logic RX_valid,
    input  logic clk, resetn,
    output logic [5:0][2:0]  data_VERB, data_NOUN,
                             data_AXIG, data_AXIRA, data_AXIRB, data_AXIATX);
@@ -884,13 +884,10 @@ module receive_connector
   logic [5:0][2:0] data_next_VERB, data_next_NOUN,
                    data_next_AXIG, data_next_AXIRA, data_next_AXIRB, data_next_AXIATX;
   logic [2:0] state_count, preset_state_count,
-              byte_octal, byte_octal_corr;
+              byte_octal;
   logic incr_state_count, dn_state_count,
         byte_eq_start, byte_eq_end, byte_eq_neg, byte_eq_pos,
-        sign_reg_val, update_sign_reg_val,
-        state_signed, state_read,
-        en_wr_VERB, en_wr_NOUN, 
-        en_wr_AXIG, en_wr_AXIRA, en_wr_AXIRB, en_wr_AXIATX;
+        state_signed, state_read;
 
   enum logic [2:0] {INIT = 3'd0,
                     VERB = 3'd1,
@@ -900,13 +897,17 @@ module receive_connector
                     AXIRB = 3'd5,
                     AXIATX = 3'd6} state, next_state;
 
+  //
+  // BYTE COUNTER
+  //
+  
   always_ff @(posedge clk) begin
   // Counter for byte reads in each state
     if (~resetn) begin
     // syncronous reset
       state_count <= 3'd0;
     end
-    else if (state ~= next_state) begin
+    else if (state != next_state) begin
     // reset when entering new I/O reg state
       state_count <= 3'd0;
     end
@@ -915,28 +916,23 @@ module receive_connector
       state_count <= state_count + 3'd1;
     end
     else begin
-    // no increment case
+    // no increment, no reset case
       state_count <= state_count;
     end
   end
 
+  //
+  // STATE REGISTER AND LOGIC
+  //
+  
   always_ff @(posedge clk) begin
-  // Drive and maintain ctrl bit for complementing incoming sign-interpretive octal digits
+  // State register
     if (~resetn) begin
-      sign_reg_val <= 1'b0;
-    end
-    else if (state ~= next_state) begin
-      sign_reg_val <= 1'b0;
-    end
-    else if (update_sign_reg_val) begin
-    // Updated based on received char (+ or -)
-      sign_reg_val <= byte_eq_neg;
+      state <= INIT;
     end
     else begin
-    // No write case
-      sign_reg_val <= sign_reg_val;
+      state <= next_state;
     end
-
   end
 
   always_comb begin
@@ -961,21 +957,11 @@ module receive_connector
         next_state = (dn_state_count) ? AXIATX : state;
       end
       AXIATX: begin
-        next_state = (dn_state_count & byte_eq_end) ? INIT : state;
+        next_state = (dn_state_count) ? INIT : state;
       end
       default: begin
       end
     endcase 
-  end
-
-  always_ff @(posedge clk) begin
-  // State register
-    if (~resetn) begin
-      state <= IDLE;
-    end
-    else begin
-      state <= next_state;
-    end
   end
 
   //
@@ -1058,21 +1044,13 @@ module receive_connector
                   (state == AXIATX));
 
     // Set preset value for counter based on current state
-    preset_state_count = (state_signed) ? 3'd6 : ((state_read) ? 3'd2 : 3'd0); 
+    preset_state_count = (state_signed) ? 3'd5 : ((state_read) ? 3'd1 : 3'd0); 
     
     // Counter dn bit
     dn_state_count = (state_count == preset_state_count);
 
     // No counter increment enabled in IDLE
     incr_state_count = (state_read & RX_valid & ~dn_state_count);
-
-    // Only update sign
-    update_sign_reg_val = (state_signed & 
-                           (state_count == 3'd0) &
-                           RX_valid);
-
-    // Input register octal digit sign corrected
-    byte_octal_corr = (sign_reg_val) ? ~byte_octal : byte_octal;
   end
   
   //
@@ -1090,11 +1068,17 @@ module receive_connector
       data_AXIATX <= 15'd0;  
     end
     else begin
-    
+      data_VERB <= data_next_VERB;
+      data_NOUN <= data_next_NOUN;
+      data_AXIG <= data_next_AXIG;
+      data_AXIRA <= data_next_AXIRA;
+      data_AXIRB <= data_next_AXIRB;
+      data_AXIATX <= data_next_AXIATX;
     end
   end
 
-   always_comb begin
+  always_comb begin
+  // drive next value for Input register updates
     data_next_VERB = data_VERB;
     data_next_NOUN = data_NOUN;
     data_next_AXIG = data_AXIG;
@@ -1103,25 +1087,46 @@ module receive_connector
     data_next_AXIATX = data_AXIATX;
     unique case (state)
       VERB: begin
-
+        if (RX_valid) begin
+          data_next_VERB[state_count] = byte_octal;
+        end
       end
       NOUN: begin
-        
+        if (RX_valid) begin
+          data_next_NOUN[state_count] = byte_octal;
+        end
       end
       AXIG: begin
-        
+        if (RX_valid & ~dn_state_count) begin
+          data_next_AXIG[state_count] = byte_octal;
+        end
+        else if (RX_valid & byte_eq_neg) begin
+          data_next_AXIG = ~data_AXIG;
+        end       
       end
       AXIRA: begin
-        
+        if (RX_valid & ~dn_state_count) begin
+          data_next_AXIRA[state_count] = byte_octal;
+        end
+        else if (RX_valid & byte_eq_neg) begin
+          data_next_AXIRA = ~data_AXIRA;
+        end
       end
       AXIRB: begin
-
-      end
-      AXIRB: begin
-
+        if (RX_valid & ~dn_state_count) begin
+          data_next_AXIRB[state_count] = byte_octal;
+        end
+        else if (RX_valid & byte_eq_neg) begin
+          data_next_AXIRB = ~data_AXIRB;
+        end
       end
       AXIATX: begin
-
+        if (RX_valid & ~dn_state_count) begin
+          data_next_AXIATX[state_count] = byte_octal;
+        end
+        else if (RX_valid & byte_eq_neg) begin
+          data_next_AXIATX = ~data_AXIATX;
+        end
       end
       default: begin
       end
@@ -1129,7 +1134,7 @@ module receive_connector
   end
 
 endmodule: receive_connector
-*/
+
 module transmit_fsm
   (input logic clock, reset_n, 
    output logic prog_read, read_reg, read_axi_reg, send_lamps, send_start, en_reg, en_dig, clear_send, clear_reg, clear_dig, uart_tx_en,
