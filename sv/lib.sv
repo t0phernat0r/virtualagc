@@ -895,6 +895,7 @@ module receive_connector
                    data_buf_AXIG, data_buf_AXIRA, data_buf_AXIRB, data_buf_AXIATX,
                    data_next_buf_VERB, data_next_buf_NOUN,
                    data_next_buf_AXIG, data_next_buf_AXIRA, data_next_buf_AXIRB, data_next_buf_AXIATX;
+
   logic [2:0] state_count, preset_state_count,
               byte_octal;
   logic incr_state_count, dn_state_count,
@@ -1210,11 +1211,11 @@ endmodule: receive_connector
 
 module transmit_fsm
   (input logic clock, reset_n, 
-   output logic prog_read, read_reg, read_axi_reg, send_lamps, send_start, en_reg, en_dig, clear_send, clear_reg, clear_dig, uart_tx_en,
+   output logic prog_read, read_reg, read_axi_reg, send_lamps, send_start, en_reg, en_dig, clear_send, clear_reg, clear_dig, uart_tx_en, final_carrot,
    input logic start_send, reg2, digit5, digit11, digit1, reg3, uart_tx_busy);
 
   enum logic [2:0] {RESET = 3'd0, SEND_REG = 3'd1, SEND_PROG = 3'd2,
-                    SEND_LAMPS = 3'd3, SEND_AXI = 3'd4} state, nextState;
+                    SEND_LAMPS = 3'd3, SEND_AXI = 3'd4, FINAL = 3'd5} state, nextState;
 
   always_comb begin
     case(state)
@@ -1222,35 +1223,40 @@ module transmit_fsm
       SEND_REG: nextState = (digit5 && reg2) ? SEND_PROG : SEND_REG;
       SEND_PROG: nextState = (digit1) ? SEND_LAMPS : SEND_PROG;
       SEND_LAMPS: nextState = (digit11) ? SEND_AXI : SEND_LAMPS;
-      SEND_AXI: nextState = (digit5 && reg3) ? RESET : SEND_AXI;
+      SEND_AXI: nextState = (digit5 && reg3) ? FINAL : SEND_AXI;
+      FINAL: nextState = RESET;
     endcase
   end
 
   always_comb begin
     uart_tx_en = 1'b1;
+    final_carrot = 1'b0;
     if(uart_tx_busy) begin
       {prog_read, read_reg, read_axi_reg, send_lamps, send_start, en_reg, en_dig, clear_send, clear_reg, clear_dig} = 10'b0000000000;
+      uart_tx_en = 1'b0;
     end
     else begin
      case(state)
       RESET: begin 
-        {prog_read, read_reg, read_axi_reg, send_lamps, send_start, en_reg, en_dig, clear_send, clear_reg, clear_dig} = start_send ? 10'b000010111 : 10'b0000000011;
+        {prog_read, read_reg, read_axi_reg, send_lamps, send_start, en_reg, en_dig, clear_send, clear_reg, clear_dig} = start_send ? 10'b000110111 : 10'b0000000011;
         uart_tx_en = start_send ? 1'b1 : 1'b0;
       end
       SEND_REG: {prog_read, read_reg, read_axi_reg, send_lamps, send_start, en_reg, en_dig, clear_send, clear_reg, clear_dig} = (digit5 && reg2) ? 10'b0100000011 : (digit5) ? 10'b0100010001 : 10'b0100001000;
       SEND_PROG: {prog_read, read_reg, read_axi_reg, send_lamps, send_start, en_reg, en_dig, clear_send, clear_reg, clear_dig} = (digit1) ? 10'b1000000011 : 10'b1000001010;
       SEND_LAMPS: {prog_read, read_reg, read_axi_reg, send_lamps, send_start, en_reg, en_dig, clear_send, clear_reg, clear_dig} = (digit11) ? 10'b0001000011 : 10'b0001001010;
       SEND_AXI: {prog_read, read_reg, read_axi_reg, send_lamps, send_start, en_reg, en_dig, clear_send, clear_reg, clear_dig}  = (digit5 && reg3) ? 10'b0110000011 : (digit5) ? 10'b0110010001 :  10'b0110001000;
+      FINAL : {prog_read, read_reg, read_axi_reg, send_lamps, send_start, en_reg, en_dig, clear_send, clear_reg, clear_dig, final_carrot} = 11'b00000000111;
      endcase
     end
   end
 
 
-  always_ff @(posedge clock, negedge reset_n)
+  always_ff @(posedge clock, negedge reset_n) begin
     if (~reset_n)
       state <= RESET;
     else if (~uart_tx_busy)
       state <= nextState;
+  end
 
 endmodule: transmit_fsm
 
@@ -1263,7 +1269,7 @@ module transmit_connector
   output logic [7:0] uart_tx_data);
 
   logic clk, rst_l, start_send, reg2, digit5, digit11, digit1, reg3;
-  logic send_lamps, read_axi_reg;
+  logic send_lamps, read_axi_reg, final_carrot;
   logic [15:0] reg_char, axi_char, lamp_char;
   logic clear_send, clear_reg, clear_dig, en_reg, en_dig, send_start, read_reg, prog_read;
   logic [31:0] send_count, digit_count, reg_count;
@@ -1272,7 +1278,7 @@ module transmit_connector
   assign clk = clock;
   assign rst_l = reset_n;
  
-  assign start_send = send_count == 'd1000;
+  assign start_send = send_count == 'd100000; //100000
   assign reg2 = reg_count == 'd2;
   assign reg3 = reg_count == 'd3;
   assign digit5 = digit_count == 'd5;
@@ -1298,7 +1304,7 @@ module transmit_connector
    //sending the first char
     uart_tx_data = 8'd0;
     if(send_start) begin
-      uart_tx_data = 8'd30;
+      uart_tx_data = 8'd60;
     end
     else if(read_reg && (digit_count == 8'd0)) begin
       uart_tx_data = io_reg_data[14] ? 8'h2D : 8'h2B; 
@@ -1320,6 +1326,9 @@ module transmit_connector
     end
     else if(send_lamps) begin
       uart_tx_data = {7'b0, lamp_char[0]} + 'h30;
+    end
+    else if(final_carrot) begin
+      uart_tx_data = 8'd62;
     end
   end
  
@@ -1343,7 +1352,7 @@ module transmit_connector
   //ctrl fsm
   transmit_fsm f1(.clock, .reset_n, .read_reg, .read_axi_reg, .send_lamps, .uart_tx_busy,
                   .send_start, .start_send, .reg2, .digit1, .digit11, .prog_read, .uart_tx_en,
-                  .digit5, .reg3, .en_reg, .en_dig, .clear_send, .clear_reg, .clear_dig);
+                  .digit5, .reg3, .en_reg, .en_dig, .clear_send, .clear_reg, .clear_dig, .final_carrot);
  
 endmodule: transmit_connector
 
@@ -1354,13 +1363,13 @@ module IO_unit
   output logic [14:0] IO_read_data,
   output logic tx);
 
-  parameter CLK_HZ = 50000000;
-  parameter BIT_RATE =   9600;
+  parameter CLK_HZ = 5000000;
+  parameter BIT_RATE =   115200;
   parameter PAYLOAD_BITS = 8;
 
   logic clk, uart_tx_busy, io_reg_data, uart_tx_en, uart_rx_valid;
   logic [7:0] uart_rx_data, uart_tx_data;
-  logic [14:0] data_DSKY_VERB, data_DSKY_NOUN, data_AXI_G, data_AXI_RA, data_AXI_RB, data_AXI_ATX, data_read1, data_read2;
+  logic [14:0] data_VERB, data_NOUN, data_AXIG, data_AXIRA, data_AXIRB, data_AXIATX, data_read1, data_read2;
 
   IO_reg_t sel_read2, sel_read1, sel_write;
 
@@ -1373,9 +1382,9 @@ module IO_unit
 
   transmit_connector t1(.clock, .reset_n, .uart_tx_busy, .io_reg_data(data_read2), .uart_tx_en, .read_sel(sel_read2), .uart_tx_data);
 
-  IO_register_file r2 (.data_write(IO_write_data), .data_DSKY_VERB, .data_DSKY_NOUN, .data_AXI_G, .data_AXI_RA, .data_AXI_RB, .data_AXI_ATX, .sel_read1, .sel_read2, .sel_write, .en_write(IO_write_en), .rst_l(reset_n), .clock, .data_read1, .data_read2);
+  IO_register_file r2 (.data_write(IO_write_data), .data_DSKY_VERB(data_VERB), .data_DSKY_NOUN(data_NOUN), .data_AXI_G(data_AXIG), .data_AXI_RA(data_AXIRA), .data_AXI_RB(data_AXIRB), .data_AXI_ATX(data_AXIATX), .sel_read1, .sel_read2, .sel_write, .en_write(IO_write_en), .rst_l(reset_n), .clock, .data_read1, .data_read2);
 
-  //receive_connector r1(.RX_byte(uart_rx_data), .RX_valid(uart_rx_valid), .clk, .resetn(reset_n), .data_VERB, .data_NOUN, .data_AXIG, .data_AXIRA, .data_AXIRB, .data_AXIATX);
+  receive_connector r1(.RX_byte(uart_rx_data), .RX_valid(uart_rx_valid), .clk, .resetn(reset_n), .data_VERB, .data_NOUN, .data_AXIG, .data_AXIRA, .data_AXIRB, .data_AXIATX);
 
   // UART RX
   uart_rx #(
@@ -1403,7 +1412,7 @@ module IO_unit
   .clk          (clk          ),
   .resetn       (reset_n      ),
   .uart_txd     (tx     ),
-  .uart_tx_en   (1'b1   ),
+  .uart_tx_en   (uart_tx_en   ),
   .uart_tx_busy (uart_tx_busy ),
  .uart_tx_data (uart_tx_data )
  );
@@ -1413,3 +1422,19 @@ module IO_unit
 
 endmodule : IO_unit
 
+module good_pll
+  (input logic in_clock, reset_n,
+   output logic out_clock);
+
+  logic next_clock, clear_send;
+  logic [31:0] count;
+
+  counterS c1(.clk(in_clock), .rst_l(reset_n), .en(1'b1), .count, .clear(clear_send)); 
+  register #(1'b1,1'b1) r1(.clk(in_clock), .en(1'b1), .rst_l(reset_n), .clear(1'b0), .D(next_clock), .Q(out_clock));
+
+  assign clear_send = count==32'd4;
+  assign next_clock = (clear_send) ? ~out_clock : out_clock;
+  
+
+
+endmodule : good_pll
