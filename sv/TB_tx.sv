@@ -1,6 +1,8 @@
 `default_nettype none
 
 `include "internal_defines.vh"
+`include "uart_tx.v"
+`include "uart_rx.v"
 `include "core.sv"
 `include "agc_rom_new/agc_rom_new.v"
 `include "agc_ram/agc_ram.v"
@@ -27,8 +29,8 @@ module TB;
 
   initial begin
     uart_tx_busy = 1'b0;
-    #5
-    forever #10 uart_tx_busy = ~uart_tx_busy;
+    #15
+    forever #10 uart_tx_busy <= ~uart_tx_busy;
   end
  
   initial begin

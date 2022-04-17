@@ -10,18 +10,17 @@
 `include "lib.sv"
 `include "comp_units.sv"
 `include "decode.sv"
-`include "mypll.v"
 
 
 module TB;
-  logic clock, reset_n, tx, rx, clock50;
+  logic clock, reset_n, tx, rx, clock50, locked;
 
   initial begin
     clock50 = 1'b0;
     reset_n = 1'b1;
     reset_n <= #1 1'b0;
     reset_n <= #2 1'b1;
-    forever #5 clock50 = ~clock50;
+    forever #1 clock50 = ~clock50;
   end
 
   //TODO instantiate ROM, and IO
@@ -48,11 +47,8 @@ module TB;
   end
 */
 
-  mypll p1(     .refclk(clock50),
-                .rst(reset_n),
-                .outclk_0(clock),
-                .locked());
 
+good_pll p1(.in_clock(clock50), .reset_n, .out_clock(clock));
 
 
 
@@ -71,7 +67,7 @@ module TB;
   
 
   initial begin
-    #50000
+    #500000
     $finish;
   end
 endmodule : TB
