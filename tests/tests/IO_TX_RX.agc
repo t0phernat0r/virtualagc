@@ -119,7 +119,7 @@ STARTUP                         EXTEND
                                 EXTEND
                                 READ            AXI_RA
                                 EXTEND
-                                WRITE           DSKY_DVA
+                                WRITE           AXI_DVA
                                 EXTEND
                                 READ            AXI_RB
                                 EXTEND
@@ -128,7 +128,6 @@ STARTUP                         EXTEND
                                 READ            AXI_ATX
                                 EXTEND
                                 WRITE           AXI_DVB
-                                EXTEND
                                 CA              EIGHT
                                 EXTEND
                                 WRITE           AXI_DVBTX
