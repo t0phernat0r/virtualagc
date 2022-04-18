@@ -20,7 +20,7 @@ module ChipInterface
 
   assign reset_n = KEY;
   
-  assign GPIO[1] = rx;
+  assign rx = GPIO[1];
   assign GPIO[3] = tx;
   assign IO_read_sel = IO_reg_t'(IO_read_sel_cpu);
   assign IO_write_sel = IO_reg_t'(IO_write_sel_cpu);

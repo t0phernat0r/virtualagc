@@ -104,10 +104,7 @@ AXI_ATX                         EQUALS     16
                                 NOOP
 
 
-STARTUP                         CA              EIGHT
-                                EXTEND
-                                WRITE           DSKY_VERB
-                                EXTEND
+STARTUP                         EXTEND
                                 READ            DSKY_VERB
                                 EXTEND
                                 WRITE           DSKY_REG_1
@@ -122,20 +119,17 @@ STARTUP                         CA              EIGHT
                                 EXTEND
                                 READ            AXI_RA
                                 EXTEND
-                                WRITE           DSKY_LAMPS
+                                WRITE           DSKY_DVA
                                 EXTEND
                                 READ            AXI_RB
                                 EXTEND
-                                WRITE           AXI_DVA
+                                WRITE           AXI_DVATX
                                 EXTEND
                                 READ            AXI_ATX
                                 EXTEND
-                                WRITE           AXI_DVATX
-                                EXTEND
-                                READ            DSKY_VERB
-                                EXTEND
                                 WRITE           AXI_DVB
-                                CA              MINUS1
+                                EXTEND
+                                CA              EIGHT
                                 EXTEND
                                 WRITE           AXI_DVBTX
 
