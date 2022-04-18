@@ -104,40 +104,13 @@ AXI_ATX                         EQUALS     16
                                 NOOP
 
 
-STARTUP                         EXTEND
-                                READ            DSKY_VERB
-                                EXTEND
-                                READ            DSKY_NOUN
-                                EXTEND
-                                READ            AXI_G
-                                EXTEND
-                                READ            AXI_RA
-                                EXTEND
-                                READ            AXI_RB
-                                EXTEND
-                                READ            AXI_ATX
-
-                                EXTEND
-                                READ            DSKY_REG_1
-                                EXTEND
-                                READ            DSKY_REG_2
-                                EXTEND
-                                READ            DSKY_REG_3
-                                EXTEND
-                                READ            DSKY_LAMPS
-                                EXTEND
-                                READ            AXI_DVA
-                                EXTEND
-                                READ            AXI_DVATX
-                                EXTEND
-                                READ            AXI_DVB
-                                EXTEND
-                                READ            AXI_DVBTX
-
-                                EXTEND
-                                READ            DSKY_VERB
+STARTUP                         CA              EIGHT
                                 EXTEND
                                 WRITE           DSKY_REG_1
+                                #EXTEND
+                                #READ            DSKY_VERB
+                                #EXTEND
+                                #WRITE           DSKY_REG_1
                                 EXTEND
                                 READ            DSKY_NOUN
                                 EXTEND
@@ -165,24 +138,6 @@ STARTUP                         EXTEND
                                 CA              MINUS1
                                 EXTEND
                                 WRITE           AXI_DVBTX
-
-
-                                EXTEND
-                                READ            DSKY_REG_1
-                                EXTEND
-                                READ            DSKY_REG_2
-                                EXTEND
-                                READ            DSKY_REG_3
-                                EXTEND
-                                READ            DSKY_LAMPS
-                                EXTEND
-                                READ            AXI_DVA
-                                EXTEND
-                                READ            AXI_DVATX
-                                EXTEND
-                                READ            AXI_DVB
-                                EXTEND
-                                READ            AXI_DVBTX
 
                                 NOOP
                                 TCF 		STARTUP
