@@ -1362,7 +1362,7 @@ module IO_unit
  (input logic clock, reset_n, rx, IO_write_en,
   input IO_reg_t IO_read_sel, IO_write_sel,
   input logic [14:0] IO_write_data,
-  output logic [14:0] IO_read_data,
+  output logic [14:0] IO_read_data, data_VERB,
   output logic tx);
 
   parameter CLK_HZ = 5000000;
@@ -1371,7 +1371,7 @@ module IO_unit
 
   logic clk, uart_tx_busy, io_reg_data, uart_tx_en, uart_rx_valid;
   logic [7:0] uart_rx_data, uart_tx_data;
-  logic [14:0] data_VERB, data_NOUN, data_AXIG, data_AXIRA, data_AXIRB, data_AXIATX, data_read1, data_read2;
+  logic [14:0] data_NOUN, data_AXIG, data_AXIRA, data_AXIRB, data_AXIATX, data_read1, data_read2;
 
   IO_reg_t sel_read2, sel_read1, sel_write;
 
@@ -1440,3 +1440,46 @@ module good_pll
 
 
 endmodule : good_pll
+
+//Takes a 24 bit number and returns the seven seg for six numbers
+module BCDtoDisplay
+  (input logic [23:0] bcd,
+   output logic [6:0] HEX5, HEX4, HEX3, HEX2, HEX1, HEX0);
+
+  BCDtoSevenSegment b1(.bcd(bcd[3:0]), .segment(HEX0));
+  BCDtoSevenSegment b2(.bcd(bcd[7:4]), .segment(HEX1));
+  BCDtoSevenSegment b3(.bcd(bcd[11:8]), .segment(HEX2));
+  BCDtoSevenSegment b4(.bcd(bcd[15:12]), .segment(HEX3));
+  BCDtoSevenSegment b5(.bcd(bcd[19:16]), .segment(HEX4));
+  BCDtoSevenSegment b6(.bcd(bcd[23:20]), .segment(HEX5));
+
+endmodule: BCDtoDisplay
+
+//takes a 4bit number and returns its seven seg representaion
+module BCDtoSevenSegment
+  (input logic [3:0] bcd,
+  output logic [6:0] segment);
+
+  always_comb begin
+    case (bcd)
+      4'd0: segment = 7'b1000000;
+      4'd1: segment = 7'b1111001;
+      4'd2: segment = 7'b0100100;
+      4'd3: segment = 7'b0110000;
+      4'd4: segment = 7'b0011001;
+      4'd5: segment = 7'b0010010;
+      4'd6: segment = 7'b0000010;
+      4'd7: segment = 7'b1111000;
+      4'd8: segment = 7'b0000000;
+      4'd9: segment = 7'b0010000;
+      4'd10: segment = 7'b0001000;
+      4'd11: segment = 7'b0000011;
+      4'd12: segment = 7'b1000110;
+      4'd13: segment = 7'b0100001;
+      4'd14: segment = 7'b0000110;
+      4'd15: segment = 7'b0001110;
+    endcase
+  end
+
+endmodule: BCDtoSevenSegment
+
