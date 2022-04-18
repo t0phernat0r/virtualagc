@@ -13,14 +13,14 @@
 
 
 module TB;
-  logic clock, reset_n, tx, rx;
+  logic clock, reset_n, tx, rx, clock50, locked;
 
   initial begin
-    clock = 1'b0;
+    clock50 = 1'b0;
     reset_n = 1'b1;
     reset_n <= #1 1'b0;
     reset_n <= #2 1'b1;
-    forever #5 clock = ~clock;
+    forever #1 clock50 = ~clock50;
   end
 
   //TODO instantiate ROM, and IO
@@ -32,6 +32,25 @@ module TB;
   logic [10:0]RAM_read_address, RAM_write_address;
   logic [4:0] IO_read_sel, IO_write_sel;
   logic RAM_write_en, stall, halt, IO_write_en;
+
+
+/*
+  // PLACEHOLDER UNTIL SERIAL INTERFACE MODULES EXIST TO DRIVE THESE
+  // INPUT DATA FOR AGC CPU
+  always_comb begin
+    DSKY_VERB_data = 15'h37;
+    DSKY_NOUN_data = 15'h5;
+    AXI_G_data = 15'h123;
+    AXI_RA_data = 15'h456;
+    AXI_RB_data = 15'h789;
+    AXI_ATX_data = 15'hABC;
+  end
+*/
+
+
+good_pll p1(.in_clock(clock50), .reset_n, .out_clock(clock));
+
+
 
   agc_rom_new rom(.aclr(~reset_n), .address_a(ROM_pc_address), .address_b(ROM_constant_address), .clock, .addressstall_a(stall), .addressstall_b(stall), .q_a(ROM_pc_data), .q_b(ROM_constant_data));
   agc_ram ram(.aclr(~reset_n), .clock, .data(RAM_write_data), .rd_addressstall(stall), .wraddress(RAM_write_address), .wren(RAM_write_en), .q(RAM_read_data), .rdaddress(RAM_read_address), .rden(1'b1));
@@ -48,7 +67,7 @@ module TB;
   
 
   initial begin
-    #50000
+    #500000
     $finish;
   end
 endmodule : TB
