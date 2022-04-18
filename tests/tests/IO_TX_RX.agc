@@ -106,11 +106,11 @@ AXI_ATX                         EQUALS     16
 
 STARTUP                         CA              EIGHT
                                 EXTEND
+                                WRITE           DSKY_VERB
+                                EXTEND
+                                READ            DSKY_VERB
+                                EXTEND
                                 WRITE           DSKY_REG_1
-                                #EXTEND
-                                #READ            DSKY_VERB
-                                #EXTEND
-                                #WRITE           DSKY_REG_1
                                 EXTEND
                                 READ            DSKY_NOUN
                                 EXTEND
