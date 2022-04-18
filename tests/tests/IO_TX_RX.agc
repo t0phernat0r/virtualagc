@@ -162,7 +162,7 @@ STARTUP                         EXTEND
                                 READ            DSKY_VERB
                                 EXTEND
                                 WRITE           AXI_DVB
-                                CA              FOUR
+                                CA              MINUS1
                                 EXTEND
                                 WRITE           AXI_DVBTX
 
