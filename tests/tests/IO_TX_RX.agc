@@ -184,8 +184,8 @@ STARTUP                         EXTEND
                                 EXTEND
                                 READ            AXI_DVBTX
 
-LOOP                            NOOP
-                                TCF 		LOOP
+                                NOOP
+                                TCF 		STARTUP
 
 
 #stored constants
