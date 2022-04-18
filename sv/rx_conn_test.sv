@@ -99,7 +99,7 @@ module rx_conn
   
   always_comb begin
   // ASCII interpreter
-    // default assignments
+    // Default assignments
     byte_eq_start = 1'b0;
     byte_eq_end = 1'b0;
     byte_eq_pos = 1'b0;
