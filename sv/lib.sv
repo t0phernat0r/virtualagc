@@ -256,6 +256,7 @@ module register_file
                reg_CYR, reg_SR, reg_CYL, reg_SL,
                reg_TIME1, reg_TIME2;
 
+  /*
   always_ff @(posedge clock) begin
       $display("-------------------------------------------------------------------");
       $display("A\t= %o (0x%x) DEC:%d SP:%f (SP CAT: %f)", 
@@ -269,6 +270,7 @@ module register_file
       $display("TIME1\t= %o (0x%x)", reg_TIME1, reg_TIME1);
       $display("TIME2\t= %o (0x%x)", reg_TIME2, reg_TIME2);
   end
+  */
 
   always_ff @(posedge clock, negedge rst_l) begin
   // Register file writes
@@ -1364,7 +1366,7 @@ module IO_unit
   output logic tx);
 
   parameter CLK_HZ = 5000000;
-  parameter BIT_RATE =   115200;
+  parameter BIT_RATE = 115200;
   parameter PAYLOAD_BITS = 8;
 
   logic clk, uart_tx_busy, io_reg_data, uart_tx_en, uart_rx_valid;

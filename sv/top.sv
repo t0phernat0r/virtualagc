@@ -13,8 +13,10 @@
 
 
 module TB;
+  
   logic clock, reset_n, tx, rx, clock50, locked;
 
+  /*
   initial begin
     clock50 = 1'b0;
     reset_n = 1'b1;
@@ -22,6 +24,7 @@ module TB;
     reset_n <= #2 1'b1;
     forever #1 clock50 = ~clock50;
   end
+  */
 
   //TODO instantiate ROM, and IO
   //data is input data
@@ -48,7 +51,7 @@ module TB;
 */
 
 
-good_pll p1(.in_clock(clock50), .reset_n, .out_clock(clock));
+  // good_pll p1(.in_clock(clock50), .reset_n, .out_clock(clock));
 
 
 
@@ -59,7 +62,152 @@ good_pll p1(.in_clock(clock50), .reset_n, .out_clock(clock));
             .IO_write_data, .ROM_pc_address, .ROM_constant_address, .RAM_read_address, .RAM_write_address,
             .IO_read_sel, .IO_write_sel, .RAM_write_en_F(RAM_write_en), .stall, .halt_F(halt), .IO_write_en_F(IO_write_en)); 
 
-
+  // DONOVAN'S RX TESTING
+  
+  initial begin
+    clock = 1'b0;
+    forever #10 clock = ~clock;
+  end
+  
+  initial begin
+    $monitor($time,,
+    "rx_data: %b, valid: %b, state: %d, VERB: %o, NOUN: %o, ",
+    io.i_uart_rx.uart_rx_data, io.i_uart_rx.uart_rx_valid, io.r1.state, io.r1.data_VERB, io.r1.data_NOUN);
+    reset_n = 1'b0;
+    rx = 1'b1;
+    #15;
+    reset_n = 1'b1;
+    #5;
+    #860;
+    #860;
+    #860;
+    // Start Bit
+    rx = 1'b0;
+    #860;
+    // 8'd60 -> '<'
+    rx = 1'b0;
+    #860;
+    rx = 1'b0;
+    #860;
+    rx = 1'b1;
+    #860;
+    rx = 1'b1;
+    #860;
+    rx = 1'b1;
+    #860;
+    rx = 1'b1;
+    #860;
+    rx = 1'b0;
+    #860;
+    rx = 1'b0;
+    #860;
+    // Stop Bit
+    rx = 1'b1;
+    #860;
+    #860;
+    // Start Bit
+    rx = 1'b0;
+    #860;
+    // 8'd54 -> '6'
+    rx = 1'b0;
+    #860;
+    rx = 1'b1;
+    #860;
+    rx = 1'b1;
+    #860;
+    rx = 1'b0;
+    #860;
+    rx = 1'b1;
+    #860;
+    rx = 1'b1;
+    #860;
+    rx = 1'b0;
+    #860;
+    rx = 1'b0;
+    #860;
+    // Stop Bit
+    rx = 1'b1;
+    #860;
+    #860;
+    // Start Bit
+    rx = 1'b0;
+    #860;
+    // 8'd49 -> '1'
+    rx = 1'b1;
+    #860;
+    rx = 1'b0;
+    #860;
+    rx = 1'b0;
+    #860;
+    rx = 1'b0;
+    #860;
+    rx = 1'b1;
+    #860;
+    rx = 1'b1;
+    #860;
+    rx = 1'b0;
+    #860;
+    rx = 1'b0;
+    #860;
+    // Stop Bit
+    rx = 1'b1;
+    #860;
+    #860;
+    // Start Bit
+    rx = 1'b0;
+    #860;
+    // 8'd49 -> '1'
+    rx = 1'b1;
+    #860;
+    rx = 1'b0;
+    #860;
+    rx = 1'b0;
+    #860;
+    rx = 1'b0;
+    #860;
+    rx = 1'b1;
+    #860;
+    rx = 1'b1;
+    #860;
+    rx = 1'b0;
+    #860;
+    rx = 1'b0;
+    #860;
+    // Stop Bit
+    rx = 1'b1;
+    #860;
+    #860;
+    // Start Bit
+    rx = 1'b0;
+    #860;
+    // 8'd54 -> '6'
+    rx = 1'b0;
+    #860;
+    rx = 1'b1;
+    #860;
+    rx = 1'b1;
+    #860;
+    rx = 1'b0;
+    #860;
+    rx = 1'b1;
+    #860;
+    rx = 1'b1;
+    #860;
+    rx = 1'b0;
+    #860;
+    rx = 1'b0;
+    #860;
+    // Stop Bit
+    rx = 1'b1;
+    #860;
+    #860;
+    // Start Bit
+    rx = 1'b0;
+    #860;
+    $finish;
+  end
+  
+  /*
   initial begin
     wait(halt);
     $finish;
@@ -70,4 +218,6 @@ good_pll p1(.in_clock(clock50), .reset_n, .out_clock(clock));
     #500000
     $finish;
   end
+  */
+
 endmodule : TB
