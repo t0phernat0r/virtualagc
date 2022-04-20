@@ -53,17 +53,16 @@ CHANVERB                        EQUALS          4
 CHANNOUN                        EQUALS          5
 
 CHANG                           EQUALS          6
-CHANM                           EQUALS          7
-CHANRA                          EQUALS          10
-CHANRB                          EQUALS          11
-CHANATX                         EQUALS          12
-CHANOUTDVA                      EQUALS          13
-CHANOUTDVB                      EQUALS          14
-CHANDVATX                       EQUALS          15
-CHANDVBTX                       EQUALS          16
+CHANRA                          EQUALS          7
+CHANRB                          EQUALS          10
+CHANATX                         EQUALS          11
+CHANOUTDVA                      EQUALS          12
+CHANOUTDVB                      EQUALS          13
+CHANDVATX                       EQUALS          14
+CHANDVBTX                       EQUALS          15
 
-VPRCHNG                         EQUALS          47      # DEC 39
-VIDLE                           EQUALS          23      # DEC 19
+VPRCHNG                         ERASE
+VIDLE                           ERASE
 
 LAMPOPERR                       EQUALS          BIT12
 NUMSPECM                        EQUALS          POSMAX
@@ -149,12 +148,15 @@ STARTUP                         NOOP                                    # RESET 
                                 TS              PASTN
 
                                 TS              INPUTG
-                                TS              INPUTM
                                 TS              1/INPRA
                                 TS              1/INPRB
                                 TS              1/INPATX
                                 TS              OUTPDVA
                                 TS              OUTPDVB
+                                CA              VPRCHNGC
+                                TS              VPRCHNG
+                                TS              VIDLEC
+                                CA              VIDLE
 
 IDLE                            CA              ZERO
                                 EXTEND
@@ -216,9 +218,6 @@ PRESCPV
                                 READ            CHANG
                                 TS              INPUTG
                                 EXTEND
-                                READ            CHANM
-                                TS              INPUTM
-                                EXTEND
                                 READ            CHANRA
                                 TS              1/INPRA
 
@@ -254,9 +253,6 @@ PRHTRNSFR
                                 READ            CHANG
                                 TS              INPUTG
                                 EXTEND
-                                READ            CHANM
-                                TS              INPUTM
-                                EXTEND
                                 READ            CHANRA
                                 TS              1/INPRA
                                 EXTEND
@@ -268,8 +264,6 @@ PRHTRNSFR
 
                                 CA              INPUTG                  # CALCULATE INITIAL VELOCITY AT A
                                 EXTEND
-                                MP              INPUTM
-                                EXTEND
                                 MP              1/INPRA                 # INVERSE OF R_A FOR NORMALIZATION
                                 TC              SPSQRT
                                 CA              ROOTRET
@@ -278,8 +272,6 @@ PRHTRNSFR
                                 TS              OUTPDVA
 
                                 CA              INPUTG                  # CALCULATE INITIAL VELOCITY AT B
-                                EXTEND
-                                MP              INPUTM
                                 EXTEND
                                 MP              1/INPRB                 # INVERSE OF R_A FOR NORMALIZATION
                                 TC              SPSQRT
@@ -294,8 +286,6 @@ PRHTRNSFR
                                 SU              1/INPATX
                                 EXTEND
                                 MP              INPUTG
-                                EXTEND
-                                MP              INPUTM
                                 TC              SPSQRT
                                 CA              ROOTRET
                                 EXTEND
@@ -308,8 +298,6 @@ PRHTRNSFR
                                 SU              1/INPATX
                                 EXTEND
                                 MP              INPUTG
-                                EXTEND
-                                MP              INPUTM
                                 TC              SPSQRT
                                 CA              ROOTRET
                                 EXTEND
@@ -433,6 +421,9 @@ SQRTRET                         TC              Q
 C1/2                            DEC             .7853134
 C3/2                            DEC             -.3216146
 C5/2                            DEC             .0363551
+
+VPRCHNGC                        DEC             39      # DEC 39
+VIDLEC                          DEC             19      # DEC 19
 
 POSMAX                          OCT             37777
 LIMITS                          EQUALS          POSMAX          +1
