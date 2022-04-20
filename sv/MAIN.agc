@@ -73,7 +73,6 @@ PASTN                           ERASE
 
 1/INPATX                        ERASE
 INPUTG                          ERASE
-INPUTM                          ERASE
 1/INPRA                         ERASE
 1/INPRB                         ERASE
 OUTPDVA                         ERASE
@@ -222,8 +221,6 @@ PRESCPV
                                 TS              1/INPRA
 
                                 CA              INPUTG
-                                EXTEND
-                                MP              INPUTM
                                 EXTEND
                                 MP              1/INPRA                 # INVERSE OF R_A FOR NORMALIZATION
                                 # EXTEND
