@@ -182,7 +182,7 @@ OPERR                           CA              LAMPOPERR               # OPERAT
                                 TCF             READV
 
 PRCHNG
-                                CA              CHANNOUN
+                                CA              CURRV
                                 EXTEND
                                 READ            A
                                 CA              CHANPRGNUM
