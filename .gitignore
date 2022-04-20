@@ -1,10 +1,12 @@
 sv/simulation/
+sv/*.tar.gz
 sv/incremental_db/
 sv/__afs*
 sv*.bak
 sv/*.agc
 !sv/MAIN.agc
 sv/*.mif
+!sv/ROM.mif
 sv/*.agc.bin
 sv/*.agc.symtab
 sv/*.agc.html
