@@ -45,21 +45,22 @@ SQRCNT                          ERASE
 TEMK                            EQUALS          HALFY
 SQ                              EQUALS          ROOTRET
 
-CHANLAMP                        EQUALS          0
-CHANREG1                        EQUALS          1
-CHANREG2                        EQUALS          2
-CHANREG3                        EQUALS          3
-CHANVERB                        EQUALS          4
-CHANNOUN                        EQUALS          5
+CHANREG1                        EQUALS          0
+CHANREG2                        EQUALS          1
+CHANREG3                        EQUALS          2
+CHANPRGNUM                      EQUALS          3
+CHANLAMP                        EQUALS          4
+CHANDVATX                       EQUALS          5
+CHANOUTDVA                      EQUALS          6
+CHANDVBTX                       EQUALS          7
+CHANOUTDVB                      EQUALS          10
 
-CHANG                           EQUALS          6
-CHANRA                          EQUALS          7
-CHANRB                          EQUALS          10
-CHANATX                         EQUALS          11
-CHANOUTDVA                      EQUALS          12
-CHANOUTDVB                      EQUALS          13
-CHANDVATX                       EQUALS          14
-CHANDVBTX                       EQUALS          15
+CHANVERB                        EQUALS          11
+CHANNOUN                        EQUALS          12
+CHANG                           EQUALS          13
+CHANRA                          EQUALS          14
+CHANRB                          EQUALS          15
+CHANATX                         EQUALS          16
 
 VPRCHNG                         ERASE
 VIDLE                           ERASE
@@ -195,6 +196,8 @@ PRCHNG
                                 EXTEND
                                 READ            CHANNOUN
                                 INDEX           A
+				EXTEND
+				WRITE 		CHANPRGNUM
                                 TCF             PRJMPTAB
 
 PRJMPTAB                        TCF             PRESCPV
