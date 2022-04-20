@@ -1280,7 +1280,7 @@ module transmit_connector
   assign clk = clock;
   assign rst_l = reset_n;
  
-  assign start_send = send_count == 'd100000; //100000
+  assign start_send = send_count == 'd10000000; //100000
   assign reg2 = reg_count == 'd2;
   assign reg3 = reg_count == 'd3;
   assign digit5 = digit_count == 'd5;
