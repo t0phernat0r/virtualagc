@@ -45,23 +45,6 @@ SQRCNT                          ERASE
 TEMK                            EQUALS          HALFY
 SQ                              EQUALS          ROOTRET
 
-CHANREG1                        EQUALS          0
-CHANREG2                        EQUALS          1
-CHANREG3                        EQUALS          2
-CHANPRGNUM                      EQUALS          3
-CHANLAMP                        EQUALS          4
-CHANDVATX                       EQUALS          5
-CHANOUTDVA                      EQUALS          6
-CHANDVBTX                       EQUALS          7
-CHANOUTDVB                      EQUALS          10
-
-CHANVERB                        EQUALS          11
-CHANNOUN                        EQUALS          12
-CHANG                           EQUALS          13
-CHANRA                          EQUALS          14
-CHANRB                          EQUALS          15
-CHANATX                         EQUALS          16
-
 VPRCHNG                         ERASE
 VIDLE                           ERASE
 
@@ -159,18 +142,23 @@ STARTUP                         NOOP                                    # RESET 
                                 CA              VIDLE
 
 IDLE                            CA              ZERO
+                                CA              CHANLAMP
                                 EXTEND
-                                WRITE           CHANLAMP
+                                WRITE           A
+                                CA              CHANREG1
                                 EXTEND
-                                WRITE           CHANREG1
+                                WRITE           A
+                                CA              CHANREG2
                                 EXTEND
-                                WRITE           CHANREG2
+                                WRITE           A
+                                CA              CHANREG3
                                 EXTEND
-                                WRITE           CHANREG3
+                                WRITE           A
 
 READV
+                                CA              CHANVERB
                                 EXTEND
-                                READ            CHANVERB
+                                READ            A
                                 TS              CURRV
                                 EXTEND
                                 SU              PASTV                   # DETECT CHANGE IN VERB
@@ -188,16 +176,21 @@ READV
                                 EXTEND
                                 BZF             IDLE
 OPERR                           CA              LAMPOPERR               # OPERATOR ERROR: INVALID VERB
+                                CA              CHANLAMP
                                 EXTEND
-                                WRITE           CHANLAMP
+                                WRITE           A
                                 TCF             READV
 
 PRCHNG
+                                CA              CHANNOUN
                                 EXTEND
-                                READ            CHANNOUN
+                                READ            A
+                                CA              CHANPRGNUM
+                                EXTEND
+                                WRITE           A
+                                EXTEND
+                                READ            A
                                 INDEX           A
-				EXTEND
-				WRITE 		CHANPRGNUM
                                 TCF             PRJMPTAB
 
 PRJMPTAB                        TCF             PRESCPV
@@ -207,20 +200,25 @@ PRJMPTAB                        TCF             PRESCPV
                                 TCF             PRPHASE
 
 PRMTME                          CA              NUMSPECM
+                                CA              CHANREG1
                                 EXTEND
-                                WRITE           CHANREG1
+                                WRITE           A
+                                CA              CHANREG2
                                 EXTEND
-                                WRITE           CHANREG2
+                                WRITE           A
+                                CA              CHANREG3
                                 EXTEND
-                                WRITE           CHANREG3
+                                WRITE           A
                                 TCF             READV
 
 PRESCPV
+                                CA              CHANG
                                 EXTEND
-                                READ            CHANG
+                                READ            A
                                 TS              INPUTG
+                                CA              CHANRA
                                 EXTEND
-                                READ            CHANRA
+                                READ            A
                                 TS              1/INPRA
 
                                 CA              INPUTG
@@ -234,32 +232,41 @@ PRESCPV
                                 TC              SPSQRT
                                 CA              ROOTRET
 
+                                CA              CHANOUTDVA
                                 EXTEND
-                                WRITE           CHANOUTDVA
+                                WRITE           A
+                                CA              CHANREG1
                                 EXTEND
-                                WRITE           CHANREG1
+                                WRITE           A
                                 CA              ZERO
+                                CA              CHANOUTDVB
                                 EXTEND
-                                WRITE           CHANOUTDVB
+                                WRITE           A
+                                CA              CHANREG2
                                 EXTEND
-                                WRITE           CHANREG2
+                                WRITE           A
+                                CA              CHANREG3
                                 EXTEND
-                                WRITE           CHANREG3
+                                WRITE           A
                                 TCF             READV
 
 PRLINJECT                       NOOP
 PRHTRNSFR
+                                CA              CHANG
                                 EXTEND
-                                READ            CHANG
+                                READ            A
                                 TS              INPUTG
+                                CA              CHANRA
                                 EXTEND
-                                READ            CHANRA
+                                READ            A
                                 TS              1/INPRA
+                                CA              CHANRB
                                 EXTEND
-                                READ            CHANRB
+                                READ            A
                                 TS              1/INPRB
+                                CA              CHANATX
                                 EXTEND
-                                READ            CHANATX
+                                READ            A
                                 TS              1/INPATX
 
                                 CA              INPUTG                  # CALCULATE INITIAL VELOCITY AT A
@@ -267,8 +274,9 @@ PRHTRNSFR
                                 MP              1/INPRA                 # INVERSE OF R_A FOR NORMALIZATION
                                 TC              SPSQRT
                                 CA              ROOTRET
+                                CA              CHANOUTDVA
                                 EXTEND
-                                WRITE           CHANOUTDVA
+                                WRITE           A
                                 TS              OUTPDVA
 
                                 CA              INPUTG                  # CALCULATE INITIAL VELOCITY AT B
@@ -276,8 +284,9 @@ PRHTRNSFR
                                 MP              1/INPRB                 # INVERSE OF R_A FOR NORMALIZATION
                                 TC              SPSQRT
                                 CA              ROOTRET
+                                CA              CHANOUTDVB
                                 EXTEND
-                                WRITE           CHANOUTDVB
+                                WRITE           A
                                 TS              OUTPDVB
 
                                 CA              1/INPRA                 # CALCULATE VELOCITY AT TRANSFER ORBIT A
@@ -288,8 +297,9 @@ PRHTRNSFR
                                 MP              INPUTG
                                 TC              SPSQRT
                                 CA              ROOTRET
+                                CA              CHANDVATX
                                 EXTEND
-                                WRITE           CHANDVATX
+                                WRITE           A
                                 TS              OUTPDVATX
 
                                 CA              1/INPRB                 # CALCULATE VELOCITY AT TRANSFER ORBIT A
@@ -300,32 +310,38 @@ PRHTRNSFR
                                 MP              INPUTG
                                 TC              SPSQRT
                                 CA              ROOTRET
+                                CA              CHANDVBTX
                                 EXTEND
-                                WRITE           CHANDVBTX
+                                WRITE           A
                                 TS              OUTPDVBTX
 
                                 CA              OUTPDVA                 # CALCULATE DELTA V FOR POINT A
                                 EXTEND
                                 SU              OUTPDVATX
+                                CA              CHANREG1
                                 EXTEND
-                                WRITE           CHANREG1
+                                WRITE           A
                                 CA              OUTPDVB                 # CALCULATE DELTA V FOR POINT B
                                 EXTEND
                                 SU              OUTPDVBTX
+                                CA              CHANREG2
                                 EXTEND
-                                WRITE           CHANREG2
+                                WRITE           A
                                 CA              ZERO
+                                CA              CHANREG3
                                 EXTEND
-                                WRITE           CHANREG3
+                                WRITE           A
 
                                 TCF             READV
 
 PRPHASE
+                                CA              CHANRA
                                 EXTEND
-                                READ            CHANRA
+                                READ            A
                                 TS              1/INPRA
+                                CA              CHANRB
                                 EXTEND
-                                READ            CHANRB
+                                READ            A
                                 TS              1/INPRB
 
                                 CA              1/INPRA
@@ -333,15 +349,19 @@ PRPHASE
                                 EXTEND
                                 MP              1/INPRB
                                 DOUBLE
+                                CA              CHANOUTDVA
                                 EXTEND
-                                WRITE           CHANOUTDVA
+                                WRITE           A
+                                CA              CHANREG1
                                 EXTEND
-                                WRITE           CHANREG1
+                                WRITE           A
                                 CA              ZERO
+                                CA              CHANREG2
                                 EXTEND
-                                WRITE           CHANREG2
+                                WRITE           A
+                                CA              CHANREG3
                                 EXTEND
-                                WRITE           CHANREG3
+                                WRITE           A
 
                                 TCF             READV
 
@@ -421,6 +441,23 @@ SQRTRET                         TC              Q
 C1/2                            DEC             .7853134
 C3/2                            DEC             -.3216146
 C5/2                            DEC             .0363551
+
+CHANREG1                        DEC             0
+CHANREG2                        DEC             1
+CHANREG3                        DEC             2
+CHANPRGNUM                      DEC             3
+CHANLAMP                        DEC             4
+CHANDVATX                       DEC             5
+CHANOUTDVA                      DEC             6
+CHANDVBTX                       DEC             7
+CHANOUTDVB                      DEC             8
+
+CHANVERB                        DEC             9
+CHANNOUN                        DEC             10
+CHANG                           DEC             11
+CHANRA                          DEC             12
+CHANRB                          DEC             13
+CHANATX                         DEC             14
 
 VPRCHNGC                        DEC             39      # DEC 39
 VIDLEC                          DEC             19      # DEC 19
