@@ -171,12 +171,14 @@ READV
                                 SU              VIDLE                   # IDLE
                                 EXTEND
                                 BZF             IDLE
-OPERR                           CA              LAMPOPERR               # OPERATOR ERROR: INVALID VERB
+OPERR                           CA              LAMPERR                # OPERATOR ERROR: INVALID VERB
                                 EXTEND
                                 WRITE           CHANLAMP
                                 TCF             READV
 
-PRCHNG
+PRCHNG                          CA              LAMPPROG
+                                EXTEND
+                                WRITE           CHANLAMP
                                 EXTEND
                                 READ            CHANNOUN
                                 EXTEND
@@ -220,7 +222,9 @@ PRESCPV                         EXTEND
                                 CA              INPUTG
                                 EXTEND
                                 MP              1/INPRA                 # INVERSE OF R_A FOR NORMALIZATION
-                                DOUBLE
+				DOUBLE
+                                EXTEND
+                                WRITE           CHANREG2
 
                                 TC              SPSQRT
                                 CA              ROOTRET
@@ -232,8 +236,8 @@ PRESCPV                         EXTEND
                                 CA              ONE
                                 EXTEND
                                 WRITE           CHANOUTDVB
-                                EXTEND
-                                WRITE           CHANREG2
+                                #EXTEND
+                                #WRITE           CHANREG2
                                 EXTEND
                                 WRITE           CHANREG3
                                 TCF             READV
@@ -295,9 +299,9 @@ SPHTRNSFR                       CA              INPUTG                  # CALCUL
                                 WRITE           CHANDVBTX
                                 TS              OUTPDVBTX
 
-                                CA              OUTPDVA                 # CALCULATE DELTA V FOR POINT A
+                                CA              OUTPDVATX               # CALCULATE DELTA V FOR POINT A
                                 EXTEND
-                                SU              OUTPDVATX
+                                SU              OUTPDVA
                                 EXTEND
                                 WRITE           CHANREG1
                                 CA              OUTPDVB                 # CALCULATE DELTA V FOR POINT B
@@ -305,7 +309,7 @@ SPHTRNSFR                       CA              INPUTG                  # CALCUL
                                 SU              OUTPDVBTX
                                 EXTEND
                                 WRITE           CHANREG2
-                                CA              TWO
+                                CA              ZERO
                                 EXTEND
                                 WRITE           CHANREG3
 
@@ -413,25 +417,11 @@ C1/2                            DEC             .7853134
 C3/2                            DEC             -.3216146
 C5/2                            DEC             .0363551
 
-CHANREG1C                       DEC             0
-CHANREG2C                       DEC             1
-CHANREG3C                       DEC             2
-CHANPRGNMC                      DEC             3
-CHANLAMPC                       DEC             4
-CHNOUTDVAC                      DEC             5
-CHANDVATXC                      DEC             6
-CHNOUTDVBC                      DEC             7
-CHANDVBTXC                      DEC             8
-
-CHANVERBC                       DEC             9
-CHANNOUNC                       DEC             10
-CHANGC                          DEC             11
-CHANRAC                         DEC             12
-CHANRBC                         DEC             13
-CHANATXC                        DEC             14
-
 VPRCHNGC                        DEC             39      # DEC 39
 VIDLEC                          DEC             19      # DEC 19
+
+LAMPPROG                        OCT             04604
+LAMPERR                         OCT             04604
 
 POSMAX                          OCT             37777
 LIMITS                          EQUALS          POSMAX          +1
