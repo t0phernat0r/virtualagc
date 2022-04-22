@@ -29,7 +29,7 @@ module ChipInterface
 
   BCDtoDisplay b1( .HEX5, .HEX4, .HEX3, .HEX2, .HEX1, .HEX0, .bcd);
  
-  assign bcd = {data_NOUN[7:0], 8'b0, data_VERB[7:0]};
+  assign bcd = {10'b0, ROM_pc_address};
 
   //TODO instantiate ROM, and IO
   //data is input data
