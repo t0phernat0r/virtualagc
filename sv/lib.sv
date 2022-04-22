@@ -1280,7 +1280,7 @@ module transmit_connector
   assign clk = clock;
   assign rst_l = reset_n;
  
-  assign start_send = send_count == 'd10000000; //100000
+  assign start_send = send_count == 'd1000000; //100000
   assign reg2 = reg_count == 'd2;
   assign reg3 = reg_count == 'd3;
   assign digit5 = digit_count == 'd5;
@@ -1362,7 +1362,7 @@ module IO_unit
  (input logic clock, reset_n, rx, IO_write_en,
   input IO_reg_t IO_read_sel, IO_write_sel,
   input logic [14:0] IO_write_data,
-  output logic [14:0] IO_read_data, data_VERB,
+  output logic [14:0] IO_read_data, data_VERB, data_NOUN,
   output logic tx);
 
   parameter CLK_HZ = 5000000;
@@ -1371,7 +1371,7 @@ module IO_unit
 
   logic clk, uart_tx_busy, io_reg_data, uart_tx_en, uart_rx_valid;
   logic [7:0] uart_rx_data, uart_tx_data;
-  logic [14:0] data_NOUN, data_AXIG, data_AXIRA, data_AXIRB, data_AXIATX, data_read1, data_read2;
+  logic [14:0] data_AXIG, data_AXIRA, data_AXIRB, data_AXIATX, data_read1, data_read2;
 
   IO_reg_t sel_read2, sel_read1, sel_write;
 

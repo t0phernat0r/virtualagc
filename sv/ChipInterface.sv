@@ -29,13 +29,13 @@ module ChipInterface
 
   BCDtoDisplay b1( .HEX5, .HEX4, .HEX3, .HEX2, .HEX1, .HEX0, .bcd);
  
-  assign bcd = {9'b0, data_VERB};
+  assign bcd = {data_NOUN[7:0], 8'b0, data_VERB[7:0]};
 
   //TODO instantiate ROM, and IO
   //data is input data
 
   logic [14:0] ROM_pc_data, ROM_constant_data, RAM_read_data, IO_read_data;
-  logic [14:0] RAM_write_data, IO_write_data, data_VERB;
+  logic [14:0] RAM_write_data, IO_write_data, data_VERB, data_NOUN;
   logic [14:0] DSKY_VERB_data,
                DSKY_NOUN_data,
                AXI_MISSION_TIME_data,
@@ -59,7 +59,7 @@ module ChipInterface
 
   agc_rom_new rom(.aclr(~reset_n), .address_a(ROM_pc_address), .address_b(ROM_constant_address), .clock, .addressstall_a(stall), .addressstall_b(stall), .q_a(ROM_pc_data), .q_b(ROM_constant_data));
   agc_ram ram(.aclr(~reset_n), .clock, .data(RAM_write_data), .rd_addressstall(stall), .wraddress(RAM_write_address), .wren(RAM_write_en), .q(RAM_read_data), .rdaddress(RAM_read_address), .rden(1'b1));
-  IO_unit io(.clock, .reset_n, .IO_read_sel, .IO_write_data, .IO_read_data, .IO_write_en, .IO_write_sel, .tx, .rx, .data_VERB);
+  IO_unit io(.clock, .reset_n, .IO_read_sel, .IO_write_data, .IO_read_data, .IO_write_en, .IO_write_sel, .tx, .rx, .data_VERB, .data_NOUN);
   Core core(.clock, .reset_n, .ROM_pc_data, .ROM_constant_data, .RAM_read_data, .IO_read_data, .RAM_write_data, 
             .IO_write_data, .ROM_pc_address, .ROM_constant_address, .RAM_read_address, .RAM_write_address,
             .IO_read_sel(IO_read_sel_cpu), .IO_write_sel(IO_write_sel_cpu), .RAM_write_en_F(RAM_write_en), .stall, .halt_F(halt), .IO_write_en_F(IO_write_en));
