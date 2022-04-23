@@ -59,8 +59,7 @@ CHANRB                          EQUALS          15
 CHANATX                         EQUALS          16
 
 CURRV                           ERASE
-PASTV                           ERASE
-PASTN                           ERASE
+QTEMP                           ERASE
 
 1/INPATX                        ERASE
 INPUTG                          ERASE
@@ -70,7 +69,9 @@ OUTPDVA                         ERASE
 OUTPDVB                         ERASE
 OUTPDVATX                       ERASE
 OUTPDVBTX                       ERASE
-
+OUTPDVBLO                       ERASE
+OUTPDVBPO                       ERASE
+OUTARG                          ERASE
 
                                 SETLOC          4000            # The interrupt-vector table.
                                                                 # Come here at power-up or GOJAM
@@ -131,18 +132,20 @@ OUTPDVBTX                       ERASE
                                 NOOP
 
 
-STARTUP                         NOOP                                    # RESET ALL VARIABLES aND STATES
+STARTUP                         NOOP                                    # RESET ALL VARIABLES AND STATES
                                 CA              ZERO
                                 TS              CURRV
-                                TS              PASTV
-                                TS              PASTN
-
                                 TS              INPUTG
                                 TS              1/INPRA
                                 TS              1/INPRB
                                 TS              1/INPATX
                                 TS              OUTPDVA
                                 TS              OUTPDVB
+                                TS              OUTPDVATX
+                                TS              OUTPDVBTX
+                                TS              OUTPDVBLO
+                                TS              OUTPDVBPO
+                                TS              OUTARG
                                 CA              VPRCHNGC
                                 TS              VPRCHNG
                                 CA              VIDLEC
@@ -158,8 +161,7 @@ IDLE                            CA              ZERO
                                 EXTEND
                                 WRITE           CHANREG3
 
-READV
-                                EXTEND
+READV                           EXTEND
                                 READ            CHANVERB
                                 TS              CURRV
                                 EXTEND
@@ -188,7 +190,9 @@ PRCHNG                          CA              LAMPPROG
 
 PRJMPTAB                        TCF             PRESCPV
                                 TCF             PRHTRNSFR
-                                TCF             PRLINJECT
+                                TCF             PRLINJCTRA
+                                TCF             PRLINJCTRB
+                                TCF             PRLINJCARG
                                 TCF             PRMTME
                                 TCF             PRPHASE
 
@@ -222,7 +226,7 @@ PRESCPV                         EXTEND
                                 CA              INPUTG
                                 EXTEND
                                 MP              1/INPRA                 # INVERSE OF R_A FOR NORMALIZATION
-				DOUBLE
+                                DOUBLE
                                 EXTEND
                                 WRITE           CHANREG2
 
@@ -233,17 +237,150 @@ PRESCPV                         EXTEND
                                 WRITE           CHANOUTDVA
                                 EXTEND
                                 WRITE           CHANREG1
-                                CA              ONE
+                                CA              ZERO
                                 EXTEND
                                 WRITE           CHANOUTDVB
-                                #EXTEND
-                                #WRITE           CHANREG2
+                                EXTEND
+                                WRITE           CHANREG2
                                 EXTEND
                                 WRITE           CHANREG3
                                 TCF             READV
 
-PRLINJECT
-PRHTRNSFR
+PRLINJCTRA                      TC              SPHTRNSFR
+                                CA              OUTPDVATX               # CALCULATE DELTA V FOR POINT A
+                                EXTEND
+                                SU              OUTPDVA
+                                EXTEND
+                                WRITE           CHANREG1
+                                CA              ZERO
+                                EXTEND
+                                WRITE           CHANREG2
+                                EXTEND
+                                WRITE           CHANREG3
+                                EXTEND
+                                WRITE           CHANOUTDVB
+                                EXTEND
+                                WRITE           CHANDVBTX
+
+                                # CA              OUTPDVA                  # USE THIS CHANNEL FOR ARGUMENT
+                                EXTEND
+                                WRITE           CHANOUTDVA
+
+                                CA              OUTPDVATX
+                                EXTEND
+                                WRITE           CHANDVATX
+
+                                TCF             READV
+
+PRLINJCTRB                      CA              OUTPDVBTX
+                                EXTEND
+                                BZF             OPERR                   # ERROR WHEN V_BTX IS NOT SET
+                                EXTEND
+                                READ            CHANG
+                                TS              INPUTG
+                                EXTEND
+                                READ            CHANRA
+                                TS              1/INPRA
+                                EXTEND
+                                READ            CHANRB
+                                TS              1/INPRB
+                                EXTEND
+                                READ            CHANATX
+
+                                EXTEND
+                                MP              1/INPRA                 # INVERSE OF R_A FOR NORMALIZATION
+                                TS              OUTPDVBLO
+
+                                CA              INPUTG                  # CALCULATE VELOCITY FOR PLANETARY ORBIT
+                                EXTEND
+                                MP              1/INPRB                 # INVERSE OF R_B FOR NORMALIZATION
+                                TS              OUTPDVBPO
+
+                                CA              OUTPDVBPO
+                                AD              OUTPDVBLO
+                                TC              SPSQRT
+                                CA              ROOTRET
+                                EXTEND
+                                SU              OUTPDVBTX
+
+                                EXTEND
+                                WRITE           CHANREG2
+                                CA              ZERO
+                                EXTEND
+                                WRITE           CHANREG3
+
+                                CA 		OUTPDVBLO
+                                TC              SPSQRT
+                                CA              ROOTRET
+                                TS              OUTPDVBLO
+                                EXTEND
+                                WRITE           CHANOUTDVB
+
+                                CA              OUTPDVBPO
+                                TC              SPSQRT
+                                CA              ROOTRET
+                                TS              OUTPDVBPO
+                                EXTEND
+                                WRITE           CHANDVBTX
+
+                                TCF             READV
+
+PRLINJCARG                      EXTEND
+                                READ            CHANRA
+                                EXTEND
+                                MP              HALF                # BURN ANGLE SCALED TO PI
+                                AD              HALF
+				TS 		OUTARG
+				EXTEND
+				MP 		OUTARG
+				EXTEND
+				MP 		OUTARG
+                                TC              SPSQRT
+                                CA              ROOTRET
+                                TS              OUTARG
+                                CA              POSMAX
+                                EXTEND
+                                SU              OUTARG
+
+                                EXTEND
+                                WRITE           CHANREG3
+                                EXTEND
+                                WRITE           CHANOUTDVA
+
+                                TCF             READV
+
+PRHTRNSFR                       TC              SPHTRNSFR
+                                CA              OUTPDVATX               # CALCULATE DELTA V FOR POINT A
+                                EXTEND
+                                SU              OUTPDVA
+                                EXTEND
+                                WRITE           CHANREG1
+                                CA              OUTPDVB                 # CALCULATE DELTA V FOR POINT B
+                                EXTEND
+                                SU              OUTPDVBTX
+                                EXTEND
+                                WRITE           CHANREG2
+                                CA              ONE
+                                EXTEND
+                                WRITE           CHANREG3
+
+                                CA              OUTPDVA
+                                EXTEND
+                                WRITE           CHANOUTDVA
+                                CA              OUTPDVATX
+                                EXTEND
+                                WRITE           CHANDVATX
+                                CA              OUTPDVB
+                                EXTEND
+                                WRITE           CHANOUTDVB
+                                CA              OUTPDVBTX
+                                EXTEND
+                                WRITE           CHANDVBTX
+
+                                TCF             READV
+
+SPHTRNSFR                       CA              Q
+                                TS              QTEMP
                                 EXTEND
                                 READ            CHANG
                                 TS              INPUTG
@@ -257,25 +394,20 @@ PRHTRNSFR
                                 READ            CHANATX
                                 TS              1/INPATX
 
-SPHTRNSFR                       CA              INPUTG                  # CALCULATE INITIAL VELOCITY AT A
+                                CA              INPUTG                  # CALCULATE INITIAL VELOCITY AT A
                                 EXTEND
                                 MP              1/INPRA                 # INVERSE OF R_A FOR NORMALIZATION
                                 TC              SPSQRT
                                 CA              ROOTRET
-                                EXTEND
-                                WRITE           CHANOUTDVA
                                 TS              OUTPDVA
-
-                                CA              INPUTG                  # CALCULATE INITIAL VELOCITY AT B
+                                CA              INPUTG                  # CALCULATE FINAL VELOCITY AT B
                                 EXTEND
-                                MP              1/INPRB                 # INVERSE OF R_A FOR NORMALIZATION
+                                MP              1/INPRB                 # INVERSE OF R_B FOR NORMALIZATION
                                 TC              SPSQRT
                                 CA              ROOTRET
-                                EXTEND
-                                WRITE           CHANOUTDVB
                                 TS              OUTPDVB
 
-                                CA              1/INPRA                 # CALCULATE VELOCITY AT TRANSFER ORBIT A
+                                CA              1/INPRA                 # CALCULATE VELOCITY AT INITAL ORBIT A
                                 DOUBLE
                                 EXTEND
                                 SU              1/INPATX
@@ -283,11 +415,8 @@ SPHTRNSFR                       CA              INPUTG                  # CALCUL
                                 MP              INPUTG
                                 TC              SPSQRT
                                 CA              ROOTRET
-                                EXTEND
-                                WRITE           CHANDVATX
                                 TS              OUTPDVATX
-
-                                CA              1/INPRB                 # CALCULATE VELOCITY AT TRANSFER ORBIT A
+                                CA              1/INPRB                 # CALCULATE VELOCITY AT FINAL ORBIT
                                 DOUBLE
                                 EXTEND
                                 SU              1/INPATX
@@ -295,26 +424,11 @@ SPHTRNSFR                       CA              INPUTG                  # CALCUL
                                 MP              INPUTG
                                 TC              SPSQRT
                                 CA              ROOTRET
-                                EXTEND
-                                WRITE           CHANDVBTX
                                 TS              OUTPDVBTX
 
-                                CA              OUTPDVATX               # CALCULATE DELTA V FOR POINT A
-                                EXTEND
-                                SU              OUTPDVA
-                                EXTEND
-                                WRITE           CHANREG1
-                                CA              OUTPDVB                 # CALCULATE DELTA V FOR POINT B
-                                EXTEND
-                                SU              OUTPDVBTX
-                                EXTEND
-                                WRITE           CHANREG2
-                                CA              ZERO
-                                EXTEND
-                                WRITE           CHANREG3
-
-                                TCF             READV
-
+                                CA              QTEMP
+                                TS              Q
+                                TC              Q                   # RETURN
 
 PRPHASE                         EXTEND
                                 READ            CHANRA
@@ -482,4 +596,3 @@ VLOADCOD                        EQUALS          BIT15
 DLOAD*                          OCT             40015
 VLOAD*                          EQUALS          40001
 BIT13-14                        OCTAL           30000
-
